@@ -17,6 +17,6 @@ La documentación de este proyecto está organizada en tres secciones principale
 
 #### *Para más información, visite la Wiki del repositorio*
 ---
-#### *Universidad de Cundinamarca - Extensión Facatativá*
-#### *Ingenieria de sistemas y computación - 2025*
-#### *GISTFA - LINUDECX*
+*Universidad de Cundinamarca - Extensión Facatativá*
+*Ingenieria de sistemas y computación - 2025*
+*GISTFA - LINUDECX*

@@ -1,0 +1,255 @@
+\documentclass[12pt,openright,oneside]{book}
+
+% Paquetes necesarios
+\usepackage[spanish]{babel}        % Idioma español
+\usepackage[utf8]{inputenc}        % Codificación UTF-8
+\usepackage[T1]{fontenc}           % Codificación de salida
+\usepackage{newtxtext,newtxmath}   % Fuente Times New Roman
+\usepackage{setspace}              % Interlineado
+\usepackage{geometry}              % Márgenes
+\usepackage{titlesec}              % Formato de títulos
+\usepackage{fancyhdr}              % Encabezados y pies de página
+\usepackage{graphicx}              % Imágenes
+\usepackage{tocloft}               % Formato del índice
+\usepackage{hyperref}              % Hipervínculos
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue} 
+\usepackage{apacite}               % Citas y referencias APA
+\usepackage{enumerate}             % Listas enumeradas
+\usepackage{caption}               % Personalización de leyendas
+\usepackage{subcaption}            % Subfiguras
+\usepackage{longtable}             % Tablas largas
+\usepackage{listings}              % Código fuente
+\usepackage{pdfpages}              % Incluir PDF (para anexos)
+\usepackage{color}                 % Colores
+\usepackage{xcolor}                % Colores
+\usepackage{float}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+
+% Configuración de márgenes
+\geometry{
+    left=3cm,
+    right=2cm,
+    top=4cm,
+    bottom=3cm,
+}
+
+% Configuración de código fuente
+% Configuración del paquete listings
+\lstset{
+    basicstyle=\ttfamily\small, % Estilo básico del código
+    keywordstyle=\color{blue}\bfseries, % Estilo de las palabras clave
+    commentstyle=\color{gray}\itshape, % Estilo de los comentarios
+    stringstyle=\color{red}, % Estilo de las cadenas de texto
+    numbers=left, % Números de línea a la izquierda
+    numberstyle=\tiny\color{gray}, % Estilo de los números de línea
+    stepnumber=1, % Numerar cada línea
+    numbersep=5pt, % Separación entre el número y el código
+    frame=single, % Marco alrededor del código
+    framexleftmargin=15pt, % Margen izquierdo del marco
+    xleftmargin=15pt, % Margen izquierdo del código
+    captionpos=b, % Posición de la leyenda (caption) abajo
+    breaklines=true, % Permitir saltos de línea
+    breakatwhitespace=false, % Romper líneas en espacios en blanco
+    showspaces=false, % No mostrar espacios en blanco
+    showtabs=false, % No mostrar tabulaciones
+    tabsize=2, % Tamaño de tabulación
+    columns=fullflexible
+}
+
+% Interlineado 1.5 para todo el documento
+\onehalfspacing
+
+% Numeración de capítulos en números romanos y secciones en arábigos
+\titleformat{\chapter}{\normalfont\huge\bfseries}{\Roman{chapter}.}{1em}{}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection.}{1em}{}
+
+% Ajustes para el índice
+\renewcommand{\contentsname}{ÍNDICE GENERAL}
+\setlength{\cftbeforechapskip}{0pt}
+\setlength{\cftbeforesecskip}{0pt}
+
+% Encabezados y pies de página
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\thepage}
+
+% En español, que diga "Figura" en lugar de "Figure"
+\renewcommand{\figurename}{Figura}
+
+% Configuración de tablas y figuras
+\captionsetup[table]{font=normalsize,skip=0pt,singlelinecheck=false}
+
+% Ajustar espacio antes/después de la leyenda
+\setlength{\abovecaptionskip}{8pt}   % espacio entre imagen y leyenda si la leyenda va debajo
+\setlength{\belowcaptionskip}{0pt}  % espacio después de la leyenda
+
+\captionsetup[figure]{%
+  position=above,                       % Coloca la leyenda (número y título) encima de la imagen
+  labelfont=bf,                         % "Figura X." en negrita
+  labelsep=newline,                     % Salto de línea tras "Figura X."
+  textfont=it,                          % Título en cursiva
+  font={normalsize,stretch=1.5},         % Interlineado de 1.5 para cumplir APA
+  skip=10pt,                            % Espacio entre la leyenda y la imagen (ajusta este valor según lo requieras)
+  justification=justified,
+  singlelinecheck=false
+}
+
+% Configuración de citas y referencias APA
+\bibliographystyle{apacite}
+\renewcommand{\APACrefYearMonthDay}[3]{\APACrefYear{#1}}
+
+\begin{document}
+% Configuración de numeración de páginas para las secciones preliminares
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
+% Portada
+\begin{titlepage}
+    \begin{center}
+        \vspace*{2cm}
+        {\Large\textbf{SISTEMA DE DETECCIÓN TEMPRANA DE BOTRYTIS CINEREA EN EL ARÁNDANO BILOXI MEDIANTE TERMOGRAFÍA}}\\[4cm]
+        {\large\textbf{AUTOR(ES)}}\\
+        Juan Esteban Fuentes Rojas\\
+        Gabriel Esteban Martinez Roldan\\[6cm]
+        \textbf{UNIVERSIDAD DE CUNDINAMARCA}\\
+        Facultad de Ingeniería\\
+        Programa de Ingeniería de Sistemas y Computación\\
+        Facatativá, Noviembre 2025
+    \end{center}
+\end{titlepage}
+
+% Contraportada
+\newpage
+\thispagestyle{empty}
+\begin{center}
+    \vspace*{2cm}
+    {\Large\textbf{SISTEMA DE DETECCIÓN TEMPRANA DE BOTRYTIS CINEREA EN EL ARÁNDANO BILOXI MEDIANTE TERMOGRAFÍA}}\\[3cm]
+    {\large\textbf{AUTOR(ES)}}\\
+    Directora: Ing. Gina Maribel Valenzuela Sabogal\\
+    Juan Esteban Fuentes Rojas\\
+    Gabriel Esteban Martinez Roldan\\[3cm]
+    \textbf{GRUPO DE INVESTIGACIÓN DE SISTEMAS Y TECNOLOGÍA DE FACATATIVÁ (GISTFA)}\\[3cm]
+    \textbf{UNIVERSIDAD DE CUNDINAMARCA}\\
+    Facultad de Ingeniería\\
+    Programa de Ingeniería de Sistemas\\
+    Facatativá, Noviembre 2025
+\end{center}
+
+% Dedicatoria (opcional)
+\chapter*{Dedicatoria}
+\addcontentsline{toc}{chapter}{Dedicatoria}
+Texto de la dedicatoria...
+
+% Agradecimientos (opcional)
+\chapter*{Agradecimientos}
+\addcontentsline{toc}{chapter}{Agradecimientos}
+Texto de los agradecimientos...
+
+% Compromiso de Autor (Anexo final, incluir si es necesario)
+
+% Resumen y Palabras Clave
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+
+% Interlineado sencillo para el resumen
+\begin{spacing}{1}
+    Texto del resumen en español (200 a 250 palabras, sin sangría).
+\end{spacing}
+
+\vspace{1cm}
+
+\textbf{Palabras clave:} palabra1, palabra2, palabra3, palabra4, palabra5.
+
+\newpage  % Nueva página para el abstract y keywords
+
+% Abstract and Keywords
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+% Interlineado sencillo para el abstract
+\begin{spacing}{1}
+    Texto del resumen en inglés (200 a 250 palabras, sin sangría).
+\end{spacing}
+
+\vspace{1cm}
+
+\textbf{Keywords:} keyword1, keyword2, keyword3, keyword4, keyword5.
+
+\newpage  % Nueva página para el índice general
+
+% Índice General
+\tableofcontents
+\newpage
+
+% Lista de Tablas
+\listoftables
+\addcontentsline{toc}{chapter}{Lista de Tablas}
+\newpage
+
+% Lista de Figuras
+\listoffigures
+\addcontentsline{toc}{chapter}{Lista de Figuras}
+\newpage
+
+% Lista de Anexos (si aplica)
+\chapter*{Lista de Anexos}
+\addcontentsline{toc}{chapter}{Lista de Anexos}
+\begin{enumerate}
+    \item Anexo A: Título del Anexo A
+    \item Anexo B: Título del Anexo B
+    % Agregar más anexos si es necesario
+\end{enumerate}
+
+% Introducción
+\chapter*{Introducción}
+\addcontentsline{toc}{chapter}{Introducción}
+Texto de la introducción (2 a 4 páginas).
+
+% Cuerpo del Documento
+\mainmatter
+\setcounter{page}{1}
+
+\include{capitulo_investigacion}   % Capítulo I: Informe de Investigación
+\include{capitulo_software}         % Capítulo II: Documentación del Software
+\include{capitulo_hardware}         % Capítulo IV: Desarrollo y Caracterización del Hardware
+\include{capitulo_experimento}      % Capítulo V: Estudio Experimental en Plantas de Arándano Biloxi
+\include{capitulo_conclusiones}     % Capítulo VI: Resultados Integrados y Conclusiones Globales
+
+% Bibliografía
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliography{bibliografia}
+
+% Anexos
+\appendix  % Indica el inicio de los anexos
+
+\chapter*{Anexos}
+\addcontentsline{toc}{chapter}{Anexos}
+
+% Configurar el contador de secciones para usar letras mayúsculas
+\renewcommand{\thesection}{\Alph{section}}
+
+% Personalizar el formato de los títulos de las secciones para que muestren 'Anexo A.'
+\titleformat{\section}{\normalfont\Large\bfseries}{Anexo \thesection.}{1em}{}
+
+% Anexos numerados que aparecerán en el índice general
+\setcounter{section}{0}  % Reinicia el contador de secciones
+\section{Código Fuente del Módulo Principal}
+Incluir el manual de usuario...
+
+\section{Manual de Usuario por Roles}
+Incluir el manual de usuario...
+
+\section{Manual de Instalación}
+Incluir manual de instalación...
+
+\section{Artículos de Resultados de Investigación}
+Incluir artículos correspondientes...
+
+\section{Certificaciones de Ponencias y Controles de Seguimiento}
+
+\includepdfmerge[nup=1x2, pages={1}]{anexos/ponenciagab1.pdf,anexos/ponenciajuan1.pdf}
+
+% Fin del Documento
+\end{document}

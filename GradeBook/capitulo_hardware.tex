@@ -1,0 +1,52 @@
+% Capítulo IV: Desarrollo y Caracterización del Hardware
+\chapter{DOCUMENTACIÓN DEL HARDWARE}
+
+\section{Introducción y Justificación del Hardware}
+En este capítulo se presenta la importancia del hardware en el sistema de detección temprana de Botrytis cinerea, justificando la selección de cada componente y su contribución al funcionamiento global del sistema.
+
+\section{Descripción de Componentes}
+\subsection{Microcontrolador ESP32-S3-WROOM-1 N16R8}
+Descripción del microcontrolador y sus características principales.
+
+\subsection{Cámara termográfica MLX90640}
+Descripción del sensor de termografía, sus especificaciones y función en la detección.
+
+\subsection{Sensor de luz BH1750}
+Detalle del sensor de luminosidad y su relevancia en el monitoreo ambiental.
+
+\subsection{Sensor de humedad y temperatura DHT22}
+Explicación del sensor de temperatura y humedad, resaltando su precisión y rango de medición.
+
+\subsection{Cámara RGB OV2640}
+Breve descripción de la cámara adicional y sus aplicaciones en el proyecto.
+
+\subsection{Regulador de voltaje LM2596}
+Descripción del regulador de voltaje y su importancia para garantizar la estabilidad del sistema.
+
+\section{Metodología de Caracterización}
+Esta sección describe el proceso sistemático para evaluar y validar el desempeño de cada componente y su integración en el sistema final.
+
+\subsection{Evaluación y verificación de componentes}
+\begin{itemize}
+    \item \textbf{Definición de Parámetros de Evaluación:} Establecer los parámetros (por ejemplo, precisión, tiempo de respuesta y estabilidad) a medir para cada sensor y módulo.
+    \item \textbf{Diseño de Protocolos de Prueba:} Elaborar procedimientos detallados para realizar pruebas de calibración y verificación en condiciones controladas.
+    \item \textbf{Implementación de Ensayos Experimentales:} Ejecutar las pruebas en laboratorio, documentando condiciones ambientales, configuraciones y resultados obtenidos.
+    \item \textbf{Análisis de Resultados:} Comparar los datos obtenidos con las especificaciones del fabricante y los requerimientos del proyecto.
+\end{itemize}
+
+\subsection{Configuración e Integración del Firmware}
+\begin{itemize}
+    \item \textbf{Diseño del Esquema de Integración:} Elaborar diagramas que muestren la conexión física entre el ESP32 y cada componente, indicando rutas de comunicación (I2C, SPI, etc.).
+    \item \textbf{Configuración en Platform.io IDE:} Documentar el proceso de configuración, instalación de librerías, asignación de pines y gestión de interrupciones o tiempos de muestreo.
+    \item \textbf{Pruebas de Integración:} Realizar pruebas para verificar la comunicación y correcta transmisión de datos entre el hardware y el firmware.
+    \item \textbf{Documentación de la Integración:} Registrar todos los pasos y resultados obtenidos para facilitar futuras revisiones o ajustes.
+\end{itemize}
+
+\subsection{Validación y Análisis de Resultados}
+En esta sección se evalúa el rendimiento global del sistema integrado mediante la comparación de datos experimentales controlados con los objetivos del proyecto. Se presentan datos, gráficos y análisis que demuestran el desempeño de cada componente y del sistema en conjunto, contrastándolos con los parámetros de referencia y registrando hallazgos para futuras revisiones.
+
+\section{Implementación del Sistema Integrado}
+Se describe la implementación práctica, incluyendo la integración final del hardware con el firmware, la calibración de sensores y la ejecución de pruebas en condiciones reales para ajustar y optimizar el sistema.
+
+\section{Discusión}
+Interpretación de los resultados finales obtenidos, identificando fortalezas y áreas de mejora, y estableciendo la relación entre el rendimiento del hardware y los objetivos del proyecto.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.3.25)  25 MAR 2025 21:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.3.25)  29 MAR 2025 21:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -649,7 +649,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
  (main.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
- (capitulo_investigacion.aux) (capitulo_software.aux) (capitulo_hardware.aux) (capitulo_experimento.aux) (capitulo_conclusiones.aux))
+ (capitulo_investigacion.aux) (capitulo_software.aux) (capitulo_hardware.aux) (capitulo_experimento.aux) (capitulo_ia.aux) (capitulo_conclusiones.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 103.
@@ -879,7 +879,7 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 2.
  [6]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 59.
+(Font)              scaled to size 12.0pt on input line 61.
  [7])
 \tf@toc=\write4
 \openout4 = `main.toc'.
@@ -928,492 +928,493 @@ Overfull \hbox (4.76375pt too wide) in paragraph at lines 2--2
 |[]\T1/ntxtlf/b/n/24.88 DOCUMENTACI�N DEL SOFT-WA-RE| 
  []
 
-<UML/Otros/Diagrama Entidad Relacion.png, id=596, 1234.3716pt x 860.013pt>
-File: UML/Otros/Diagrama Entidad Relacion.png Graphic file (type png)
-<use UML/Otros/Diagrama Entidad Relacion.png>
-Package pdftex.def Info: UML/Otros/Diagrama Entidad Relacion.png  used on input line 20.
-(pdftex.def)             Requested size: 472.03123pt x 328.8686pt.
 [7
 
 
 
 
 ]
-<UML/CasosUso/Diagrama de Casos de Uso RF1 RF2.png, id=602, 452.4102pt x 296.307pt>
+<UML/Otros/Diagrama Entidad Relacion.png, id=650, 1234.3716pt x 860.013pt>
+File: UML/Otros/Diagrama Entidad Relacion.png Graphic file (type png)
+<use UML/Otros/Diagrama Entidad Relacion.png>
+Package pdftex.def Info: UML/Otros/Diagrama Entidad Relacion.png  used on input line 42.
+(pdftex.def)             Requested size: 472.03123pt x 328.8686pt.
+ [8]
+<UML/CasosUso/Diagrama de Casos de Uso RF1 RF2.png, id=656, 452.4102pt x 296.307pt>
 File: UML/CasosUso/Diagrama de Casos de Uso RF1 RF2.png Graphic file (type png)
 <use UML/CasosUso/Diagrama de Casos de Uso RF1 RF2.png>
-Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF1 RF2.png  used on input line 32.
+Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF1 RF2.png  used on input line 54.
 (pdftex.def)             Requested size: 377.62642pt x 247.3273pt.
- [8 <./UML/Otros/Diagrama Entidad Relacion.png>]
-<UML/CasosUso/Diagrama de Casos de Uso RF3.png, id=608, 523.2348pt x 277.5168pt>
+ [9 <./UML/Otros/Diagrama Entidad Relacion.png>]
+<UML/CasosUso/Diagrama de Casos de Uso RF3.png, id=662, 523.2348pt x 277.5168pt>
 File: UML/CasosUso/Diagrama de Casos de Uso RF3.png Graphic file (type png)
 <use UML/CasosUso/Diagrama de Casos de Uso RF3.png>
-Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF3.png  used on input line 40.
+Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF3.png  used on input line 62.
 (pdftex.def)             Requested size: 377.62642pt x 200.29044pt.
- [9 <./UML/CasosUso/Diagrama de Casos de Uso RF1 RF2.png (PNG copy)>]
-<UML/CasosUso/Diagrama de Casos de Uso RF4.png, id=613, 603.4545pt x 248.6088pt>
+ [10 <./UML/CasosUso/Diagrama de Casos de Uso RF1 RF2.png (PNG copy)>]
+<UML/CasosUso/Diagrama de Casos de Uso RF4.png, id=668, 603.4545pt x 248.6088pt>
 File: UML/CasosUso/Diagrama de Casos de Uso RF4.png Graphic file (type png)
 <use UML/CasosUso/Diagrama de Casos de Uso RF4.png>
-Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF4.png  used on input line 48.
+Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF4.png  used on input line 70.
 (pdftex.def)             Requested size: 377.62642pt x 155.57356pt.
-<UML/CasosUso/Diagrama de Casos de Uso RF5.png, id=614, 405.4347pt x 208.8603pt>
+<UML/CasosUso/Diagrama de Casos de Uso RF5.png, id=669, 405.4347pt x 208.8603pt>
 File: UML/CasosUso/Diagrama de Casos de Uso RF5.png Graphic file (type png)
 <use UML/CasosUso/Diagrama de Casos de Uso RF5.png>
-Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF5.png  used on input line 56.
+Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF5.png  used on input line 78.
 (pdftex.def)             Requested size: 377.62642pt x 194.5472pt.
- [10 <./UML/CasosUso/Diagrama de Casos de Uso RF3.png (PNG copy)> <./UML/CasosUso/Diagrama de Casos de Uso RF4.png (PNG copy)>]
-<UML/CasosUso/Diagrama de Casos de Uso RF6.png, id=620, 695.2374pt x 265.9536pt>
+ [11 <./UML/CasosUso/Diagrama de Casos de Uso RF3.png (PNG copy)> <./UML/CasosUso/Diagrama de Casos de Uso RF4.png (PNG copy)>]
+<UML/CasosUso/Diagrama de Casos de Uso RF6.png, id=674, 695.2374pt x 265.9536pt>
 File: UML/CasosUso/Diagrama de Casos de Uso RF6.png Graphic file (type png)
 <use UML/CasosUso/Diagrama de Casos de Uso RF6.png>
-Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF6.png  used on input line 64.
+Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF6.png  used on input line 86.
 (pdftex.def)             Requested size: 377.62642pt x 144.45688pt.
-<UML/CasosUso/Diagrama de Casos de Uso RF7.png, id=621, 492.8814pt x 208.8603pt>
+<UML/CasosUso/Diagrama de Casos de Uso RF7.png, id=675, 492.8814pt x 208.8603pt>
 File: UML/CasosUso/Diagrama de Casos de Uso RF7.png Graphic file (type png)
 <use UML/CasosUso/Diagrama de Casos de Uso RF7.png>
-Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF7.png  used on input line 72.
+Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF7.png  used on input line 94.
 (pdftex.def)             Requested size: 377.62642pt x 160.0198pt.
- [11 <./UML/CasosUso/Diagrama de Casos de Uso RF5.png (PNG copy)> <./UML/CasosUso/Diagrama de Casos de Uso RF6.png (PNG copy)>]
-<UML/CasosUso/Diagrama de Casos de Uso RF8.png, id=626, 286.9119pt x 205.2468pt>
+ [12 <./UML/CasosUso/Diagrama de Casos de Uso RF5.png (PNG copy)> <./UML/CasosUso/Diagrama de Casos de Uso RF6.png (PNG copy)>]
+<UML/CasosUso/Diagrama de Casos de Uso RF8.png, id=680, 286.9119pt x 205.2468pt>
 File: UML/CasosUso/Diagrama de Casos de Uso RF8.png Graphic file (type png)
 <use UML/CasosUso/Diagrama de Casos de Uso RF8.png>
-Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF8.png  used on input line 80.
+Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF8.png  used on input line 102.
 (pdftex.def)             Requested size: 377.62642pt x 270.14363pt.
-<UML/CasosUso/Diagrama de Casos de Uso RF9.png, id=627, 405.4347pt x 208.8603pt>
+<UML/CasosUso/Diagrama de Casos de Uso RF9.png, id=681, 405.4347pt x 208.8603pt>
 File: UML/CasosUso/Diagrama de Casos de Uso RF9.png Graphic file (type png)
 <use UML/CasosUso/Diagrama de Casos de Uso RF9.png>
-Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF9.png  used on input line 88.
+Package pdftex.def Info: UML/CasosUso/Diagrama de Casos de Uso RF9.png  used on input line 110.
 (pdftex.def)             Requested size: 377.62642pt x 194.5472pt.
- [12 <./UML/CasosUso/Diagrama de Casos de Uso RF7.png (PNG copy)> <./UML/CasosUso/Diagrama de Casos de Uso RF8.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia Base Envio Formulario.png, id=632, 416.9979pt x 437.2335pt>
+ [13 <./UML/CasosUso/Diagrama de Casos de Uso RF7.png (PNG copy)> <./UML/CasosUso/Diagrama de Casos de Uso RF8.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia Base Envio Formulario.png, id=686, 416.9979pt x 437.2335pt>
 File: UML/Secuencia/Diagrama de Secuencia Base Envio Formulario.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia Base Envio Formulario.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia Base Envio Formulario.png  used on input line 100.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia Base Envio Formulario.png  used on input line 122.
 (pdftex.def)             Requested size: 377.62642pt x 395.975pt.
- [13 <./UML/CasosUso/Diagrama de Casos de Uso RF9.png>]
-<UML/Secuencia/Diagrama de Secuencia RF1.0 Registro.png, id=638, 729.927pt x 529.7391pt>
+ [14 <./UML/CasosUso/Diagrama de Casos de Uso RF9.png>]
+<UML/Secuencia/Diagrama de Secuencia RF1.0 Registro.png, id=692, 729.927pt x 529.7391pt>
 File: UML/Secuencia/Diagrama de Secuencia RF1.0 Registro.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF1.0 Registro.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF1.0 Registro.png  used on input line 107.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF1.0 Registro.png  used on input line 129.
 (pdftex.def)             Requested size: 377.62642pt x 274.05943pt.
- [14 <./UML/Secuencia/Diagrama de Secuencia Base Envio Formulario.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF1.1 Solicitar Código.png, id=643, 729.2043pt x 480.5955pt>
+ [15 <./UML/Secuencia/Diagrama de Secuencia Base Envio Formulario.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF1.1 Solicitar Código.png, id=697, 729.2043pt x 480.5955pt>
 File: UML/Secuencia/Diagrama de Secuencia RF1.1 Solicitar Código.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF1.1 Solicitar Código.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF1.1 Solicitar Código.png  used on input line 114.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF1.1 Solicitar Código.png  used on input line 136.
 (pdftex.def)             Requested size: 377.62642pt x 248.88443pt.
- [15 <./UML/Secuencia/Diagrama de Secuencia RF1.0 Registro.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF2.0 Iniciar Sesión.png, id=648, 727.7589pt x 479.1501pt>
+ [16 <./UML/Secuencia/Diagrama de Secuencia RF1.0 Registro.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF2.0 Iniciar Sesión.png, id=703, 727.7589pt x 479.1501pt>
 File: UML/Secuencia/Diagrama de Secuencia RF2.0 Iniciar Sesión.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF2.0 Iniciar Sesión.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF2.0 Iniciar Sesión.png  used on input line 121.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF2.0 Iniciar Sesión.png  used on input line 143.
 (pdftex.def)             Requested size: 377.62642pt x 248.62576pt.
- [16 <./UML/Secuencia/Diagrama de Secuencia RF1.1 Solicitar Código.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF2.1 Cerrar Sesión.png, id=654, 729.2043pt x 390.258pt>
+ [17 <./UML/Secuencia/Diagrama de Secuencia RF1.1 Solicitar Código.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF2.1 Cerrar Sesión.png, id=708, 729.2043pt x 390.258pt>
 File: UML/Secuencia/Diagrama de Secuencia RF2.1 Cerrar Sesión.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF2.1 Cerrar Sesión.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF2.1 Cerrar Sesión.png  used on input line 128.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF2.1 Cerrar Sesión.png  used on input line 150.
 (pdftex.def)             Requested size: 377.62642pt x 202.10164pt.
-<UML/Secuencia/Diagrama de Secuencia RF2.2 Recuperar Contraseña.png, id=655, 728.4816pt x 543.4704pt>
+<UML/Secuencia/Diagrama de Secuencia RF2.2 Recuperar Contraseña.png, id=709, 728.4816pt x 543.4704pt>
 File: UML/Secuencia/Diagrama de Secuencia RF2.2 Recuperar Contraseña.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF2.2 Recuperar Contraseña.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF2.2 Recuperar Contraseña.png  used on input line 135.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF2.2 Recuperar Contraseña.png  used on input line 157.
 (pdftex.def)             Requested size: 377.62642pt x 281.7189pt.
- [17 <./UML/Secuencia/Diagrama de Secuencia RF2.0 Iniciar Sesión.png (PNG copy)> <./UML/Secuencia/Diagrama de Secuencia RF2.1 Cerrar Sesión.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF3.1 Crear Cámara.png, id=660, 729.2043pt x 542.025pt>
+ [18 <./UML/Secuencia/Diagrama de Secuencia RF2.0 Iniciar Sesión.png (PNG copy)> <./UML/Secuencia/Diagrama de Secuencia RF2.1 Cerrar Sesión.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF3.1 Crear Cámara.png, id=714, 729.2043pt x 542.025pt>
 File: UML/Secuencia/Diagrama de Secuencia RF3.1 Crear Cámara.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF3.1 Crear Cámara.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.1 Crear Cámara.png  used on input line 142.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.1 Crear Cámara.png  used on input line 164.
 (pdftex.def)             Requested size: 377.62642pt x 280.69673pt.
- [18 <./UML/Secuencia/Diagrama de Secuencia RF2.2 Recuperar Contraseña.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Cámara.png, id=665, 740.0448pt x 1378.1889pt>
+ [19 <./UML/Secuencia/Diagrama de Secuencia RF2.2 Recuperar Contraseña.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Cámara.png, id=719, 740.0448pt x 1378.1889pt>
 File: UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Cámara.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Cámara.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Cámara.png  used on input line 149.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Cámara.png  used on input line 171.
 (pdftex.def)             Requested size: 297.38197pt x 553.81036pt.
- [19 <./UML/Secuencia/Diagrama de Secuencia RF3.1 Crear Cámara.png (PNG copy)>]
+ [20 <./UML/Secuencia/Diagrama de Secuencia RF3.1 Crear Cámara.png (PNG copy)>]
 Overfull \vbox (4.5467pt too high) has occurred while \output is active []
 
- [20 <./UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Cámara.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Hardware.png, id=674, 740.0448pt x 1378.1889pt>
+ [21 <./UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Cámara.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Hardware.png, id=728, 740.0448pt x 1378.1889pt>
 File: UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Hardware.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Hardware.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Hardware.png  used on input line 156.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Hardware.png  used on input line 178.
 (pdftex.def)             Requested size: 283.22162pt x 527.43944pt.
-<UML/Secuencia/Diagrama de Secuencia RF3.2 Consultar Cámara.png, id=675, 729.2043pt x 372.9132pt>
+<UML/Secuencia/Diagrama de Secuencia RF3.2 Consultar Cámara.png, id=729, 729.2043pt x 372.9132pt>
 File: UML/Secuencia/Diagrama de Secuencia RF3.2 Consultar Cámara.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF3.2 Consultar Cámara.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.2 Consultar Cámara.png  used on input line 163.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.2 Consultar Cámara.png  used on input line 185.
 (pdftex.def)             Requested size: 377.62642pt x 193.11934pt.
- [21 <./UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Hardware.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF3.3 Editar Cámara.png, id=680, 729.2043pt x 601.2864pt>
+ [22 <./UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Hardware.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF3.3 Editar Cámara.png, id=735, 729.2043pt x 601.2864pt>
 File: UML/Secuencia/Diagrama de Secuencia RF3.3 Editar Cámara.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF3.3 Editar Cámara.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.3 Editar Cámara.png  used on input line 170.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.3 Editar Cámara.png  used on input line 192.
 (pdftex.def)             Requested size: 377.62642pt x 311.38625pt.
- [22 <./UML/Secuencia/Diagrama de Secuencia RF3.2 Consultar Cámara.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF3.4 Eliminar Cámara.png, id=686, 729.2043pt x 643.9257pt>
+ [23 <./UML/Secuencia/Diagrama de Secuencia RF3.2 Consultar Cámara.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF3.4 Eliminar Cámara.png, id=740, 729.2043pt x 643.9257pt>
 File: UML/Secuencia/Diagrama de Secuencia RF3.4 Eliminar Cámara.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF3.4 Eliminar Cámara.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.4 Eliminar Cámara.png  used on input line 177.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF3.4 Eliminar Cámara.png  used on input line 199.
 (pdftex.def)             Requested size: 377.62642pt x 333.46773pt.
- [23 <./UML/Secuencia/Diagrama de Secuencia RF3.3 Editar Cámara.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF4.1 Consultar Perfil.png, id=691, 729.2043pt x 372.1905pt>
+ [24 <./UML/Secuencia/Diagrama de Secuencia RF3.3 Editar Cámara.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF4.1 Consultar Perfil.png, id=745, 729.2043pt x 372.1905pt>
 File: UML/Secuencia/Diagrama de Secuencia RF4.1 Consultar Perfil.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF4.1 Consultar Perfil.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.1 Consultar Perfil.png  used on input line 184.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.1 Consultar Perfil.png  used on input line 206.
 (pdftex.def)             Requested size: 377.62642pt x 192.74509pt.
- [24 <./UML/Secuencia/Diagrama de Secuencia RF3.4 Eliminar Cámara.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF4.2 Editar Perfil.png, id=696, 729.2043pt x 601.2864pt>
+ [25 <./UML/Secuencia/Diagrama de Secuencia RF3.4 Eliminar Cámara.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF4.2 Editar Perfil.png, id=750, 729.2043pt x 601.2864pt>
 File: UML/Secuencia/Diagrama de Secuencia RF4.2 Editar Perfil.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF4.2 Editar Perfil.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.2 Editar Perfil.png  used on input line 191.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.2 Editar Perfil.png  used on input line 213.
 (pdftex.def)             Requested size: 377.62642pt x 311.38625pt.
- [25 <./UML/Secuencia/Diagrama de Secuencia RF4.1 Consultar Perfil.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF4.3 Eliminar Perfil.png, id=701, 729.2043pt x 643.9257pt>
+ [26 <./UML/Secuencia/Diagrama de Secuencia RF4.1 Consultar Perfil.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF4.3 Eliminar Perfil.png, id=755, 729.2043pt x 643.9257pt>
 File: UML/Secuencia/Diagrama de Secuencia RF4.3 Eliminar Perfil.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF4.3 Eliminar Perfil.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.3 Eliminar Perfil.png  used on input line 198.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.3 Eliminar Perfil.png  used on input line 220.
 (pdftex.def)             Requested size: 377.62642pt x 333.46773pt.
- [26 <./UML/Secuencia/Diagrama de Secuencia RF4.2 Editar Perfil.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF4.4 Cambiar Contraseña.png, id=706, 729.2043pt x 524.6802pt>
+ [27 <./UML/Secuencia/Diagrama de Secuencia RF4.2 Editar Perfil.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF4.4 Cambiar Contraseña.png, id=760, 729.2043pt x 524.6802pt>
 File: UML/Secuencia/Diagrama de Secuencia RF4.4 Cambiar Contraseña.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF4.4 Cambiar Contraseña.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.4 Cambiar Contraseña.png  used on input line 205.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.4 Cambiar Contraseña.png  used on input line 227.
 (pdftex.def)             Requested size: 377.62642pt x 271.71445pt.
- [27 <./UML/Secuencia/Diagrama de Secuencia RF4.3 Eliminar Perfil.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF4.5 Agregar Integrante Cultivo.png, id=711, 729.2043pt x 443.0151pt>
+ [28 <./UML/Secuencia/Diagrama de Secuencia RF4.3 Eliminar Perfil.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF4.5 Agregar Integrante Cultivo.png, id=766, 729.2043pt x 443.0151pt>
 File: UML/Secuencia/Diagrama de Secuencia RF4.5 Agregar Integrante Cultivo.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF4.5 Agregar Integrante Cultivo.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.5 Agregar Integrante Cultivo.png  used on input line 212.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.5 Agregar Integrante Cultivo.png  used on input line 234.
 (pdftex.def)             Requested size: 377.62642pt x 229.42279pt.
- [28 <./UML/Secuencia/Diagrama de Secuencia RF4.4 Cambiar Contraseña.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF4.6 Eliminar Integrante Cultivo.png, id=717, 729.2043pt x 661.9932pt>
+ [29 <./UML/Secuencia/Diagrama de Secuencia RF4.4 Cambiar Contraseña.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF4.6 Eliminar Integrante Cultivo.png, id=771, 729.2043pt x 661.9932pt>
 File: UML/Secuencia/Diagrama de Secuencia RF4.6 Eliminar Integrante Cultivo.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF4.6 Eliminar Integrante Cultivo.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.6 Eliminar Integrante Cultivo.png  used on input line 218.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF4.6 Eliminar Integrante Cultivo.png  used on input line 240.
 (pdftex.def)             Requested size: 377.62642pt x 342.82428pt.
- [29 <./UML/Secuencia/Diagrama de Secuencia RF4.5 Agregar Integrante Cultivo.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF5.0 Módulo de mediciones.png, id=722, 729.2043pt x 294.8616pt>
+ [30 <./UML/Secuencia/Diagrama de Secuencia RF4.5 Agregar Integrante Cultivo.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF5.0 Módulo de mediciones.png, id=776, 729.2043pt x 294.8616pt>
 File: UML/Secuencia/Diagrama de Secuencia RF5.0 Módulo de mediciones.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF5.0 Módulo de mediciones.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF5.0 Módulo de mediciones.png  used on input line 225.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF5.0 Módulo de mediciones.png  used on input line 247.
 (pdftex.def)             Requested size: 377.62642pt x 152.69902pt.
- [30 <./UML/Secuencia/Diagrama de Secuencia RF4.6 Eliminar Integrante Cultivo.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF6.1 Crear Planta.png, id=727, 729.2043pt x 548.5293pt>
+ [31 <./UML/Secuencia/Diagrama de Secuencia RF4.6 Eliminar Integrante Cultivo.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF6.1 Crear Planta.png, id=781, 729.2043pt x 548.5293pt>
 File: UML/Secuencia/Diagrama de Secuencia RF6.1 Crear Planta.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF6.1 Crear Planta.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF6.1 Crear Planta.png  used on input line 232.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF6.1 Crear Planta.png  used on input line 254.
 (pdftex.def)             Requested size: 377.62642pt x 284.0651pt.
-<UML/Secuencia/Diagrama de Secuencia RF6.2 Consultar Planta.png, id=728, 729.2043pt x 372.9132pt>
+<UML/Secuencia/Diagrama de Secuencia RF6.2 Consultar Planta.png, id=782, 729.2043pt x 372.9132pt>
 File: UML/Secuencia/Diagrama de Secuencia RF6.2 Consultar Planta.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF6.2 Consultar Planta.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF6.2 Consultar Planta.png  used on input line 239.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF6.2 Consultar Planta.png  used on input line 261.
 (pdftex.def)             Requested size: 377.62642pt x 193.11934pt.
- [31 <./UML/Secuencia/Diagrama de Secuencia RF5.0 Módulo de mediciones.png (PNG copy)> <./UML/Secuencia/Diagrama de Secuencia RF6.1 Crear Planta.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF6.3 Editar Planta.png, id=733, 729.2043pt x 601.2864pt>
+ [32 <./UML/Secuencia/Diagrama de Secuencia RF5.0 Módulo de mediciones.png (PNG copy)> <./UML/Secuencia/Diagrama de Secuencia RF6.1 Crear Planta.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF6.3 Editar Planta.png, id=787, 729.2043pt x 601.2864pt>
 File: UML/Secuencia/Diagrama de Secuencia RF6.3 Editar Planta.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF6.3 Editar Planta.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF6.3 Editar Planta.png  used on input line 246.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF6.3 Editar Planta.png  used on input line 268.
 (pdftex.def)             Requested size: 377.62642pt x 311.38625pt.
- [32 <./UML/Secuencia/Diagrama de Secuencia RF6.2 Consultar Planta.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF6.4 Eliminar Planta.png, id=738, 729.2043pt x 643.9257pt>
+ [33 <./UML/Secuencia/Diagrama de Secuencia RF6.2 Consultar Planta.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF6.4 Eliminar Planta.png, id=792, 729.2043pt x 643.9257pt>
 File: UML/Secuencia/Diagrama de Secuencia RF6.4 Eliminar Planta.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF6.4 Eliminar Planta.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF6.4 Eliminar Planta.png  used on input line 253.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF6.4 Eliminar Planta.png  used on input line 275.
 (pdftex.def)             Requested size: 377.62642pt x 333.46773pt.
- [33 <./UML/Secuencia/Diagrama de Secuencia RF6.3 Editar Planta.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF7.0 Generar Reporte.png, id=743, 729.2043pt x 385.9218pt>
+ [34 <./UML/Secuencia/Diagrama de Secuencia RF6.3 Editar Planta.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF7.0 Generar Reporte.png, id=798, 729.2043pt x 385.9218pt>
 File: UML/Secuencia/Diagrama de Secuencia RF7.0 Generar Reporte.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF7.0 Generar Reporte.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF7.0 Generar Reporte.png  used on input line 260.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF7.0 Generar Reporte.png  used on input line 282.
 (pdftex.def)             Requested size: 377.62642pt x 199.85606pt.
- [34 <./UML/Secuencia/Diagrama de Secuencia RF6.4 Eliminar Planta.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF7.1 Descargar Reporte.png, id=749, 605.6226pt x 319.4334pt>
+ [35 <./UML/Secuencia/Diagrama de Secuencia RF6.4 Eliminar Planta.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF7.1 Descargar Reporte.png, id=803, 605.6226pt x 319.4334pt>
 File: UML/Secuencia/Diagrama de Secuencia RF7.1 Descargar Reporte.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF7.1 Descargar Reporte.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF7.1 Descargar Reporte.png  used on input line 267.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF7.1 Descargar Reporte.png  used on input line 289.
 (pdftex.def)             Requested size: 377.62642pt x 199.18233pt.
-<UML/Secuencia/Diagrama de Secuencia RF7.2 Adjuntar Reporte.png, id=750, 612.1269pt x 488.5452pt>
+<UML/Secuencia/Diagrama de Secuencia RF7.2 Adjuntar Reporte.png, id=804, 612.1269pt x 488.5452pt>
 File: UML/Secuencia/Diagrama de Secuencia RF7.2 Adjuntar Reporte.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF7.2 Adjuntar Reporte.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF7.2 Adjuntar Reporte.png  used on input line 274.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF7.2 Adjuntar Reporte.png  used on input line 296.
 (pdftex.def)             Requested size: 377.62642pt x 301.3816pt.
- [35 <./UML/Secuencia/Diagrama de Secuencia RF7.0 Generar Reporte.png (PNG copy)> <./UML/Secuencia/Diagrama de Secuencia RF7.1 Descargar Reporte.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF8.1 Notificar Planta.png, id=755, 588.2778pt x 619.3539pt>
+ [36 <./UML/Secuencia/Diagrama de Secuencia RF7.0 Generar Reporte.png (PNG copy)> <./UML/Secuencia/Diagrama de Secuencia RF7.1 Descargar Reporte.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF8.1 Notificar Planta.png, id=809, 588.2778pt x 619.3539pt>
 File: UML/Secuencia/Diagrama de Secuencia RF8.1 Notificar Planta.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF8.1 Notificar Planta.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF8.1 Notificar Planta.png  used on input line 281.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF8.1 Notificar Planta.png  used on input line 303.
 (pdftex.def)             Requested size: 377.62642pt x 397.58536pt.
- [36 <./UML/Secuencia/Diagrama de Secuencia RF7.2 Adjuntar Reporte.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF8.2 Notificar Seguridad.png, id=760, 305.7021pt x 370.7451pt>
+ [37 <./UML/Secuencia/Diagrama de Secuencia RF7.2 Adjuntar Reporte.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF8.2 Notificar Seguridad.png, id=814, 305.7021pt x 370.7451pt>
 File: UML/Secuencia/Diagrama de Secuencia RF8.2 Notificar Seguridad.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF8.2 Notificar Seguridad.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF8.2 Notificar Seguridad.png  used on input line 288.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF8.2 Notificar Seguridad.png  used on input line 310.
 (pdftex.def)             Requested size: 377.62642pt x 457.98808pt.
- [37 <./UML/Secuencia/Diagrama de Secuencia RF8.1 Notificar Planta.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF9.1 Crear Observación.png, id=765, 729.2043pt x 548.5293pt>
+ [38 <./UML/Secuencia/Diagrama de Secuencia RF8.1 Notificar Planta.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF9.1 Crear Observación.png, id=819, 729.2043pt x 548.5293pt>
 File: UML/Secuencia/Diagrama de Secuencia RF9.1 Crear Observación.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF9.1 Crear Observación.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF9.1 Crear Observación.png  used on input line 295.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF9.1 Crear Observación.png  used on input line 317.
 (pdftex.def)             Requested size: 377.62642pt x 284.0651pt.
- [38 <./UML/Secuencia/Diagrama de Secuencia RF8.2 Notificar Seguridad.png (PNG copy)>]
-<UML/Secuencia/Diagrama de Secuencia RF9.2 Consultar Observación.png, id=770, 729.2043pt x 372.9132pt>
+ [39 <./UML/Secuencia/Diagrama de Secuencia RF8.2 Notificar Seguridad.png (PNG copy)>]
+<UML/Secuencia/Diagrama de Secuencia RF9.2 Consultar Observación.png, id=824, 729.2043pt x 372.9132pt>
 File: UML/Secuencia/Diagrama de Secuencia RF9.2 Consultar Observación.png Graphic file (type png)
 <use UML/Secuencia/Diagrama de Secuencia RF9.2 Consultar Observación.png>
-Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF9.2 Consultar Observación.png  used on input line 302.
+Package pdftex.def Info: UML/Secuencia/Diagrama de Secuencia RF9.2 Consultar Observación.png  used on input line 324.
 (pdftex.def)             Requested size: 377.62642pt x 193.11934pt.
-<UML/Actividad/Diagrama de Actividad RF1.0 Registro.png, id=771, 296.307pt x 467.5869pt>
+<UML/Actividad/Diagrama de Actividad RF1.0 Registro.png, id=825, 296.307pt x 467.5869pt>
 File: UML/Actividad/Diagrama de Actividad RF1.0 Registro.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF1.0 Registro.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF1.0 Registro.png  used on input line 313.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF1.0 Registro.png  used on input line 335.
 (pdftex.def)             Requested size: 330.42041pt x 521.46057pt.
- [39 <./UML/Secuencia/Diagrama de Secuencia RF9.1 Crear Observación.png> <./UML/Secuencia/Diagrama de Secuencia RF9.2 Consultar Observación.png>] [40]
+ [40 <./UML/Secuencia/Diagrama de Secuencia RF9.1 Crear Observación.png> <./UML/Secuencia/Diagrama de Secuencia RF9.2 Consultar Observación.png>] [41]
 Overfull \vbox (20.73499pt too high) has occurred while \output is active []
 
- [41 <./UML/Actividad/Diagrama de Actividad RF1.0 Registro.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF1.1 Solicitar Código.png, id=787, 294.8616pt x 528.2937pt>
+ [42 <./UML/Actividad/Diagrama de Actividad RF1.0 Registro.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF1.1 Solicitar Código.png, id=841, 294.8616pt x 528.2937pt>
 File: UML/Actividad/Diagrama de Actividad RF1.1 Solicitar Código.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF1.1 Solicitar Código.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF1.1 Solicitar Código.png  used on input line 320.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF1.1 Solicitar Código.png  used on input line 342.
 (pdftex.def)             Requested size: 283.22162pt x 507.46252pt.
-<UML/Actividad/Diagrama de Actividad RF2.0 Iniciar Sesión.png, id=788, 295.5843pt x 450.2421pt>
+<UML/Actividad/Diagrama de Actividad RF2.0 Iniciar Sesión.png, id=842, 295.5843pt x 450.2421pt>
 File: UML/Actividad/Diagrama de Actividad RF2.0 Iniciar Sesión.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF2.0 Iniciar Sesión.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF2.0 Iniciar Sesión.png  used on input line 327.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF2.0 Iniciar Sesión.png  used on input line 349.
 (pdftex.def)             Requested size: 330.42041pt x 503.34023pt.
- [42 <./UML/Actividad/Diagrama de Actividad RF1.1 Solicitar Código.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF2.1 Cerrar Sesión.png, id=793, 294.1389pt x 533.3526pt>
+ [43 <./UML/Actividad/Diagrama de Actividad RF1.1 Solicitar Código.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF2.1 Cerrar Sesión.png, id=847, 294.1389pt x 533.3526pt>
 File: UML/Actividad/Diagrama de Actividad RF2.1 Cerrar Sesión.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF2.1 Cerrar Sesión.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF2.1 Cerrar Sesión.png  used on input line 334.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF2.1 Cerrar Sesión.png  used on input line 356.
 (pdftex.def)             Requested size: 306.81741pt x 556.36638pt.
- [43 <./UML/Actividad/Diagrama de Actividad RF2.0 Iniciar Sesión.png (PNG copy)>]
+ [44 <./UML/Actividad/Diagrama de Actividad RF2.0 Iniciar Sesión.png (PNG copy)>]
 Overfull \vbox (7.10272pt too high) has occurred while \output is active []
 
- [44 <./UML/Actividad/Diagrama de Actividad RF2.1 Cerrar Sesión.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png, id=802, 294.1389pt x 782.6841pt>
+ [45 <./UML/Actividad/Diagrama de Actividad RF2.1 Cerrar Sesión.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png, id=856, 294.1389pt x 782.6841pt>
 File: UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png  used on input line 341.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png  used on input line 363.
 (pdftex.def)             Requested size: 377.62642pt x 1004.87766pt.
 
 Overfull \vbox (455.614pt too high) has occurred while \output is active []
 
- [45 <./UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png, id=807, 297.0297pt x 694.5147pt>
+ [46 <./UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png, id=862, 297.0297pt x 694.5147pt>
 File: UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png  used on input line 348.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png  used on input line 370.
 (pdftex.def)             Requested size: 377.62642pt x 883.0518pt.
 
 Overfull \vbox (333.78815pt too high) has occurred while \output is active []
 
- [46 <./UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png, id=813, 619.3539pt x 974.9223pt>
+ [47 <./UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png, id=867, 619.3539pt x 974.9223pt>
 File: UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png  used on input line 355.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png  used on input line 377.
 (pdftex.def)             Requested size: 377.62642pt x 594.4191pt.
 
 Overfull \vbox (45.15544pt too high) has occurred while \output is active []
 
- [47 <./UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Hardware.png, id=818, 620.0766pt x 975.645pt>
+ [48 <./UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Hardware.png, id=872, 620.0766pt x 975.645pt>
 File: UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Hardware.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Hardware.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Hardware.png  used on input line 362.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Hardware.png  used on input line 384.
 (pdftex.def)             Requested size: 377.62642pt x 594.17493pt.
 
 Overfull \vbox (44.91127pt too high) has occurred while \output is active []
 
- [48 <./UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Hardware.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png, id=823, 295.5843pt x 514.5624pt>
+ [49 <./UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Hardware.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png, id=877, 295.5843pt x 514.5624pt>
 File: UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png  used on input line 369.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png  used on input line 391.
 (pdftex.def)             Requested size: 377.62642pt x 657.42848pt.
 
 Overfull \vbox (108.16483pt too high) has occurred while \output is active []
 
- [49 <./UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png, id=828, 297.0297pt x 841.9455pt>
+ [50 <./UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png, id=882, 297.0297pt x 841.9455pt>
 File: UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png  used on input line 376.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png  used on input line 398.
 (pdftex.def)             Requested size: 377.62642pt x 1070.50507pt.
 
 Overfull \vbox (521.24141pt too high) has occurred while \output is active []
 
- [50 <./UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png, id=833, 297.7524pt x 880.2486pt>
+ [51 <./UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png, id=887, 297.7524pt x 880.2486pt>
 File: UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png  used on input line 383.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png  used on input line 405.
 (pdftex.def)             Requested size: 377.62642pt x 1116.38557pt.
 
 Overfull \vbox (567.12192pt too high) has occurred while \output is active []
 
- [51 <./UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png, id=838, 295.5843pt x 514.5624pt>
+ [52 <./UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png, id=893, 295.5843pt x 514.5624pt>
 File: UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png  used on input line 390.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png  used on input line 412.
 (pdftex.def)             Requested size: 377.62642pt x 657.42848pt.
 
 Overfull \vbox (108.16483pt too high) has occurred while \output is active []
 
- [52 <./UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png, id=844, 295.5843pt x 707.5233pt>
+ [53 <./UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png, id=898, 295.5843pt x 707.5233pt>
 File: UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png  used on input line 397.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png  used on input line 419.
 (pdftex.def)             Requested size: 377.62642pt x 903.96416pt.
 
 Overfull \vbox (354.7005pt too high) has occurred while \output is active []
 
- [53 <./UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png, id=849, 297.0297pt x 746.5491pt>
+ [54 <./UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png, id=903, 297.0297pt x 746.5491pt>
 File: UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png  used on input line 404.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png  used on input line 426.
 (pdftex.def)             Requested size: 377.62642pt x 949.2118pt.
 
 Overfull \vbox (399.94815pt too high) has occurred while \output is active []
 
- [54 <./UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png, id=854, 295.5843pt x 656.2116pt>
+ [55 <./UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png, id=908, 295.5843pt x 656.2116pt>
 File: UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png  used on input line 411.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png  used on input line 433.
 (pdftex.def)             Requested size: 377.62642pt x 838.40599pt.
 
 Overfull \vbox (289.14233pt too high) has occurred while \output is active []
 
- [55 <./UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png, id=859, 295.5843pt x 708.9687pt>
+ [56 <./UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png, id=913, 295.5843pt x 708.9687pt>
 File: UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png  used on input line 418.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png  used on input line 440.
 (pdftex.def)             Requested size: 377.62642pt x 905.81087pt.
 
 Overfull \vbox (356.54721pt too high) has occurred while \output is active []
 
- [56 <./UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png, id=864, 297.0297pt x 746.5491pt>
+ [57 <./UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png, id=918, 297.0297pt x 746.5491pt>
 File: UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png  used on input line 425.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png  used on input line 447.
 (pdftex.def)             Requested size: 377.62642pt x 949.2118pt.
 
 Overfull \vbox (399.94815pt too high) has occurred while \output is active []
 
- [57 <./UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF5.0 Módulo de mediciones.png, id=869, 295.5843pt x 391.7034pt>
+ [58 <./UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF5.0 Módulo de mediciones.png, id=924, 295.5843pt x 391.7034pt>
 File: UML/Actividad/Diagrama de Actividad RF5.0 Módulo de mediciones.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF5.0 Módulo de mediciones.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF5.0 Módulo de mediciones.png  used on input line 431.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF5.0 Módulo de mediciones.png  used on input line 453.
 (pdftex.def)             Requested size: 377.62642pt x 500.45819pt.
-<UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png, id=870, 295.5843pt x 693.0693pt>
+<UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png, id=925, 295.5843pt x 693.0693pt>
 File: UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png  used on input line 438.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png  used on input line 460.
 (pdftex.def)             Requested size: 377.62642pt x 885.49709pt.
- [58 <./UML/Actividad/Diagrama de Actividad RF5.0 Módulo de mediciones.png (PNG copy)>]
+ [59 <./UML/Actividad/Diagrama de Actividad RF5.0 Módulo de mediciones.png (PNG copy)>]
 Overfull \vbox (336.23343pt too high) has occurred while \output is active []
 
- [59 <./UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png, id=880, 295.5843pt x 514.5624pt>
+ [60 <./UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png, id=934, 295.5843pt x 514.5624pt>
 File: UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png  used on input line 445.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png  used on input line 467.
 (pdftex.def)             Requested size: 377.62642pt x 657.42848pt.
 
 Overfull \vbox (108.16483pt too high) has occurred while \output is active []
 
- [60 <./UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png, id=885, 295.5843pt x 841.9455pt>
+ [61 <./UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png, id=939, 295.5843pt x 841.9455pt>
 File: UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png  used on input line 452.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png  used on input line 474.
 (pdftex.def)             Requested size: 377.62642pt x 1075.70811pt.
 
 Overfull \vbox (526.44446pt too high) has occurred while \output is active []
 
- [61 <./UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png, id=890, 296.307pt x 878.8032pt>
+ [62 <./UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png, id=944, 296.307pt x 878.8032pt>
 File: UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png  used on input line 459.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png  used on input line 481.
 (pdftex.def)             Requested size: 377.62642pt x 1120.07712pt.
 
 Overfull \vbox (570.81346pt too high) has occurred while \output is active []
 
- [62 <./UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png, id=895, 297.0297pt x 515.2851pt>
+ [63 <./UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png, id=949, 297.0297pt x 515.2851pt>
 File: UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png  used on input line 466.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png  used on input line 488.
 (pdftex.def)             Requested size: 377.62642pt x 655.16748pt.
 
 Overfull \vbox (105.90382pt too high) has occurred while \output is active []
 
- [63 <./UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png, id=900, 297.7524pt x 516.0078pt>
+ [64 <./UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png, id=955, 297.7524pt x 516.0078pt>
 File: UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png  used on input line 473.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png  used on input line 495.
 (pdftex.def)             Requested size: 377.62642pt x 654.43289pt.
 
 Overfull \vbox (105.16924pt too high) has occurred while \output is active []
 
- [64 <./UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png, id=906, 296.307pt x 642.4803pt>
+ [65 <./UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png, id=960, 296.307pt x 642.4803pt>
 File: UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png  used on input line 480.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png  used on input line 502.
 (pdftex.def)             Requested size: 377.62642pt x 818.87215pt.
 
 Overfull \vbox (269.60849pt too high) has occurred while \output is active []
 
- [65 <./UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png, id=911, 295.5843pt x 690.1785pt>
+ [66 <./UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png, id=965, 295.5843pt x 690.1785pt>
 File: UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png  used on input line 487.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png  used on input line 509.
 (pdftex.def)             Requested size: 377.62642pt x 881.80367pt.
 
 Overfull \vbox (332.54001pt too high) has occurred while \output is active []
 
- [66 <./UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png (PNG copy)>]
-<UML/Actividad/Diagrama de Actividad RF8.2 Notificar Seguridad.png, id=916, 295.5843pt x 405.4347pt>
+ [67 <./UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png (PNG copy)>]
+<UML/Actividad/Diagrama de Actividad RF8.2 Notificar Seguridad.png, id=970, 295.5843pt x 405.4347pt>
 File: UML/Actividad/Diagrama de Actividad RF8.2 Notificar Seguridad.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF8.2 Notificar Seguridad.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF8.2 Notificar Seguridad.png  used on input line 494.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF8.2 Notificar Seguridad.png  used on input line 516.
 (pdftex.def)             Requested size: 377.62642pt x 518.00192pt.
-<UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png, id=917, 296.307pt x 693.0693pt>
+<UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png, id=971, 296.307pt x 693.0693pt>
 File: UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png  used on input line 501.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png  used on input line 523.
 (pdftex.def)             Requested size: 377.62642pt x 883.35028pt.
- [67 <./UML/Actividad/Diagrama de Actividad RF8.2 Notificar Seguridad.png (PNG copy)>]
+ [68 <./UML/Actividad/Diagrama de Actividad RF8.2 Notificar Seguridad.png (PNG copy)>]
 Overfull \vbox (334.08662pt too high) has occurred while \output is active []
 
- [68 <./UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png>]
-<UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png, id=927, 296.307pt x 514.5624pt>
+ [69 <./UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png>]
+<UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png, id=981, 296.307pt x 514.5624pt>
 File: UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png Graphic file (type png)
 <use UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png>
-Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png  used on input line 508.
+Package pdftex.def Info: UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png  used on input line 530.
 (pdftex.def)             Requested size: 377.62642pt x 655.83461pt.
 
 Overfull \vbox (106.57095pt too high) has occurred while \output is active []
 
- [69 <./UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png>]
-<UML/Otros/Diagrama de Despliegue.png, id=933, 431.4519pt x 387.3672pt>
+ [70 <./UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png>]
+<UML/Otros/Diagrama de Despliegue.png, id=988, 431.4519pt x 387.3672pt>
 File: UML/Otros/Diagrama de Despliegue.png Graphic file (type png)
 <use UML/Otros/Diagrama de Despliegue.png>
-Package pdftex.def Info: UML/Otros/Diagrama de Despliegue.png  used on input line 525.
+Package pdftex.def Info: UML/Otros/Diagrama de Despliegue.png  used on input line 547.
 (pdftex.def)             Requested size: 377.62642pt x 339.05186pt.
- [70 <./UML/Otros/Diagrama de Despliegue.png (PNG copy)>] [71]) [72]
+ [71 <./UML/Otros/Diagrama de Despliegue.png (PNG copy)>]) [72]
 \openout2 = `capitulo_hardware.aux'.
 
  (capitulo_hardware.tex
@@ -1429,79 +1430,89 @@ Cap\'{\i }tulo 3.
  (capitulo_experimento.tex
 Cap\'{\i }tulo 4.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
-(Font)              scaled to size 17.28pt on input line 7.
+(Font)              scaled to size 17.28pt on input line 15.
 [77
 
 
 
 
 ]) [78]
-\openout2 = `capitulo_conclusiones.aux'.
+\openout2 = `capitulo_ia.aux'.
 
- (capitulo_conclusiones.tex
+ (capitulo_ia.tex
 Cap\'{\i }tulo 5.
-
-Overfull \hbox (0.10849pt too wide) in paragraph at lines 2--2
-|[]\T1/ntxtlf/b/n/24.88 RESULTADOS Y CON-CLU-SIO-NES FI-
- []
-
 [79
 
 
 
 
-]) [80]
+] [80]) [81]
+\openout2 = `capitulo_conclusiones.aux'.
+
+ (capitulo_conclusiones.tex
+Cap\'{\i }tulo 6.
+
+Overfull \hbox (12.15042pt too wide) in paragraph at lines 2--2
+|[]\T1/ntxtlf/b/n/24.88 RESULTADOS Y CON-CLU-SIO-NES FI-
+ []
+
+[82
+
+
+
+
+]) [83]
 No file main.bbl.
-<anexos/ponenciagab1.pdf, id=981, 1300.86pt x 867.24pt>
+<anexos/ponenciagab1.pdf, id=1044, 1300.86pt x 867.24pt>
 File: anexos/ponenciagab1.pdf Graphic file (type pdf)
 <use anexos/ponenciagab1.pdf>
-Package pdftex.def Info: anexos/ponenciagab1.pdf  used on input line 252.
+Package pdftex.def Info: anexos/ponenciagab1.pdf  used on input line 253.
 (pdftex.def)             Requested size: 1300.85684pt x 867.2379pt.
-<anexos/ponenciajuan1.pdf, id=983, 1300.86pt x 867.24pt>
+<anexos/ponenciajuan1.pdf, id=1046, 1300.86pt x 867.24pt>
 File: anexos/ponenciajuan1.pdf Graphic file (type pdf)
 <use anexos/ponenciajuan1.pdf>
-Package pdftex.def Info: anexos/ponenciajuan1.pdf  used on input line 252.
+Package pdftex.def Info: anexos/ponenciajuan1.pdf  used on input line 253.
 (pdftex.def)             Requested size: 1300.85684pt x 867.2379pt.
-<anexos/ponenciagab1.pdf, id=985, page=1, 1300.86pt x 867.24pt>
+<anexos/ponenciagab1.pdf, id=1048, page=1, 1300.86pt x 867.24pt>
 File: anexos/ponenciagab1.pdf Graphic file (type pdf)
 <use anexos/ponenciagab1.pdf, page 1>
-Package pdftex.def Info: anexos/ponenciagab1.pdf , page1 used on input line 252.
+Package pdftex.def Info: anexos/ponenciagab1.pdf , page1 used on input line 253.
 (pdftex.def)             Requested size: 1300.85684pt x 867.2379pt.
 File: anexos/ponenciagab1.pdf Graphic file (type pdf)
 <use anexos/ponenciagab1.pdf, page 1>
-Package pdftex.def Info: anexos/ponenciagab1.pdf , page1 used on input line 252.
+Package pdftex.def Info: anexos/ponenciagab1.pdf , page1 used on input line 253.
 (pdftex.def)             Requested size: 596.37822pt x 397.58548pt.
-[81
+[84
 
 
 
-] [82]
+] [85]
 File: anexos/ponenciagab1.pdf Graphic file (type pdf)
 <use anexos/ponenciagab1.pdf, page 1>
-Package pdftex.def Info: anexos/ponenciagab1.pdf , page1 used on input line 252.
-(pdftex.def)             Requested size: 596.37822pt x 397.58548pt.
-File: anexos/ponenciagab1.pdf Graphic file (type pdf)
-<use anexos/ponenciagab1.pdf, page 1>
-Package pdftex.def Info: anexos/ponenciagab1.pdf , page1 used on input line 252.
-(pdftex.def)             Requested size: 596.37822pt x 397.58548pt.
-<anexos/ponenciajuan1.pdf, id=995, page=1, 1300.86pt x 867.24pt>
-File: anexos/ponenciajuan1.pdf Graphic file (type pdf)
-<use anexos/ponenciajuan1.pdf, page 1>
-Package pdftex.def Info: anexos/ponenciajuan1.pdf , page1 used on input line 252.
-(pdftex.def)             Requested size: 596.37822pt x 397.58548pt.
-File: anexos/ponenciajuan1.pdf Graphic file (type pdf)
-<use anexos/ponenciajuan1.pdf, page 1>
-Package pdftex.def Info: anexos/ponenciajuan1.pdf , page1 used on input line 252.
+Package pdftex.def Info: anexos/ponenciagab1.pdf , page1 used on input line 253.
 (pdftex.def)             Requested size: 596.37822pt x 397.58548pt.
 File: anexos/ponenciagab1.pdf Graphic file (type pdf)
 <use anexos/ponenciagab1.pdf, page 1>
-Package pdftex.def Info: anexos/ponenciagab1.pdf , page1 used on input line 252.
+Package pdftex.def Info: anexos/ponenciagab1.pdf , page1 used on input line 253.
+(pdftex.def)             Requested size: 596.37822pt x 397.58548pt.
+<anexos/ponenciajuan1.pdf, id=1057, page=1, 1300.86pt x 867.24pt>
+File: anexos/ponenciajuan1.pdf Graphic file (type pdf)
+<use anexos/ponenciajuan1.pdf, page 1>
+Package pdftex.def Info: anexos/ponenciajuan1.pdf , page1 used on input line 253.
 (pdftex.def)             Requested size: 596.37822pt x 397.58548pt.
 File: anexos/ponenciajuan1.pdf Graphic file (type pdf)
 <use anexos/ponenciajuan1.pdf, page 1>
-Package pdftex.def Info: anexos/ponenciajuan1.pdf , page1 used on input line 252.
+Package pdftex.def Info: anexos/ponenciajuan1.pdf , page1 used on input line 253.
 (pdftex.def)             Requested size: 596.37822pt x 397.58548pt.
- [83
+File: anexos/ponenciagab1.pdf Graphic file (type pdf)
+<use anexos/ponenciagab1.pdf, page 1>
+Package pdftex.def Info: anexos/ponenciagab1.pdf , page1 used on input line 253.
+(pdftex.def)             Requested size: 596.37822pt x 397.58548pt.
+File: anexos/ponenciajuan1.pdf Graphic file (type pdf)
+<use anexos/ponenciajuan1.pdf, page 1>
+Package pdftex.def Info: anexos/ponenciajuan1.pdf , page1 used on input line 253.
+(pdftex.def)             Requested size: 596.37822pt x 397.58548pt.
+ [86
 
  <./anexos/ponenciagab1.pdf> <./anexos/ponenciajuan1.pdf
 
@@ -1514,26 +1525,26 @@ See the caption package documentation for explanation.
 (main.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
- (capitulo_investigacion.aux) (capitulo_software.aux) (capitulo_hardware.aux) (capitulo_experimento.aux) (capitulo_conclusiones.aux))
+ (capitulo_investigacion.aux) (capitulo_software.aux) (capitulo_hardware.aux) (capitulo_experimento.aux) (capitulo_ia.aux) (capitulo_conclusiones.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A20424376E3232B4356AF274FD370013;13799.
+(rerunfilecheck)             Checksum: 075A78B004D6D53AC2AFED21EEB0BB4E;14989.
  ) 
 Here is how much of TeX's memory you used:
- 21728 strings out of 474486
- 365839 string characters out of 5743755
+ 21776 strings out of 474486
+ 366899 string characters out of 5743755
  1940542 words of memory out of 5000000
- 43419 multiletter control sequences out of 15000+600000
+ 43447 multiletter control sequences out of 15000+600000
  600118 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,17n,117p,1241b,825s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/gabma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/gabma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/gabma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmbi.pfb><C:/Users/gabma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/gabma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (98 pages, 15142255 bytes).
+Output written on main.pdf (101 pages, 15154614 bytes).
 PDF statistics:
- 1141 PDF objects out of 1200 (max. 8388607)
- 243 named destinations out of 1000 (max. 500000)
- 952 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1206 PDF objects out of 1440 (max. 8388607)
+ 256 named destinations out of 1000 (max. 500000)
+ 1032 words of extra memory for PDF output out of 10000 (max. 10000000)
 

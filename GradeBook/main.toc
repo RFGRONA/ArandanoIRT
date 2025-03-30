@@ -23,51 +23,61 @@
 \contentsline {subsection}{\numberline {1.7.2}Marco Legal}{6}{subsection.1.7.2}%
 \contentsline {chapter}{\numberline {2}DOCUMENTACIÓN DEL SOFTWARE}{7}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Plan de Proyecto}{7}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Determinación de Requerimientos}{7}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Especificación del Diseño}{8}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Modelo de Entidad-Relación (MER)}{8}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Diagramas de Casos de Uso}{9}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Diagramas de Secuencia}{14}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Diagramas de Actividades}{41}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Diagrama de Clases}{70}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}Diagrama de Despliegue}{70}{subsection.2.3.6}%
-\contentsline {section}{\numberline {2.4}Arquitectura del Software}{71}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Desarrollo del Frontend}{71}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Desarrollo del Backend}{71}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Integración Frontend-Backend}{71}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.2}Arquitectura del Software}{7}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Desarrollo del Frontend}{7}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Desarrollo del Backend}{7}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Integración Frontend-Backend}{8}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Determinación de Requerimientos}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Especificación del Diseño}{9}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Modelo de Entidad-Relación (MER)}{9}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Diagramas de Casos de Uso}{10}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Diagramas de Secuencia}{15}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Diagramas de Actividades}{42}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}Diagrama de Clases}{71}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.6}Diagrama de Despliegue}{71}{subsection.2.4.6}%
 \contentsline {section}{\numberline {2.5}Diseño de los Casos de Prueba}{71}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Estimación de Recursos}{71}{section.2.6}%
+\contentsline {section}{\numberline {2.6}Estimación de Recursos}{72}{section.2.6}%
 \contentsline {section}{\numberline {2.7}Resultados de la Implementación del Software}{72}{section.2.7}%
 \contentsline {section}{\numberline {2.8}Conclusiones y Recomendaciones del software}{72}{section.2.8}%
 \contentsline {chapter}{\numberline {3}DOCUMENTACIÓN DEL HARDWARE}{73}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introducción y Justificación del Hardware}{73}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Descripción de Componentes}{73}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Microcontrolador ESP32-S3-WROOM-1 N16R8}{73}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Cámara termográfica MLX90640}{73}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Sensor de luz BH1750}{74}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Sensor de humedad y temperatura DHT22}{74}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Cámara RGB OV2640}{74}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Regulador de voltaje LM2596}{74}{subsection.3.2.6}%
-\contentsline {section}{\numberline {3.3}Metodología de Caracterización}{74}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Evaluación y verificación de componentes}{74}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Configuración e Integración del Firmware}{75}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Validación y Análisis de Resultados}{75}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Implementación del Sistema Integrado}{76}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Discusión}{76}{section.3.5}%
+\contentsline {section}{\numberline {3.1}Introducción}{73}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Objetivos}{73}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Descripción de Componentes}{74}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Microcontrolador ESP32-S3-WROOM-1 N16R8}{74}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Cámara termográfica MLX90640}{74}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Sensor de luz BH1750}{74}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Sensor de humedad y temperatura DHT22}{74}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Cámara RGB OV2640}{74}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Regulador de voltaje LM2596}{74}{subsection.3.3.6}%
+\contentsline {section}{\numberline {3.4}Metodología de Caracterización}{75}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Evaluación y verificación de componentes}{75}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Configuración e Integración del Firmware}{75}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Validación y Análisis de Resultados}{76}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Implementación del Sistema Integrado}{76}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Resultados}{76}{section.3.6}%
 \contentsline {chapter}{\numberline {4}ESTUDIO EXPERIMENTAL}{77}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introducción y Objetivos del Estudio Experimental}{77}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Preparación del Hongo \textit {Botrytis cinerea}}{77}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Diseño Experimental}{77}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Recolección y Análisis de Datos}{78}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Resultados y Discusión}{78}{section.4.5}%
-\contentsline {chapter}{\numberline {5}RESULTADOS Y CONCLUSIONES FINALES}{79}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Síntesis de Resultados}{79}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Discusión General}{79}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Conclusiones Finales}{79}{section.5.3}%
-\contentsline {chapter}{Bibliografía}{81}{section.5.3}%
-\contentsline {chapter}{Anexos}{81}{appendix*.76}%
-\contentsline {section}{\numberline {A}Código Fuente del Módulo Principal}{81}{section.Alph0.1}%
-\contentsline {section}{\numberline {B}Manual de Usuario por Roles}{81}{section.Alph0.2}%
-\contentsline {section}{\numberline {C}Manual de Instalación}{81}{section.Alph0.3}%
-\contentsline {section}{\numberline {D}Artículos de Resultados de Investigación}{81}{section.Alph0.4}%
-\contentsline {section}{\numberline {E}Certificaciones de Ponencias y Controles de Seguimiento}{82}{section.Alph0.5}%
+\contentsline {section}{\numberline {4.1}Introducción}{77}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Objetivos}{77}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Preparación del Hongo \textit {Botrytis cinerea}}{77}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Diseño Experimental}{78}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Recolección y Análisis de Datos}{78}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Resultados}{78}{section.4.6}%
+\contentsline {chapter}{\numberline {5}INTELIGENCIA ARTIFICIAL EN LA DETECCIÓN TEMPRANA}{79}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introducción}{79}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Objetivos}{79}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Preprocesamiento de Datos}{80}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Modelos de Inteligencia Artificial Utilizados}{80}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Evaluación de Modelos}{81}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Resultados}{81}{section.5.6}%
+\contentsline {chapter}{\numberline {6}RESULTADOS Y CONCLUSIONES FINALES}{82}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Pregunta de investigación}{82}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Discusión General}{82}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Recomendaciones}{82}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Conclusiones Finales}{83}{section.6.4}%
+\contentsline {chapter}{Bibliografía}{84}{section.6.4}%
+\contentsline {chapter}{Anexos}{84}{appendix*.76}%
+\contentsline {section}{\numberline {A}Código Fuente del Módulo Principal}{84}{section.Alph0.1}%
+\contentsline {section}{\numberline {B}Manual de Usuario por Roles}{84}{section.Alph0.2}%
+\contentsline {section}{\numberline {C}Manual de Instalación}{84}{section.Alph0.3}%
+\contentsline {section}{\numberline {D}Artículos de Resultados de Investigación}{84}{section.Alph0.4}%
+\contentsline {section}{\numberline {E}Certificaciones de Ponencias y Controles de Seguimiento}{85}{section.Alph0.5}%

@@ -1,0 +1,41 @@
+% Capítulo VI: Integración de la Inteligencia Artificial en la Detección Temprana de Botrytis Cinerea
+\chapter{INTELIGENCIA ARTIFICIAL EN LA DETECCIÓN TEMPRANA}
+
+\section{Introducción}
+La inteligencia artificial (IA) ha mostrado un gran potencial en el análisis y procesamiento de grandes volúmenes de datos, lo que la convierte en una herramienta clave para la mejora de sistemas de detección temprana en la agricultura. En este capítulo se describirá el uso de IA para procesar los datos termográficos obtenidos del sensor \textit{MLX90640} en el cultivo de arándanos Biloxi, con el objetivo de detectar de manera precisa y temprana la presencia de \textit{Botrytis cinerea}.
+
+\section{Objetivos}
+\begin{itemize}
+    \item Implementar un modelo de IA para analizar los datos termográficos obtenidos de las plantas de arándano.
+    \item Desarrollar un sistema de clasificación para detectar zonas afectadas por \textit{Botrytis cinerea} basado en patrones térmicos.
+    \item Comparar los resultados de la IA con métodos tradicionales de diagnóstico para evaluar la precisión de la detección.
+    \item Optimizar el rendimiento del sistema a través de ajustes en el modelo de IA y su integración con el hardware de bajo costo.
+\end{itemize}
+
+\section{Preprocesamiento de Datos}
+Los datos obtenidos por el sensor \textit{MLX90640} consisten en una matriz de 32x24 píxeles, donde cada píxel contiene un valor de temperatura en grados Celsius. Antes de alimentar estos datos a un modelo de IA, se realiza un preprocesamiento que incluye:
+\begin{itemize}
+    \item Normalización de los datos termográficos para asegurar que los valores de temperatura estén dentro de un rango adecuado para el análisis.
+    \item Conversión de los datos en matrices de características, ya sea como imágenes o arrays numéricos, según el modelo elegido.
+    \item Eliminación de valores atípicos o ruido térmico que pueda interferir con la precisión del análisis.
+\end{itemize}
+
+\section{Modelos de Inteligencia Artificial Utilizados}
+Se evaluaron dos enfoques principales para entrenar la IA:
+\begin{itemize}
+    \item \textbf{Entrenamiento con datos numéricos:} Utilizando redes neuronales simples (MLP) y máquinas de soporte vectorial (SVM) para clasificar las plantas según sus condiciones de salud.
+    \item \textbf{Entrenamiento con imágenes:} Utilizando redes neuronales convolucionales (CNN) para identificar patrones térmicos en las imágenes generadas a partir de los datos termográficos.
+\end{itemize}
+
+\section{Evaluación de Modelos}
+Los modelos entrenados fueron evaluados mediante varias métricas, tales como:
+\begin{itemize}
+    \item Precisión: Proporción de clasificaciones correctas en relación con el total de predicciones.
+    \item Sensibilidad: Capacidad del modelo para identificar correctamente las plantas infectadas.
+    \item Especificidad: Capacidad del modelo para identificar correctamente las plantas sanas.
+\end{itemize}
+El modelo con mejor rendimiento se implementó en el sistema de detección temprana.
+
+\section{Resultados}
+La integración de la inteligencia artificial en el sistema de detección temprana ha demostrado ser una herramienta valiosa para mejorar la precisión de la identificación de \textit{Botrytis cinerea} en los cultivos de arándano Biloxi. Este sistema permitirá a los agricultores actuar de manera más eficiente para prevenir la propagación de la enfermedad y minimizar las pérdidas económicas.
+

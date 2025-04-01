@@ -221,6 +221,9 @@ INPUT capitulo_hardware.aux
 INPUT .\capitulo_experimento.aux
 INPUT .\capitulo_experimento.aux
 INPUT capitulo_experimento.aux
+INPUT .\capitulo_ia.aux
+INPUT .\capitulo_ia.aux
+INPUT capitulo_ia.aux
 INPUT .\capitulo_conclusiones.aux
 INPUT .\capitulo_conclusiones.aux
 INPUT capitulo_conclusiones.aux
@@ -835,6 +838,12 @@ INPUT .\capitulo_experimento.tex
 INPUT .\capitulo_experimento.tex
 INPUT capitulo_experimento.tex
 INPUT C:\Users\gabma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-BoldItalic-tlf-t1.tfm
+INPUT .\capitulo_ia.tex
+INPUT .\capitulo_ia.tex
+OUTPUT capitulo_ia.aux
+INPUT .\capitulo_ia.tex
+INPUT .\capitulo_ia.tex
+INPUT capitulo_ia.tex
 INPUT .\capitulo_conclusiones.tex
 INPUT .\capitulo_conclusiones.tex
 OUTPUT capitulo_conclusiones.aux
@@ -880,6 +889,9 @@ INPUT capitulo_hardware.aux
 INPUT .\capitulo_experimento.aux
 INPUT .\capitulo_experimento.aux
 INPUT capitulo_experimento.aux
+INPUT .\capitulo_ia.aux
+INPUT .\capitulo_ia.aux
+INPUT capitulo_ia.aux
 INPUT .\capitulo_conclusiones.aux
 INPUT .\capitulo_conclusiones.aux
 INPUT capitulo_conclusiones.aux

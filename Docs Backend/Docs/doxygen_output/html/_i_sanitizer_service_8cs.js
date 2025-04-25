@@ -1,0 +1,4 @@
+var _i_sanitizer_service_8cs =
+[
+    [ "ArandanoIRT_Backend.Application.Interfaces.Utilities.ISanitizerService", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_sanitizer_service.html", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_sanitizer_service" ]
+];

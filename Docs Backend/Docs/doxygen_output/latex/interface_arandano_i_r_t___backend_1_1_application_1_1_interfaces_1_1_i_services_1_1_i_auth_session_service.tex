@@ -1,0 +1,211 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+IServices.\+IAuth\+Session\+Service Interface Reference}
+\hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service}{}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service}\index{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}}
+
+
+Defines the contract for user session management operations, including login, token refresh, and logout.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+IServices.\+IAuth\+Session\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+IServices.\+IAuth\+Session\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload}{Login\+Success\+Payload}} $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a9a95d5a197d51fe591eafbf1ec1f255f}{Login\+Async}} (\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_request_dto}{Login\+Request\+Dto}} request, string ip\+Address, string user\+Agent)
+\begin{DoxyCompactList}\small\item\em Authenticates a user based on email and password without device information. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload}{Login\+Success\+Payload}} $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a520bd3da07aeb2190e5e3cfddcb1dd2a}{Login\+Async}} (\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_request_dto}{Login\+Request\+Dto}} request, string ip\+Address, string user\+Agent, string? device\+Info)
+\begin{DoxyCompactList}\small\item\em Authenticates a user based on email and password, including device information. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_token_response_dto}{Token\+Response\+Dto}} $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_afe6dbca94037583cb02c8024badf9d0e}{Refresh\+Token\+Async}} (string refresh\+Token\+Value, string ip\+Address, string user\+Agent)
+\begin{DoxyCompactList}\small\item\em Refreshes the access token using a valid refresh token without device information. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_token_response_dto}{Token\+Response\+Dto}} $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a56eeddfe846fba28ea069616869720f2}{Refresh\+Token\+Async}} (string refresh\+Token\+Value, string ip\+Address, string user\+Agent, string? device\+Info)
+\begin{DoxyCompactList}\small\item\em Refreshes the access token using a valid refresh token, including device information. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a993a61d51382d75dfe16c6f61811bbb7}{Logout\+Async}} (string refresh\+Token\+Value, string ip\+Address)
+\begin{DoxyCompactList}\small\item\em Revokes the specific refresh token used for the current session (logout). \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a4d475f7f64a6be73d0fa5e3504a8f5ba}{Logout\+Everywhere\+Async}} (long session\+Id, string ip\+Address)
+\begin{DoxyCompactList}\small\item\em Revokes all active refresh tokens associated with a user\textquotesingle{}s session ID (logout everywhere). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the contract for user session management operations, including login, token refresh, and logout. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a9a95d5a197d51fe591eafbf1ec1f255f}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a9a95d5a197d51fe591eafbf1ec1f255f} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}!LoginAsync@{LoginAsync}}
+\index{LoginAsync@{LoginAsync}!ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}}
+\doxysubsubsection{\texorpdfstring{LoginAsync()}{LoginAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload}{Login\+Success\+Payload}} $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+IServices.\+IAuth\+Session\+Service.\+Login\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_request_dto}{Login\+Request\+Dto}}}]{request,  }\item[{string}]{ip\+Address,  }\item[{string}]{user\+Agent }\end{DoxyParamCaption})}
+
+
+
+Authenticates a user based on email and password without device information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & DTO containing login credentials.\\
+\hline
+{\em ip\+Address} & The IP address of the requesting client.\\
+\hline
+{\em user\+Agent} & The user agent string of the requesting client.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task resulting in a Result containing the login payload (user details + tokens) on success, or failure.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_services_1_1_auth_session_service_a9a332ec23efd0ebb0293b0ac647392c2}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Services.\+Auth\+Session\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a520bd3da07aeb2190e5e3cfddcb1dd2a}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a520bd3da07aeb2190e5e3cfddcb1dd2a} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}!LoginAsync@{LoginAsync}}
+\index{LoginAsync@{LoginAsync}!ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}}
+\doxysubsubsection{\texorpdfstring{LoginAsync()}{LoginAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload}{Login\+Success\+Payload}} $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+IServices.\+IAuth\+Session\+Service.\+Login\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_request_dto}{Login\+Request\+Dto}}}]{request,  }\item[{string}]{ip\+Address,  }\item[{string}]{user\+Agent,  }\item[{string?}]{device\+Info }\end{DoxyParamCaption})}
+
+
+
+Authenticates a user based on email and password, including device information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & DTO containing login credentials.\\
+\hline
+{\em ip\+Address} & The IP address of the requesting client.\\
+\hline
+{\em user\+Agent} & The user agent string of the requesting client.\\
+\hline
+{\em device\+Info} & Specific device information (nullable).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task resulting in a Result containing the login payload (user details + tokens) on success, or failure.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_services_1_1_auth_session_service_a27e059e48ace184a0e5000c39c3dd6df}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Services.\+Auth\+Session\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a993a61d51382d75dfe16c6f61811bbb7}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a993a61d51382d75dfe16c6f61811bbb7} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}!LogoutAsync@{LogoutAsync}}
+\index{LogoutAsync@{LogoutAsync}!ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}}
+\doxysubsubsection{\texorpdfstring{LogoutAsync()}{LogoutAsync()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} $>$ Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+IServices.\+IAuth\+Session\+Service.\+Logout\+Async (\begin{DoxyParamCaption}\item[{string}]{refresh\+Token\+Value,  }\item[{string}]{ip\+Address }\end{DoxyParamCaption})}
+
+
+
+Revokes the specific refresh token used for the current session (logout). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em refresh\+Token\+Value} & The opaque refresh token string to revoke.\\
+\hline
+{\em ip\+Address} & The IP address performing the logout.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task representing the asynchronous operation, with a result indicating success or failure.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_services_1_1_auth_session_service_aadf2c2a217f7bfa7633da0d3ada5c19c}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Services.\+Auth\+Session\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a4d475f7f64a6be73d0fa5e3504a8f5ba}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a4d475f7f64a6be73d0fa5e3504a8f5ba} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}!LogoutEverywhereAsync@{LogoutEverywhereAsync}}
+\index{LogoutEverywhereAsync@{LogoutEverywhereAsync}!ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}}
+\doxysubsubsection{\texorpdfstring{LogoutEverywhereAsync()}{LogoutEverywhereAsync()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} $>$ Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+IServices.\+IAuth\+Session\+Service.\+Logout\+Everywhere\+Async (\begin{DoxyParamCaption}\item[{long}]{session\+Id,  }\item[{string}]{ip\+Address }\end{DoxyParamCaption})}
+
+
+
+Revokes all active refresh tokens associated with a user\textquotesingle{}s session ID (logout everywhere). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session\+Id} & The session ID (typically from the JWT \textquotesingle{}sid\textquotesingle{} claim) to revoke tokens for.\\
+\hline
+{\em ip\+Address} & The IP address performing the logout.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task representing the asynchronous operation, with a result indicating success or failure.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_services_1_1_auth_session_service_ad5d60aff946e8a2e3e7ab9859ce96a64}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Services.\+Auth\+Session\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_afe6dbca94037583cb02c8024badf9d0e}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_afe6dbca94037583cb02c8024badf9d0e} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}!RefreshTokenAsync@{RefreshTokenAsync}}
+\index{RefreshTokenAsync@{RefreshTokenAsync}!ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}}
+\doxysubsubsection{\texorpdfstring{RefreshTokenAsync()}{RefreshTokenAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_token_response_dto}{Token\+Response\+Dto}} $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+IServices.\+IAuth\+Session\+Service.\+Refresh\+Token\+Async (\begin{DoxyParamCaption}\item[{string}]{refresh\+Token\+Value,  }\item[{string}]{ip\+Address,  }\item[{string}]{user\+Agent }\end{DoxyParamCaption})}
+
+
+
+Refreshes the access token using a valid refresh token without device information. 
+
+Implements refresh token rotation via the underlying token service.
+
+
+\begin{DoxyParams}{Parameters}
+{\em refresh\+Token\+Value} & The opaque refresh token string.\\
+\hline
+{\em ip\+Address} & The IP address of the requesting client.\\
+\hline
+{\em user\+Agent} & The user agent string of the requesting client.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task resulting in a Result containing the new access and refresh tokens on success, or failure.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_services_1_1_auth_session_service_acb8250cb298ee3e4f348896137785856}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Services.\+Auth\+Session\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a56eeddfe846fba28ea069616869720f2}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service_a56eeddfe846fba28ea069616869720f2} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}!RefreshTokenAsync@{RefreshTokenAsync}}
+\index{RefreshTokenAsync@{RefreshTokenAsync}!ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService@{ArandanoIRT\_Backend.Application.Interfaces.IServices.IAuthSessionService}}
+\doxysubsubsection{\texorpdfstring{RefreshTokenAsync()}{RefreshTokenAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_token_response_dto}{Token\+Response\+Dto}} $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+IServices.\+IAuth\+Session\+Service.\+Refresh\+Token\+Async (\begin{DoxyParamCaption}\item[{string}]{refresh\+Token\+Value,  }\item[{string}]{ip\+Address,  }\item[{string}]{user\+Agent,  }\item[{string?}]{device\+Info }\end{DoxyParamCaption})}
+
+
+
+Refreshes the access token using a valid refresh token, including device information. 
+
+Implements refresh token rotation via the underlying token service.
+
+
+\begin{DoxyParams}{Parameters}
+{\em refresh\+Token\+Value} & The opaque refresh token string.\\
+\hline
+{\em ip\+Address} & The IP address of the requesting client.\\
+\hline
+{\em user\+Agent} & The user agent string of the requesting client.\\
+\hline
+{\em device\+Info} & Specific device information (nullable).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task resulting in a Result containing the new access and refresh tokens on success, or failure.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_services_1_1_auth_session_service_a780e4e818c78a99d3c12a783487d7902}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Services.\+Auth\+Session\+Service}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Application/\+Interfaces/\+IServices/\mbox{\hyperlink{_i_auth_session_service_8cs}{IAuth\+Session\+Service.\+cs}}\end{DoxyCompactItemize}

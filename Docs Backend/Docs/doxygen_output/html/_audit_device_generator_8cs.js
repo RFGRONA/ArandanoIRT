@@ -1,0 +1,4 @@
+var _audit_device_generator_8cs =
+[
+    [ "ArandanoIRT_Backend.Infrastructure.Persistence.Auditing.AuditDeviceGenerator", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_device_generator.html", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_device_generator" ]
+];

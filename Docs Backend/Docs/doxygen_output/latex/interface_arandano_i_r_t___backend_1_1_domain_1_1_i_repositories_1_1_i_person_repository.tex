@@ -1,0 +1,98 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IPerson\+Repository Interface Reference}
+\hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_person_repository}{}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_person_repository}\index{ArandanoIRT\_Backend.Domain.IRepositories.IPersonRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IPersonRepository}}
+
+
+Defines the repository contract specifically for managing Person\+Entity instances.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IPerson\+Repository\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_person_repository__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IPerson\+Repository\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_person_repository__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity}{Person\+Entity}} $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_person_repository_ae0db810895c5ece9835e8224be51dd42}{Get\+By\+Email\+Async}} (string email)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves a person entity by their unique email address. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_person_repository_af6263b07bf5b13f16d7efd6b8026548c}{Update\+Password\+Async}} (int person\+Id, string new\+Password\+Hash, Date\+Time change\+Timestamp)
+\begin{DoxyCompactList}\small\item\em Asynchronously updates the password hash and the last password change timestamp for a specified person. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRepository$<$ Person\+Entity $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a5f4cec88eade2fcf139793d7d682d410}{Get\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves an entity by its unique identifier. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ IEnumerable$<$ T $>$ $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_af00b2fd2fbf6ba6ab9c4e8c1e7fe3f5b}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves all entities of type {\itshape T} . \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_ac8c7a18a474fbbd5c7d384e236dbeb44}{Create}} (T entity)
+\begin{DoxyCompactList}\small\item\em Asynchronously creates a new entity in the data store. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a3d0252a0ffba1cebba1cebc6534450b7}{Update}} (T entity)
+\begin{DoxyCompactList}\small\item\em Asynchronously updates an existing entity in the data store. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a10cff0edbe7c69524a0fd6ab2419edfc}{Delete}} (int id)
+\begin{DoxyCompactList}\small\item\em Asynchronously deletes an entity from the data store by its unique identifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the repository contract specifically for managing Person\+Entity instances. 
+
+Includes operations for retrieving users by email and updating passwords, in addition to the standard CRUD-\/like operations inherited from IRepository$<$\+T$>$. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_person_repository_ae0db810895c5ece9835e8224be51dd42}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_person_repository_ae0db810895c5ece9835e8224be51dd42} 
+\index{ArandanoIRT\_Backend.Domain.IRepositories.IPersonRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IPersonRepository}!GetByEmailAsync@{GetByEmailAsync}}
+\index{GetByEmailAsync@{GetByEmailAsync}!ArandanoIRT\_Backend.Domain.IRepositories.IPersonRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IPersonRepository}}
+\doxysubsubsection{\texorpdfstring{GetByEmailAsync()}{GetByEmailAsync()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity}{Person\+Entity}} $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IPerson\+Repository.\+Get\+By\+Email\+Async (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})}
+
+
+
+Asynchronously retrieves a person entity by their unique email address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email address to search for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task$<$\+TResult$>$ representing the asynchronous operation, containing a Result$<$\+T$>$ which holds the Person\+Entity if found, or a failure result otherwise. 
+\end{DoxyReturn}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_person_repository_af6263b07bf5b13f16d7efd6b8026548c}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_person_repository_af6263b07bf5b13f16d7efd6b8026548c} 
+\index{ArandanoIRT\_Backend.Domain.IRepositories.IPersonRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IPersonRepository}!UpdatePasswordAsync@{UpdatePasswordAsync}}
+\index{UpdatePasswordAsync@{UpdatePasswordAsync}!ArandanoIRT\_Backend.Domain.IRepositories.IPersonRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IPersonRepository}}
+\doxysubsubsection{\texorpdfstring{UpdatePasswordAsync()}{UpdatePasswordAsync()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IPerson\+Repository.\+Update\+Password\+Async (\begin{DoxyParamCaption}\item[{int}]{person\+Id,  }\item[{string}]{new\+Password\+Hash,  }\item[{Date\+Time}]{change\+Timestamp }\end{DoxyParamCaption})}
+
+
+
+Asynchronously updates the password hash and the last password change timestamp for a specified person. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em person\+Id} & The ID of the person entity whose password is to be updated.\\
+\hline
+{\em new\+Password\+Hash} & The new, securely hashed password to store.\\
+\hline
+{\em change\+Timestamp} & The UTC timestamp when the password change occurred.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task$<$\+TResult$>$ representing the asynchronous operation, containing a Result$<$\+T$>$ of {\ttfamily bool} indicating whether the update was successful ({\ttfamily true}) or failed ({\ttfamily false}), along with any error information in case of failure. 
+\end{DoxyReturn}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Domain/\+IRepositories/\mbox{\hyperlink{_i_person_repository_8cs}{IPerson\+Repository.\+cs}}\end{DoxyCompactItemize}

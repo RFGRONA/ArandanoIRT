@@ -1,0 +1,140 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests}{}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests}\index{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}}
+
+
+Contains unit tests for the \doxylink{namespace_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_a6a1e600a17a114e96726227244aa5ab1}{Client\+Info} value object.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a3843ebe8188522bd90259ae1c8d7355b}{To\+Formatted\+String\+\_\+\+Should\+Return\+Agent\+And\+OSWith\+Versions\+And\+Device\+\_\+\+When\+All\+Provided}} ()
+\begin{DoxyCompactList}\small\item\em Tests the To\+Formatted\+String method returns the expected combined string when all properties (User Agent, OS with versions, and a significant Device) are provided. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a84472393dc7763db9c9bafaa0fa9b485}{To\+Formatted\+String\+\_\+\+Should\+Return\+Agent\+And\+Device\+\_\+\+When\+OSIs\+Unknown}} ()
+\begin{DoxyCompactList}\small\item\em Tests the To\+Formatted\+String method returns User Agent (Family and Version) and Device Family when OS details are unknown (default). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_aecc545025a35a4e187611295c057a4d8}{To\+Formatted\+String\+\_\+\+Should\+Return\+OSAnd\+Device\+\_\+\+When\+Agent\+Is\+Unknown}} ()
+\begin{DoxyCompactList}\small\item\em Tests the To\+Formatted\+String method returns OS (Family and Version) and Device Family when User Agent details are unknown (default). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_ad74c26086569229bd84f5e783dc117b7}{To\+Formatted\+String\+\_\+\+Should\+Return\+Agent\+Family\+And\+Device\+\_\+\+When\+Agent\+Version\+And\+OSAre\+Missing}} ()
+\begin{DoxyCompactList}\small\item\em Tests the To\+Formatted\+String method returns the User Agent Family and Device Family when the agent version is missing and OS details are unknown. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a295277186bba1a90f340c4da3d37080c}{To\+Formatted\+String\+\_\+\+Should\+Return\+OSFamily\+And\+Device\+\_\+\+When\+OSVersion\+And\+Agent\+Are\+Missing}} ()
+\begin{DoxyCompactList}\small\item\em Tests the To\+Formatted\+String method returns the OS Family and Device Family when the OS version is missing and User Agent details are unknown. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_aeab814e405fd119646ecc3b7c593c8fb}{To\+Formatted\+String\+\_\+\+Should\+Return\+Device\+Family\+\_\+\+When\+Agent\+And\+OSAre\+Unknown}} ()
+\begin{DoxyCompactList}\small\item\em Tests the To\+Formatted\+String method returns only the Device Family when both User Agent and OS details are unknown or default. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a6aa8eba25f67e41db4fac50c4d00c8b2}{To\+Formatted\+String\+\_\+\+Should\+Return\+Unknown\+Device\+\_\+\+When\+All\+Info\+Is\+Unknown}} ()
+\begin{DoxyCompactList}\small\item\em Tests the To\+Formatted\+String method returns the ultimate fallback "{}\+Unknown Device"{} when all User Agent, OS, and Device Family details are unknown or default. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a50ded78eda01714fae43af3b78c25ce1}{To\+Formatted\+String\+\_\+\+Should\+Trim\+Whitespace\+And\+Include\+Device\+\_\+\+When\+Present}} ()
+\begin{DoxyCompactList}\small\item\em Tests that the To\+Formatted\+String method handles whitespace in version strings correctly by trimming them, and includes the significant Device Family. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a652a81d21edfc4a7706fceea2da45cd9}{To\+Formatted\+String\+\_\+\+Should\+Omit\+Device\+Family\+Other\+\_\+\+When\+Agent\+Or\+OSIs\+Known}} ()
+\begin{DoxyCompactList}\small\item\em Tests that the To\+Formatted\+String method omits the Device Family when it is "{}\+Other"{} and either the User Agent or OS information is known (not default/unknown). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains unit tests for the \doxylink{namespace_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_a6a1e600a17a114e96726227244aa5ab1}{Client\+Info} value object. 
+
+Focuses on the logic of the To\+Formatted\+String method. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a652a81d21edfc4a7706fceea2da45cd9}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a652a81d21edfc4a7706fceea2da45cd9} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}!ToFormattedString\_ShouldOmitDeviceFamilyOther\_WhenAgentOrOSIsKnown@{ToFormattedString\_ShouldOmitDeviceFamilyOther\_WhenAgentOrOSIsKnown}}
+\index{ToFormattedString\_ShouldOmitDeviceFamilyOther\_WhenAgentOrOSIsKnown@{ToFormattedString\_ShouldOmitDeviceFamilyOther\_WhenAgentOrOSIsKnown}!ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}}
+\doxysubsubsection{\texorpdfstring{ToFormattedString\_ShouldOmitDeviceFamilyOther\_WhenAgentOrOSIsKnown()}{ToFormattedString\_ShouldOmitDeviceFamilyOther\_WhenAgentOrOSIsKnown()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests.\+To\+Formatted\+String\+\_\+\+Should\+Omit\+Device\+Family\+Other\+\_\+\+When\+Agent\+Or\+OSIs\+Known (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests that the To\+Formatted\+String method omits the Device Family when it is "{}\+Other"{} and either the User Agent or OS information is known (not default/unknown). 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a84472393dc7763db9c9bafaa0fa9b485}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a84472393dc7763db9c9bafaa0fa9b485} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}!ToFormattedString\_ShouldReturnAgentAndDevice\_WhenOSIsUnknown@{ToFormattedString\_ShouldReturnAgentAndDevice\_WhenOSIsUnknown}}
+\index{ToFormattedString\_ShouldReturnAgentAndDevice\_WhenOSIsUnknown@{ToFormattedString\_ShouldReturnAgentAndDevice\_WhenOSIsUnknown}!ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}}
+\doxysubsubsection{\texorpdfstring{ToFormattedString\_ShouldReturnAgentAndDevice\_WhenOSIsUnknown()}{ToFormattedString\_ShouldReturnAgentAndDevice\_WhenOSIsUnknown()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests.\+To\+Formatted\+String\+\_\+\+Should\+Return\+Agent\+And\+Device\+\_\+\+When\+OSIs\+Unknown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests the To\+Formatted\+String method returns User Agent (Family and Version) and Device Family when OS details are unknown (default). 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a3843ebe8188522bd90259ae1c8d7355b}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a3843ebe8188522bd90259ae1c8d7355b} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}!ToFormattedString\_ShouldReturnAgentAndOSWithVersionsAndDevice\_WhenAllProvided@{ToFormattedString\_ShouldReturnAgentAndOSWithVersionsAndDevice\_WhenAllProvided}}
+\index{ToFormattedString\_ShouldReturnAgentAndOSWithVersionsAndDevice\_WhenAllProvided@{ToFormattedString\_ShouldReturnAgentAndOSWithVersionsAndDevice\_WhenAllProvided}!ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}}
+\doxysubsubsection{\texorpdfstring{ToFormattedString\_ShouldReturnAgentAndOSWithVersionsAndDevice\_WhenAllProvided()}{ToFormattedString\_ShouldReturnAgentAndOSWithVersionsAndDevice\_WhenAllProvided()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests.\+To\+Formatted\+String\+\_\+\+Should\+Return\+Agent\+And\+OSWith\+Versions\+And\+Device\+\_\+\+When\+All\+Provided (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests the To\+Formatted\+String method returns the expected combined string when all properties (User Agent, OS with versions, and a significant Device) are provided. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_ad74c26086569229bd84f5e783dc117b7}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_ad74c26086569229bd84f5e783dc117b7} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}!ToFormattedString\_ShouldReturnAgentFamilyAndDevice\_WhenAgentVersionAndOSAreMissing@{ToFormattedString\_ShouldReturnAgentFamilyAndDevice\_WhenAgentVersionAndOSAreMissing}}
+\index{ToFormattedString\_ShouldReturnAgentFamilyAndDevice\_WhenAgentVersionAndOSAreMissing@{ToFormattedString\_ShouldReturnAgentFamilyAndDevice\_WhenAgentVersionAndOSAreMissing}!ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}}
+\doxysubsubsection{\texorpdfstring{ToFormattedString\_ShouldReturnAgentFamilyAndDevice\_WhenAgentVersionAndOSAreMissing()}{ToFormattedString\_ShouldReturnAgentFamilyAndDevice\_WhenAgentVersionAndOSAreMissing()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests.\+To\+Formatted\+String\+\_\+\+Should\+Return\+Agent\+Family\+And\+Device\+\_\+\+When\+Agent\+Version\+And\+OSAre\+Missing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests the To\+Formatted\+String method returns the User Agent Family and Device Family when the agent version is missing and OS details are unknown. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_aeab814e405fd119646ecc3b7c593c8fb}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_aeab814e405fd119646ecc3b7c593c8fb} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}!ToFormattedString\_ShouldReturnDeviceFamily\_WhenAgentAndOSAreUnknown@{ToFormattedString\_ShouldReturnDeviceFamily\_WhenAgentAndOSAreUnknown}}
+\index{ToFormattedString\_ShouldReturnDeviceFamily\_WhenAgentAndOSAreUnknown@{ToFormattedString\_ShouldReturnDeviceFamily\_WhenAgentAndOSAreUnknown}!ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}}
+\doxysubsubsection{\texorpdfstring{ToFormattedString\_ShouldReturnDeviceFamily\_WhenAgentAndOSAreUnknown()}{ToFormattedString\_ShouldReturnDeviceFamily\_WhenAgentAndOSAreUnknown()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests.\+To\+Formatted\+String\+\_\+\+Should\+Return\+Device\+Family\+\_\+\+When\+Agent\+And\+OSAre\+Unknown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests the To\+Formatted\+String method returns only the Device Family when both User Agent and OS details are unknown or default. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_aecc545025a35a4e187611295c057a4d8}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_aecc545025a35a4e187611295c057a4d8} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}!ToFormattedString\_ShouldReturnOSAndDevice\_WhenAgentIsUnknown@{ToFormattedString\_ShouldReturnOSAndDevice\_WhenAgentIsUnknown}}
+\index{ToFormattedString\_ShouldReturnOSAndDevice\_WhenAgentIsUnknown@{ToFormattedString\_ShouldReturnOSAndDevice\_WhenAgentIsUnknown}!ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}}
+\doxysubsubsection{\texorpdfstring{ToFormattedString\_ShouldReturnOSAndDevice\_WhenAgentIsUnknown()}{ToFormattedString\_ShouldReturnOSAndDevice\_WhenAgentIsUnknown()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests.\+To\+Formatted\+String\+\_\+\+Should\+Return\+OSAnd\+Device\+\_\+\+When\+Agent\+Is\+Unknown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests the To\+Formatted\+String method returns OS (Family and Version) and Device Family when User Agent details are unknown (default). 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a295277186bba1a90f340c4da3d37080c}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a295277186bba1a90f340c4da3d37080c} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}!ToFormattedString\_ShouldReturnOSFamilyAndDevice\_WhenOSVersionAndAgentAreMissing@{ToFormattedString\_ShouldReturnOSFamilyAndDevice\_WhenOSVersionAndAgentAreMissing}}
+\index{ToFormattedString\_ShouldReturnOSFamilyAndDevice\_WhenOSVersionAndAgentAreMissing@{ToFormattedString\_ShouldReturnOSFamilyAndDevice\_WhenOSVersionAndAgentAreMissing}!ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}}
+\doxysubsubsection{\texorpdfstring{ToFormattedString\_ShouldReturnOSFamilyAndDevice\_WhenOSVersionAndAgentAreMissing()}{ToFormattedString\_ShouldReturnOSFamilyAndDevice\_WhenOSVersionAndAgentAreMissing()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests.\+To\+Formatted\+String\+\_\+\+Should\+Return\+OSFamily\+And\+Device\+\_\+\+When\+OSVersion\+And\+Agent\+Are\+Missing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests the To\+Formatted\+String method returns the OS Family and Device Family when the OS version is missing and User Agent details are unknown. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a6aa8eba25f67e41db4fac50c4d00c8b2}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a6aa8eba25f67e41db4fac50c4d00c8b2} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}!ToFormattedString\_ShouldReturnUnknownDevice\_WhenAllInfoIsUnknown@{ToFormattedString\_ShouldReturnUnknownDevice\_WhenAllInfoIsUnknown}}
+\index{ToFormattedString\_ShouldReturnUnknownDevice\_WhenAllInfoIsUnknown@{ToFormattedString\_ShouldReturnUnknownDevice\_WhenAllInfoIsUnknown}!ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}}
+\doxysubsubsection{\texorpdfstring{ToFormattedString\_ShouldReturnUnknownDevice\_WhenAllInfoIsUnknown()}{ToFormattedString\_ShouldReturnUnknownDevice\_WhenAllInfoIsUnknown()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests.\+To\+Formatted\+String\+\_\+\+Should\+Return\+Unknown\+Device\+\_\+\+When\+All\+Info\+Is\+Unknown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests the To\+Formatted\+String method returns the ultimate fallback "{}\+Unknown Device"{} when all User Agent, OS, and Device Family details are unknown or default. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a50ded78eda01714fae43af3b78c25ce1}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests_a50ded78eda01714fae43af3b78c25ce1} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}!ToFormattedString\_ShouldTrimWhitespaceAndIncludeDevice\_WhenPresent@{ToFormattedString\_ShouldTrimWhitespaceAndIncludeDevice\_WhenPresent}}
+\index{ToFormattedString\_ShouldTrimWhitespaceAndIncludeDevice\_WhenPresent@{ToFormattedString\_ShouldTrimWhitespaceAndIncludeDevice\_WhenPresent}!ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.ValueObjects.ClientInfoTests}}
+\doxysubsubsection{\texorpdfstring{ToFormattedString\_ShouldTrimWhitespaceAndIncludeDevice\_WhenPresent()}{ToFormattedString\_ShouldTrimWhitespaceAndIncludeDevice\_WhenPresent()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Value\+Objects.\+Client\+Info\+Tests.\+To\+Formatted\+String\+\_\+\+Should\+Trim\+Whitespace\+And\+Include\+Device\+\_\+\+When\+Present (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests that the To\+Formatted\+String method handles whitespace in version strings correctly by trimming them, and includes the significant Device Family. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tests/\+Unit/\+Domain/\+Value\+Objects/\mbox{\hyperlink{_client_info_tests_8cs}{Client\+Info\+Tests.\+cs}}\end{DoxyCompactItemize}

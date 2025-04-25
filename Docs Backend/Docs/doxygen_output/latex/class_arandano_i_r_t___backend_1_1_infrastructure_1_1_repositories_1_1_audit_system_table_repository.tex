@@ -1,0 +1,84 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Repositories.\+Audit\+System\+Table\+Repository Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository}{}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository}\index{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}}
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Repositories.\+Audit\+System\+Table\+Repository\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Repositories.\+Audit\+System\+Table\+Repository\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{Audit\+System\+Table\+Entity}} $>$ $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_ab20de38de7dbe2355bee65ea63b2d3ee}{Create}} (\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{Audit\+System\+Table\+Entity}} entity)
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a3afdc3143e3040b24a60bd965a3fc8cc}{Delete}} (int id)
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ IEnumerable$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{Audit\+System\+Table\+Entity}} $>$ $>$ $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a8b6cb44adb312da8a10375bf87e18b8e}{Get\+All}} ()
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{Audit\+System\+Table\+Entity}} $>$ $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a8c03a9882b72dc197b221a6e46468eb4}{Get\+By\+Id}} (int id)
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a0a4ba842c5fff07ef17f3658beeddb97}{Update}} (\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{Audit\+System\+Table\+Entity}} entity)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRepository$<$ Audit\+System\+Table\+Entity $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a5f4cec88eade2fcf139793d7d682d410}{Get\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves an entity by its unique identifier. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ IEnumerable$<$ T $>$ $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_af00b2fd2fbf6ba6ab9c4e8c1e7fe3f5b}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves all entities of type {\itshape T} . \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_ac8c7a18a474fbbd5c7d384e236dbeb44}{Create}} (T entity)
+\begin{DoxyCompactList}\small\item\em Asynchronously creates a new entity in the data store. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a3d0252a0ffba1cebba1cebc6534450b7}{Update}} (T entity)
+\begin{DoxyCompactList}\small\item\em Asynchronously updates an existing entity in the data store. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a10cff0edbe7c69524a0fd6ab2419edfc}{Delete}} (int id)
+\begin{DoxyCompactList}\small\item\em Asynchronously deletes an entity from the data store by its unique identifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_ab20de38de7dbe2355bee65ea63b2d3ee}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_ab20de38de7dbe2355bee65ea63b2d3ee} 
+\index{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}!Create@{Create}}
+\index{Create@{Create}!ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{Audit\+System\+Table\+Entity}} $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Repositories.\+Audit\+System\+Table\+Repository.\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{Audit\+System\+Table\+Entity}}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a3afdc3143e3040b24a60bd965a3fc8cc}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a3afdc3143e3040b24a60bd965a3fc8cc} 
+\index{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}!Delete@{Delete}}
+\index{Delete@{Delete}!ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Repositories.\+Audit\+System\+Table\+Repository.\+Delete (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a8b6cb44adb312da8a10375bf87e18b8e}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a8b6cb44adb312da8a10375bf87e18b8e} 
+\index{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}!GetAll@{GetAll}}
+\index{GetAll@{GetAll}!ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}}
+\doxysubsubsection{\texorpdfstring{GetAll()}{GetAll()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ IEnumerable$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{Audit\+System\+Table\+Entity}} $>$ $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Repositories.\+Audit\+System\+Table\+Repository.\+Get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a8c03a9882b72dc197b221a6e46468eb4}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a8c03a9882b72dc197b221a6e46468eb4} 
+\index{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}!GetById@{GetById}}
+\index{GetById@{GetById}!ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}}
+\doxysubsubsection{\texorpdfstring{GetById()}{GetById()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{Audit\+System\+Table\+Entity}} $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Repositories.\+Audit\+System\+Table\+Repository.\+Get\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a0a4ba842c5fff07ef17f3658beeddb97}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository_a0a4ba842c5fff07ef17f3658beeddb97} 
+\index{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}!Update@{Update}}
+\index{Update@{Update}!ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository@{ArandanoIRT\_Backend.Infrastructure.Repositories.AuditSystemTableRepository}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Repositories.\+Audit\+System\+Table\+Repository.\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{Audit\+System\+Table\+Entity}}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Infrastructure/\+Repositories/\mbox{\hyperlink{_audit_system_table_repository_8cs}{Audit\+System\+Table\+Repository.\+cs}}\end{DoxyCompactItemize}

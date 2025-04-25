@@ -1,0 +1,7 @@
+<map id="ArandanoIRT_Backend.Infrastructure.Repositories.AuditSystemTableRepository" name="ArandanoIRT_Backend.Infrastructure.Repositories.AuditSystemTableRepository">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,341,262,512"/>
+<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_audit_system_table_repository.html" title="Defines the repository contract specifically for managing AuditSystemTableEntity instances." alt="" coords="42,224,226,293"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,308,136,342,131,342,131,308"/>
+<area shape="rect" id="Node000003" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository.html" title=" " alt="" coords="52,5,216,176"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="136,191,136,224,131,224,131,191"/>
+</map>

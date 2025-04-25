@@ -1,0 +1,17 @@
+var class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests =
+[
+    [ "AuthSessionServiceTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a31e927de67dec64569fc00c4ac4eae7c", null ],
+    [ "Dispose", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#adf20fcf817a41c3b4f40807e77306806", null ],
+    [ "LoginAsync_DecryptionFails_ReturnsFailureAndRecordsAttempt", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a68a57a2696e0f0b2e47d0deed6649158", null ],
+    [ "LoginAsync_FailedAttemptThresholdMet_SendsWarningEmail", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a8f2cd7f0ae26fd4b861edc9651c813d3", null ],
+    [ "LoginAsync_IncorrectPassword_ReturnsFailureAndRecordsAttempt", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a0599f6da8d011f378cde4748e986b0bc", null ],
+    [ "LoginAsync_TokenGenerationFails_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#aa8ebc5bda19b88758a22a8d4643027ea", null ],
+    [ "LoginAsync_UserNotFound_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a04b1b4aef32442ffde7a94e2bbcaa844", null ],
+    [ "LoginAsync_ValidCredentials_ReturnsSuccessPayload", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a829427a66db182c15cbeda8d1f0279ad", null ],
+    [ "LogoutAsync_TokenServiceFails_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a898f89d40c023cfd2990aafb0af6279a", null ],
+    [ "LogoutAsync_ValidToken_ReturnsSuccessFromTokenService", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a6040792e64f6031520ebe94e24c359b2", null ],
+    [ "LogoutEverywhereAsync_RepoFails_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a12149dcf1d7eff1959dbf4e32e507cee", null ],
+    [ "LogoutEverywhereAsync_ValidSessionId_ReturnsSuccessFromRepo", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a14c055aa2210ddfe2fcb161e35549459", null ],
+    [ "RefreshTokenAsync_TokenServiceFails_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a9f9d5ea062d04d5adf4439c2dd9dcf78", null ],
+    [ "RefreshTokenAsync_ValidToken_ReturnsSuccessFromTokenService", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests.html#a85caf3312c24e1305399932cc7a8944e", null ]
+];

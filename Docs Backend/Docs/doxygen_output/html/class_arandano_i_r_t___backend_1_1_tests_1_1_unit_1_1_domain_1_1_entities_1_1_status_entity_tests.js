@@ -1,0 +1,8 @@
+var class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_status_entity_tests =
+[
+    [ "Constructor_ShouldCreateInstance_WhenTableRelationIdIsNull", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_status_entity_tests.html#a05a8544ad4d243c21787da230561136d", null ],
+    [ "Constructor_ShouldCreateInstance_WhenValidArgumentsProvided", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_status_entity_tests.html#a0b3044da375ceb9796586c84103c54f7", null ],
+    [ "Constructor_ShouldThrowArgumentException_WhenNameStatusIsEmpty", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_status_entity_tests.html#aec46e35196badba2d9dd10809b4bfdf2", null ],
+    [ "Constructor_ShouldThrowArgumentException_WhenNameStatusIsNull", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_status_entity_tests.html#a964ae09be38a1b66803db9e357c23b5d", null ],
+    [ "Constructor_ShouldThrowArgumentException_WhenNameStatusIsWhitespace", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_status_entity_tests.html#aa3815707363264dbce34ca45f8f15d6b", null ]
+];

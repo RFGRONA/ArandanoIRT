@@ -1,0 +1,95 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Help\+Requests\+Controller Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller}{}\label{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller}\index{ArandanoIRT\_Backend.UI.Controllers.HelpRequestsController@{ArandanoIRT\_Backend.UI.Controllers.HelpRequestsController}}
+
+
+Handles endpoints related to user help requests.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Help\+Requests\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Help\+Requests\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller_ad493842fa0b74c36b94a4b29c78ac859}{Help\+Requests\+Controller}} (\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_help_request_service}{IHelp\+Request\+Service}} help\+Request\+Service, \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service}{ICaptcha\+Service}} captcha\+Service, IWeb\+Host\+Environment environment, ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller}{Help\+Requests\+Controller}} $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Help\+Requests\+Controller class. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller_a011bdf7cb2835f2a5c86b5468372a79b}{Send\+Unauthenticated\+Help\+Request}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_help_request_dto}{Help\+Request\+Dto}} request)
+\begin{DoxyCompactList}\small\item\em Submits a help request from an unauthenticated user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_base_api_controller}{Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Base\+Api\+Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_base_api_controller_ada14782717ab974f6f2ae78912575f34}{Base\+Api\+Controller}} (\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service}{ICaptcha\+Service}} captcha\+Service, IWeb\+Host\+Environment environment)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Base\+Api\+Controller class. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result?$>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_base_api_controller_a84d6eb448b623b26a85da24434272153}{Validate\+Captcha\+If\+Needed\+Async}} (string? captcha\+Token, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Validates the CAPTCHA token if the application is not running in the Development environment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles endpoints related to user help requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller_ad493842fa0b74c36b94a4b29c78ac859}\label{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller_ad493842fa0b74c36b94a4b29c78ac859} 
+\index{ArandanoIRT\_Backend.UI.Controllers.HelpRequestsController@{ArandanoIRT\_Backend.UI.Controllers.HelpRequestsController}!HelpRequestsController@{HelpRequestsController}}
+\index{HelpRequestsController@{HelpRequestsController}!ArandanoIRT\_Backend.UI.Controllers.HelpRequestsController@{ArandanoIRT\_Backend.UI.Controllers.HelpRequestsController}}
+\doxysubsubsection{\texorpdfstring{HelpRequestsController()}{HelpRequestsController()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Help\+Requests\+Controller.\+Help\+Requests\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_help_request_service}{IHelp\+Request\+Service}}}]{help\+Request\+Service,  }\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service}{ICaptcha\+Service}}}]{captcha\+Service,  }\item[{IWeb\+Host\+Environment}]{environment,  }\item[{ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller}{Help\+Requests\+Controller}} $>$}]{logger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Help\+Requests\+Controller class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em help\+Request\+Service} & The application service for help request logic.\\
+\hline
+{\em captcha\+Service} & The service for CAPTCHA validation (passed to base).\\
+\hline
+{\em environment} & The web hosting environment (passed to base).\\
+\hline
+{\em logger} & The logger for this controller.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller_a011bdf7cb2835f2a5c86b5468372a79b}\label{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_help_requests_controller_a011bdf7cb2835f2a5c86b5468372a79b} 
+\index{ArandanoIRT\_Backend.UI.Controllers.HelpRequestsController@{ArandanoIRT\_Backend.UI.Controllers.HelpRequestsController}!SendUnauthenticatedHelpRequest@{SendUnauthenticatedHelpRequest}}
+\index{SendUnauthenticatedHelpRequest@{SendUnauthenticatedHelpRequest}!ArandanoIRT\_Backend.UI.Controllers.HelpRequestsController@{ArandanoIRT\_Backend.UI.Controllers.HelpRequestsController}}
+\doxysubsubsection{\texorpdfstring{SendUnauthenticatedHelpRequest()}{SendUnauthenticatedHelpRequest()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Help\+Requests\+Controller.\+Send\+Unauthenticated\+Help\+Request (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_help_request_dto}{Help\+Request\+Dto}}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Submits a help request from an unauthenticated user. 
+
+Validates the specified crop name exists and sends an email to the crop\textquotesingle{}s administrator. Requires CAPTCHA validation outside of Development environment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & Data for the help request (name, email, subject, crop name, message, optional captcha).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result indicating success (204 No Content) or failure (400 Bad Request).
+\end{DoxyReturn}
+$<$response code="{}204"{}$>$Help request sent successfully.$<$/response$>$ $<$response code="{}400"{}$>$Invalid request (e.\+g., missing data, crop not found, invalid CAPTCHA, email send failed).$<$/response$>$ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+UI/\+Controllers/\mbox{\hyperlink{_help_requests_controller_8cs}{Help\+Requests\+Controller.\+cs}}\end{DoxyCompactItemize}

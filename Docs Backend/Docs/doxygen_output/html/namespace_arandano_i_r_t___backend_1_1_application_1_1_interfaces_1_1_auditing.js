@@ -1,0 +1,6 @@
+var namespace_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing =
+[
+    [ "IAuditEntryGenerator", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_entry_generator.html", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_entry_generator" ],
+    [ "IAuditHelperService", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service.html", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service" ],
+    [ "AuditMetadata", "namespace_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing.html#acdbe5518b9d805c6cd98bf6d38e24d9d", null ]
+];

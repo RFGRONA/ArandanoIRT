@@ -1,0 +1,26 @@
+var class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person =
+[
+    [ "Allnotifications", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a6b104c4c6804f764a3fd953a34544a96", null ],
+    [ "Changepassword", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#af074f1cfd6fb1de1bcadac159d8218c0", null ],
+    [ "Createdat", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a5b75bb018f067ae63c436b178f7faca9", null ],
+    [ "Crop", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a94ad24858e6e08ec10284d55bacd854c", null ],
+    [ "Cropid", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#ae7d1f477a1b08540f3c032aeab30bf4d", null ],
+    [ "CropinvitationCreatedbyNavigation", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#ac3c37439015809312e46ad0f61e02e7d", null ],
+    [ "CropinvitationUsedbyNavigation", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a2da62b8f052790d397eedf87f457b0f3", null ],
+    [ "CropNavigation", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a39826dfd2320aa03f6a13e4e247a8f7e", null ],
+    [ "DevicedataRegisteredbyNavigation", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#ae2ed9ad8e959d66b543a162347a8ab89", null ],
+    [ "DevicedataUpdatedbyNavigation", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a0afd999f8b7c347ee39bf57e3d742f2b", null ],
+    [ "Email", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a85800997aae2009023b5153cd62f5900", null ],
+    [ "Failedloginattempt", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a9f37928aea886671ad846644130412d7", null ],
+    [ "Firstname", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#aa1f9cadde76e9b09b8e3e6dab1a50c0d", null ],
+    [ "Idperson", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a8393a99e31360a916368ab92e6bd8dec", null ],
+    [ "Isadmin", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a9b72d779731c4ce97389a2fed5c53cbd", null ],
+    [ "Lastloginat", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#af5507a72668e603a5df1217b48e923a0", null ],
+    [ "Lastname", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a081250b78613457e35472bcb5366847f", null ],
+    [ "Lastpasswordchangeat", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a7ee03712850a2768715bb22a5e41806b", null ],
+    [ "Password", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a5f65bb1de7438f1a2d604f9bf483cab3", null ],
+    [ "Plantobservation", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#ac6fc1aef2787d296c2eb7540af591fd3", null ],
+    [ "Plantstatehistory", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#ab378ba1680892af80bc161acf1112b32", null ],
+    [ "Refreshtoken", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a3814f5eb69ab605c7a34033136b5293a", null ],
+    [ "Updatedat", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_person.html#a58610f8f4b787f75ec36cb03dd110aa0", null ]
+];

@@ -1,0 +1,45 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects Namespace Reference}
+\hypertarget{namespace_arandano_i_r_t___backend_1_1_domain_1_1_value_objects}{}\label{namespace_arandano_i_r_t___backend_1_1_domain_1_1_value_objects}\index{ArandanoIRT\_Backend.Domain.ValueObjects@{ArandanoIRT\_Backend.Domain.ValueObjects}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}
+\begin{DoxyCompactList}\small\item\em Represents the outcome of an operation, indicating either success or failure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+record \mbox{\hyperlink{namespace_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_a6a1e600a17a114e96726227244aa5ab1}{Client\+Info}} (string User\+Agent\+Family="{}Unknown"{}, string User\+Agent\+Version="{}"{}, string OSFamily="{}Unknown OS"{}, string OSVersion="{}"{}, string Device\+Family="{}Unknown Device"{})
+\begin{DoxyCompactList}\small\item\em Holds parsed information about the client (e.\+g., browser, OS, device) making a request, typically derived from the User-\/\+Agent string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_a6a1e600a17a114e96726227244aa5ab1}\label{namespace_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_a6a1e600a17a114e96726227244aa5ab1} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects@{ArandanoIRT\_Backend.Domain.ValueObjects}!ClientInfo@{ClientInfo}}
+\index{ClientInfo@{ClientInfo}!ArandanoIRT\_Backend.Domain.ValueObjects@{ArandanoIRT\_Backend.Domain.ValueObjects}}
+\doxysubsubsection{\texorpdfstring{ClientInfo()}{ClientInfo()}}
+{\footnotesize\ttfamily record Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Client\+Info (\begin{DoxyParamCaption}\item[{string}]{User\+Agent\+Family = {\ttfamily "{}Unknown"{}},  }\item[{string}]{User\+Agent\+Version = {\ttfamily "{}"{}},  }\item[{string}]{OSFamily = {\ttfamily "{}Unknown~OS"{}},  }\item[{string}]{OSVersion = {\ttfamily "{}"{}},  }\item[{string}]{Device\+Family = {\ttfamily "{}Unknown~Device"{}} }\end{DoxyParamCaption})}
+
+
+
+Holds parsed information about the client (e.\+g., browser, OS, device) making a request, typically derived from the User-\/\+Agent string. 
+
+This is an immutable record.
+
+
+\begin{DoxyParams}{Parameters}
+{\em User\+Agent\+Family} & The family name of the user agent (e.\+g., "{}\+Chrome"{}, "{}\+Firefox"{}, "{}\+My\+App"{}). Defaults to "{}\+Unknown"{}.\\
+\hline
+{\em User\+Agent\+Version} & The version string of the user agent (e.\+g., "{}123.\+0.\+0"{}). Defaults to empty string.\\
+\hline
+{\em OSFamily} & The family name of the operating system (e.\+g., "{}\+Windows"{}, "{}\+Android"{}, "{}i\+OS"{}). Defaults to "{}\+Unknown OS"{}.\\
+\hline
+{\em OSVersion} & The version string of the operating system (e.\+g., "{}10"{}, "{}13"{}). Defaults to empty string.\\
+\hline
+{\em Device\+Family} & The family or model name of the device (e.\+g., "{}\+Generic PC"{}, "{}i\+Phone"{}, "{}\+Samsung SM-\/\+G998\+U"{}). Defaults to "{}\+Unknown Device"{}.\\
+\hline
+\end{DoxyParams}
+Provides a user-\/friendly formatted string representation of the client information. Example\+: "{}\+Chrome 123.\+0.\+0 / Windows 10"{} or "{}\+My\+App / Android 13"{} or "{}i\+Phone"{}.
+
+\begin{DoxyReturn}{Returns}
+A formatted string summarizing the client information, prioritizing User Agent and OS details, falling back to Device Family, and ultimately "{}\+Unknown Device"{} if no information is known. 
+\end{DoxyReturn}

@@ -1,0 +1,92 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Filters.\+Sanitization\+Action\+Filter Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter}{}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter}\index{ArandanoIRT\_Backend.Infrastructure.Filters.SanitizationActionFilter@{ArandanoIRT\_Backend.Infrastructure.Filters.SanitizationActionFilter}}
+
+
+An ASP.\+NET Core action filter that automatically sanitizes string properties marked with the Sanitize\+Html\+Attribute on action method arguments (typically DTOs).  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Filters.\+Sanitization\+Action\+Filter\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Filters.\+Sanitization\+Action\+Filter\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter_aa1943426e003be322fcec5ef15b65eab}{Sanitization\+Action\+Filter}} (\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_sanitizer_service}{ISanitizer\+Service}} sanitizer, ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter}{Sanitization\+Action\+Filter}} $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Sanitization\+Action\+Filter class. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter_af35953dc0bf1f3517452b0fe0fc09ff1}{On\+Action\+Execution\+Async}} (Action\+Executing\+Context context, Action\+Execution\+Delegate next)
+\begin{DoxyCompactList}\small\item\em Called asynchronously before the action method executes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An ASP.\+NET Core action filter that automatically sanitizes string properties marked with the Sanitize\+Html\+Attribute on action method arguments (typically DTOs). 
+
+Uses the registered ISanitizer\+Service to remove potentially harmful elements. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter_aa1943426e003be322fcec5ef15b65eab}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter_aa1943426e003be322fcec5ef15b65eab} 
+\index{ArandanoIRT\_Backend.Infrastructure.Filters.SanitizationActionFilter@{ArandanoIRT\_Backend.Infrastructure.Filters.SanitizationActionFilter}!SanitizationActionFilter@{SanitizationActionFilter}}
+\index{SanitizationActionFilter@{SanitizationActionFilter}!ArandanoIRT\_Backend.Infrastructure.Filters.SanitizationActionFilter@{ArandanoIRT\_Backend.Infrastructure.Filters.SanitizationActionFilter}}
+\doxysubsubsection{\texorpdfstring{SanitizationActionFilter()}{SanitizationActionFilter()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Filters.\+Sanitization\+Action\+Filter.\+Sanitization\+Action\+Filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_sanitizer_service}{ISanitizer\+Service}}}]{sanitizer,  }\item[{ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter}{Sanitization\+Action\+Filter}} $>$}]{logger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Sanitization\+Action\+Filter class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sanitizer} & The sanitizer service instance.\\
+\hline
+{\em logger} & The logger instance.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown if sanitizer or logger is null.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter_af35953dc0bf1f3517452b0fe0fc09ff1}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter_af35953dc0bf1f3517452b0fe0fc09ff1} 
+\index{ArandanoIRT\_Backend.Infrastructure.Filters.SanitizationActionFilter@{ArandanoIRT\_Backend.Infrastructure.Filters.SanitizationActionFilter}!OnActionExecutionAsync@{OnActionExecutionAsync}}
+\index{OnActionExecutionAsync@{OnActionExecutionAsync}!ArandanoIRT\_Backend.Infrastructure.Filters.SanitizationActionFilter@{ArandanoIRT\_Backend.Infrastructure.Filters.SanitizationActionFilter}}
+\doxysubsubsection{\texorpdfstring{OnActionExecutionAsync()}{OnActionExecutionAsync()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Filters.\+Sanitization\+Action\+Filter.\+On\+Action\+Execution\+Async (\begin{DoxyParamCaption}\item[{Action\+Executing\+Context}]{context,  }\item[{Action\+Execution\+Delegate}]{next }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Called asynchronously before the action method executes. 
+
+Inspects action arguments and sanitizes marked string properties.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The context for the action executing.\\
+\hline
+{\em next} & The delegate representing the remaining action filter pipeline and the action method itself.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task that on completion indicates the filter has executed.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Infrastructure/\+Filters/\mbox{\hyperlink{_sanitization_action_filter_8cs}{Sanitization\+Action\+Filter.\+cs}}\end{DoxyCompactItemize}

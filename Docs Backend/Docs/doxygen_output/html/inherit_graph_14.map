@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_entry_generator.html" title="Defines a contract for components responsible for generating audit log entries based on entity change..." alt="" coords="5,139,262,181"/>
+<area shape="rect" id="Node000001" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_crop_generator.html" title="Implements IAuditEntryGenerator to create audit trail entries specifically for changes made to Crop e..." alt="" coords="325,5,586,48"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="178,128,238,91,309,58,343,46,345,51,311,62,241,96,180,132"/>
+<area shape="rect" id="Node000002" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator.html" title="Implements IAuditEntryGenerator to create audit trail entries in the Auditdatatable for changes made ..." alt="" coords="310,72,601,115"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="254,132,348,113,350,118,255,138"/>
+<area shape="rect" id="Node000003" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_device_generator.html" title="Implements IAuditEntryGenerator to create audit trail entries in the Auditdevice table for changes ma..." alt="" coords="319,139,592,181"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="277,157,318,157,318,163,277,163"/>
+<area shape="rect" id="Node000004" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_person_generator.html" title="Implements IAuditEntryGenerator to create audit trail entries in the Auditperson table for changes ma..." alt="" coords="319,205,592,248"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="255,182,350,202,348,207,254,188"/>
+<area shape="rect" id="Node000005" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_system_table_generator.html" title="Implements IAuditEntryGenerator to create audit trail entries in the Auditsystemtable for changes mad..." alt="" coords="330,272,581,331"/>
+<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="181,188,242,223,311,258,341,269,339,274,309,262,239,228,179,192"/>
+</map>

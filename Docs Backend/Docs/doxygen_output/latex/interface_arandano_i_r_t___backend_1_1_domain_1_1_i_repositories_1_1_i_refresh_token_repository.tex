@@ -1,0 +1,160 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRefresh\+Token\+Repository Interface Reference}
+\hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository}{}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository}\index{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}}
+
+
+Defines the repository contract specifically for managing Refresh\+Token\+Entity instances.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRefresh\+Token\+Repository\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRefresh\+Token\+Repository\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity}{Refresh\+Token\+Entity}} $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_a68246877622260797fadee2f0d801785}{Get\+By\+Token\+Async}} (string token)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves a refresh token entity by its unique token string. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ IEnumerable$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity}{Refresh\+Token\+Entity}} $>$ $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_aae00fc189cf8a9b39089ee1730737e4b}{Get\+Active\+Tokens\+By\+Person\+Id\+Async}} (int person\+Id)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves all non-\/revoked refresh tokens associated with a specific user. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_a84fbe195ffea1a5737face78a8546c2c}{Delete\+By\+Session\+Async}} (long session\+Id)
+\begin{DoxyCompactList}\small\item\em Asynchronously deletes all refresh tokens associated with a specific session identifier. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_a1a8ed66c7f4d4646204c7841f75efbdb}{Delete\+Expired\+Tokens\+Async}} (int person\+Id, Date\+Time older\+Than)
+\begin{DoxyCompactList}\small\item\em Asynchronously deletes all refresh tokens for a specific user that expired before a given date. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_ad392aca25d7a30f33fd6983f5f3f5621}{Revoke\+By\+Session\+Id\+Async}} (long session\+Id, string revoked\+By\+Ip)
+\begin{DoxyCompactList}\small\item\em Asynchronously revokes (marks as invalid) all active refresh tokens associated with a specific session ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRepository$<$ Refresh\+Token\+Entity $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a5f4cec88eade2fcf139793d7d682d410}{Get\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves an entity by its unique identifier. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ IEnumerable$<$ T $>$ $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_af00b2fd2fbf6ba6ab9c4e8c1e7fe3f5b}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves all entities of type {\itshape T} . \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_ac8c7a18a474fbbd5c7d384e236dbeb44}{Create}} (T entity)
+\begin{DoxyCompactList}\small\item\em Asynchronously creates a new entity in the data store. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a3d0252a0ffba1cebba1cebc6534450b7}{Update}} (T entity)
+\begin{DoxyCompactList}\small\item\em Asynchronously updates an existing entity in the data store. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a10cff0edbe7c69524a0fd6ab2419edfc}{Delete}} (int id)
+\begin{DoxyCompactList}\small\item\em Asynchronously deletes an entity from the data store by its unique identifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the repository contract specifically for managing Refresh\+Token\+Entity instances. 
+
+Includes specific operations for token retrieval, cleanup, and revocation, in addition to the standard CRUD-\/like operations inherited from IRepository$<$\+T$>$. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_a84fbe195ffea1a5737face78a8546c2c}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_a84fbe195ffea1a5737face78a8546c2c} 
+\index{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}!DeleteBySessionAsync@{DeleteBySessionAsync}}
+\index{DeleteBySessionAsync@{DeleteBySessionAsync}!ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}}
+\doxysubsubsection{\texorpdfstring{DeleteBySessionAsync()}{DeleteBySessionAsync()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRefresh\+Token\+Repository.\+Delete\+By\+Session\+Async (\begin{DoxyParamCaption}\item[{long}]{session\+Id }\end{DoxyParamCaption})}
+
+
+
+Asynchronously deletes all refresh tokens associated with a specific session identifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session\+Id} & The session identifier whose tokens should be deleted.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task$<$\+TResult$>$ representing the asynchronous operation, containing a Result$<$\+T$>$ of {\ttfamily bool} indicating whether the deletion was successful ({\ttfamily true}) or failed ({\ttfamily false}), along with any error information in case of failure. 
+\end{DoxyReturn}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_a1a8ed66c7f4d4646204c7841f75efbdb}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_a1a8ed66c7f4d4646204c7841f75efbdb} 
+\index{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}!DeleteExpiredTokensAsync@{DeleteExpiredTokensAsync}}
+\index{DeleteExpiredTokensAsync@{DeleteExpiredTokensAsync}!ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}}
+\doxysubsubsection{\texorpdfstring{DeleteExpiredTokensAsync()}{DeleteExpiredTokensAsync()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRefresh\+Token\+Repository.\+Delete\+Expired\+Tokens\+Async (\begin{DoxyParamCaption}\item[{int}]{person\+Id,  }\item[{Date\+Time}]{older\+Than }\end{DoxyParamCaption})}
+
+
+
+Asynchronously deletes all refresh tokens for a specific user that expired before a given date. 
+
+Used for periodic cleanup.
+
+
+\begin{DoxyParams}{Parameters}
+{\em person\+Id} & The ID of the user whose expired tokens should be deleted.\\
+\hline
+{\em older\+Than} & The cutoff timestamp. Tokens expiring before this timestamp will be deleted.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task$<$\+TResult$>$ representing the asynchronous operation, containing a Result$<$\+T$>$ of {\ttfamily bool} indicating whether the deletion was successful ({\ttfamily true}) or failed ({\ttfamily false}), along with any error information in case of failure. 
+\end{DoxyReturn}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_aae00fc189cf8a9b39089ee1730737e4b}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_aae00fc189cf8a9b39089ee1730737e4b} 
+\index{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}!GetActiveTokensByPersonIdAsync@{GetActiveTokensByPersonIdAsync}}
+\index{GetActiveTokensByPersonIdAsync@{GetActiveTokensByPersonIdAsync}!ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}}
+\doxysubsubsection{\texorpdfstring{GetActiveTokensByPersonIdAsync()}{GetActiveTokensByPersonIdAsync()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ IEnumerable$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity}{Refresh\+Token\+Entity}} $>$ $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRefresh\+Token\+Repository.\+Get\+Active\+Tokens\+By\+Person\+Id\+Async (\begin{DoxyParamCaption}\item[{int}]{person\+Id }\end{DoxyParamCaption})}
+
+
+
+Asynchronously retrieves all non-\/revoked refresh tokens associated with a specific user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em person\+Id} & The ID of the user whose active tokens are to be retrieved.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task$<$\+TResult$>$ representing the asynchronous operation, containing a Result$<$\+T$>$ which holds an IEnumerable$<$\+T$>$ of active Refresh\+Token\+Entity instances if successful, or a failure result otherwise. The list may be empty. 
+\end{DoxyReturn}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_a68246877622260797fadee2f0d801785}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_a68246877622260797fadee2f0d801785} 
+\index{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}!GetByTokenAsync@{GetByTokenAsync}}
+\index{GetByTokenAsync@{GetByTokenAsync}!ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}}
+\doxysubsubsection{\texorpdfstring{GetByTokenAsync()}{GetByTokenAsync()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity}{Refresh\+Token\+Entity}} $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRefresh\+Token\+Repository.\+Get\+By\+Token\+Async (\begin{DoxyParamCaption}\item[{string}]{token }\end{DoxyParamCaption})}
+
+
+
+Asynchronously retrieves a refresh token entity by its unique token string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The refresh token string to search for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task$<$\+TResult$>$ representing the asynchronous operation, containing a Result$<$\+T$>$ which holds the Refresh\+Token\+Entity if found, or a failure result otherwise. 
+\end{DoxyReturn}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_ad392aca25d7a30f33fd6983f5f3f5621}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_refresh_token_repository_ad392aca25d7a30f33fd6983f5f3f5621} 
+\index{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}!RevokeBySessionIdAsync@{RevokeBySessionIdAsync}}
+\index{RevokeBySessionIdAsync@{RevokeBySessionIdAsync}!ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IRefreshTokenRepository}}
+\doxysubsubsection{\texorpdfstring{RevokeBySessionIdAsync()}{RevokeBySessionIdAsync()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRefresh\+Token\+Repository.\+Revoke\+By\+Session\+Id\+Async (\begin{DoxyParamCaption}\item[{long}]{session\+Id,  }\item[{string}]{revoked\+By\+Ip }\end{DoxyParamCaption})}
+
+
+
+Asynchronously revokes (marks as invalid) all active refresh tokens associated with a specific session ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session\+Id} & The session ID for which all associated active tokens should be revoked.\\
+\hline
+{\em revoked\+By\+Ip} & The IP address performing the revocation action.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task$<$\+TResult$>$ representing the asynchronous operation, containing a Result$<$\+T$>$ of {\ttfamily bool} indicating whether the revocation was successful ({\ttfamily true}) or failed ({\ttfamily false}), along with any error information in case of failure. 
+\end{DoxyReturn}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Domain/\+IRepositories/\mbox{\hyperlink{_i_refresh_token_repository_8cs}{IRefresh\+Token\+Repository.\+cs}}\end{DoxyCompactItemize}

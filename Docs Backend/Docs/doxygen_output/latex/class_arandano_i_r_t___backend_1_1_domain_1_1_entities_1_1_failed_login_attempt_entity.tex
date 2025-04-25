@@ -1,0 +1,142 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Failed\+Login\+Attempt\+Entity Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity}{}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity}\index{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}}
+
+
+Represents a record logging a single failed login attempt against a specific user account.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Failed\+Login\+Attempt\+Entity\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_af2cf695e061aa7ee914ce8257a630458}{Failed\+Login\+Attempt\+Entity}} (int id\+Failed\+Login\+Attempt, Date\+Time attempt\+Date, string ip\+Address, string device\+Info, string user\+Agent, int person\+Id)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Failed\+Login\+Attempt\+Entity class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_aad951960d84cef85b2468d5ca6938f76}{Id\+Failed\+Login\+Attempt}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier for this failed login attempt record. \end{DoxyCompactList}\item 
+Date\+Time \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a12d4727254153bf607807a40aac9b3c2}{Attempt\+Date}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the date and time (usually UTC) when the failed login attempt occurred. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a113539798e0de857de473bbbb0efb43f}{Ip\+Address}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the IP address from which the failed login attempt originated. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_aeae5f410d75f6bcfe3565439b3b8fa50}{Device\+Info}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets descriptive information about the device used for the failed login attempt. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a4d36a88ce983385dd767b6dd18b66ff4}{User\+Agent}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the user agent string of the client used for the failed login attempt. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a2062f5d1b3196946d1f27dc05f3723b0}{Person\+Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier of the person (user) account that was targeted by the failed login attempt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a record logging a single failed login attempt against a specific user account. 
+
+Used for security monitoring and potentially implementing lockout mechanisms. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_af2cf695e061aa7ee914ce8257a630458}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_af2cf695e061aa7ee914ce8257a630458} 
+\index{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}!FailedLoginAttemptEntity@{FailedLoginAttemptEntity}}
+\index{FailedLoginAttemptEntity@{FailedLoginAttemptEntity}!ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}}
+\doxysubsubsection{\texorpdfstring{FailedLoginAttemptEntity()}{FailedLoginAttemptEntity()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Failed\+Login\+Attempt\+Entity.\+Failed\+Login\+Attempt\+Entity (\begin{DoxyParamCaption}\item[{int}]{id\+Failed\+Login\+Attempt,  }\item[{Date\+Time}]{attempt\+Date,  }\item[{string}]{ip\+Address,  }\item[{string}]{device\+Info,  }\item[{string}]{user\+Agent,  }\item[{int}]{person\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Failed\+Login\+Attempt\+Entity class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Failed\+Login\+Attempt} & The unique ID for this record (often generated by the database).\\
+\hline
+{\em attempt\+Date} & The timestamp of the failed attempt.\\
+\hline
+{\em ip\+Address} & The source IP address.\\
+\hline
+{\em device\+Info} & Information about the device used.\\
+\hline
+{\em user\+Agent} & The user agent string of the client.\\
+\hline
+{\em person\+Id} & The ID of the user account targeted.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown if {\itshape ip\+Address}  is null or whitespace (Spanish message\+: "{}\+La dirección IP es requerida."{}). Thrown if {\itshape device\+Info}  is null or whitespace (Spanish message\+: "{}\+La información del dispositivo es requerida."{}). Thrown if {\itshape user\+Agent}  is null or whitespace (Spanish message\+: "{}\+El user agent es requerido."{}). \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a12d4727254153bf607807a40aac9b3c2}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a12d4727254153bf607807a40aac9b3c2} 
+\index{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}!AttemptDate@{AttemptDate}}
+\index{AttemptDate@{AttemptDate}!ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}}
+\doxysubsubsection{\texorpdfstring{AttemptDate}{AttemptDate}}
+{\footnotesize\ttfamily Date\+Time Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Failed\+Login\+Attempt\+Entity.\+Attempt\+Date\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the date and time (usually UTC) when the failed login attempt occurred. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_aeae5f410d75f6bcfe3565439b3b8fa50}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_aeae5f410d75f6bcfe3565439b3b8fa50} 
+\index{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}!DeviceInfo@{DeviceInfo}}
+\index{DeviceInfo@{DeviceInfo}!ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}}
+\doxysubsubsection{\texorpdfstring{DeviceInfo}{DeviceInfo}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Failed\+Login\+Attempt\+Entity.\+Device\+Info\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets descriptive information about the device used for the failed login attempt. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_aad951960d84cef85b2468d5ca6938f76}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_aad951960d84cef85b2468d5ca6938f76} 
+\index{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}!IdFailedLoginAttempt@{IdFailedLoginAttempt}}
+\index{IdFailedLoginAttempt@{IdFailedLoginAttempt}!ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}}
+\doxysubsubsection{\texorpdfstring{IdFailedLoginAttempt}{IdFailedLoginAttempt}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Failed\+Login\+Attempt\+Entity.\+Id\+Failed\+Login\+Attempt\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier for this failed login attempt record. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a113539798e0de857de473bbbb0efb43f}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a113539798e0de857de473bbbb0efb43f} 
+\index{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}!IpAddress@{IpAddress}}
+\index{IpAddress@{IpAddress}!ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}}
+\doxysubsubsection{\texorpdfstring{IpAddress}{IpAddress}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Failed\+Login\+Attempt\+Entity.\+Ip\+Address\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the IP address from which the failed login attempt originated. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a2062f5d1b3196946d1f27dc05f3723b0}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a2062f5d1b3196946d1f27dc05f3723b0} 
+\index{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}!PersonId@{PersonId}}
+\index{PersonId@{PersonId}!ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}}
+\doxysubsubsection{\texorpdfstring{PersonId}{PersonId}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Failed\+Login\+Attempt\+Entity.\+Person\+Id\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier of the person (user) account that was targeted by the failed login attempt. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a4d36a88ce983385dd767b6dd18b66ff4}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_failed_login_attempt_entity_a4d36a88ce983385dd767b6dd18b66ff4} 
+\index{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}!UserAgent@{UserAgent}}
+\index{UserAgent@{UserAgent}!ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity@{ArandanoIRT\_Backend.Domain.Entities.FailedLoginAttemptEntity}}
+\doxysubsubsection{\texorpdfstring{UserAgent}{UserAgent}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Failed\+Login\+Attempt\+Entity.\+User\+Agent\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the user agent string of the client used for the failed login attempt. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Domain/\+Entities/\mbox{\hyperlink{_failed_login_attempt_entity_8cs}{Failed\+Login\+Attempt\+Entity.\+cs}}\end{DoxyCompactItemize}

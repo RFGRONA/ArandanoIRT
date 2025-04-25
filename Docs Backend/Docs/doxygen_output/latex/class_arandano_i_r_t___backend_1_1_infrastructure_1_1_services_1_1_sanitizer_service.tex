@@ -1,0 +1,102 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Sanitizer\+Service Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service}{}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service}\index{ArandanoIRT\_Backend.Infrastructure.Services.SanitizerService@{ArandanoIRT\_Backend.Infrastructure.Services.SanitizerService}}
+
+
+Implements the ISanitizer\+Service.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Sanitizer\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Sanitizer\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service_a05f30f85d784e63ea4da67e2579aa006}{Sanitizer\+Service}} (ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service}{Sanitizer\+Service}} $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Sanitizer\+Service class. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service_abc98e2b9e9cedd974f620b073fb05639}{Sanitize}} (string? input)
+\begin{DoxyCompactList}\small\item\em Sanitizes the provided input string according to the implementation\textquotesingle{}s policy.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The potentially unsafe input string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sanitized string, safe for storage or specific uses.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements the ISanitizer\+Service. 
+
+This implementation uses Html\+Sanitizer for XSS protection (default config) and then decodes HTML entities to preserve original characters. Note\+: Default Html\+Sanitizer configuration allows some safe HTML tags. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service_a05f30f85d784e63ea4da67e2579aa006}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service_a05f30f85d784e63ea4da67e2579aa006} 
+\index{ArandanoIRT\_Backend.Infrastructure.Services.SanitizerService@{ArandanoIRT\_Backend.Infrastructure.Services.SanitizerService}!SanitizerService@{SanitizerService}}
+\index{SanitizerService@{SanitizerService}!ArandanoIRT\_Backend.Infrastructure.Services.SanitizerService@{ArandanoIRT\_Backend.Infrastructure.Services.SanitizerService}}
+\doxysubsubsection{\texorpdfstring{SanitizerService()}{SanitizerService()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Sanitizer\+Service.\+Sanitizer\+Service (\begin{DoxyParamCaption}\item[{ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service}{Sanitizer\+Service}} $>$}]{logger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Sanitizer\+Service class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em logger} & The logger instance.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown if logger is null.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service_abc98e2b9e9cedd974f620b073fb05639}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service_abc98e2b9e9cedd974f620b073fb05639} 
+\index{ArandanoIRT\_Backend.Infrastructure.Services.SanitizerService@{ArandanoIRT\_Backend.Infrastructure.Services.SanitizerService}!Sanitize@{Sanitize}}
+\index{Sanitize@{Sanitize}!ArandanoIRT\_Backend.Infrastructure.Services.SanitizerService@{ArandanoIRT\_Backend.Infrastructure.Services.SanitizerService}}
+\doxysubsubsection{\texorpdfstring{Sanitize()}{Sanitize()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Sanitizer\+Service.\+Sanitize (\begin{DoxyParamCaption}\item[{string?}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sanitizes the provided input string according to the implementation\textquotesingle{}s policy.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The potentially unsafe input string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sanitized string, safe for storage or specific uses.
+\end{DoxyReturn}
+ 
+
+
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_sanitizer_service_ae7da85c472f838623a3cc8d98841d491}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+ISanitizer\+Service}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Infrastructure/\+Services/\mbox{\hyperlink{_sanitizer_service_8cs}{Sanitizer\+Service.\+cs}}\end{DoxyCompactItemize}

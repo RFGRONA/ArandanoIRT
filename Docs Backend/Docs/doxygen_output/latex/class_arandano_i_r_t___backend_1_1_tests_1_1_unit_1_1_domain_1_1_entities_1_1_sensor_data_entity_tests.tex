@@ -1,0 +1,128 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Entities.\+Sensor\+Data\+Entity\+Tests Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests}{}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests}\index{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}}
+
+
+Contains unit tests for the Sensor\+Data\+Entity class.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Entities.\+Sensor\+Data\+Entity\+Tests\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a68e2c730119f29014c1ba769182cdc01}{Constructor\+\_\+\+Should\+Throw\+Argument\+Out\+Of\+Range\+Exception\+\_\+\+When\+Humidity\+Is\+Less\+Than\+Zero}} ()
+\begin{DoxyCompactList}\small\item\em Verifies that the constructor throws Argument\+Out\+Of\+Range\+Exception when humidity is less than 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a7e6be7081671530b9dc46b2d0f33902f}{Constructor\+\_\+\+Should\+Throw\+Argument\+Out\+Of\+Range\+Exception\+\_\+\+When\+Humidity\+Is\+Greater\+Than100}} ()
+\begin{DoxyCompactList}\small\item\em Verifies that the constructor throws Argument\+Out\+Of\+Range\+Exception when humidity is greater than 100. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_abda5e7cae5a288a7e965d68eef3dee03}{Constructor\+\_\+\+Should\+Not\+Throw\+\_\+\+When\+Humidity\+Is\+Exactly\+Zero}} ()
+\begin{DoxyCompactList}\small\item\em Verifies that the constructor does NOT throw an exception when humidity is exactly 0 (lower boundary). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_ab82787d8fae41ac0ca7afd4bb479dbb1}{Constructor\+\_\+\+Should\+Not\+Throw\+\_\+\+When\+Humidity\+Is\+Exactly100}} ()
+\begin{DoxyCompactList}\small\item\em Verifies that the constructor does NOT throw an exception when humidity is exactly 100 (upper boundary). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_ad983d69a6984bb4716ba041b5d832605}{Constructor\+\_\+\+Should\+Throw\+Argument\+Out\+Of\+Range\+Exception\+\_\+\+When\+Light\+Intensity\+Is\+Negative}} ()
+\begin{DoxyCompactList}\small\item\em Verifies that the constructor throws Argument\+Out\+Of\+Range\+Exception when light intensity is negative. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a238b8ec4b2a406b0815e8ae266a70cf1}{Constructor\+\_\+\+Should\+Not\+Throw\+\_\+\+When\+Light\+Intensity\+Is\+Exactly\+Zero}} ()
+\begin{DoxyCompactList}\small\item\em Verifies that the constructor does NOT throw an exception when light intensity is exactly 0 (lower boundary). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a06b4a77f48c8fe231b8ec9c32e27dbd3}{Constructor\+\_\+\+Should\+Create\+Instance\+\_\+\+When\+Valid\+Arguments\+Provided}} ()
+\begin{DoxyCompactList}\small\item\em Verifies that the constructor successfully creates an instance and assigns properties correctly when all arguments are valid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_ac9c8c6bc3988ad4123b33ad7a9f1cb41}{Constructor\+\_\+\+Should\+Create\+Instance\+\_\+\+When\+Optional\+Values\+Are\+Null}} ()
+\begin{DoxyCompactList}\small\item\em Verifies that the constructor works correctly when optional arguments (City\+Temperature, City\+Humidity, Plant\+Id, Crop\+Id) are null. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains unit tests for the Sensor\+Data\+Entity class. 
+
+Focuses on constructor validation logic, especially range checks. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_ac9c8c6bc3988ad4123b33ad7a9f1cb41}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_ac9c8c6bc3988ad4123b33ad7a9f1cb41} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}!Constructor\_ShouldCreateInstance\_WhenOptionalValuesAreNull@{Constructor\_ShouldCreateInstance\_WhenOptionalValuesAreNull}}
+\index{Constructor\_ShouldCreateInstance\_WhenOptionalValuesAreNull@{Constructor\_ShouldCreateInstance\_WhenOptionalValuesAreNull}!ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_ShouldCreateInstance\_WhenOptionalValuesAreNull()}{Constructor\_ShouldCreateInstance\_WhenOptionalValuesAreNull()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Entities.\+Sensor\+Data\+Entity\+Tests.\+Constructor\+\_\+\+Should\+Create\+Instance\+\_\+\+When\+Optional\+Values\+Are\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifies that the constructor works correctly when optional arguments (City\+Temperature, City\+Humidity, Plant\+Id, Crop\+Id) are null. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a06b4a77f48c8fe231b8ec9c32e27dbd3}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a06b4a77f48c8fe231b8ec9c32e27dbd3} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}!Constructor\_ShouldCreateInstance\_WhenValidArgumentsProvided@{Constructor\_ShouldCreateInstance\_WhenValidArgumentsProvided}}
+\index{Constructor\_ShouldCreateInstance\_WhenValidArgumentsProvided@{Constructor\_ShouldCreateInstance\_WhenValidArgumentsProvided}!ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_ShouldCreateInstance\_WhenValidArgumentsProvided()}{Constructor\_ShouldCreateInstance\_WhenValidArgumentsProvided()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Entities.\+Sensor\+Data\+Entity\+Tests.\+Constructor\+\_\+\+Should\+Create\+Instance\+\_\+\+When\+Valid\+Arguments\+Provided (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifies that the constructor successfully creates an instance and assigns properties correctly when all arguments are valid. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_ab82787d8fae41ac0ca7afd4bb479dbb1}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_ab82787d8fae41ac0ca7afd4bb479dbb1} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}!Constructor\_ShouldNotThrow\_WhenHumidityIsExactly100@{Constructor\_ShouldNotThrow\_WhenHumidityIsExactly100}}
+\index{Constructor\_ShouldNotThrow\_WhenHumidityIsExactly100@{Constructor\_ShouldNotThrow\_WhenHumidityIsExactly100}!ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_ShouldNotThrow\_WhenHumidityIsExactly100()}{Constructor\_ShouldNotThrow\_WhenHumidityIsExactly100()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Entities.\+Sensor\+Data\+Entity\+Tests.\+Constructor\+\_\+\+Should\+Not\+Throw\+\_\+\+When\+Humidity\+Is\+Exactly100 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifies that the constructor does NOT throw an exception when humidity is exactly 100 (upper boundary). 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_abda5e7cae5a288a7e965d68eef3dee03}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_abda5e7cae5a288a7e965d68eef3dee03} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}!Constructor\_ShouldNotThrow\_WhenHumidityIsExactlyZero@{Constructor\_ShouldNotThrow\_WhenHumidityIsExactlyZero}}
+\index{Constructor\_ShouldNotThrow\_WhenHumidityIsExactlyZero@{Constructor\_ShouldNotThrow\_WhenHumidityIsExactlyZero}!ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_ShouldNotThrow\_WhenHumidityIsExactlyZero()}{Constructor\_ShouldNotThrow\_WhenHumidityIsExactlyZero()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Entities.\+Sensor\+Data\+Entity\+Tests.\+Constructor\+\_\+\+Should\+Not\+Throw\+\_\+\+When\+Humidity\+Is\+Exactly\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifies that the constructor does NOT throw an exception when humidity is exactly 0 (lower boundary). 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a238b8ec4b2a406b0815e8ae266a70cf1}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a238b8ec4b2a406b0815e8ae266a70cf1} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}!Constructor\_ShouldNotThrow\_WhenLightIntensityIsExactlyZero@{Constructor\_ShouldNotThrow\_WhenLightIntensityIsExactlyZero}}
+\index{Constructor\_ShouldNotThrow\_WhenLightIntensityIsExactlyZero@{Constructor\_ShouldNotThrow\_WhenLightIntensityIsExactlyZero}!ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_ShouldNotThrow\_WhenLightIntensityIsExactlyZero()}{Constructor\_ShouldNotThrow\_WhenLightIntensityIsExactlyZero()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Entities.\+Sensor\+Data\+Entity\+Tests.\+Constructor\+\_\+\+Should\+Not\+Throw\+\_\+\+When\+Light\+Intensity\+Is\+Exactly\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifies that the constructor does NOT throw an exception when light intensity is exactly 0 (lower boundary). 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a7e6be7081671530b9dc46b2d0f33902f}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a7e6be7081671530b9dc46b2d0f33902f} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}!Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsGreaterThan100@{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsGreaterThan100}}
+\index{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsGreaterThan100@{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsGreaterThan100}!ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsGreaterThan100()}{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsGreaterThan100()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Entities.\+Sensor\+Data\+Entity\+Tests.\+Constructor\+\_\+\+Should\+Throw\+Argument\+Out\+Of\+Range\+Exception\+\_\+\+When\+Humidity\+Is\+Greater\+Than100 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifies that the constructor throws Argument\+Out\+Of\+Range\+Exception when humidity is greater than 100. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a68e2c730119f29014c1ba769182cdc01}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_a68e2c730119f29014c1ba769182cdc01} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}!Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsLessThanZero@{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsLessThanZero}}
+\index{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsLessThanZero@{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsLessThanZero}!ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsLessThanZero()}{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenHumidityIsLessThanZero()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Entities.\+Sensor\+Data\+Entity\+Tests.\+Constructor\+\_\+\+Should\+Throw\+Argument\+Out\+Of\+Range\+Exception\+\_\+\+When\+Humidity\+Is\+Less\+Than\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifies that the constructor throws Argument\+Out\+Of\+Range\+Exception when humidity is less than 0. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_ad983d69a6984bb4716ba041b5d832605}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests_ad983d69a6984bb4716ba041b5d832605} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}!Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenLightIntensityIsNegative@{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenLightIntensityIsNegative}}
+\index{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenLightIntensityIsNegative@{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenLightIntensityIsNegative}!ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests@{ArandanoIRT\_Backend.Tests.Unit.Domain.Entities.SensorDataEntityTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenLightIntensityIsNegative()}{Constructor\_ShouldThrowArgumentOutOfRangeException\_WhenLightIntensityIsNegative()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Domain.\+Entities.\+Sensor\+Data\+Entity\+Tests.\+Constructor\+\_\+\+Should\+Throw\+Argument\+Out\+Of\+Range\+Exception\+\_\+\+When\+Light\+Intensity\+Is\+Negative (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifies that the constructor throws Argument\+Out\+Of\+Range\+Exception when light intensity is negative. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tests/\+Unit/\+Domain/\+Entities/\mbox{\hyperlink{_sensor_data_entity_tests_8cs}{Sensor\+Data\+Entity\+Tests.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,3 @@
+<map id="ArandanoIRT_Backend.Domain.Entities.FailedLoginAttemptEntity" name="ArandanoIRT_Backend.Domain.Entities.FailedLoginAttemptEntity">
+<area shape="rect" id="Node000001" title="Represents a record logging a single failed login attempt against a specific user account." alt="" coords="5,5,210,197"/>
+</map>

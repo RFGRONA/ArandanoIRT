@@ -1,0 +1,4 @@
+var _i_token_service_8cs =
+[
+    [ "ArandanoIRT_Backend.Infrastructure.Interfaces.IServices.ITokenService", "interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_token_service.html", "interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_token_service" ]
+];

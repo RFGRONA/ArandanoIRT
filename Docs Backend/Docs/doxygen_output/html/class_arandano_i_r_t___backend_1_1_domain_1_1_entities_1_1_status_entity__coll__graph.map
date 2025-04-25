@@ -1,0 +1,3 @@
+<map id="ArandanoIRT_Backend.Domain.Entities.StatusEntity" name="ArandanoIRT_Backend.Domain.Entities.StatusEntity">
+<area shape="rect" id="Node000001" title="Represents a defined status value (e.g., &quot;Active&quot;, &quot;Pending&quot;, &quot;Used&quot;) that can be applied to various ..." alt="" coords="5,5,203,155"/>
+</map>

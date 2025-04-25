@@ -1,0 +1,265 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity}{}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity}\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+
+
+Represents a refresh token used to obtain new access tokens, extending user sessions.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_ae826ef5f8cc1176b2f274669c72fe44a}{Revoke}} (Date\+Time revoked\+At, string? revoked\+By\+Ip)
+\begin{DoxyCompactList}\small\item\em Marks the refresh token as revoked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aa0b49f403fe8f80300d12fe8a917f335}{Replace}} (string replaced\+By\+Token)
+\begin{DoxyCompactList}\small\item\em Marks this refresh token as having been replaced by a new token, part of a rotation strategy. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_abb31d044430ce3c46a5eebd986ae144d}{Refresh\+Token\+Entity}} (int id\+Refresh\+Token, long session, string token, string device\+Info, string ip\+Address, string user\+Agent, Date\+Time created\+At, Date\+Time expires\+At, Date\+Time? revoked\+At, string? revoked\+By\+Ip, string? replaced\+By\+Token, int? person\+Id)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Refresh\+Token\+Entity class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a2e0bb8908d552b81e34a0f1869fad33a}{Id\+Refresh\+Token}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier for this refresh token record. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a61ca1ce4b7228c8204df77205527b77b}{Session}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets an identifier grouping tokens belonging to the same logical session or user login instance. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aa681eb4dd707ec67e14e9c4bb64d74c0}{Token}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique, cryptographically secure refresh token string. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a8661521dd0b71bf38ade1b00ab97d52f}{Device\+Info}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets descriptive information about the device associated with this token at the time of issuance. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aadd65429648e85437ca3c3a024f0e29c}{Ip\+Address}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the IP address from which the token was originally requested. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_ae8136656e25cd7f5e61090204b44d959}{User\+Agent}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the user agent string of the client from which the token was originally requested. \end{DoxyCompactList}\item 
+Date\+Time \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a8a480f20973907cb016b51873128babc}{Created\+At}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the date and time (usually UTC) when this refresh token was created. \end{DoxyCompactList}\item 
+Date\+Time \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a24f949a0cb397387771414786e41a336}{Expires\+At}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the date and time (usually UTC) when this refresh token expires and is no longer valid for obtaining new access tokens. \end{DoxyCompactList}\item 
+Date\+Time? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aa6a21963b26632ffba46be9611200cf9}{Revoked\+At}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the date and time (usually UTC) when this refresh token was revoked. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a71306991e7fa51d27885b355cb37ec11}{Revoked\+By\+Ip}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the IP address that initiated the revocation action, if applicable. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a061798a00ec3e2e191fd8d8361ce05fa}{Replaced\+By\+Token}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the value (or reference) of the new refresh token that replaced this one, used in token rotation strategies. \end{DoxyCompactList}\item 
+int? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a0b09f72f9e371e7a2244a53d73a619ae}{Person\+Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier of the person (user) to whom this refresh token belongs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a refresh token used to obtain new access tokens, extending user sessions. 
+
+Contains information about the token itself, its lifecycle (creation, expiration, revocation), the associated user session, and the context (IP, device) in which it was issued. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_abb31d044430ce3c46a5eebd986ae144d}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_abb31d044430ce3c46a5eebd986ae144d} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!RefreshTokenEntity@{RefreshTokenEntity}}
+\index{RefreshTokenEntity@{RefreshTokenEntity}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{RefreshTokenEntity()}{RefreshTokenEntity()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Refresh\+Token\+Entity (\begin{DoxyParamCaption}\item[{int}]{id\+Refresh\+Token,  }\item[{long}]{session,  }\item[{string}]{token,  }\item[{string}]{device\+Info,  }\item[{string}]{ip\+Address,  }\item[{string}]{user\+Agent,  }\item[{Date\+Time}]{created\+At,  }\item[{Date\+Time}]{expires\+At,  }\item[{Date\+Time?}]{revoked\+At,  }\item[{string?}]{revoked\+By\+Ip,  }\item[{string?}]{replaced\+By\+Token,  }\item[{int?}]{person\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Refresh\+Token\+Entity class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Refresh\+Token} & The unique ID for this token record (often generated by the database).\\
+\hline
+{\em session} & The session identifier associated with this token.\\
+\hline
+{\em token} & The refresh token string.\\
+\hline
+{\em device\+Info} & Information about the device requesting the token.\\
+\hline
+{\em ip\+Address} & The IP address of the client requesting the token.\\
+\hline
+{\em user\+Agent} & The user agent string of the client.\\
+\hline
+{\em created\+At} & The creation timestamp.\\
+\hline
+{\em expires\+At} & The expiration timestamp.\\
+\hline
+{\em revoked\+At} & The revocation timestamp (nullable if active).\\
+\hline
+{\em revoked\+By\+Ip} & The IP address causing revocation (nullable).\\
+\hline
+{\em replaced\+By\+Token} & The token that replaces this one (nullable).\\
+\hline
+{\em person\+Id} & The ID of the user associated with this token (nullable).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown if {\itshape token}  is null or whitespace (Spanish message\+: "{}\+El token es requerido."{}). Thrown if {\itshape device\+Info}  is null or whitespace (Spanish message\+: "{}\+La información del dispositivo es requerida."{}). Thrown if {\itshape ip\+Address}  is null or whitespace (Spanish message\+: "{}\+La dirección IP es requerida."{}). Thrown if {\itshape user\+Agent}  is null or whitespace (Spanish message\+: "{}\+El user agent es requerido."{}). \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aa0b49f403fe8f80300d12fe8a917f335}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aa0b49f403fe8f80300d12fe8a917f335} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!Replace@{Replace}}
+\index{Replace@{Replace}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{Replace()}{Replace()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Replace (\begin{DoxyParamCaption}\item[{string}]{replaced\+By\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Marks this refresh token as having been replaced by a new token, part of a rotation strategy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em replaced\+By\+Token} & The value (or reference) of the new token that replaces this one.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_ae826ef5f8cc1176b2f274669c72fe44a}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_ae826ef5f8cc1176b2f274669c72fe44a} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!Revoke@{Revoke}}
+\index{Revoke@{Revoke}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{Revoke()}{Revoke()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Revoke (\begin{DoxyParamCaption}\item[{Date\+Time}]{revoked\+At,  }\item[{string?}]{revoked\+By\+Ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Marks the refresh token as revoked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em revoked\+At} & The UTC timestamp when the token revocation occurred.\\
+\hline
+{\em revoked\+By\+Ip} & The IP address associated with the revocation action (can be null).\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a8a480f20973907cb016b51873128babc}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a8a480f20973907cb016b51873128babc} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!CreatedAt@{CreatedAt}}
+\index{CreatedAt@{CreatedAt}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{CreatedAt}{CreatedAt}}
+{\footnotesize\ttfamily Date\+Time Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Created\+At\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the date and time (usually UTC) when this refresh token was created. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a8661521dd0b71bf38ade1b00ab97d52f}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a8661521dd0b71bf38ade1b00ab97d52f} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!DeviceInfo@{DeviceInfo}}
+\index{DeviceInfo@{DeviceInfo}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{DeviceInfo}{DeviceInfo}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Device\+Info\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets descriptive information about the device associated with this token at the time of issuance. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a24f949a0cb397387771414786e41a336}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a24f949a0cb397387771414786e41a336} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!ExpiresAt@{ExpiresAt}}
+\index{ExpiresAt@{ExpiresAt}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{ExpiresAt}{ExpiresAt}}
+{\footnotesize\ttfamily Date\+Time Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Expires\+At\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the date and time (usually UTC) when this refresh token expires and is no longer valid for obtaining new access tokens. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a2e0bb8908d552b81e34a0f1869fad33a}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a2e0bb8908d552b81e34a0f1869fad33a} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!IdRefreshToken@{IdRefreshToken}}
+\index{IdRefreshToken@{IdRefreshToken}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{IdRefreshToken}{IdRefreshToken}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Id\+Refresh\+Token\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier for this refresh token record. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aadd65429648e85437ca3c3a024f0e29c}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aadd65429648e85437ca3c3a024f0e29c} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!IpAddress@{IpAddress}}
+\index{IpAddress@{IpAddress}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{IpAddress}{IpAddress}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Ip\+Address\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the IP address from which the token was originally requested. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a0b09f72f9e371e7a2244a53d73a619ae}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a0b09f72f9e371e7a2244a53d73a619ae} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!PersonId@{PersonId}}
+\index{PersonId@{PersonId}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{PersonId}{PersonId}}
+{\footnotesize\ttfamily int? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Person\+Id\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier of the person (user) to whom this refresh token belongs. 
+
+Nullable if associated differently (e.\+g., device token). \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a061798a00ec3e2e191fd8d8361ce05fa}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a061798a00ec3e2e191fd8d8361ce05fa} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!ReplacedByToken@{ReplacedByToken}}
+\index{ReplacedByToken@{ReplacedByToken}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{ReplacedByToken}{ReplacedByToken}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Replaced\+By\+Token\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the value (or reference) of the new refresh token that replaced this one, used in token rotation strategies. 
+
+Nullable if not replaced. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aa6a21963b26632ffba46be9611200cf9}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aa6a21963b26632ffba46be9611200cf9} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!RevokedAt@{RevokedAt}}
+\index{RevokedAt@{RevokedAt}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{RevokedAt}{RevokedAt}}
+{\footnotesize\ttfamily Date\+Time? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Revoked\+At\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the date and time (usually UTC) when this refresh token was revoked. 
+
+Nullable if the token is still active. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a71306991e7fa51d27885b355cb37ec11}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a71306991e7fa51d27885b355cb37ec11} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!RevokedByIp@{RevokedByIp}}
+\index{RevokedByIp@{RevokedByIp}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{RevokedByIp}{RevokedByIp}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Revoked\+By\+Ip\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the IP address that initiated the revocation action, if applicable. 
+
+Nullable if not revoked or IP not recorded. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a61ca1ce4b7228c8204df77205527b77b}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_a61ca1ce4b7228c8204df77205527b77b} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!Session@{Session}}
+\index{Session@{Session}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{Session}{Session}}
+{\footnotesize\ttfamily long Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Session\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets an identifier grouping tokens belonging to the same logical session or user login instance. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aa681eb4dd707ec67e14e9c4bb64d74c0}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_aa681eb4dd707ec67e14e9c4bb64d74c0} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!Token@{Token}}
+\index{Token@{Token}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{Token}{Token}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+Token\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique, cryptographically secure refresh token string. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_ae8136656e25cd7f5e61090204b44d959}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_refresh_token_entity_ae8136656e25cd7f5e61090204b44d959} 
+\index{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}!UserAgent@{UserAgent}}
+\index{UserAgent@{UserAgent}!ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity@{ArandanoIRT\_Backend.Domain.Entities.RefreshTokenEntity}}
+\doxysubsubsection{\texorpdfstring{UserAgent}{UserAgent}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Refresh\+Token\+Entity.\+User\+Agent\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the user agent string of the client from which the token was originally requested. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Domain/\+Entities/\mbox{\hyperlink{_refresh_token_entity_8cs}{Refresh\+Token\+Entity.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,54 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Application.\+DTOs.\+Auth.\+Login\+Success\+Payload Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload}{}\label{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload}\index{ArandanoIRT\_Backend.Application.DTOs.Auth.LoginSuccessPayload@{ArandanoIRT\_Backend.Application.DTOs.Auth.LoginSuccessPayload}}
+
+
+Represents the data returned after a successful login, including user details, access token, and the refresh token string.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Application.\+DTOs.\+Auth.\+Login\+Success\+Payload\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+required \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_response_dto}{Login\+Response\+Dto}} \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload_ae5f3bf39bb629e8761a449103ad00d9e}{Login\+Details}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Standard login response details (user info, access token). \end{DoxyCompactList}\item 
+required string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload_a1f1fc673f674d1bd7fa09be2c678b893}{Refresh\+Token}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The opaque refresh token string generated for this session. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the data returned after a successful login, including user details, access token, and the refresh token string. 
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload_ae5f3bf39bb629e8761a449103ad00d9e}\label{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload_ae5f3bf39bb629e8761a449103ad00d9e} 
+\index{ArandanoIRT\_Backend.Application.DTOs.Auth.LoginSuccessPayload@{ArandanoIRT\_Backend.Application.DTOs.Auth.LoginSuccessPayload}!LoginDetails@{LoginDetails}}
+\index{LoginDetails@{LoginDetails}!ArandanoIRT\_Backend.Application.DTOs.Auth.LoginSuccessPayload@{ArandanoIRT\_Backend.Application.DTOs.Auth.LoginSuccessPayload}}
+\doxysubsubsection{\texorpdfstring{LoginDetails}{LoginDetails}}
+{\footnotesize\ttfamily required \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_response_dto}{Login\+Response\+Dto}} Arandano\+IRT\+\_\+\+Backend.\+Application.\+DTOs.\+Auth.\+Login\+Success\+Payload.\+Login\+Details\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Standard login response details (user info, access token). 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload_a1f1fc673f674d1bd7fa09be2c678b893}\label{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_success_payload_a1f1fc673f674d1bd7fa09be2c678b893} 
+\index{ArandanoIRT\_Backend.Application.DTOs.Auth.LoginSuccessPayload@{ArandanoIRT\_Backend.Application.DTOs.Auth.LoginSuccessPayload}!RefreshToken@{RefreshToken}}
+\index{RefreshToken@{RefreshToken}!ArandanoIRT\_Backend.Application.DTOs.Auth.LoginSuccessPayload@{ArandanoIRT\_Backend.Application.DTOs.Auth.LoginSuccessPayload}}
+\doxysubsubsection{\texorpdfstring{RefreshToken}{RefreshToken}}
+{\footnotesize\ttfamily required string Arandano\+IRT\+\_\+\+Backend.\+Application.\+DTOs.\+Auth.\+Login\+Success\+Payload.\+Refresh\+Token\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The opaque refresh token string generated for this session. 
+
+This should NOT typically be returned in the API response body, but is needed by the controller to set the Http\+Only cookie. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Application/\+DTOs/\+Auth/\mbox{\hyperlink{_login_success_payload_8cs}{Login\+Success\+Payload.\+cs}}\end{DoxyCompactItemize}

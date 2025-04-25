@@ -1,0 +1,16 @@
+var class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests =
+[
+    [ "CacheServiceTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#a93a658229d6be0df0edcce2ff80f9c75", null ],
+    [ "Dispose", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#a6d42e85d9fec7e0fb7625da406be6457", null ],
+    [ "Get_WhenItemDoesNotExist_ShouldReturnNull", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#ae9510582c8270dd1e285f7febb53c65b", null ],
+    [ "Get_WhenItemExistsAndNotExpired_ShouldReturnItem", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#ada28ae2fd9521f2efb8d7ddeced5668f", null ],
+    [ "Get_WhenItemExistsButExpired_ShouldReturnNull", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#ad8ab23325a8f7834a35c41ed7e01aed7", null ],
+    [ "GetCollection_WhenCollectionDoesNotExist_ShouldReturnNull", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#aaa9c14766df8c395a2ee832dcd0b7ba8", null ],
+    [ "GetCollection_WhenCollectionExistsAndNotExpired_ShouldReturnCollection", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#a6e376d4a68c283dc768716d156f824d3", null ],
+    [ "GetCollection_WhenCollectionExistsButExpired_ShouldReturnNull", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#ab12364541356b2f2013b7fb27d8f3409", null ],
+    [ "Remove_WhenItemDoesNotExist_ShouldNotThrowException", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#aced5fdcb050e30569121747c3dd885f3", null ],
+    [ "Remove_WhenItemExists_ShouldRemoveItemFromCache", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#acc6cde9ad48e10606f89a6c3a6138f01", null ],
+    [ "Set_ShouldAddItemToCache_AndGetShouldRetrieveIt", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#aae8a68d37ed269300c39d9bc9e99990f", null ],
+    [ "SetCollection_ShouldAddCollectionToCache_AndGetShouldRetrieveIt", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#a3ec7c71b7756f65b34ea38b2143bc090", null ],
+    [ "SetCollection_WithIEnumerable_ShouldStoreAsList", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html#a4208978b9c70c5c028091dc27cd64e17", null ]
+];

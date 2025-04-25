@@ -1,0 +1,23 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities Namespace Reference}
+\hypertarget{namespace_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities}{}\label{namespace_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities}\index{ArandanoIRT\_Backend.Infrastructure.Utilities@{ArandanoIRT\_Backend.Infrastructure.Utilities}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_b_crypt_password_hasher}{BCrypt\+Password\+Hasher}}
+\begin{DoxyCompactList}\small\item\em Implements the IPassword\+Hasher interface using the BCrypt algorithm provided by the BCrypt.\+Net library. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_date_time_provider}{Date\+Time\+Provider}}
+\begin{DoxyCompactList}\small\item\em Implements the IDate\+Time\+Provider interface. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_password_request}{Password\+Request}}
+\begin{DoxyCompactList}\small\item\em Represents a simple request structure containing a password string. \end{DoxyCompactList}\item 
+class {\bfseries RSAExtensions}
+\begin{DoxyCompactList}\small\item\em Provides internal static extension methods related to RSA key formatting, primarily for PEM encoding. \end{DoxyCompactList}\item 
+class {\bfseries Rsa\+Keys}
+\begin{DoxyCompactList}\small\item\em Internal container class to hold the RSA private and public keys as strings. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_rsa_service}{Rsa\+Service}}
+\begin{DoxyCompactList}\small\item\em Implements the IRsa\+Service interface, providing functionalities for RSA encryption (using public key) and decryption (using private key). \end{DoxyCompactList}\item 
+class {\bfseries RSAUtility}
+\begin{DoxyCompactList}\small\item\em Internal helper class responsible for generating an RSA key pair and performing core encryption and decryption operations using that key pair. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service}{Smtp\+Email\+Service}}
+\begin{DoxyCompactList}\small\item\em Implements the IEmail\+Service interface using an underlying Email\+Sender\+Utility to send emails via SMTP. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_u_a_parser_adapter}{UAParser\+Adapter}}
+\begin{DoxyCompactList}\small\item\em Implements the IUser\+Agent\+Parser interface by adapting the UAParser library (uap-\/csharp) to parse User-\/\+Agent strings into the application\textquotesingle{}s Domain.\+Value\+Objects.\+Client\+Info structure. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,0 +1,161 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Auditing.\+IAudit\+Helper\+Service Interface Reference}
+\hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service}{}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service}\index{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}}
+
+
+Defines a contract for a helper service providing common utility functions used during the audit logging process, particularly with Entity Framework Core entities.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Auditing.\+IAudit\+Helper\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Auditing.\+IAudit\+Helper\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int? \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_aae82cc44b7dd14904bc642e6a3d35020}{Get\+Primary\+Key\+Value}} (Entity\+Entry entry)
+\begin{DoxyCompactList}\small\item\em Gets the primary key value of the entity represented by the specified entry, assuming the primary key is a single integer property. \end{DoxyCompactList}\item 
+int? \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_adee7b20eb0c50571dd89c1a250b4af73}{Get\+Crop\+Id\+Value}} (Entity\+Entry entry)
+\begin{DoxyCompactList}\small\item\em Gets the \textquotesingle{}Crop\+Id\textquotesingle{} value (or equivalent identifier related to a crop) from the entity represented by the specified entry, if available. \end{DoxyCompactList}\item 
+IDictionary$<$ string, object?$>$? \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_aa1aaa040d0508cfe0816286e819234c9}{Get\+Values\+Dictionary}} (Property\+Values? property\+Values)
+\begin{DoxyCompactList}\small\item\em Creates a dictionary mapping property names to their values from the provided Property\+Values object, excluding a predefined set of sensitive properties (like \textquotesingle{}Password\textquotesingle{}). \end{DoxyCompactList}\item 
+IDictionary$<$ string, object?$>$? \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_ab19e857b3641cf683b56d99122dec262}{Get\+Values\+Dictionary}} (Property\+Values? property\+Values, IEnumerable$<$ string $>$? additional\+Excluded\+Properties)
+\begin{DoxyCompactList}\small\item\em Creates a dictionary mapping property names to their values from the provided Property\+Values object, excluding both a predefined set of sensitive properties and any additionally specified properties. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_a354c82e40ec565516ea956b6c0312227}{Serialize\+Property\+Value\+Dictionary}} (IDictionary$<$ string, object?$>$? values)
+\begin{DoxyCompactList}\small\item\em Serializes the provided dictionary of property values into a string representation, typically JSON format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines a contract for a helper service providing common utility functions used during the audit logging process, particularly with Entity Framework Core entities. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_adee7b20eb0c50571dd89c1a250b4af73}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_adee7b20eb0c50571dd89c1a250b4af73} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}!GetCropIdValue@{GetCropIdValue}}
+\index{GetCropIdValue@{GetCropIdValue}!ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}}
+\doxysubsubsection{\texorpdfstring{GetCropIdValue()}{GetCropIdValue()}}
+{\footnotesize\ttfamily int? Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Auditing.\+IAudit\+Helper\+Service.\+Get\+Crop\+Id\+Value (\begin{DoxyParamCaption}\item[{Entity\+Entry}]{entry }\end{DoxyParamCaption})}
+
+
+
+Gets the \textquotesingle{}Crop\+Id\textquotesingle{} value (or equivalent identifier related to a crop) from the entity represented by the specified entry, if available. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & The Entity\+Entry for the tracked entity.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The integer \textquotesingle{}Crop\+Id\textquotesingle{} value, or {\ttfamily null} if the property doesn\textquotesingle{}t exist, is not an integer, or its value is null.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_helper_service_a74eae663bf32a52151dd2b9d329aeb13}{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Helper\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_aae82cc44b7dd14904bc642e6a3d35020}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_aae82cc44b7dd14904bc642e6a3d35020} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}!GetPrimaryKeyValue@{GetPrimaryKeyValue}}
+\index{GetPrimaryKeyValue@{GetPrimaryKeyValue}!ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}}
+\doxysubsubsection{\texorpdfstring{GetPrimaryKeyValue()}{GetPrimaryKeyValue()}}
+{\footnotesize\ttfamily int? Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Auditing.\+IAudit\+Helper\+Service.\+Get\+Primary\+Key\+Value (\begin{DoxyParamCaption}\item[{Entity\+Entry}]{entry }\end{DoxyParamCaption})}
+
+
+
+Gets the primary key value of the entity represented by the specified entry, assuming the primary key is a single integer property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & The Entity\+Entry for the tracked entity.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The integer primary key value of the entity if found and is a single integer key, otherwise {\ttfamily null}. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_helper_service_a214c75b17bfccb040d78dbf7ec2de840}{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Helper\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_aa1aaa040d0508cfe0816286e819234c9}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_aa1aaa040d0508cfe0816286e819234c9} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}!GetValuesDictionary@{GetValuesDictionary}}
+\index{GetValuesDictionary@{GetValuesDictionary}!ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}}
+\doxysubsubsection{\texorpdfstring{GetValuesDictionary()}{GetValuesDictionary()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IDictionary$<$ string, object?$>$? Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Auditing.\+IAudit\+Helper\+Service.\+Get\+Values\+Dictionary (\begin{DoxyParamCaption}\item[{Property\+Values?}]{property\+Values }\end{DoxyParamCaption})}
+
+
+
+Creates a dictionary mapping property names to their values from the provided Property\+Values object, excluding a predefined set of sensitive properties (like \textquotesingle{}Password\textquotesingle{}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em property\+Values} & The Property\+Values object (e.\+g., Original\+Values, Current\+Values) containing the entity\textquotesingle{}s property values. Can be {\ttfamily null}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dictionary where keys are property names and values are the corresponding property values (as {\ttfamily object?}), excluding default sensitive properties. Returns {\ttfamily null} if {\itshape property\+Values}  is {\ttfamily null} or the resulting dictionary is empty after exclusions. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_helper_service_a52863dd4f66282a437bf0e4c247d45fd}{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Helper\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_ab19e857b3641cf683b56d99122dec262}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_ab19e857b3641cf683b56d99122dec262} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}!GetValuesDictionary@{GetValuesDictionary}}
+\index{GetValuesDictionary@{GetValuesDictionary}!ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}}
+\doxysubsubsection{\texorpdfstring{GetValuesDictionary()}{GetValuesDictionary()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily IDictionary$<$ string, object?$>$? Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Auditing.\+IAudit\+Helper\+Service.\+Get\+Values\+Dictionary (\begin{DoxyParamCaption}\item[{Property\+Values?}]{property\+Values,  }\item[{IEnumerable$<$ string $>$?}]{additional\+Excluded\+Properties }\end{DoxyParamCaption})}
+
+
+
+Creates a dictionary mapping property names to their values from the provided Property\+Values object, excluding both a predefined set of sensitive properties and any additionally specified properties. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em property\+Values} & The Property\+Values object (e.\+g., Original\+Values, Current\+Values) containing the entity\textquotesingle{}s property values. Can be {\ttfamily null}.\\
+\hline
+{\em additional\+Excluded\+Properties} & An optional collection of additional property names to exclude from the resulting dictionary, beyond the default exclusions. Can be {\ttfamily null} or empty.\\
+\hline
+\end{DoxyParams}
+// \begin{DoxyReturn}{Returns}
+A dictionary where keys are property names and values are the corresponding property values (as {\ttfamily object?}), excluding default and specified properties. Returns {\ttfamily null} if {\itshape property\+Values}  is {\ttfamily null} or the resulting dictionary is empty after exclusions. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_helper_service_a1f564d67364a41addfdedb3b53ad2ef7}{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Helper\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_a354c82e40ec565516ea956b6c0312227}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service_a354c82e40ec565516ea956b6c0312227} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}!SerializePropertyValueDictionary@{SerializePropertyValueDictionary}}
+\index{SerializePropertyValueDictionary@{SerializePropertyValueDictionary}!ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService@{ArandanoIRT\_Backend.Application.Interfaces.Auditing.IAuditHelperService}}
+\doxysubsubsection{\texorpdfstring{SerializePropertyValueDictionary()}{SerializePropertyValueDictionary()}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Auditing.\+IAudit\+Helper\+Service.\+Serialize\+Property\+Value\+Dictionary (\begin{DoxyParamCaption}\item[{IDictionary$<$ string, object?$>$?}]{values }\end{DoxyParamCaption})}
+
+
+
+Serializes the provided dictionary of property values into a string representation, typically JSON format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & The dictionary containing property names and their values. Can be {\ttfamily null}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string representation of the dictionary (e.\+g., JSON formatted), or {\ttfamily null} if the input dictionary is {\ttfamily null} or empty. Returns an error placeholder string on serialization failure. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_helper_service_aa9d2660a96e20203e01c2353653b713e}{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Helper\+Service}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Application/\+Interfaces/\+Auditing/\mbox{\hyperlink{_i_audit_helper_service_8cs}{IAudit\+Helper\+Service.\+cs}}\end{DoxyCompactItemize}

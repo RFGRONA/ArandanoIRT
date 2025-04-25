@@ -1,0 +1,5 @@
+<map id="ArandanoIRT_Backend.Domain.Exceptions.NotFoundException" name="ArandanoIRT_Backend.Domain.Exceptions.NotFoundException">
+<area shape="rect" id="Node000001" title="Represents an error that occurs when a requested resource, entity, or record could not be found in th..." alt="" coords="5,123,203,208"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="70,5,138,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,89,107,123,102,123,102,89"/>
+</map>

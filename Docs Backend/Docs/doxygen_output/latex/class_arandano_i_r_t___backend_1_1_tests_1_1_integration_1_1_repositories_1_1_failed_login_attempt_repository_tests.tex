@@ -1,0 +1,130 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests}{}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests}\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+
+
+Contains integration tests for the Failed\+Login\+Attempt\+Repository using an SQLite in-\/memory database.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attem74cf725df023250778044074d010eab8}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attem1dc1564e1885710b2b91e662d2c84677}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_acb5baee8a489fc389b9010f2a3db1eb7}{Failed\+Login\+Attempt\+Repository\+Tests}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Failed\+Login\+Attempt\+Repository\+Tests class, setting up the in-\/memory database, mocks, and repository under test. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_add73f46ebc9170acaff37367342ad3d3}{Dispose}} ()
+\begin{DoxyCompactList}\small\item\em Disposes the database context and connection used by the test instance. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_afe10bfaed7cfa3ed93e6fb611385a9f9}{Create\+\_\+\+Should\+Add\+Attempt\+To\+Database}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_af8453822ee1c04d90d764c6e0b88d4af}{Get\+Recent\+Attempts\+Async\+\_\+\+Should\+Return\+Attempts\+For\+Person\+Since\+Date}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a0fedfa1676a56a89792c7e50441ec7c6}{Get\+Recent\+Attempts\+By\+Ip\+Async\+\_\+\+Should\+Return\+Attempts\+For\+Ip\+Since\+Date}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a5eda1f7c4474542ed7b1467ad668d656}{Get\+By\+Id\+\_\+\+When\+Attempt\+Exists\+\_\+\+Should\+Return\+Attempt}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a6ea660b29ab9544e96d3852a5681f3e1}{Get\+By\+Id\+\_\+\+When\+Attempt\+Does\+Not\+Exist\+\_\+\+Should\+Return\+Failure}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_abd716e3ff1ba181d176a159ebedfa1ef}{Get\+All\+\_\+\+Should\+Return\+All\+Attempts}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a664735e74a80e4aadfd329f940f9b8ea}{Update\+\_\+\+Should\+Modify\+Attempt\+In\+Database}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_ac03eb23f2f414ee0af711a45eb6c8a70}{Delete\+\_\+\+Should\+Remove\+Attempt\+From\+Database}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains integration tests for the Failed\+Login\+Attempt\+Repository using an SQLite in-\/memory database. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_acb5baee8a489fc389b9010f2a3db1eb7}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_acb5baee8a489fc389b9010f2a3db1eb7} 
+\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}!FailedLoginAttemptRepositoryTests@{FailedLoginAttemptRepositoryTests}}
+\index{FailedLoginAttemptRepositoryTests@{FailedLoginAttemptRepositoryTests}!ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+\doxysubsubsection{\texorpdfstring{FailedLoginAttemptRepositoryTests()}{FailedLoginAttemptRepositoryTests()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests.\+Failed\+Login\+Attempt\+Repository\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Failed\+Login\+Attempt\+Repository\+Tests class, setting up the in-\/memory database, mocks, and repository under test. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_afe10bfaed7cfa3ed93e6fb611385a9f9}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_afe10bfaed7cfa3ed93e6fb611385a9f9} 
+\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}!Create\_ShouldAddAttemptToDatabase@{Create\_ShouldAddAttemptToDatabase}}
+\index{Create\_ShouldAddAttemptToDatabase@{Create\_ShouldAddAttemptToDatabase}!ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+\doxysubsubsection{\texorpdfstring{Create\_ShouldAddAttemptToDatabase()}{Create\_ShouldAddAttemptToDatabase()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests.\+Create\+\_\+\+Should\+Add\+Attempt\+To\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_ac03eb23f2f414ee0af711a45eb6c8a70}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_ac03eb23f2f414ee0af711a45eb6c8a70} 
+\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}!Delete\_ShouldRemoveAttemptFromDatabase@{Delete\_ShouldRemoveAttemptFromDatabase}}
+\index{Delete\_ShouldRemoveAttemptFromDatabase@{Delete\_ShouldRemoveAttemptFromDatabase}!ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+\doxysubsubsection{\texorpdfstring{Delete\_ShouldRemoveAttemptFromDatabase()}{Delete\_ShouldRemoveAttemptFromDatabase()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests.\+Delete\+\_\+\+Should\+Remove\+Attempt\+From\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_add73f46ebc9170acaff37367342ad3d3}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_add73f46ebc9170acaff37367342ad3d3} 
+\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests.\+Dispose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Disposes the database context and connection used by the test instance. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_abd716e3ff1ba181d176a159ebedfa1ef}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_abd716e3ff1ba181d176a159ebedfa1ef} 
+\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}!GetAll\_ShouldReturnAllAttempts@{GetAll\_ShouldReturnAllAttempts}}
+\index{GetAll\_ShouldReturnAllAttempts@{GetAll\_ShouldReturnAllAttempts}!ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+\doxysubsubsection{\texorpdfstring{GetAll\_ShouldReturnAllAttempts()}{GetAll\_ShouldReturnAllAttempts()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests.\+Get\+All\+\_\+\+Should\+Return\+All\+Attempts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a6ea660b29ab9544e96d3852a5681f3e1}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a6ea660b29ab9544e96d3852a5681f3e1} 
+\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}!GetById\_WhenAttemptDoesNotExist\_ShouldReturnFailure@{GetById\_WhenAttemptDoesNotExist\_ShouldReturnFailure}}
+\index{GetById\_WhenAttemptDoesNotExist\_ShouldReturnFailure@{GetById\_WhenAttemptDoesNotExist\_ShouldReturnFailure}!ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+\doxysubsubsection{\texorpdfstring{GetById\_WhenAttemptDoesNotExist\_ShouldReturnFailure()}{GetById\_WhenAttemptDoesNotExist\_ShouldReturnFailure()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests.\+Get\+By\+Id\+\_\+\+When\+Attempt\+Does\+Not\+Exist\+\_\+\+Should\+Return\+Failure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a5eda1f7c4474542ed7b1467ad668d656}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a5eda1f7c4474542ed7b1467ad668d656} 
+\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}!GetById\_WhenAttemptExists\_ShouldReturnAttempt@{GetById\_WhenAttemptExists\_ShouldReturnAttempt}}
+\index{GetById\_WhenAttemptExists\_ShouldReturnAttempt@{GetById\_WhenAttemptExists\_ShouldReturnAttempt}!ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+\doxysubsubsection{\texorpdfstring{GetById\_WhenAttemptExists\_ShouldReturnAttempt()}{GetById\_WhenAttemptExists\_ShouldReturnAttempt()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests.\+Get\+By\+Id\+\_\+\+When\+Attempt\+Exists\+\_\+\+Should\+Return\+Attempt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_af8453822ee1c04d90d764c6e0b88d4af}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_af8453822ee1c04d90d764c6e0b88d4af} 
+\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}!GetRecentAttemptsAsync\_ShouldReturnAttemptsForPersonSinceDate@{GetRecentAttemptsAsync\_ShouldReturnAttemptsForPersonSinceDate}}
+\index{GetRecentAttemptsAsync\_ShouldReturnAttemptsForPersonSinceDate@{GetRecentAttemptsAsync\_ShouldReturnAttemptsForPersonSinceDate}!ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+\doxysubsubsection{\texorpdfstring{GetRecentAttemptsAsync\_ShouldReturnAttemptsForPersonSinceDate()}{GetRecentAttemptsAsync\_ShouldReturnAttemptsForPersonSinceDate()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests.\+Get\+Recent\+Attempts\+Async\+\_\+\+Should\+Return\+Attempts\+For\+Person\+Since\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a0fedfa1676a56a89792c7e50441ec7c6}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a0fedfa1676a56a89792c7e50441ec7c6} 
+\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}!GetRecentAttemptsByIpAsync\_ShouldReturnAttemptsForIpSinceDate@{GetRecentAttemptsByIpAsync\_ShouldReturnAttemptsForIpSinceDate}}
+\index{GetRecentAttemptsByIpAsync\_ShouldReturnAttemptsForIpSinceDate@{GetRecentAttemptsByIpAsync\_ShouldReturnAttemptsForIpSinceDate}!ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+\doxysubsubsection{\texorpdfstring{GetRecentAttemptsByIpAsync\_ShouldReturnAttemptsForIpSinceDate()}{GetRecentAttemptsByIpAsync\_ShouldReturnAttemptsForIpSinceDate()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests.\+Get\+Recent\+Attempts\+By\+Ip\+Async\+\_\+\+Should\+Return\+Attempts\+For\+Ip\+Since\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a664735e74a80e4aadfd329f940f9b8ea}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_integration_1_1_repositories_1_1_failed_login_attempt_repository_tests_a664735e74a80e4aadfd329f940f9b8ea} 
+\index{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}!Update\_ShouldModifyAttemptInDatabase@{Update\_ShouldModifyAttemptInDatabase}}
+\index{Update\_ShouldModifyAttemptInDatabase@{Update\_ShouldModifyAttemptInDatabase}!ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests@{ArandanoIRT\_Backend.Tests.Integration.Repositories.FailedLoginAttemptRepositoryTests}}
+\doxysubsubsection{\texorpdfstring{Update\_ShouldModifyAttemptInDatabase()}{Update\_ShouldModifyAttemptInDatabase()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Integration.\+Repositories.\+Failed\+Login\+Attempt\+Repository\+Tests.\+Update\+\_\+\+Should\+Modify\+Attempt\+In\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tests/\+Integration/\+Repositories/\mbox{\hyperlink{_failed_login_attempt_repository_tests_8cs}{Failed\+Login\+Attempt\+Repository\+Tests.\+cs}}\end{DoxyCompactItemize}

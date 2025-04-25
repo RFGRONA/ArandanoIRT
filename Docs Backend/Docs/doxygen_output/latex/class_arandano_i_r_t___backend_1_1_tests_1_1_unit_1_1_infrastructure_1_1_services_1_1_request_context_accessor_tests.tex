@@ -1,0 +1,205 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests}{}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests}\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+
+
+Contains unit tests for the Request\+Context\+Accessor class.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_co2cd98a752196dbca1053607c02e17d0f}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a6e6f7e28bb057ae2fefd42b1f51d0fa4}{Request\+Context\+Accessor\+Tests}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Request\+Context\+Accessor\+Tests class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_aa94f39cae306ee6988f211016b191fb9}{Get\+Ip\+Address\+\_\+\+When\+No\+XForwarded\+For\+\_\+\+Should\+Return\+Remote\+Ip\+Address}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a19f4452c12a6866c1d64f87986ad1628}{Get\+Ip\+Address\+\_\+\+When\+XForwarded\+For\+Exists\+\_\+\+Should\+Return\+First\+Ip\+From\+Header}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_ad01b66bd5325b4f537f992fb12cc959e}{Get\+Ip\+Address\+\_\+\+When\+XForwarded\+For\+Has\+Multiple\+IPs\+\_\+\+Should\+Return\+First\+Ip}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a394081f4da1d16be832688be062c269b}{Get\+Ip\+Address\+\_\+\+When\+Http\+Context\+Is\+Null\+\_\+\+Should\+Return\+Unknown}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a225b34098b9d465982b922290ee62b9f}{Get\+User\+Agent\+\_\+\+When\+Header\+Exists\+\_\+\+Should\+Return\+Header\+Value}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_abb11ac2d73be75b0eee64239b208acf3}{Get\+User\+Agent\+\_\+\+When\+Header\+Missing\+\_\+\+Should\+Return\+Unknown}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a3f43d11ff2a7e064f1e734a8c3d855c2}{Get\+User\+Agent\+\_\+\+When\+Http\+Context\+Is\+Null\+\_\+\+Should\+Return\+Unknown}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a8a3b2fd1340f41d2b9f03d44f225a8b1}{Get\+Client\+Info\+\_\+\+Should\+Call\+User\+Agent\+Parser\+And\+Return\+Result}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a1a060f10faf40b456cae3000412dfd27}{Get\+Formatted\+Device\+Info\+\_\+\+Should\+Call\+Get\+Client\+Info\+And\+Format}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a76c0a601a1067df383d94a7e0cc1a9b1}{Get\+Client\+Info\+\_\+\+When\+Called\+Multiple\+Times\+\_\+\+Should\+Return\+Cached\+Result}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a555867b572b616b21f3cc2d0399ecbe0}{Get\+Current\+User\+Id\+\_\+\+When\+User\+Is\+Authenticated\+With\+Name\+Identifier\+\_\+\+Should\+Return\+User\+Id}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_adaec969e465489ac7fffa6c62265648d}{Get\+Current\+User\+Id\+\_\+\+When\+Name\+Identifier\+Claim\+Is\+Missing\+\_\+\+Should\+Return\+Null}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_aea16371c0d9a36d886aaa52f3451b7d2}{Get\+Current\+User\+Id\+\_\+\+When\+Name\+Identifier\+Claim\+Is\+Not\+Int\+\_\+\+Should\+Return\+Null}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_afdf68c1d27149a2f6e466559056a3be6}{Get\+Current\+User\+Id\+\_\+\+When\+User\+Is\+Not\+Authenticated\+\_\+\+Should\+Return\+Null}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_ae788cb7b38fdd177ce8c990f755f93ed}{Get\+Current\+User\+Id\+\_\+\+When\+Http\+Context\+Is\+Null\+\_\+\+Should\+Return\+Null}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a718c3035d94a6251f2f5da4a109c3159}{Get\+Current\+Crop\+Id\+\_\+\+When\+Crop\+Id\+Claim\+Exists\+\_\+\+Should\+Return\+Crop\+Id}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_af790f8a10ff31b6ef39e1771be4346b0}{Get\+Current\+Crop\+Id\+\_\+\+When\+Crop\+Id\+Claim\+Is\+Missing\+\_\+\+Should\+Return\+Null}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a637d51ac421cd2b80df45be0c1938227}{Get\+Current\+Crop\+Id\+\_\+\+When\+Crop\+Id\+Claim\+Is\+Not\+Int\+\_\+\+Should\+Return\+Null}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a8a84ebdfde310be46ed1a5103c8d5345}{Get\+Current\+Crop\+Id\+\_\+\+When\+User\+Is\+Not\+Authenticated\+\_\+\+Should\+Return\+Null}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a33096f051358138fc245678e88f269fd}{Get\+Current\+Crop\+Id\+\_\+\+When\+Http\+Context\+Is\+Null\+\_\+\+Should\+Return\+Null}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains unit tests for the Request\+Context\+Accessor class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a6e6f7e28bb057ae2fefd42b1f51d0fa4}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a6e6f7e28bb057ae2fefd42b1f51d0fa4} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!RequestContextAccessorTests@{RequestContextAccessorTests}}
+\index{RequestContextAccessorTests@{RequestContextAccessorTests}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{RequestContextAccessorTests()}{RequestContextAccessorTests()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Request\+Context\+Accessor\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Request\+Context\+Accessor\+Tests class. 
+
+Sets up mocks, creates a Default\+Http\+Context, and instantiates the service under test. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a8a3b2fd1340f41d2b9f03d44f225a8b1}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a8a3b2fd1340f41d2b9f03d44f225a8b1} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetClientInfo\_ShouldCallUserAgentParserAndReturnResult@{GetClientInfo\_ShouldCallUserAgentParserAndReturnResult}}
+\index{GetClientInfo\_ShouldCallUserAgentParserAndReturnResult@{GetClientInfo\_ShouldCallUserAgentParserAndReturnResult}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetClientInfo\_ShouldCallUserAgentParserAndReturnResult()}{GetClientInfo\_ShouldCallUserAgentParserAndReturnResult()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Client\+Info\+\_\+\+Should\+Call\+User\+Agent\+Parser\+And\+Return\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a76c0a601a1067df383d94a7e0cc1a9b1}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a76c0a601a1067df383d94a7e0cc1a9b1} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetClientInfo\_WhenCalledMultipleTimes\_ShouldReturnCachedResult@{GetClientInfo\_WhenCalledMultipleTimes\_ShouldReturnCachedResult}}
+\index{GetClientInfo\_WhenCalledMultipleTimes\_ShouldReturnCachedResult@{GetClientInfo\_WhenCalledMultipleTimes\_ShouldReturnCachedResult}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetClientInfo\_WhenCalledMultipleTimes\_ShouldReturnCachedResult()}{GetClientInfo\_WhenCalledMultipleTimes\_ShouldReturnCachedResult()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Client\+Info\+\_\+\+When\+Called\+Multiple\+Times\+\_\+\+Should\+Return\+Cached\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a718c3035d94a6251f2f5da4a109c3159}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a718c3035d94a6251f2f5da4a109c3159} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetCurrentCropId\_WhenCropIdClaimExists\_ShouldReturnCropId@{GetCurrentCropId\_WhenCropIdClaimExists\_ShouldReturnCropId}}
+\index{GetCurrentCropId\_WhenCropIdClaimExists\_ShouldReturnCropId@{GetCurrentCropId\_WhenCropIdClaimExists\_ShouldReturnCropId}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetCurrentCropId\_WhenCropIdClaimExists\_ShouldReturnCropId()}{GetCurrentCropId\_WhenCropIdClaimExists\_ShouldReturnCropId()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Current\+Crop\+Id\+\_\+\+When\+Crop\+Id\+Claim\+Exists\+\_\+\+Should\+Return\+Crop\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_af790f8a10ff31b6ef39e1771be4346b0}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_af790f8a10ff31b6ef39e1771be4346b0} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetCurrentCropId\_WhenCropIdClaimIsMissing\_ShouldReturnNull@{GetCurrentCropId\_WhenCropIdClaimIsMissing\_ShouldReturnNull}}
+\index{GetCurrentCropId\_WhenCropIdClaimIsMissing\_ShouldReturnNull@{GetCurrentCropId\_WhenCropIdClaimIsMissing\_ShouldReturnNull}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetCurrentCropId\_WhenCropIdClaimIsMissing\_ShouldReturnNull()}{GetCurrentCropId\_WhenCropIdClaimIsMissing\_ShouldReturnNull()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Current\+Crop\+Id\+\_\+\+When\+Crop\+Id\+Claim\+Is\+Missing\+\_\+\+Should\+Return\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a637d51ac421cd2b80df45be0c1938227}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a637d51ac421cd2b80df45be0c1938227} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetCurrentCropId\_WhenCropIdClaimIsNotInt\_ShouldReturnNull@{GetCurrentCropId\_WhenCropIdClaimIsNotInt\_ShouldReturnNull}}
+\index{GetCurrentCropId\_WhenCropIdClaimIsNotInt\_ShouldReturnNull@{GetCurrentCropId\_WhenCropIdClaimIsNotInt\_ShouldReturnNull}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetCurrentCropId\_WhenCropIdClaimIsNotInt\_ShouldReturnNull()}{GetCurrentCropId\_WhenCropIdClaimIsNotInt\_ShouldReturnNull()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Current\+Crop\+Id\+\_\+\+When\+Crop\+Id\+Claim\+Is\+Not\+Int\+\_\+\+Should\+Return\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a33096f051358138fc245678e88f269fd}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a33096f051358138fc245678e88f269fd} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetCurrentCropId\_WhenHttpContextIsNull\_ShouldReturnNull@{GetCurrentCropId\_WhenHttpContextIsNull\_ShouldReturnNull}}
+\index{GetCurrentCropId\_WhenHttpContextIsNull\_ShouldReturnNull@{GetCurrentCropId\_WhenHttpContextIsNull\_ShouldReturnNull}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetCurrentCropId\_WhenHttpContextIsNull\_ShouldReturnNull()}{GetCurrentCropId\_WhenHttpContextIsNull\_ShouldReturnNull()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Current\+Crop\+Id\+\_\+\+When\+Http\+Context\+Is\+Null\+\_\+\+Should\+Return\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a8a84ebdfde310be46ed1a5103c8d5345}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a8a84ebdfde310be46ed1a5103c8d5345} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetCurrentCropId\_WhenUserIsNotAuthenticated\_ShouldReturnNull@{GetCurrentCropId\_WhenUserIsNotAuthenticated\_ShouldReturnNull}}
+\index{GetCurrentCropId\_WhenUserIsNotAuthenticated\_ShouldReturnNull@{GetCurrentCropId\_WhenUserIsNotAuthenticated\_ShouldReturnNull}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetCurrentCropId\_WhenUserIsNotAuthenticated\_ShouldReturnNull()}{GetCurrentCropId\_WhenUserIsNotAuthenticated\_ShouldReturnNull()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Current\+Crop\+Id\+\_\+\+When\+User\+Is\+Not\+Authenticated\+\_\+\+Should\+Return\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_ae788cb7b38fdd177ce8c990f755f93ed}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_ae788cb7b38fdd177ce8c990f755f93ed} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetCurrentUserId\_WhenHttpContextIsNull\_ShouldReturnNull@{GetCurrentUserId\_WhenHttpContextIsNull\_ShouldReturnNull}}
+\index{GetCurrentUserId\_WhenHttpContextIsNull\_ShouldReturnNull@{GetCurrentUserId\_WhenHttpContextIsNull\_ShouldReturnNull}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetCurrentUserId\_WhenHttpContextIsNull\_ShouldReturnNull()}{GetCurrentUserId\_WhenHttpContextIsNull\_ShouldReturnNull()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Current\+User\+Id\+\_\+\+When\+Http\+Context\+Is\+Null\+\_\+\+Should\+Return\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_adaec969e465489ac7fffa6c62265648d}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_adaec969e465489ac7fffa6c62265648d} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetCurrentUserId\_WhenNameIdentifierClaimIsMissing\_ShouldReturnNull@{GetCurrentUserId\_WhenNameIdentifierClaimIsMissing\_ShouldReturnNull}}
+\index{GetCurrentUserId\_WhenNameIdentifierClaimIsMissing\_ShouldReturnNull@{GetCurrentUserId\_WhenNameIdentifierClaimIsMissing\_ShouldReturnNull}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetCurrentUserId\_WhenNameIdentifierClaimIsMissing\_ShouldReturnNull()}{GetCurrentUserId\_WhenNameIdentifierClaimIsMissing\_ShouldReturnNull()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Current\+User\+Id\+\_\+\+When\+Name\+Identifier\+Claim\+Is\+Missing\+\_\+\+Should\+Return\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_aea16371c0d9a36d886aaa52f3451b7d2}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_aea16371c0d9a36d886aaa52f3451b7d2} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetCurrentUserId\_WhenNameIdentifierClaimIsNotInt\_ShouldReturnNull@{GetCurrentUserId\_WhenNameIdentifierClaimIsNotInt\_ShouldReturnNull}}
+\index{GetCurrentUserId\_WhenNameIdentifierClaimIsNotInt\_ShouldReturnNull@{GetCurrentUserId\_WhenNameIdentifierClaimIsNotInt\_ShouldReturnNull}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetCurrentUserId\_WhenNameIdentifierClaimIsNotInt\_ShouldReturnNull()}{GetCurrentUserId\_WhenNameIdentifierClaimIsNotInt\_ShouldReturnNull()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Current\+User\+Id\+\_\+\+When\+Name\+Identifier\+Claim\+Is\+Not\+Int\+\_\+\+Should\+Return\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a555867b572b616b21f3cc2d0399ecbe0}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a555867b572b616b21f3cc2d0399ecbe0} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetCurrentUserId\_WhenUserIsAuthenticatedWithNameIdentifier\_ShouldReturnUserId@{GetCurrentUserId\_WhenUserIsAuthenticatedWithNameIdentifier\_ShouldReturnUserId}}
+\index{GetCurrentUserId\_WhenUserIsAuthenticatedWithNameIdentifier\_ShouldReturnUserId@{GetCurrentUserId\_WhenUserIsAuthenticatedWithNameIdentifier\_ShouldReturnUserId}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetCurrentUserId\_WhenUserIsAuthenticatedWithNameIdentifier\_ShouldReturnUserId()}{GetCurrentUserId\_WhenUserIsAuthenticatedWithNameIdentifier\_ShouldReturnUserId()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Current\+User\+Id\+\_\+\+When\+User\+Is\+Authenticated\+With\+Name\+Identifier\+\_\+\+Should\+Return\+User\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_afdf68c1d27149a2f6e466559056a3be6}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_afdf68c1d27149a2f6e466559056a3be6} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetCurrentUserId\_WhenUserIsNotAuthenticated\_ShouldReturnNull@{GetCurrentUserId\_WhenUserIsNotAuthenticated\_ShouldReturnNull}}
+\index{GetCurrentUserId\_WhenUserIsNotAuthenticated\_ShouldReturnNull@{GetCurrentUserId\_WhenUserIsNotAuthenticated\_ShouldReturnNull}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetCurrentUserId\_WhenUserIsNotAuthenticated\_ShouldReturnNull()}{GetCurrentUserId\_WhenUserIsNotAuthenticated\_ShouldReturnNull()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Current\+User\+Id\+\_\+\+When\+User\+Is\+Not\+Authenticated\+\_\+\+Should\+Return\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a1a060f10faf40b456cae3000412dfd27}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a1a060f10faf40b456cae3000412dfd27} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetFormattedDeviceInfo\_ShouldCallGetClientInfoAndFormat@{GetFormattedDeviceInfo\_ShouldCallGetClientInfoAndFormat}}
+\index{GetFormattedDeviceInfo\_ShouldCallGetClientInfoAndFormat@{GetFormattedDeviceInfo\_ShouldCallGetClientInfoAndFormat}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetFormattedDeviceInfo\_ShouldCallGetClientInfoAndFormat()}{GetFormattedDeviceInfo\_ShouldCallGetClientInfoAndFormat()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Formatted\+Device\+Info\+\_\+\+Should\+Call\+Get\+Client\+Info\+And\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a394081f4da1d16be832688be062c269b}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a394081f4da1d16be832688be062c269b} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetIpAddress\_WhenHttpContextIsNull\_ShouldReturnUnknown@{GetIpAddress\_WhenHttpContextIsNull\_ShouldReturnUnknown}}
+\index{GetIpAddress\_WhenHttpContextIsNull\_ShouldReturnUnknown@{GetIpAddress\_WhenHttpContextIsNull\_ShouldReturnUnknown}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetIpAddress\_WhenHttpContextIsNull\_ShouldReturnUnknown()}{GetIpAddress\_WhenHttpContextIsNull\_ShouldReturnUnknown()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Ip\+Address\+\_\+\+When\+Http\+Context\+Is\+Null\+\_\+\+Should\+Return\+Unknown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_aa94f39cae306ee6988f211016b191fb9}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_aa94f39cae306ee6988f211016b191fb9} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetIpAddress\_WhenNoXForwardedFor\_ShouldReturnRemoteIpAddress@{GetIpAddress\_WhenNoXForwardedFor\_ShouldReturnRemoteIpAddress}}
+\index{GetIpAddress\_WhenNoXForwardedFor\_ShouldReturnRemoteIpAddress@{GetIpAddress\_WhenNoXForwardedFor\_ShouldReturnRemoteIpAddress}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetIpAddress\_WhenNoXForwardedFor\_ShouldReturnRemoteIpAddress()}{GetIpAddress\_WhenNoXForwardedFor\_ShouldReturnRemoteIpAddress()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Ip\+Address\+\_\+\+When\+No\+XForwarded\+For\+\_\+\+Should\+Return\+Remote\+Ip\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a19f4452c12a6866c1d64f87986ad1628}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a19f4452c12a6866c1d64f87986ad1628} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetIpAddress\_WhenXForwardedForExists\_ShouldReturnFirstIpFromHeader@{GetIpAddress\_WhenXForwardedForExists\_ShouldReturnFirstIpFromHeader}}
+\index{GetIpAddress\_WhenXForwardedForExists\_ShouldReturnFirstIpFromHeader@{GetIpAddress\_WhenXForwardedForExists\_ShouldReturnFirstIpFromHeader}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetIpAddress\_WhenXForwardedForExists\_ShouldReturnFirstIpFromHeader()}{GetIpAddress\_WhenXForwardedForExists\_ShouldReturnFirstIpFromHeader()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Ip\+Address\+\_\+\+When\+XForwarded\+For\+Exists\+\_\+\+Should\+Return\+First\+Ip\+From\+Header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_ad01b66bd5325b4f537f992fb12cc959e}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_ad01b66bd5325b4f537f992fb12cc959e} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetIpAddress\_WhenXForwardedForHasMultipleIPs\_ShouldReturnFirstIp@{GetIpAddress\_WhenXForwardedForHasMultipleIPs\_ShouldReturnFirstIp}}
+\index{GetIpAddress\_WhenXForwardedForHasMultipleIPs\_ShouldReturnFirstIp@{GetIpAddress\_WhenXForwardedForHasMultipleIPs\_ShouldReturnFirstIp}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetIpAddress\_WhenXForwardedForHasMultipleIPs\_ShouldReturnFirstIp()}{GetIpAddress\_WhenXForwardedForHasMultipleIPs\_ShouldReturnFirstIp()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+Ip\+Address\+\_\+\+When\+XForwarded\+For\+Has\+Multiple\+IPs\+\_\+\+Should\+Return\+First\+Ip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a225b34098b9d465982b922290ee62b9f}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a225b34098b9d465982b922290ee62b9f} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetUserAgent\_WhenHeaderExists\_ShouldReturnHeaderValue@{GetUserAgent\_WhenHeaderExists\_ShouldReturnHeaderValue}}
+\index{GetUserAgent\_WhenHeaderExists\_ShouldReturnHeaderValue@{GetUserAgent\_WhenHeaderExists\_ShouldReturnHeaderValue}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetUserAgent\_WhenHeaderExists\_ShouldReturnHeaderValue()}{GetUserAgent\_WhenHeaderExists\_ShouldReturnHeaderValue()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+User\+Agent\+\_\+\+When\+Header\+Exists\+\_\+\+Should\+Return\+Header\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_abb11ac2d73be75b0eee64239b208acf3}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_abb11ac2d73be75b0eee64239b208acf3} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetUserAgent\_WhenHeaderMissing\_ShouldReturnUnknown@{GetUserAgent\_WhenHeaderMissing\_ShouldReturnUnknown}}
+\index{GetUserAgent\_WhenHeaderMissing\_ShouldReturnUnknown@{GetUserAgent\_WhenHeaderMissing\_ShouldReturnUnknown}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetUserAgent\_WhenHeaderMissing\_ShouldReturnUnknown()}{GetUserAgent\_WhenHeaderMissing\_ShouldReturnUnknown()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+User\+Agent\+\_\+\+When\+Header\+Missing\+\_\+\+Should\+Return\+Unknown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a3f43d11ff2a7e064f1e734a8c3d855c2}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_request_context_accessor_tests_a3f43d11ff2a7e064f1e734a8c3d855c2} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}!GetUserAgent\_WhenHttpContextIsNull\_ShouldReturnUnknown@{GetUserAgent\_WhenHttpContextIsNull\_ShouldReturnUnknown}}
+\index{GetUserAgent\_WhenHttpContextIsNull\_ShouldReturnUnknown@{GetUserAgent\_WhenHttpContextIsNull\_ShouldReturnUnknown}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Services.RequestContextAccessorTests}}
+\doxysubsubsection{\texorpdfstring{GetUserAgent\_WhenHttpContextIsNull\_ShouldReturnUnknown()}{GetUserAgent\_WhenHttpContextIsNull\_ShouldReturnUnknown()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Services.\+Request\+Context\+Accessor\+Tests.\+Get\+User\+Agent\+\_\+\+When\+Http\+Context\+Is\+Null\+\_\+\+Should\+Return\+Unknown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tests/\+Unit/\+Infrastructure/\+Services/\mbox{\hyperlink{_request_context_accessor_tests_8cs}{Request\+Context\+Accessor\+Tests.\+cs}}\end{DoxyCompactItemize}

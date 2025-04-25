@@ -1,0 +1,145 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests}{}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests}\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+
+
+Contains unit tests for the Smtp\+Email\+Service class.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a19044a5fed26720755acd6691a7b792d}{Smtp\+Email\+Service\+Tests}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Smtp\+Email\+Service\+Tests class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a194fabc005f590b430ca639ec6e399e1}{Generate\+Password\+Reset\+Body\+\_\+\+Should\+Contain\+User\+Name\+And\+Token}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a7e2bd69d8c9a7c6c1894bc7991b2102a}{Generate\+Welcome\+Body\+\_\+\+Should\+Contain\+User\+Name}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a2b68a6f641ead77073431f30b32018ce}{Generate\+Account\+Confirmation\+Body\+\_\+\+Should\+Contain\+User\+Name\+And\+Link}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_ac3ea1efa4e78bcbc20020198f02c2ee0}{Generate\+Invitation\+Body\+\_\+\+Should\+Contain\+Inviter\+Crop\+Code\+And\+Expiry}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_aab5829c45eb27cb23cca1620c4acd6de}{Generate\+Suspicious\+Activity\+Body\+\_\+\+Should\+Contain\+User\+Name\+Time\+And\+Ip}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a65d4beea08016138f27fa3aa509587af}{Generate\+Password\+Reset\+Token\+Body\+\_\+\+Should\+Contain\+User\+Name\+And\+Token}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a728ef845d85ee92833793aaf7972f3d5}{Generate\+Password\+Change\+Confirmation\+Body\+\_\+\+Should\+Contain\+User\+Name}} ()
+\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_ae65c9ef759c2abe48f4d91295c47cc36}{Generate\+Help\+Request\+Body\+\_\+\+Should\+Contain\+All\+Request\+Details}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a43e3ba2d6f35354e6f6d9f73cba12ef4}{Send\+Email\+Async\+\_\+\+With\+Invalid\+Email\+\_\+\+Should\+Return\+Failure}} ()
+\begin{DoxyCompactList}\small\item\em Tests that Send\+Email\+Async returns a failure result when provided with an invalid recipient email address. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_aa3264dc60286266c1e1fe782d02a108a}{Send\+Email\+Async\+\_\+\+With\+Valid\+Email\+And\+Config\+\_\+\+Should\+Return\+Success}} ()
+\begin{DoxyCompactList}\small\item\em Tests that Send\+Email\+Async returns success for a valid email address when SMTP configuration is present. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a4396525a4936b2998fd314f6818d3f02}{Send\+Email\+Async\+\_\+\+With\+Valid\+Email\+And\+Missing\+Config\+\_\+\+Should\+Throw\+Exception}} ()
+\begin{DoxyCompactList}\small\item\em Tests that Send\+Email\+Async (or its internal utility) throws an exception when required SMTP configuration is missing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains unit tests for the Smtp\+Email\+Service class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a19044a5fed26720755acd6691a7b792d}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a19044a5fed26720755acd6691a7b792d} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!SmtpEmailServiceTests@{SmtpEmailServiceTests}}
+\index{SmtpEmailServiceTests@{SmtpEmailServiceTests}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{SmtpEmailServiceTests()}{SmtpEmailServiceTests()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Smtp\+Email\+Service\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Smtp\+Email\+Service\+Tests class. 
+
+Sets up mock configuration required by the Smtp\+Email\+Service. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a2b68a6f641ead77073431f30b32018ce}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a2b68a6f641ead77073431f30b32018ce} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!GenerateAccountConfirmationBody\_ShouldContainUserNameAndLink@{GenerateAccountConfirmationBody\_ShouldContainUserNameAndLink}}
+\index{GenerateAccountConfirmationBody\_ShouldContainUserNameAndLink@{GenerateAccountConfirmationBody\_ShouldContainUserNameAndLink}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateAccountConfirmationBody\_ShouldContainUserNameAndLink()}{GenerateAccountConfirmationBody\_ShouldContainUserNameAndLink()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Generate\+Account\+Confirmation\+Body\+\_\+\+Should\+Contain\+User\+Name\+And\+Link (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_ae65c9ef759c2abe48f4d91295c47cc36}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_ae65c9ef759c2abe48f4d91295c47cc36} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!GenerateHelpRequestBody\_ShouldContainAllRequestDetails@{GenerateHelpRequestBody\_ShouldContainAllRequestDetails}}
+\index{GenerateHelpRequestBody\_ShouldContainAllRequestDetails@{GenerateHelpRequestBody\_ShouldContainAllRequestDetails}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateHelpRequestBody\_ShouldContainAllRequestDetails()}{GenerateHelpRequestBody\_ShouldContainAllRequestDetails()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Generate\+Help\+Request\+Body\+\_\+\+Should\+Contain\+All\+Request\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_ac3ea1efa4e78bcbc20020198f02c2ee0}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_ac3ea1efa4e78bcbc20020198f02c2ee0} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!GenerateInvitationBody\_ShouldContainInviterCropCodeAndExpiry@{GenerateInvitationBody\_ShouldContainInviterCropCodeAndExpiry}}
+\index{GenerateInvitationBody\_ShouldContainInviterCropCodeAndExpiry@{GenerateInvitationBody\_ShouldContainInviterCropCodeAndExpiry}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateInvitationBody\_ShouldContainInviterCropCodeAndExpiry()}{GenerateInvitationBody\_ShouldContainInviterCropCodeAndExpiry()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Generate\+Invitation\+Body\+\_\+\+Should\+Contain\+Inviter\+Crop\+Code\+And\+Expiry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a728ef845d85ee92833793aaf7972f3d5}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a728ef845d85ee92833793aaf7972f3d5} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!GeneratePasswordChangeConfirmationBody\_ShouldContainUserName@{GeneratePasswordChangeConfirmationBody\_ShouldContainUserName}}
+\index{GeneratePasswordChangeConfirmationBody\_ShouldContainUserName@{GeneratePasswordChangeConfirmationBody\_ShouldContainUserName}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{GeneratePasswordChangeConfirmationBody\_ShouldContainUserName()}{GeneratePasswordChangeConfirmationBody\_ShouldContainUserName()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Generate\+Password\+Change\+Confirmation\+Body\+\_\+\+Should\+Contain\+User\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a194fabc005f590b430ca639ec6e399e1}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a194fabc005f590b430ca639ec6e399e1} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!GeneratePasswordResetBody\_ShouldContainUserNameAndToken@{GeneratePasswordResetBody\_ShouldContainUserNameAndToken}}
+\index{GeneratePasswordResetBody\_ShouldContainUserNameAndToken@{GeneratePasswordResetBody\_ShouldContainUserNameAndToken}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{GeneratePasswordResetBody\_ShouldContainUserNameAndToken()}{GeneratePasswordResetBody\_ShouldContainUserNameAndToken()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Generate\+Password\+Reset\+Body\+\_\+\+Should\+Contain\+User\+Name\+And\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a65d4beea08016138f27fa3aa509587af}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a65d4beea08016138f27fa3aa509587af} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!GeneratePasswordResetTokenBody\_ShouldContainUserNameAndToken@{GeneratePasswordResetTokenBody\_ShouldContainUserNameAndToken}}
+\index{GeneratePasswordResetTokenBody\_ShouldContainUserNameAndToken@{GeneratePasswordResetTokenBody\_ShouldContainUserNameAndToken}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{GeneratePasswordResetTokenBody\_ShouldContainUserNameAndToken()}{GeneratePasswordResetTokenBody\_ShouldContainUserNameAndToken()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Generate\+Password\+Reset\+Token\+Body\+\_\+\+Should\+Contain\+User\+Name\+And\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_aab5829c45eb27cb23cca1620c4acd6de}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_aab5829c45eb27cb23cca1620c4acd6de} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!GenerateSuspiciousActivityBody\_ShouldContainUserNameTimeAndIp@{GenerateSuspiciousActivityBody\_ShouldContainUserNameTimeAndIp}}
+\index{GenerateSuspiciousActivityBody\_ShouldContainUserNameTimeAndIp@{GenerateSuspiciousActivityBody\_ShouldContainUserNameTimeAndIp}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateSuspiciousActivityBody\_ShouldContainUserNameTimeAndIp()}{GenerateSuspiciousActivityBody\_ShouldContainUserNameTimeAndIp()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Generate\+Suspicious\+Activity\+Body\+\_\+\+Should\+Contain\+User\+Name\+Time\+And\+Ip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a7e2bd69d8c9a7c6c1894bc7991b2102a}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a7e2bd69d8c9a7c6c1894bc7991b2102a} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!GenerateWelcomeBody\_ShouldContainUserName@{GenerateWelcomeBody\_ShouldContainUserName}}
+\index{GenerateWelcomeBody\_ShouldContainUserName@{GenerateWelcomeBody\_ShouldContainUserName}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateWelcomeBody\_ShouldContainUserName()}{GenerateWelcomeBody\_ShouldContainUserName()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Generate\+Welcome\+Body\+\_\+\+Should\+Contain\+User\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a43e3ba2d6f35354e6f6d9f73cba12ef4}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a43e3ba2d6f35354e6f6d9f73cba12ef4} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!SendEmailAsync\_WithInvalidEmail\_ShouldReturnFailure@{SendEmailAsync\_WithInvalidEmail\_ShouldReturnFailure}}
+\index{SendEmailAsync\_WithInvalidEmail\_ShouldReturnFailure@{SendEmailAsync\_WithInvalidEmail\_ShouldReturnFailure}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{SendEmailAsync\_WithInvalidEmail\_ShouldReturnFailure()}{SendEmailAsync\_WithInvalidEmail\_ShouldReturnFailure()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Send\+Email\+Async\+\_\+\+With\+Invalid\+Email\+\_\+\+Should\+Return\+Failure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests that Send\+Email\+Async returns a failure result when provided with an invalid recipient email address. 
+
+Relies on the validation performed by Email\+Validator\+Utility internally. \Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_aa3264dc60286266c1e1fe782d02a108a}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_aa3264dc60286266c1e1fe782d02a108a} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!SendEmailAsync\_WithValidEmailAndConfig\_ShouldReturnSuccess@{SendEmailAsync\_WithValidEmailAndConfig\_ShouldReturnSuccess}}
+\index{SendEmailAsync\_WithValidEmailAndConfig\_ShouldReturnSuccess@{SendEmailAsync\_WithValidEmailAndConfig\_ShouldReturnSuccess}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{SendEmailAsync\_WithValidEmailAndConfig\_ShouldReturnSuccess()}{SendEmailAsync\_WithValidEmailAndConfig\_ShouldReturnSuccess()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Send\+Email\+Async\+\_\+\+With\+Valid\+Email\+And\+Config\+\_\+\+Should\+Return\+Success (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests that Send\+Email\+Async returns success for a valid email address when SMTP configuration is present. 
+
+This test simulates the scenario where configuration is valid, and email sending {\itshape would} be attempted (though it doesn\textquotesingle{}t actually send in the unit test environment). \Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a4396525a4936b2998fd314f6818d3f02}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_tests_a4396525a4936b2998fd314f6818d3f02} 
+\index{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}!SendEmailAsync\_WithValidEmailAndMissingConfig\_ShouldThrowException@{SendEmailAsync\_WithValidEmailAndMissingConfig\_ShouldThrowException}}
+\index{SendEmailAsync\_WithValidEmailAndMissingConfig\_ShouldThrowException@{SendEmailAsync\_WithValidEmailAndMissingConfig\_ShouldThrowException}!ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests@{ArandanoIRT\_Backend.Tests.Unit.Infrastructure.Utilities.SmtpEmailServiceTests}}
+\doxysubsubsection{\texorpdfstring{SendEmailAsync\_WithValidEmailAndMissingConfig\_ShouldThrowException()}{SendEmailAsync\_WithValidEmailAndMissingConfig\_ShouldThrowException()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Unit.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+Tests.\+Send\+Email\+Async\+\_\+\+With\+Valid\+Email\+And\+Missing\+Config\+\_\+\+Should\+Throw\+Exception (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests that Send\+Email\+Async (or its internal utility) throws an exception when required SMTP configuration is missing. 
+
+This behavior depends on the implementation of the underlying email sending utility. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tests/\+Unit/\+Infrastructure/\+Utilities/\mbox{\hyperlink{_smtp_email_service_tests_8cs}{Smtp\+Email\+Service\+Tests.\+cs}}\end{DoxyCompactItemize}

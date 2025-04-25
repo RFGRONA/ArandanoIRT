@@ -1,0 +1,4 @@
+var _audit_crop_repository_8cs =
+[
+    [ "ArandanoIRT_Backend.Infrastructure.Repositories.AuditCropRepository", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_crop_repository.html", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_crop_repository" ]
+];

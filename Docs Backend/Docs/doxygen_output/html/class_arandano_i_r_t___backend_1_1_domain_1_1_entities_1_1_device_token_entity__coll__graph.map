@@ -1,0 +1,3 @@
+<map id="ArandanoIRT_Backend.Domain.Entities.DeviceTokenEntity" name="ArandanoIRT_Backend.Domain.Entities.DeviceTokenEntity">
+<area shape="rect" id="Node000001" title="Represents a pair of authentication tokens (access and refresh) issued specifically for a device,..." alt="" coords="5,5,203,283"/>
+</map>

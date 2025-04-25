@@ -1,0 +1,5 @@
+var class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests =
+[
+    [ "ValidateEmailAsync_InvalidSyntaxEmails_ShouldReturnFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests.html#a39fe6aefc952a77047601d680b79c8f5", null ],
+    [ "ValidateEmailAsync_ValidSyntaxEmails_ShouldNotFailOnSyntax", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests.html#a4cb17dc3b3f3c9c3eed1f68e3663d45a", null ]
+];

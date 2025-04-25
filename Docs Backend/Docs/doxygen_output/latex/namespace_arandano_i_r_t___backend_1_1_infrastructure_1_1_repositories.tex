@@ -1,0 +1,104 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Repositories Namespace Reference}
+\hypertarget{namespace_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories}{}\label{namespace_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories}\index{ArandanoIRT\_Backend.Infrastructure.Repositories@{ArandanoIRT\_Backend.Infrastructure.Repositories}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_crop_repository}{Audit\+Crop\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_data_table_repository}{Audit\+Data\+Table\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_device_repository}{Audit\+Device\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_person_repository}{Audit\+Person\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_sensitive_data_repository}{Audit\+Sensitive\+Data\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository}{Audit\+System\+Table\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_device_activation_repository}{Device\+Activation\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_device_data_repository}{Device\+Data\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_device_log_repository}{Device\+Log\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_device_token_repository}{Device\+Token\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_plant_data_repository}{Plant\+Data\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_plant_observation_repository}{Plant\+Observation\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_plant_state_history_repository}{Plant\+State\+History\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_sensor_data_repository}{Sensor\+Data\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_table_relation_repository}{Table\+Relation\+Repository}}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_thermal_data_repository}{Thermal\+Data\+Repository}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{namespace_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_a6a7dcce6543b072178c4b09356ed49c2}{Status\+Repository}} (\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_application_db_context}{Application\+Db\+Context}} context, \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service}{ICache\+Service}} cache\+Service, \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_date_time_provider}{IDate\+Time\+Provider}} date\+Time\+Provider, ILogger$<$ Status\+Repository $>$ logger)
+\begin{DoxyCompactList}\small\item\em Implements the IStatus\+Repository interface, providing data access logic for status entities (Status\+Entity) using Entity Framework Core. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_a6a7dcce6543b072178c4b09356ed49c2}\label{namespace_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_a6a7dcce6543b072178c4b09356ed49c2} 
+\index{ArandanoIRT\_Backend.Infrastructure.Repositories@{ArandanoIRT\_Backend.Infrastructure.Repositories}!StatusRepository@{StatusRepository}}
+\index{StatusRepository@{StatusRepository}!ArandanoIRT\_Backend.Infrastructure.Repositories@{ArandanoIRT\_Backend.Infrastructure.Repositories}}
+\doxysubsubsection{\texorpdfstring{StatusRepository()}{StatusRepository()}}
+{\footnotesize\ttfamily class Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Repositories.\+Status\+Repository (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_data_1_1_application_db_context}{Application\+Db\+Context}}}]{context,  }\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service}{ICache\+Service}}}]{cache\+Service,  }\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_date_time_provider}{IDate\+Time\+Provider}}}]{date\+Time\+Provider,  }\item[{ILogger$<$ Status\+Repository $>$}]{logger }\end{DoxyParamCaption})}
+
+
+
+Implements the IStatus\+Repository interface, providing data access logic for status entities (Status\+Entity) using Entity Framework Core. 
+
+Includes caching mechanisms to improve performance for frequently accessed status data. The database context used for data access.
+
+The caching service used for storing and retrieving status data.
+
+Provider for obtaining consistent UTC timestamps (dependency added based on field usage).
+
+Logger instance for logging repository operations.
+
+Cache key for storing the list of all statuses.
+
+Format string for cache keys storing statuses related to a specific table name.
+
+Default duration for caching status data.
+
+Maps a database context Status entity to a domain Status\+Entity. Also maps the nested Data.\+Tablerelation if included.
+
+
+\begin{DoxyParams}{Parameters}
+{\em status} & The database entity instance.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mapped domain entity instance, or {\ttfamily null} if input is null (throws Null\+Reference\+Exception due to null! usage).
+\end{DoxyReturn}
+
+
+Uses reflection to set the {\ttfamily Table\+Relation} navigation property on the domain entity.
+
+Maps a domain Status\+Entity to a database context Status entity. Updates existing instance if provided, otherwise creates a new one. Does not map navigation properties like Table\+Relation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The domain entity instance.\\
+\hline
+{\em existing\+Status} & Optional. The existing database entity to update.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mapped or updated database entity instance.
+\end{DoxyReturn}
+
+
+Invalidates cache entries related to statuses. Always removes the "{}\+All Statuses"{} cache entry. Also removes the table-\/specific cache entry if the table name is provided.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table\+Name} & Optional. The specific table name whose status cache should be invalidated.\\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,174 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Session\+Controller Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller}{}\label{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller}\index{ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}}
+
+
+Handles endpoints related to user session management, including login, token refresh, and logout operations.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Session\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Session\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_ab6fda18b4f431e6b3bac0b9db9a21d43}{Session\+Controller}} (\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service}{IAuth\+Session\+Service}} session\+Service, \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cookies_service}{Cookies\+Service}} cookies\+Service, \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_token_service}{IToken\+Service}} token\+Service, \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_request_context_accessor}{IRequest\+Context\+Accessor}} request\+Context\+Accessor, \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service}{ICaptcha\+Service}} captcha\+Service, IWeb\+Host\+Environment environment, ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller}{Session\+Controller}} $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Session\+Controller class. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a5f70af4cec8b85e7170237c11b23d05d}{Login}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_request_dto}{Login\+Request\+Dto}} request)
+\begin{DoxyCompactList}\small\item\em Logs in an existing user using email and (encrypted) password. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a4ef48f1fa13fae5646e732c9eb202682}{Refresh\+Token}} (\mbox{[}From\+Header(Name="{}X-\/Refresh-\/Token"{})\mbox{]} string? x\+Refresh\+Token)
+\begin{DoxyCompactList}\small\item\em Refreshes the JWT access token using a valid refresh token. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a2f50712176fa1d68539662acd2a06530}{Logout}} ()
+\begin{DoxyCompactList}\small\item\em Logs out the current user session. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a0d746b72eff809fc9ce3c43aeb2ab2e5}{Logout\+Everywhere}} ()
+\begin{DoxyCompactList}\small\item\em Logs out all active sessions for the current user. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a3dd0f28c3cc6ba24c6e0381b5fbfedb6}{Check\+Auth}} ()
+\begin{DoxyCompactList}\small\item\em Example endpoint to check authentication status and retrieve claims. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_base_api_controller}{Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Base\+Api\+Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_base_api_controller_ada14782717ab974f6f2ae78912575f34}{Base\+Api\+Controller}} (\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service}{ICaptcha\+Service}} captcha\+Service, IWeb\+Host\+Environment environment)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Base\+Api\+Controller class. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result?$>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_base_api_controller_a84d6eb448b623b26a85da24434272153}{Validate\+Captcha\+If\+Needed\+Async}} (string? captcha\+Token, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Validates the CAPTCHA token if the application is not running in the Development environment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles endpoints related to user session management, including login, token refresh, and logout operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_ab6fda18b4f431e6b3bac0b9db9a21d43}\label{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_ab6fda18b4f431e6b3bac0b9db9a21d43} 
+\index{ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}!SessionController@{SessionController}}
+\index{SessionController@{SessionController}!ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}}
+\doxysubsubsection{\texorpdfstring{SessionController()}{SessionController()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Session\+Controller.\+Session\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service}{IAuth\+Session\+Service}}}]{session\+Service,  }\item[{\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cookies_service}{Cookies\+Service}}}]{cookies\+Service,  }\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_token_service}{IToken\+Service}}}]{token\+Service,  }\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_request_context_accessor}{IRequest\+Context\+Accessor}}}]{request\+Context\+Accessor,  }\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service}{ICaptcha\+Service}}}]{captcha\+Service,  }\item[{IWeb\+Host\+Environment}]{environment,  }\item[{ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller}{Session\+Controller}} $>$}]{logger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Session\+Controller class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session\+Service} & The application service for session logic.\\
+\hline
+{\em cookies\+Service} & Service for handling authentication cookies.\\
+\hline
+{\em token\+Service} & Service for token operations (e.\+g., reading session ID).\\
+\hline
+{\em request\+Context\+Accessor} & Accessor for request context information (IP, User\+Agent).\\
+\hline
+{\em captcha\+Service} & The service for CAPTCHA validation (passed to base).\\
+\hline
+{\em environment} & The web hosting environment (passed to base).\\
+\hline
+{\em logger} & The logger for this controller.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a3dd0f28c3cc6ba24c6e0381b5fbfedb6}\label{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a3dd0f28c3cc6ba24c6e0381b5fbfedb6} 
+\index{ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}!CheckAuth@{CheckAuth}}
+\index{CheckAuth@{CheckAuth}!ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}}
+\doxysubsubsection{\texorpdfstring{CheckAuth()}{CheckAuth()}}
+{\footnotesize\ttfamily IAction\+Result Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Session\+Controller.\+Check\+Auth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Example endpoint to check authentication status and retrieve claims. 
+
+(For testing/debugging).
+
+\begin{DoxyReturn}{Returns}
+Authenticated user\textquotesingle{}s claims information.
+\end{DoxyReturn}
+$<$response code="{}204"{}$>$User is authenticated..$<$/response$>$ $<$response code="{}401"{}$>$User is not authenticated.$<$/response$>$ \Hypertarget{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a5f70af4cec8b85e7170237c11b23d05d}\label{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a5f70af4cec8b85e7170237c11b23d05d} 
+\index{ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}!Login@{Login}}
+\index{Login@{Login}!ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Session\+Controller.\+Login (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_login_request_dto}{Login\+Request\+Dto}}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Logs in an existing user using email and (encrypted) password. 
+
+Expects password encrypted with the server\textquotesingle{}s public RSA key. On success, sets Http\+Only cookies ({\ttfamily jwt}, {\ttfamily refresh\+Token}, {\ttfamily stay\+Logged\+In}) and returns basic user info + JWT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & Login credentials (email, encrypted password, remember\+Me, captcha).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Basic user details and access token.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$Login successful. Returns Login\+Response\+Dto.$<$/response$>$ $<$response code="{}400"{}$>$Invalid request (e.\+g., missing data, invalid CAPTCHA).$<$/response$>$ $<$response code="{}401"{}$>$Unauthorized (invalid email or password).$<$/response$>$ $<$response code="{}500"{}$>$Internal error (e.\+g., failed to set cookies).$<$/response$>$ \Hypertarget{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a2f50712176fa1d68539662acd2a06530}\label{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a2f50712176fa1d68539662acd2a06530} 
+\index{ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}!Logout@{Logout}}
+\index{Logout@{Logout}!ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}}
+\doxysubsubsection{\texorpdfstring{Logout()}{Logout()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Session\+Controller.\+Logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Logs out the current user session. 
+
+Revokes the current refresh token on the server and removes auth cookies from the client. Requires the user to be authenticated. 
+
+\begin{DoxyReturn}{Returns}
+An IAction\+Result indicating success (204 No Content).
+\end{DoxyReturn}
+$<$response code="{}204"{}$>$Logout successful.$<$/response$>$ $<$response code="{}401"{}$>$Unauthorized (user not authenticated).$<$/response$>$ \Hypertarget{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a0d746b72eff809fc9ce3c43aeb2ab2e5}\label{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a0d746b72eff809fc9ce3c43aeb2ab2e5} 
+\index{ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}!LogoutEverywhere@{LogoutEverywhere}}
+\index{LogoutEverywhere@{LogoutEverywhere}!ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}}
+\doxysubsubsection{\texorpdfstring{LogoutEverywhere()}{LogoutEverywhere()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Session\+Controller.\+Logout\+Everywhere (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Logs out all active sessions for the current user. 
+
+Revokes all refresh tokens associated with the user\textquotesingle{}s original session ID (obtained from the current token). Removes auth cookies from the current client. Requires authentication. 
+
+\begin{DoxyReturn}{Returns}
+An IAction\+Result indicating success (204 No Content).
+\end{DoxyReturn}
+$<$response code="{}204"{}$>$Logout everywhere successful.$<$/response$>$ $<$response code="{}401"{}$>$Unauthorized (user not authenticated or token invalid).$<$/response$>$ $<$response code="{}400"{}$>$Bad Request (e.\+g., unable to determine session ID from token).$<$/response$>$ \Hypertarget{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a4ef48f1fa13fae5646e732c9eb202682}\label{class_arandano_i_r_t___backend_1_1_u_i_1_1_controllers_1_1_session_controller_a4ef48f1fa13fae5646e732c9eb202682} 
+\index{ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}!RefreshToken@{RefreshToken}}
+\index{RefreshToken@{RefreshToken}!ArandanoIRT\_Backend.UI.Controllers.SessionController@{ArandanoIRT\_Backend.UI.Controllers.SessionController}}
+\doxysubsubsection{\texorpdfstring{RefreshToken()}{RefreshToken()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Arandano\+IRT\+\_\+\+Backend.\+UI.\+Controllers.\+Session\+Controller.\+Refresh\+Token (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Header(\+Name = "{}\+X-\/\+Refresh-\/\+Token"{})\mbox{]} string?}]{x\+Refresh\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Refreshes the JWT access token using a valid refresh token. 
+
+Reads the refresh token from the \textquotesingle{}refresh\+Token\textquotesingle{} Http\+Only cookie (preferred) or \textquotesingle{}X-\/\+Refresh-\/\+Token\textquotesingle{} header. Implements token rotation (new access/refresh pair generated, old refresh token revoked). If the original token came from a cookie, cookies are updated. Otherwise, new tokens are returned in the body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Refresh\+Token} & (Optional) The refresh token passed via the \textquotesingle{}X-\/\+Refresh-\/\+Token\textquotesingle{} header.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New access and refresh tokens.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$Tokens refreshed successfully. Returns Token\+Response\+Dto.$<$/response$>$ $<$response code="{}400"{}$>$Invalid request (e.\+g., refresh token missing).$<$/response$>$ $<$response code="{}401"{}$>$Unauthorized (refresh token invalid, expired, or revoked).$<$/response$>$ $<$response code="{}500"{}$>$Internal error (e.\+g., failed to renew cookies).$<$/response$>$ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+UI/\+Controllers/\mbox{\hyperlink{_session_controller_8cs}{Session\+Controller.\+cs}}\end{DoxyCompactItemize}

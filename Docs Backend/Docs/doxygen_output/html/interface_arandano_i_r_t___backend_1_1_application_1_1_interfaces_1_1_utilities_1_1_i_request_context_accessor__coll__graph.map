@@ -1,0 +1,3 @@
+<map id="ArandanoIRT_Backend.Application.Interfaces.Utilities.IRequestContextAccessor" name="ArandanoIRT_Backend.Application.Interfaces.Utilities.IRequestContextAccessor">
+<area shape="rect" id="Node000001" title="Defines a contract for accessing information related to the current HTTP request context,..." alt="" coords="5,5,225,213"/>
+</map>

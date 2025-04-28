@@ -12,7 +12,6 @@
 \usepackage{graphicx}              % Imágenes
 \usepackage{tocloft}               % Formato del índice
 \usepackage{hyperref}              % Hipervínculos
-\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue} 
 \usepackage{apacite}               % Citas y referencias APA
 \usepackage{enumerate}             % Listas enumeradas
 \usepackage{caption}               % Personalización de leyendas
@@ -22,9 +21,17 @@
 \usepackage{pdfpages}              % Incluir PDF (para anexos)
 \usepackage{color}                 % Colores
 \usepackage{xcolor}                % Colores
-\usepackage{float}
-\usepackage{chngcntr}
+\usepackage{float}                 % Posicionamiento de figuras
+\usepackage{chngcntr}              % Cambiar numeración de figuras y tablas
+\usepackage{array}                 % Tablas
+\usepackage[table]{xcolor}         % Colores en tablas
+\usepackage[T1]{fontenc}           % Codificación de salida
+\usepackage{booktabs}              % Tablas con líneas horizontales
+
+% Atributos de paquetes
 \counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\definecolor{tablecolor}{HTML}{CECECE}
 
 % Configuración de márgenes
 \geometry{
@@ -32,6 +39,14 @@
     right=2cm,
     top=4cm,
     bottom=3cm,
+}
+
+% Configuración de hipervinculos
+\hypersetup{
+    colorlinks=true,   % Colorea los enlaces en lugar de usar recuadros
+    linkcolor=black,   % Color para enlaces internos (índice, referencias cruzadas)
+    citecolor=black,   % Color para enlaces de citas bibliográficas 
+    urlcolor=blue      % Color para URLs externas
 }
 
 % Configuración de código fuente
@@ -80,11 +95,13 @@
 
 % Configuración de tablas y figuras
 \captionsetup[table]{font=normalsize,skip=0pt,singlelinecheck=false}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
 
 % Ajustar espacio antes/después de la leyenda
 \setlength{\abovecaptionskip}{8pt}   % espacio entre imagen y leyenda si la leyenda va debajo
 \setlength{\belowcaptionskip}{0pt}  % espacio después de la leyenda
 
+% Configuración de leyendas para figuras 
 \captionsetup[figure]{%
   position=above,                       % Coloca la leyenda (número y título) encima de la imagen
   labelfont=bf,                         % "Figura X." en negrita
@@ -94,6 +111,18 @@
   skip=10pt,                            % Espacio entre la leyenda y la imagen (ajusta este valor según lo requieras)
   justification=justified,
   singlelinecheck=false
+}
+
+% Configuración de leyendas para tablas
+\DeclareCaptionLabelFormat{apatable}{\textbf{Tabla #2}} % Define formato: "Tabla" + Número en negrita
+\captionsetup[table]{
+  labelformat=apatable,        % Usa el formato definido arriba
+  labelsep=newline,            % Salto de línea tras "Tabla X"
+  textfont=it,                 % Título en cursiva
+  font={normalsize,stretch=1.5}, % Tamaño normal, interlineado 1.5
+  justification=justified,     % Justifica el texto del título
+  singlelinecheck=false,       % Aplica justificación incluso a títulos cortos
+  skip=10pt                    % Espacio entre la leyenda y la tabla
 }
 
 % Configuración de citas y referencias APA
@@ -184,11 +213,14 @@ Texto de los agradecimientos...
 \newpage
 
 % Lista de Tablas
+\renewcommand{\listtablename}{Lista de Tablas}
 \listoftables
 \addcontentsline{toc}{chapter}{Lista de Tablas}
 \newpage
 
+
 % Lista de Figuras
+\renewcommand{\listfigurename}{Lista de Figuras}
 \listoffigures
 \addcontentsline{toc}{chapter}{Lista de Figuras}
 \newpage

@@ -1,0 +1,9 @@
+<map id="lib/OV2640Sensor/OV2640Sensor.h" name="lib/OV2640Sensor/OV2640Sensor.h">
+<area shape="rect" id="Node000001" title="Defines a wrapper class for the OV2640 camera module using the ESP&#45;IDF driver." alt="" coords="42,5,272,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,82,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,35,78,74,75,69,136,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,80,208,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,33,160,64,154,64,154,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="232,80,356,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="182,30,258,70,255,75,180,35"/>
+</map>

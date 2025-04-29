@@ -1,0 +1,3 @@
+<map id="LEDStatus" name="LEDStatus">
+<area shape="rect" id="Node000001" title="Manages a single WS2812 NeoPixel for displaying system status via colors." alt="" coords="5,5,101,139"/>
+</map>

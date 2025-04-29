@@ -1,0 +1,114 @@
+\doxysection{OV2640\+Sensor Class Reference}
+\hypertarget{class_o_v2640_sensor}{}\label{class_o_v2640_sensor}\index{OV2640Sensor@{OV2640Sensor}}
+
+
+Wrapper class simplifying interaction with an OV2640 camera via the ESP-\/\+IDF driver.  
+
+
+
+
+{\ttfamily \#include $<$OV2640\+Sensor.\+h$>$}
+
+
+
+Collaboration diagram for OV2640\+Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{class_o_v2640_sensor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_v2640_sensor_a7471faa05929b5158e37bee66b1d31be}{OV2640\+Sensor}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the OV2640 sensor wrapper. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_o_v2640_sensor_a684a4f4b823da4bb3f9557be273945cb}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the OV2640 camera module using the ESP-\/\+IDF driver. \end{DoxyCompactList}\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_o_v2640_sensor_a2cd8d790bc529b63926dfe190ceb9d62}{capture\+JPEG}} (size\+\_\+t \&length)
+\begin{DoxyCompactList}\small\item\em Captures a single JPEG image frame from the camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_o_v2640_sensor_aabfdc2df6d4180071134013464d5ae8e}{end}} ()
+\begin{DoxyCompactList}\small\item\em Deinitializes the camera driver and releases associated hardware resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class simplifying interaction with an OV2640 camera via the ESP-\/\+IDF driver. 
+
+Encapsulates the initialization, image capture (JPEG format), and deinitialization logic for the camera module, using hardware-\/specific pin configurations defined in the implementation file. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_o_v2640_sensor_a7471faa05929b5158e37bee66b1d31be}\label{class_o_v2640_sensor_a7471faa05929b5158e37bee66b1d31be} 
+\index{OV2640Sensor@{OV2640Sensor}!OV2640Sensor@{OV2640Sensor}}
+\index{OV2640Sensor@{OV2640Sensor}!OV2640Sensor@{OV2640Sensor}}
+\doxysubsubsection{\texorpdfstring{OV2640Sensor()}{OV2640Sensor()}}
+{\footnotesize\ttfamily OV2640\+Sensor\+::\+OV2640\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for the OV2640 sensor wrapper. 
+
+Default constructor implementation.
+
+Does not perform any hardware initialization; call \doxylink{class_o_v2640_sensor_a684a4f4b823da4bb3f9557be273945cb}{begin()} for that.
+
+Does nothing, as initialization requires hardware context provided in \doxylink{class_o_v2640_sensor_a684a4f4b823da4bb3f9557be273945cb}{begin()}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_o_v2640_sensor_a684a4f4b823da4bb3f9557be273945cb}\label{class_o_v2640_sensor_a684a4f4b823da4bb3f9557be273945cb} 
+\index{OV2640Sensor@{OV2640Sensor}!begin@{begin}}
+\index{begin@{begin}!OV2640Sensor@{OV2640Sensor}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily bool OV2640\+Sensor\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the OV2640 camera module using the ESP-\/\+IDF driver. 
+
+Initializes the camera hardware and driver.
+
+Configures the camera based on pin definitions and settings (clock frequency, pixel format = JPEG, frame size = VGA, JPEG quality, framebuffer count/location = PSRAM) specified within the implementation (.cpp file). It then calls the underlying {\ttfamily esp\+\_\+camera\+\_\+init} function. This method should be called once in the {\ttfamily \doxylink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} function.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if camera initialization was successful, {\ttfamily false} otherwise. Check Serial output for ESP-\/\+IDF driver error codes if initialization fails (requires Serial.\+begin). 
+\end{DoxyReturn}
+\Hypertarget{class_o_v2640_sensor_a2cd8d790bc529b63926dfe190ceb9d62}\label{class_o_v2640_sensor_a2cd8d790bc529b63926dfe190ceb9d62} 
+\index{OV2640Sensor@{OV2640Sensor}!captureJPEG@{captureJPEG}}
+\index{captureJPEG@{captureJPEG}!OV2640Sensor@{OV2640Sensor}}
+\doxysubsubsection{\texorpdfstring{captureJPEG()}{captureJPEG()}}
+{\footnotesize\ttfamily uint8\+\_\+t \texorpdfstring{$\ast$}{*} OV2640\+Sensor\+::capture\+JPEG (\begin{DoxyParamCaption}\item[{size\+\_\+t \&}]{length }\end{DoxyParamCaption})}
+
+
+
+Captures a single JPEG image frame from the camera. 
+
+Captures a single JPEG image frame into a newly allocated buffer.
+
+This function requests a framebuffer from the camera driver using {\ttfamily esp\+\_\+camera\+\_\+fb\+\_\+get()}. If successful, it allocates a new buffer in PSRAM (using {\ttfamily ps\+\_\+malloc}) of the exact size required for the captured JPEG data. It then copies the JPEG data from the driver\textquotesingle{}s framebuffer into this newly allocated buffer. Finally, it returns the driver\textquotesingle{}s framebuffer using {\ttfamily esp\+\_\+camera\+\_\+fb\+\_\+return()} so the driver can reuse it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em length} & Reference to a size\+\_\+t variable. On success, this variable will be filled with the size of the captured JPEG image data in bytes. On failure, it will be set to 0.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer (uint8\+\_\+t\texorpdfstring{$\ast$}{*}) to the newly allocated buffer in PSRAM containing the JPEG data. The caller is responsible for freeing this memory using {\ttfamily free()} (or {\ttfamily ps\+\_\+free()}) once the image data is no longer needed. Returns {\ttfamily nullptr} if the camera capture failed (e.\+g., {\ttfamily esp\+\_\+camera\+\_\+fb\+\_\+get} failed) or if memory allocation for the copy buffer failed. 
+\end{DoxyReturn}
+\Hypertarget{class_o_v2640_sensor_aabfdc2df6d4180071134013464d5ae8e}\label{class_o_v2640_sensor_aabfdc2df6d4180071134013464d5ae8e} 
+\index{OV2640Sensor@{OV2640Sensor}!end@{end}}
+\index{end@{end}!OV2640Sensor@{OV2640Sensor}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void OV2640\+Sensor\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deinitializes the camera driver and releases associated hardware resources. 
+
+Deinitializes the camera driver, releasing resources.
+
+Calls the underlying {\ttfamily esp\+\_\+camera\+\_\+deinit()} function. This is crucial to free resources like DMA channels, I2S peripheral, and allocated framebuffers, especially before entering deep sleep modes or reconfiguring the camera. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+OV2640\+Sensor/\mbox{\hyperlink{_o_v2640_sensor_8h}{OV2640\+Sensor.\+h}}\item 
+lib/\+OV2640\+Sensor/\mbox{\hyperlink{_o_v2640_sensor_8cpp}{OV2640\+Sensor.\+cpp}}\end{DoxyCompactItemize}

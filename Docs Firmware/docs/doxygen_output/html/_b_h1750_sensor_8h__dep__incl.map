@@ -1,0 +1,7 @@
+<map id="lib/BH1750Sensor/BH1750Sensor.h" name="lib/BH1750Sensor/BH1750Sensor.h">
+<area shape="rect" id="Node000001" title="Defines a wrapper class for the BH1750 light sensor." alt="" coords="108,5,338,32"/>
+<area shape="rect" id="Node000002" href="$_b_h1750_sensor_8cpp.html" title="Implements the BH1750Sensor wrapper class methods." alt="" coords="5,80,249,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,44,145,82,142,77,193,39"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Main application firmware for an ESP32&#45;S3 based environmental and plant monitoring device." alt="" coords="272,80,368,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,39,305,77,302,82,250,44"/>
+</map>

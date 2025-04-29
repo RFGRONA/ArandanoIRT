@@ -1,0 +1,94 @@
+\doxysection{LEDStatus Class Reference}
+\hypertarget{class_l_e_d_status}{}\label{class_l_e_d_status}\index{LEDStatus@{LEDStatus}}
+
+
+Manages a single WS2812 Neo\+Pixel for displaying system status via colors.  
+
+
+
+
+{\ttfamily \#include $<$LEDStatus.\+h$>$}
+
+
+
+Collaboration diagram for LEDStatus\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{class_l_e_d_status__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_e_d_status_ad063a513be1e7ed7faaad50a7bc5b766}{LEDStatus}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_l_e_d_status}{LEDStatus}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_e_d_status_afdb4169c4a85fa3f6370b214c85dde33}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the Neo\+Pixel LED hardware communication. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_e_d_status_a2999feb1540fc94faa2551815bd5488e}{set\+State}} (\mbox{\hyperlink{_l_e_d_status_8h_a51a69e0b98357e170e63bc843e2fd1c0}{LEDState}} state)
+\begin{DoxyCompactList}\small\item\em Sets the LED color based on the specified system state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_e_d_status_ab6988ac9444fc9c1a15dbeb1d0313898}{turn\+Off\+All}} ()
+\begin{DoxyCompactList}\small\item\em Turns the Neo\+Pixel LED completely off. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages a single WS2812 Neo\+Pixel for displaying system status via colors. 
+
+This class encapsulates the Adafruit\+\_\+\+Neo\+Pixel library for controlling one pixel. It maps logical system states (defined in {\ttfamily LEDState}) to specific colors. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_l_e_d_status_ad063a513be1e7ed7faaad50a7bc5b766}\label{class_l_e_d_status_ad063a513be1e7ed7faaad50a7bc5b766} 
+\index{LEDStatus@{LEDStatus}!LEDStatus@{LEDStatus}}
+\index{LEDStatus@{LEDStatus}!LEDStatus@{LEDStatus}}
+\doxysubsubsection{\texorpdfstring{LEDStatus()}{LEDStatus()}}
+{\footnotesize\ttfamily LEDStatus\+::\+LEDStatus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_l_e_d_status}{LEDStatus}. 
+
+Initializes the Neo\+Pixel library instance with parameters defined in the .cpp file (pin number, number of pixels, pixel type). 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_l_e_d_status_afdb4169c4a85fa3f6370b214c85dde33}\label{class_l_e_d_status_afdb4169c4a85fa3f6370b214c85dde33} 
+\index{LEDStatus@{LEDStatus}!begin@{begin}}
+\index{begin@{begin}!LEDStatus@{LEDStatus}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void LEDStatus\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the Neo\+Pixel LED hardware communication. 
+
+Sets up the pixel library and ensures the LED is turned off initially. This method should be called once in the {\ttfamily \doxylink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} function of the sketch. \Hypertarget{class_l_e_d_status_a2999feb1540fc94faa2551815bd5488e}\label{class_l_e_d_status_a2999feb1540fc94faa2551815bd5488e} 
+\index{LEDStatus@{LEDStatus}!setState@{setState}}
+\index{setState@{setState}!LEDStatus@{LEDStatus}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void LEDStatus\+::set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_l_e_d_status_8h_a51a69e0b98357e170e63bc843e2fd1c0}{LEDState}}}]{state }\end{DoxyParamCaption})}
+
+
+
+Sets the LED color based on the specified system state. 
+
+Looks up the color associated with the given state and updates the LED. 
+\begin{DoxyParams}{Parameters}
+{\em state} & The desired state from the {\ttfamily LEDState} enum. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_l_e_d_status_ab6988ac9444fc9c1a15dbeb1d0313898}\label{class_l_e_d_status_ab6988ac9444fc9c1a15dbeb1d0313898} 
+\index{LEDStatus@{LEDStatus}!turnOffAll@{turnOffAll}}
+\index{turnOffAll@{turnOffAll}!LEDStatus@{LEDStatus}}
+\doxysubsubsection{\texorpdfstring{turnOffAll()}{turnOffAll()}}
+{\footnotesize\ttfamily void LEDStatus\+::turn\+Off\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turns the Neo\+Pixel LED completely off. 
+
+Equivalent to calling {\ttfamily set\+State(\+OFF)}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+LEDStatus/\mbox{\hyperlink{_l_e_d_status_8h}{LEDStatus.\+h}}\item 
+lib/\+LEDStatus/\mbox{\hyperlink{_l_e_d_status_8cpp}{LEDStatus.\+cpp}}\end{DoxyCompactItemize}

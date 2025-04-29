@@ -1,0 +1,17 @@
+<map id="lib/MultipartDataSender/MultipartDataSender.cpp" name="lib/MultipartDataSender/MultipartDataSender.cpp">
+<area shape="rect" id="Node000001" title="Implements the MultipartDataSender utility class for sending combined thermal (JSON) and image (JPEG)..." alt="" coords="237,5,406,48"/>
+<area shape="rect" id="Node000002" href="$_multipart_data_sender_8h.html" title="Defines a utility class to send thermal data (JSON) and image data (JPEG) as a multipart/form&#45;data PO..." alt="" coords="107,96,258,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="287,51,219,90,216,86,284,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="213,171,318,197"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="317,49,277,157,272,155,312,47"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="342,171,399,197"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="330,47,365,155,359,156,325,49"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="384,96,488,123"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="352,46,407,85,404,89,349,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,171,107,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="162,126,93,165,90,160,159,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="130,171,190,197"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="181,124,171,157,166,155,176,122"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="199,121,241,158,238,162,195,125"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="216,121,328,164,326,168,214,126"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="lib/BH1750Sensor/BH1750Sensor.h" name="lib/BH1750Sensor/BH1750Sensor.h">
+<area shape="rect" id="Node000001" title="Defines a wrapper class for the BH1750 light sensor." alt="" coords="5,5,235,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="44,80,103,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,34,92,68,87,66,110,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="127,80,206,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,31,153,66,148,68,126,34"/>
+</map>

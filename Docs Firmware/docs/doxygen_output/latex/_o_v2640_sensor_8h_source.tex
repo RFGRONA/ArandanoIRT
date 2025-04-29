@@ -1,0 +1,31 @@
+\doxysection{OV2640\+Sensor.\+h}
+\hypertarget{_o_v2640_sensor_8h_source}{}\label{_o_v2640_sensor_8h_source}\index{lib/OV2640Sensor/OV2640Sensor.h@{lib/OV2640Sensor/OV2640Sensor.h}}
+\mbox{\hyperlink{_o_v2640_sensor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ OV2640SENSOR\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ OV2640SENSOR\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}esp\_camera.h"{}}\ \ \ \ \ \ \textcolor{comment}{//\ ESP-\/IDF\ camera\ driver\ functions\ and\ types\ (camera\_fb\_t,\ etc.)}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}esp\_heap\_caps.h"{}}\ \ \ \textcolor{comment}{//\ For\ memory\ allocation\ functions\ like\ ps\_malloc\ (allocating\ in\ PSRAM)}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_o_v2640_sensor}{OV2640Sensor}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_o_v2640_sensor_a7471faa05929b5158e37bee66b1d31be}{OV2640Sensor}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_o_v2640_sensor_a684a4f4b823da4bb3f9557be273945cb}{begin}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00065\ \ \ \ \ uint8\_t*\ \mbox{\hyperlink{class_o_v2640_sensor_a2cd8d790bc529b63926dfe190ceb9d62}{captureJPEG}}(\textcolor{keywordtype}{size\_t}\ \&length);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_o_v2640_sensor_aabfdc2df6d4180071134013464d5ae8e}{end}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ No\ private\ members\ are\ needed\ for\ this\ basic\ wrapper.}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ The\ camera\ state\ (configuration,\ framebuffers)\ is\ managed\ internally}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ by\ the\ ESP-\/IDF\ esp\_camera\ driver\ functions.}}
+\DoxyCodeLine{00080\ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ OV2640SENSOR\_H}}
+
+\end{DoxyCode}

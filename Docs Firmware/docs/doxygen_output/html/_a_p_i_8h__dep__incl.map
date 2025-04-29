@@ -1,0 +1,7 @@
+<map id="lib/API/API.h" name="lib/API/API.h">
+<area shape="rect" id="Node000001" title="Defines the API class for handling device activation, backend communication, and storing relevant dat..." alt="" coords="102,5,199,32"/>
+<area shape="rect" id="Node000002" href="$_a_p_i_8cpp.html" title="Implements the API class methods for backend communication and NVS management." alt="" coords="5,80,117,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,44,78,82,75,78,121,40"/>
+<area shape="rect" id="Node000003" href="$_error_logger_8cpp.html" title="Implements the ErrorLogger utility class for sending remote error logs." alt="" coords="140,80,342,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="179,40,227,78,224,82,176,44"/>
+</map>

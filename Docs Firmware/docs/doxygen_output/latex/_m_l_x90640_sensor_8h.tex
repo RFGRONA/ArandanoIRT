@@ -1,0 +1,37 @@
+\doxysection{lib/\+MLX90640\+Sensor/\+MLX90640\+Sensor.h File Reference}
+\hypertarget{_m_l_x90640_sensor_8h}{}\label{_m_l_x90640_sensor_8h}\index{lib/MLX90640Sensor/MLX90640Sensor.h@{lib/MLX90640Sensor/MLX90640Sensor.h}}
+
+
+Defines a wrapper class for the MLX90640 Thermal Camera sensor.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Wire.\+h$>$}\newline
+{\ttfamily \#include $<$Adafruit\+\_\+\+MLX90640.\+h$>$}\newline
+Include dependency graph for MLX90640\+Sensor.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{_m_l_x90640_sensor_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{_m_l_x90640_sensor_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_m_l_x90640_sensor}{MLX90640\+Sensor}}
+\begin{DoxyCompactList}\small\item\em Wrapper class simplifying the use of an MLX90640 thermal camera sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines a wrapper class for the MLX90640 Thermal Camera sensor. 
+
+Provides an interface to initialize and read thermal data frames (32x24 pixels) from an MLX90640 sensor using a specific I2C bus instance and the Adafruit MLX90640 library. Also includes helper methods to calculate average, maximum, and minimum temperatures from the latest frame. 

@@ -1,0 +1,36 @@
+\doxysection{lib/\+Environment\+Data\+JSON/\+Environment\+Data\+JSON.h File Reference}
+\hypertarget{_environment_data_j_s_o_n_8h}{}\label{_environment_data_j_s_o_n_8h}\index{lib/EnvironmentDataJSON/EnvironmentDataJSON.h@{lib/EnvironmentDataJSON/EnvironmentDataJSON.h}}
+
+
+Defines a utility class to format and send environmental sensor data as JSON via HTTP POST requests.  
+
+
+{\ttfamily \#include $<$Arduino\+Json.\+h$>$}\newline
+{\ttfamily \#include $<$HTTPClient.\+h$>$}\newline
+Include dependency graph for Environment\+Data\+JSON.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{_environment_data_j_s_o_n_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{_environment_data_j_s_o_n_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_environment_data_j_s_o_n}{Environment\+Data\+JSON}}
+\begin{DoxyCompactList}\small\item\em Utility class containing a static method for sending environmental data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines a utility class to format and send environmental sensor data as JSON via HTTP POST requests. 
+
+This class provides a static method to simplify the process of taking sensor readings (light, temperature, humidity), formatting them into a standard JSON object, and sending this data to a specified \doxylink{class_a_p_i}{API} endpoint using the ESP32 HTTPClient library. 

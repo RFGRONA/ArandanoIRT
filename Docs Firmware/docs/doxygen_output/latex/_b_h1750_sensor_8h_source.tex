@@ -1,0 +1,29 @@
+\doxysection{BH1750\+Sensor.\+h}
+\hypertarget{_b_h1750_sensor_8h_source}{}\label{_b_h1750_sensor_8h_source}\index{lib/BH1750Sensor/BH1750Sensor.h@{lib/BH1750Sensor/BH1750Sensor.h}}
+\mbox{\hyperlink{_b_h1750_sensor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ BH1750\_SENSOR\_H\ }\textcolor{comment}{//\ Renamed\ include\ guard\ for\ consistency}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ BH1750\_SENSOR\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <Wire.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <BH1750.h>}\ \textcolor{comment}{//\ Include\ the\ library\ for\ the\ sensor}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_b_h1750_sensor}{BH1750Sensor}}\ \{}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_b_h1750_sensor_a7fb264cea8cd898a35254b2666a4cd96}{BH1750Sensor}}(TwoWire\ \&wire,\ \textcolor{keywordtype}{int}\ sda\ =\ 47,\ \textcolor{keywordtype}{int}\ scl\ =\ 21);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_b_h1750_sensor_aa88d31d2540fac8a1d07e54d5871bf78}{begin}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_b_h1750_sensor_a8bc672d7efafa5ee54e86ebf325baa47}{readLightLevel}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00058\ \ \ \ \ BH1750\ lightMeter;\ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \_sda;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \_scl;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ TwoWire\ \&\_wire;\ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BH1750\_SENSOR\_H}}
+
+\end{DoxyCode}

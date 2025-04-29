@@ -1,0 +1,179 @@
+\doxysection{lib/\+API/\+API.h File Reference}
+\hypertarget{_a_p_i_8h}{}\label{_a_p_i_8h}\index{lib/API/API.h@{lib/API/API.h}}
+
+
+Defines the \doxylink{class_a_p_i}{API} class for handling device activation, backend communication, and storing relevant data in Non-\/\+Volatile Storage (NVS).  
+
+
+{\ttfamily \#include $<$Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include $<$HTTPClient.\+h$>$}\newline
+{\ttfamily \#include $<$Arduino\+Json.\+h$>$}\newline
+{\ttfamily \#include $<$Preferences.\+h$>$}\newline
+{\ttfamily \#include "{}LEDStatus.\+h"{}}\newline
+Include dependency graph for API.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_a_p_i_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{_a_p_i_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_a_p_i}{API}}
+\begin{DoxyCompactList}\small\item\em Manages device activation, authentication token retrieval, and backend status checks via HTTPS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_a1f65fe6dc726324b9f4f24a661f14786}{ACTIVATION\+\_\+\+ENDPOINT}}~"{}https\+://backend.\+example.\+com/activate"{}
+\begin{DoxyCompactList}\small\item\em Endpoint for device activation requests. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_a3795ab19033b876c2fd05c2fd03d2e9c}{CHECK\+\_\+\+ACTIVATION\+\_\+\+ENDPOINT}}~"{}https\+://backend.\+example.\+com/check\+\_\+activation/"{}
+\begin{DoxyCompactList}\small\item\em Endpoint for checking device activation status (expects device ID appended). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_aa1eb6e38ef5e882c913b67a6a37bbcd0}{BACKEND\+\_\+\+STATUS\+\_\+\+ENDPOINT}}~"{}https\+://backend.\+example.\+com/status"{}
+\begin{DoxyCompactList}\small\item\em Endpoint for checking backend health/status. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_a353f797242db31ea4b791713d021781b}{ACTIVATION\+\_\+\+JWT}}~"{}your\+\_\+activation\+\_\+jwt\+\_\+here"{}
+\begin{DoxyCompactList}\small\item\em Activation JSON Web Token. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_a0b85963cace75e76ae726bcffb04eb70}{DEVICE\+\_\+\+ID}}~"{}your\+\_\+device\+\_\+id\+\_\+here"{}
+\begin{DoxyCompactList}\small\item\em Unique Device Identifier. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_a28d7d0ef961d10e35da62ba4b1011a3c}{STATE\+\_\+\+ACTIVATED}}~"{}ACTIVATED"{}
+\begin{DoxyCompactList}\small\item\em String identifier for the activated state. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_a7641b85a2cafe5bf48a64045cd0334f4}{STATE\+\_\+\+NO\+\_\+\+ACTIVATED}}~"{}NO\+\_\+\+ACTIVATED"{}
+\begin{DoxyCompactList}\small\item\em String identifier for the non-\/activated state. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_a73da5dc88674adab6965a3bcfe012d2d}{PREF\+\_\+\+ACTIVATION\+\_\+\+STATE}}~"{}activation\+\_\+state"{}
+\begin{DoxyCompactList}\small\item\em NVS key for the activation state. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_a55b4e67bd88e2f4cacc80d4e7ef4f28c}{PREF\+\_\+\+AUTH\+\_\+\+TOKEN}}~"{}auth\+\_\+token"{}
+\begin{DoxyCompactList}\small\item\em NVS key for the authentication token. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_a603d7eb76ca889e39ca041e5e298337a}{HTTP\+\_\+\+TIMEOUT}}~10000
+\begin{DoxyCompactList}\small\item\em HTTP request timeout in milliseconds (10 seconds). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_p_i_8h_a413e652e25cc3ea0fa4c92334a44c480}{HTTP\+\_\+\+MAX\+\_\+\+RETRIES}}~3
+\begin{DoxyCompactList}\small\item\em Maximum number of retry attempts for HTTP requests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the \doxylink{class_a_p_i}{API} class for handling device activation, backend communication, and storing relevant data in Non-\/\+Volatile Storage (NVS). 
+
+\begin{DoxyNote}{Note}
+This class interacts with a backend \doxylink{class_a_p_i}{API} over HTTPS. 
+\end{DoxyNote}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_a_p_i_8h_a1f65fe6dc726324b9f4f24a661f14786}\label{_a_p_i_8h_a1f65fe6dc726324b9f4f24a661f14786} 
+\index{API.h@{API.h}!ACTIVATION\_ENDPOINT@{ACTIVATION\_ENDPOINT}}
+\index{ACTIVATION\_ENDPOINT@{ACTIVATION\_ENDPOINT}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{ACTIVATION\_ENDPOINT}{ACTIVATION\_ENDPOINT}}
+{\footnotesize\ttfamily \#define ACTIVATION\+\_\+\+ENDPOINT~"{}https\+://backend.\+example.\+com/activate"{}}
+
+
+
+Endpoint for device activation requests. 
+
+\Hypertarget{_a_p_i_8h_a353f797242db31ea4b791713d021781b}\label{_a_p_i_8h_a353f797242db31ea4b791713d021781b} 
+\index{API.h@{API.h}!ACTIVATION\_JWT@{ACTIVATION\_JWT}}
+\index{ACTIVATION\_JWT@{ACTIVATION\_JWT}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{ACTIVATION\_JWT}{ACTIVATION\_JWT}}
+{\footnotesize\ttfamily \#define ACTIVATION\+\_\+\+JWT~"{}your\+\_\+activation\+\_\+jwt\+\_\+here"{}}
+
+
+
+Activation JSON Web Token. 
+
+\Hypertarget{_a_p_i_8h_aa1eb6e38ef5e882c913b67a6a37bbcd0}\label{_a_p_i_8h_aa1eb6e38ef5e882c913b67a6a37bbcd0} 
+\index{API.h@{API.h}!BACKEND\_STATUS\_ENDPOINT@{BACKEND\_STATUS\_ENDPOINT}}
+\index{BACKEND\_STATUS\_ENDPOINT@{BACKEND\_STATUS\_ENDPOINT}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{BACKEND\_STATUS\_ENDPOINT}{BACKEND\_STATUS\_ENDPOINT}}
+{\footnotesize\ttfamily \#define BACKEND\+\_\+\+STATUS\+\_\+\+ENDPOINT~"{}https\+://backend.\+example.\+com/status"{}}
+
+
+
+Endpoint for checking backend health/status. 
+
+\Hypertarget{_a_p_i_8h_a3795ab19033b876c2fd05c2fd03d2e9c}\label{_a_p_i_8h_a3795ab19033b876c2fd05c2fd03d2e9c} 
+\index{API.h@{API.h}!CHECK\_ACTIVATION\_ENDPOINT@{CHECK\_ACTIVATION\_ENDPOINT}}
+\index{CHECK\_ACTIVATION\_ENDPOINT@{CHECK\_ACTIVATION\_ENDPOINT}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_ACTIVATION\_ENDPOINT}{CHECK\_ACTIVATION\_ENDPOINT}}
+{\footnotesize\ttfamily \#define CHECK\+\_\+\+ACTIVATION\+\_\+\+ENDPOINT~"{}https\+://backend.\+example.\+com/check\+\_\+activation/"{}}
+
+
+
+Endpoint for checking device activation status (expects device ID appended). 
+
+\Hypertarget{_a_p_i_8h_a0b85963cace75e76ae726bcffb04eb70}\label{_a_p_i_8h_a0b85963cace75e76ae726bcffb04eb70} 
+\index{API.h@{API.h}!DEVICE\_ID@{DEVICE\_ID}}
+\index{DEVICE\_ID@{DEVICE\_ID}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{DEVICE\_ID}{DEVICE\_ID}}
+{\footnotesize\ttfamily \#define DEVICE\+\_\+\+ID~"{}your\+\_\+device\+\_\+id\+\_\+here"{}}
+
+
+
+Unique Device Identifier. 
+
+\Hypertarget{_a_p_i_8h_a413e652e25cc3ea0fa4c92334a44c480}\label{_a_p_i_8h_a413e652e25cc3ea0fa4c92334a44c480} 
+\index{API.h@{API.h}!HTTP\_MAX\_RETRIES@{HTTP\_MAX\_RETRIES}}
+\index{HTTP\_MAX\_RETRIES@{HTTP\_MAX\_RETRIES}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{HTTP\_MAX\_RETRIES}{HTTP\_MAX\_RETRIES}}
+{\footnotesize\ttfamily \#define HTTP\+\_\+\+MAX\+\_\+\+RETRIES~3}
+
+
+
+Maximum number of retry attempts for HTTP requests. 
+
+\Hypertarget{_a_p_i_8h_a603d7eb76ca889e39ca041e5e298337a}\label{_a_p_i_8h_a603d7eb76ca889e39ca041e5e298337a} 
+\index{API.h@{API.h}!HTTP\_TIMEOUT@{HTTP\_TIMEOUT}}
+\index{HTTP\_TIMEOUT@{HTTP\_TIMEOUT}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{HTTP\_TIMEOUT}{HTTP\_TIMEOUT}}
+{\footnotesize\ttfamily \#define HTTP\+\_\+\+TIMEOUT~10000}
+
+
+
+HTTP request timeout in milliseconds (10 seconds). 
+
+\Hypertarget{_a_p_i_8h_a73da5dc88674adab6965a3bcfe012d2d}\label{_a_p_i_8h_a73da5dc88674adab6965a3bcfe012d2d} 
+\index{API.h@{API.h}!PREF\_ACTIVATION\_STATE@{PREF\_ACTIVATION\_STATE}}
+\index{PREF\_ACTIVATION\_STATE@{PREF\_ACTIVATION\_STATE}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{PREF\_ACTIVATION\_STATE}{PREF\_ACTIVATION\_STATE}}
+{\footnotesize\ttfamily \#define PREF\+\_\+\+ACTIVATION\+\_\+\+STATE~"{}activation\+\_\+state"{}}
+
+
+
+NVS key for the activation state. 
+
+\Hypertarget{_a_p_i_8h_a55b4e67bd88e2f4cacc80d4e7ef4f28c}\label{_a_p_i_8h_a55b4e67bd88e2f4cacc80d4e7ef4f28c} 
+\index{API.h@{API.h}!PREF\_AUTH\_TOKEN@{PREF\_AUTH\_TOKEN}}
+\index{PREF\_AUTH\_TOKEN@{PREF\_AUTH\_TOKEN}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{PREF\_AUTH\_TOKEN}{PREF\_AUTH\_TOKEN}}
+{\footnotesize\ttfamily \#define PREF\+\_\+\+AUTH\+\_\+\+TOKEN~"{}auth\+\_\+token"{}}
+
+
+
+NVS key for the authentication token. 
+
+\Hypertarget{_a_p_i_8h_a28d7d0ef961d10e35da62ba4b1011a3c}\label{_a_p_i_8h_a28d7d0ef961d10e35da62ba4b1011a3c} 
+\index{API.h@{API.h}!STATE\_ACTIVATED@{STATE\_ACTIVATED}}
+\index{STATE\_ACTIVATED@{STATE\_ACTIVATED}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_ACTIVATED}{STATE\_ACTIVATED}}
+{\footnotesize\ttfamily \#define STATE\+\_\+\+ACTIVATED~"{}ACTIVATED"{}}
+
+
+
+String identifier for the activated state. 
+
+\Hypertarget{_a_p_i_8h_a7641b85a2cafe5bf48a64045cd0334f4}\label{_a_p_i_8h_a7641b85a2cafe5bf48a64045cd0334f4} 
+\index{API.h@{API.h}!STATE\_NO\_ACTIVATED@{STATE\_NO\_ACTIVATED}}
+\index{STATE\_NO\_ACTIVATED@{STATE\_NO\_ACTIVATED}!API.h@{API.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_NO\_ACTIVATED}{STATE\_NO\_ACTIVATED}}
+{\footnotesize\ttfamily \#define STATE\+\_\+\+NO\+\_\+\+ACTIVATED~"{}NO\+\_\+\+ACTIVATED"{}}
+
+
+
+String identifier for the non-\/activated state. 
+

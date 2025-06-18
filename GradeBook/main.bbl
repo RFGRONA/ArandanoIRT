@@ -21,9 +21,7 @@ Rumbaugh, J.%
 \newblock
 \APACrefYear{2007}.
 \newblock
-\APACrefbtitle {El lenguaje unificado de modelado: Manual de referencia} {El
-  lenguaje unificado de modelado: Manual de referencia}\ (\PrintOrdinal{2a}\
-  \BEd).
+\APACrefbtitle {El lenguaje unificado de modelado: Manual de referencia} {El lenguaje unificado de modelado: Manual de referencia}\ (\PrintOrdinal{2a}\ \BEd).
 \newblock
 \APACaddressPublisher{Madrid}{Pearson Addison Wesley}.
 \PrintBackRefs{\CurrentBib}

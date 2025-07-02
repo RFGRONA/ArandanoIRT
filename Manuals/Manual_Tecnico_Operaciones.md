@@ -22,7 +22,7 @@ La arquitectura del sistema se basa en un conjunto de principios clave: uso de s
 
 ### 2.1 Diagrama de Arquitectura
 
-<img src="../Docs%20DevOps/es/Modelado/Diagrama%20Arquitectura.drawio.png" alt="Diagrama de Arquitectura del Sistema" width="600"/>
+<img src="../Docs%20DevOps/es/Modelado/Diagrama%20Arquitectura.drawio.png" alt="Diagrama de Arquitectura del Sistema" width="80%"/>
 
 ### 2.2 Flujo de Componentes
 

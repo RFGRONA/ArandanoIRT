@@ -79,7 +79,6 @@ A continuación se detallan las tecnologías utilizadas en el proyecto, clasific
 | Acceso a Datos | Entity Framework Core | Open Source | ORM para la interacción con la base de datos. |
 | Logging de Aplicación | Serilog | Open Source | Generación de logs estructurados en formato JSON. |
 | Auditoría de BD | pgaudit | Open Source | Extensión de PostgreSQL para registrar eventos de auditoría. |
-| Observabilidad externa | OneUptime | Open Source | Monitoreo de disponibilidad de endpoints y página de estado. | |
 
 -----
 

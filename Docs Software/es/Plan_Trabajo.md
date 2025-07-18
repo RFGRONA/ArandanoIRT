@@ -1,7 +1,7 @@
 # Plan de Trabajo: Implementación de Nuevos Módulos
 
-**Versión:** 1.0 
-**Fecha:** 2025-07-06
+**Versión:** 1.2
+**Fecha:** 2025-07-12
 
 ## 1. Introducción
 
@@ -29,11 +29,11 @@ Este documento detalla el plan de trabajo para el desarrollo e implementación d
 | Tarea | Descripción | Entregable Esperado |
 | :--- | :--- | :--- |
 | **1.1** | **Implementar Registro con Invitación y Roles** | Desarrollar la lógica en `AccountController` para validar códigos de invitación y asignar el rol "Admin" si `is_admin` es `true`. |
-| **1.2** | **Integrar CAPTCHA (Cloudflare Turnstile)** | Añadir el widget y la validación backend de Turnstile en las vistas de Registro, Login, Recuperación de Contraseña y Formulario de Ayuda. |
-| **1.3** | **Configurar Gestión de Sesión** | Configurar la cookie de sesión de Identity con expiración y crear el manejador de JS para la alerta de "Sesión Expirada". |
-| **1.4** | **Implementar Recuperación de Contraseña** | Crear los endpoints y vistas para el flujo de dos pasos usando los tokens nativos de ASP.NET Core Identity. |
-| **1.5** | **Crear Formulario de Ayuda** | Desarrollar la vista y el endpoint que envía un correo a los administradores con la preferencia de notificación activada. |
-| **1.6** | **Desarrollar Vista de Perfil de Usuario** | Crear la página donde el usuario puede actualizar su información y gestionar sus preferencias de notificación opcionales. |
+| **1.2** | **Configurar Gestión de Sesión** | Configurar la cookie de sesión de Identity con expiración y crear el manejador de JS para la alerta de "Sesión Expirada". |
+| **1.3** | **Implementar Recuperación de Contraseña** | Crear los endpoints y vistas para el flujo de dos pasos usando los tokens nativos de ASP\.NET Core Identity y Bcrypt. |
+| **1.4** | **Crear Formulario de Ayuda** | Desarrollar la vista y el endpoint que envía un correo a los administradores con la preferencia de notificación activada. |
+| **1.5** | **Desarrollar Vista de Perfil de Usuario** | Crear la página donde el usuario puede actualizar su información y gestionar sus preferencias de notificación opcionales. |
+**1.6** | **Implementar Cambio de Contraseña de Usuario** | Añadir a la vista de perfil un formulario para cambiar la contraseña (requiriendo la actual y la nueva). |
 
 ---
 
@@ -48,7 +48,22 @@ Este documento detalla el plan de trabajo para el desarrollo e implementación d
 
 ---
 
-## Fase 3: Módulo de Generación de Reportes y Analíticas
+## Fase 3: Sistema de Alertas y Notificaciones
+
+**Objetivo:** Notificar proactivamente a los usuarios sobre eventos importantes del sistema.
+
+| Tarea | Descripción | Entregable Esperado |
+| :--- | :--- | :--- |
+| **4.1** | **Implementar Servicio de Correo (Brevo)** | Crear la interfaz `IEmailService` y su implementación `BrevoEmailService` para conectarse a la API de Brevo. |
+| **4.2** | **Crear Endpoint para Webhook de Grafana** | Desarrollar el endpoint `POST /api/alerts/grafana-webhook` protegido por un token secreto. |
+| **4.3** | **Implementar Lógica de Disparo de Alertas** | Codificar las condiciones que disparan cada tipo de alerta (estrés hídrico, fallos de login, etc.). |
+| **4.4** | **Conectar Lógica con Preferencias** | Asegurar que la lógica de envío de alertas consulte el campo `settings` del usuario para respetar sus preferencias de notificación. |
+| **4.5** | **Crear Servicio de Tareas Programadas** | Implementar una clase que herede de `BackgroundService` (`IHostedService`) para ejecutar lógicas periódicas en segundo plano. |
+| **4.6** | **Implementar Alerta de Inactividad** | Dentro del nuevo servicio, implementar la lógica que compruebe el ultimo dato ambiental recibido de los dispositivos y envíe una alerta a los administradores si superan el umbral de inactividad. |
+
+---
+
+## Fase 4: Módulo de Generación de Reportes y Analíticas
 
 **Objetivo:** Dotar al sistema de herramientas para el análisis de datos térmicos y la generación de reportes.
 
@@ -61,26 +76,14 @@ Este documento detalla el plan de trabajo para el desarrollo e implementación d
 
 ---
 
-## Fase 4: Sistema de Alertas y Notificaciones
-
-**Objetivo:** Notificar proactivamente a los usuarios sobre eventos importantes del sistema.
-
-| Tarea | Descripción | Entregable Esperado |
-| :--- | :--- | :--- |
-| **4.1** | **Implementar Servicio de Correo (Brevo)** | Crear la interfaz `IEmailService` y su implementación `BrevoEmailService` para conectarse a la API de Brevo. |
-| **4.2** | **Crear Endpoint para Webhook de Grafana** | Desarrollar el endpoint `POST /api/alerts/grafana-webhook` protegido por un token secreto. |
-| **4.3** | **Implementar Lógica de Disparo de Alertas** | Codificar las condiciones que disparan cada tipo de alerta (estrés hídrico, fallos de login, etc.). |
-| **4.4** | **Conectar Lógica con Preferencias** | Asegurar que la lógica de envío de alertas consulte el campo `settings` del usuario para respetar sus preferencias de notificación. |
-
----
-
 ## Fase 5: Calidad y Despliegue Final
 
 **Objetivo:** Asegurar la calidad, mantenibilidad y correcta documentación del software antes del despliegue.
 
 | Tarea | Descripción | Entregable Esperado |
 | :--- | :--- | :--- |
-| **5.1** | **Escritura de Pruebas** | Crear proyectos de Test (xUnit/NUnit) y desarrollar pruebas unitarias y de integración para las lógicas de negocio más críticas de los nuevos módulos. |
-| **5.2** | **Análisis Estático de Código** | Ejecutar SonarQube sobre el proyecto y resolver los "code smells", bugs y vulnerabilidades reportadas. |
-| **5.3** | **Generación de Documentación Doxygen** | Comentar el nuevo código en inglés siguiendo el formato Doxygen. Generar la documentación HTML. |
-| **5.4** | **Configurar Workflow de GitHub Actions** | Crear un workflow (`.github/workflows/docs.yml`) que se dispare en cada push a la rama principal, genere la documentación Doxygen y la despliegue en GitHub Pages. |
+| **5.1** | **Integrar CAPTCHA (Cloudflare Turnstile)** | Añadir el widget y la validación backend de Turnstile en las vistas (publicas) de Registro, Login, Recuperación de Contraseña y Formulario de Ayuda. |
+| **5.2** | **Escritura de Pruebas** | Crear proyectos de Test (xUnit/NUnit) y desarrollar pruebas unitarias y de integración para las lógicas de negocio más críticas de los nuevos módulos. |
+| **5.3** | **Análisis Estático de Código** | Ejecutar SonarQube sobre el proyecto y resolver los "code smells", bugs y vulnerabilidades reportadas. |
+| **5.4** | **Generación de Documentación Doxygen** | Comentar el nuevo código en inglés siguiendo el formato Doxygen. Generar la documentación HTML. |
+| **5.5** | **Configurar Workflow de GitHub Actions** | Crear un workflow (`.github/workflows/docs.yml`) que se dispare en cada push a la rama principal, genere la documentación Doxygen y la despliegue en GitHub Pages. |

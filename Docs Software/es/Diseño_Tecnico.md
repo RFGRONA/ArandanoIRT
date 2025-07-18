@@ -1,7 +1,7 @@
 # Diseño Técnico del Software: Nuevos Módulos para Arandano IRT
 
-**Versión:** 1.0 
-**Fecha:** 2025-07-06
+**Versión:** 1.1 
+**Fecha:** 2025-07-12
 
 ## 1. Introducción
 
@@ -36,7 +36,7 @@ Este módulo mejora la seguridad y la experiencia del usuario en el ciclo de vid
       - El `AccountController` recibirá los datos del formulario.
       - Se validará el token de Turnstile con la API de Cloudflare.
       - Se verificará que el código de invitación exista, no esté usado y no haya expirado.
-      - Se creará el `User` usando `UserManager.CreateAsync()`.
+      - Se creará el `User` usando `UserManager.CreateAsync()` y Bcrypt para hashear la contraseña.
       - Si el `invitation_code.is_admin` es `true`, se asignará el rol "Admin" al nuevo usuario usando `UserManager.AddToRoleAsync()`.
       - Se marcará el código de invitación como usado.
       - Se creará una plantilla de configuración por defecto en el campo `settings` del nuevo usuario.
@@ -68,7 +68,7 @@ Este módulo mejora la seguridad y la experiencia del usuario en el ciclo de vid
       - Al enviar, se llama a un método en `AccountController`. Este genera un token de reseteo usando `UserManager.GeneratePasswordResetTokenAsync()` y lo envía al correo del usuario a través de un nuevo servicio `IEmailService`.
 2.  **Formulario 2 - Actualización de Contraseña (`/Account/ResetPassword`):**
       - Campos: Email, Nueva Contraseña, Confirmar Contraseña, y el token (leído desde la URL).
-      - Al enviar, se llama a `UserManager.ResetPasswordAsync()` para validar el token y actualizar la contraseña.
+      - Al enviar, se llama a `UserManager.ResetPasswordAsync()` para validar el token y actualizar la contraseña utilizando Bcrypt.
 
 ### 3.5. Formulario de Ayuda y Perfil de Usuario
 
@@ -80,6 +80,10 @@ Este módulo mejora la seguridad y la experiencia del usuario en el ciclo de vid
   - **Perfil de Usuario (`/Account/Manage`):**
       - Permitirá al usuario cambiar su información básica (nombre, apellido).
       - Permitirá editar las preferencias de notificación opcionales (ver Módulo 4).
+  - **Cambio de Contraseña:** 
+      - La vista de Perfil de Usuario (`/Account/Manage`) también incluirá un formulario dedicado para que el usuario pueda cambiar su propia contraseña. 
+      - Este requerirá tres campos: `Contraseña Actual`, `Nueva Contraseña` y `Confirmación de la Nueva Contraseña`. 
+      - La lógica del backend en `AccountController` utilizará un método para comprobar la contraseña anterior y registrar la nueva mediante Bcrypt. Esta acción no requerirá CAPTCHA ni código de confirmación, ya que se asume que el usuario ya ha iniciado sesión.
 
 ## 4. Módulo 2: Observaciones (Bitácora de Campo)
 
@@ -169,11 +173,16 @@ Este módulo mejora la seguridad y la experiencia del usuario en el ciclo de vid
 | **Error de Dispositivo** | Grafana -\> Webhook | Fija | Todos los **Administradores**. |
 | **Fallo de Aplicación** | Grafana -\> Webhook | Opcional, configurable por admin | Administradores con la notificación activada. |
 | **Login Fallido (5 veces)**| `SignInManager` de Identity | Fija | Únicamente al **usuario** cuyo inicio de sesión está fallando. |
+| **Inactividad de Dispositivo** | Tarea programada en backend | Fija. El servicio busca periódicamente dispositivos cuya última comunicación supere un umbral configurable (ej. 1 hora). | Administradores con la notificación activada. |
 
 ### 6.4. Gestión de Preferencias
 
   - Las preferencias de notificación se almacenarán en la columna `settings` de la tabla `users`.
   - El perfil de usuario (`/Account/Manage`) permitirá modificar únicamente las alertas marcadas como "Opcionales".
+
+### **6.5. Tareas Programadas en Backend (Background Services)**
+  - Para implementar alertas que no son disparadas por una acción directa del usuario o una llamada externa (como la de inactividad de dispositivo), se creará un **Servicio Alojado** que implemente la interfaz `IHostedService` de .NET. 
+  - Este servicio se ejecutará en segundo plano dentro de la propia aplicación, ejecutando tareas periódicas (ej. cada 15 minutos) para verificar el estado y la última comunicación de los dispositivos. Para esto se verificará la fecha del ultimo dato ambiental enviado por el dispositivo, y si supera un umbral configurable (ej. 1 hora), se enviará una alerta a los administradores.
 
 ## 7. Consideraciones Adicionales de Arquitectura
 

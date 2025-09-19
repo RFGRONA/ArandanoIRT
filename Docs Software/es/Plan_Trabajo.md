@@ -1,7 +1,7 @@
 # Plan de Trabajo: Implementación de Nuevos Módulos
 
 **Versión:** 1.2
-**Fecha:** 2025-07-12
+**Fecha:** 2025-07-18
 
 ## 1. Introducción
 
@@ -54,12 +54,12 @@ Este documento detalla el plan de trabajo para el desarrollo e implementación d
 
 | Tarea | Descripción | Entregable Esperado |
 | :--- | :--- | :--- |
-| **4.1** | **Implementar Servicio de Correo (Brevo)** | Crear la interfaz `IEmailService` y su implementación `BrevoEmailService` para conectarse a la API de Brevo. |
-| **4.2** | **Crear Endpoint para Webhook de Grafana** | Desarrollar el endpoint `POST /api/alerts/grafana-webhook` protegido por un token secreto. |
-| **4.3** | **Implementar Lógica de Disparo de Alertas** | Codificar las condiciones que disparan cada tipo de alerta (estrés hídrico, fallos de login, etc.). |
-| **4.4** | **Conectar Lógica con Preferencias** | Asegurar que la lógica de envío de alertas consulte el campo `settings` del usuario para respetar sus preferencias de notificación. |
-| **4.5** | **Crear Servicio de Tareas Programadas** | Implementar una clase que herede de `BackgroundService` (`IHostedService`) para ejecutar lógicas periódicas en segundo plano. |
-| **4.6** | **Implementar Alerta de Inactividad** | Dentro del nuevo servicio, implementar la lógica que compruebe el ultimo dato ambiental recibido de los dispositivos y envíe una alerta a los administradores si superan el umbral de inactividad. |
+| **3.1** | **Implementar Servicio de Correo (Brevo)** | Crear la interfaz `IEmailService` y su implementación `BrevoEmailService` para conectarse a la API de Brevo. |
+| **3.2** | **Crear Endpoint para Webhook de Grafana** | Desarrollar el endpoint `POST /api/alerts/grafana-webhook` protegido por un token secreto. |
+| **3.3** | **Implementar Lógica de Disparo de Alertas** | Codificar las condiciones que disparan cada tipo de alerta (estrés hídrico, fallos de login, etc.). |
+| **3.4** | **Conectar Lógica con Preferencias** | Asegurar que la lógica de envío de alertas consulte el campo `settings` del usuario para respetar sus preferencias de notificación. |
+| **3.5** | **Crear Servicio de Tareas Programadas** | Implementar una clase que herede de `BackgroundService` (`IHostedService`) para ejecutar lógicas periódicas en segundo plano. |
+| **3.6** | **Implementar Alerta de Inactividad** | Dentro del nuevo servicio, implementar la lógica que compruebe el ultimo dato ambiental recibido de los dispositivos y envíe una alerta a los administradores si superan el umbral de inactividad. |
 
 ---
 
@@ -69,10 +69,10 @@ Este documento detalla el plan de trabajo para el desarrollo e implementación d
 
 | Tarea | Descripción | Entregable Esperado |
 | :--- | :--- | :--- |
-| **3.1** | **Desarrollar UI para Máscara Térmica** | Crear la vista con la cuadrícula interactiva que permite al usuario seleccionar los puntos de la máscara sobre la imagen térmica. |
-| **3.2** | **Implementar Almacenamiento de Máscara** | Crear la lógica en `AnalyticsService` para recibir las coordenadas de la máscara y guardarlas en el campo ``thermal_mask_data` de la tabla `plants` correspondiente a `{plantId}`. |
-| **3.3** | **Crear Servicio de Generación de PDF** | Implementar un `IPdfGeneratorService` usando una librería como QuestPDF para crear los reportes en una carpeta temporal. |
-| **3.4** | **Implementar Distribución de Reportes** | Desarrollar la funcionalidad en la interfaz para visualizar en el navegador, descargar y enviar por correo el PDF generado. |
+| **4.1** | **Desarrollar UI para Máscara Térmica** | Crear la vista con la cuadrícula interactiva que permite al usuario seleccionar los puntos de la máscara sobre la imagen térmica. |
+| **4.2** | **Implementar Almacenamiento de Máscara** | Crear la lógica en `AnalyticsService` para recibir las coordenadas de la máscara y guardarlas en el campo ``thermal_mask_data` de la tabla `plants` correspondiente a `{plantId}`. |
+| **4.3** | **Crear Servicio de Generación de PDF** | Implementar un `IPdfGeneratorService` usando una librería como QuestPDF para crear los reportes en una carpeta temporal. |
+| **4.4** | **Implementar Distribución de Reportes** | Desarrollar la funcionalidad en la interfaz para visualizar en el navegador, descargar y enviar por correo el PDF generado. |
 
 ---
 

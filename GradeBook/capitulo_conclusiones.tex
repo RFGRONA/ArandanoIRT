@@ -1,22 +1,87 @@
-% Capítulo VI: Resultados Integrados y Conclusiones Globales
-\chapter{RESULTADOS Y CONCLUSIONES FINALES}
+\chapter{Resultados y Conclusiones Finales}
+\label{chap:conclusiones}
 
-\section{Pregunta de investigación}
-Integración de los resultados obtenidos en la caracterización del hardware, la documentación del software y el estudio experimental, resaltando los aspectos más relevantes y la coherencia entre las diferentes etapas del proyecto.
+Este capítulo final presenta una síntesis de los resultados obtenidos a lo largo del proyecto, ofreciendo una discusión crítica sobre el cumplimiento de los objetivos, las implicaciones de los hallazgos y las futuras líneas de investigación. Se busca dar una respuesta clara a la pregunta de investigación y consolidar el aporte de este trabajo al campo de la agricultura de precisión.
+
+\section{Respuesta a la Pregunta de Investigación}
+\label{sec:respuesta_pregunta}
+
+La pregunta central que guio este proyecto fue: \textbf{¿Es posible desarrollar un sistema de bajo costo, basado en termografía infrarroja e inteligencia artificial, que permita detectar de manera temprana el estrés hídrico en plantas de arándano variedad Biloxi para optimizar la gestión del riego?}
+
+La respuesta, a la luz de los resultados obtenidos, es afirmativa. El desarrollo y validación del sistema integrado por hardware, software y un estudio experimental han demostrado que es factible construir e implementar una solución tecnológica de bajo costo capaz de monitorear indicadores fisiológicos asociados al estrés hídrico.
+
+\begin{itemize}
+    \item \textbf{Viabilidad Tecnológica:} Se diseñó, ensambló y validó metrológicamente un prototipo de hardware funcional utilizando componentes asequibles como el microcontrolador ESP32-S3 y el sensor térmico MLX90640. La caracterización del sensor demostró una precisión aceptable para aplicaciones agrícolas, confirmando que la barrera del alto costo de los equipos comerciales puede ser superada.
+    
+    \item \textbf{Detección Temprana:} El estudio experimental, aunque concebido como una prueba de concepto, evidenció que el sistema es suficientemente sensible para registrar los cambios en la temperatura foliar de la planta de arándano en respuesta a la restricción de riego. El incremento sostenido del Índice de Estrés Hídrico del Cultivo (CWSI) durante la fase de sequía y su rápido descenso tras la rehidratación, constituye una prueba empírica de que el sistema detecta la respuesta fisiológica de la planta antes de que los signos de marchitamiento sean visualmente evidentes.
+\end{itemize}
+
+Por lo tanto, el proyecto demuestra exitosamente que la combinación de termografía de bajo costo y análisis de datos es una estrategia viable y prometedora para la detección temprana del estrés hídrico en el cultivo de arándano.
 
 \section{Discusión General}
-Análisis crítico de la consecución de los objetivos planteados, discusión de las fortalezas y limitaciones del sistema propuesto, y evaluación del impacto potencial de la implementación en un entorno real.
+\label{sec:discusion_general}
 
-\section{Recomendaciones}
+A continuación, se presenta un análisis crítico de la consecución de los objetivos planteados, las fortalezas y limitaciones del sistema, y su impacto potencial.
+
+\subsection{Consecución de los Objetivos Planteados}
+El proyecto cumplió satisfactoriamente con los objetivos específicos propuestos:
+
+\begin{enumerate}
+    \item \textbf{Diseñar y construir un prototipo de hardware:} Se logró el diseño y ensamblaje de un dispositivo funcional, robusto y de bajo costo. La validación metrológica confirmó su fiabilidad como instrumento de medición, siendo este uno de los principales aportes del proyecto.
+    
+    \item \textbf{Desarrollar un software de procesamiento:} Se implementó el firmware necesario para la adquisición continua de datos térmicos y ambientales. Adicionalmente, se desarrollaron los scripts para la segmentación de imágenes y el cálculo del CWSI, permitiendo transformar los datos crudos en un indicador agronómico valioso.
+    
+    \item \textbf{Implementar un modelo de inteligencia artificial:} Aunque el estudio experimental se centró en la prueba de concepto y la validación del hardware, el diseño del sistema contempla la integración futura de modelos de IA. La recolección de un conjunto de datos etiquetados (planta con y sin estrés) durante 55 días sienta las bases para el entrenamiento de algoritmos de clasificación, cumpliendo con la fase inicial de este objetivo.
+    
+    \item \textbf{Crear una aplicación web:} Se desarrolló una plataforma web que permite la visualización de los datos recopilados por el hardware, proporcionando una interfaz intuitiva para el usuario final. Esto completa el ciclo desde la captura del dato en campo hasta su presentación para la toma de decisiones.
+\end{enumerate}
+
+\subsection{Fortalezas y Limitaciones del Sistema}
+
+\subsubsection{Fortalezas}
 \begin{itemize}
-    \item Sugerencias para la mejora del sistema basado en los resultados obtenidos.
-    \item Propuestas para futuras investigaciones que puedan ampliar o profundizar el trabajo realizado.
-    \item Consideraciones sobre la escalabilidad y adaptabilidad del sistema a otros contextos o cultivos.
+    \item \textbf{Bajo Costo:} La principal fortaleza del sistema es su asequibilidad. Al utilizar componentes de hardware de código abierto y ampliamente disponibles, el costo del prototipo es una fracción del de las cámaras termográficas comerciales, lo que democratiza el acceso a esta tecnología.
+    \item \textbf{Monitoreo Continuo y No Invasivo:} A diferencia de los métodos tradicionales (e.g., bomba de Scholander), el sistema permite un monitoreo constante sin afectar a la planta, proporcionando una visión dinámica de su estado hídrico a lo largo del día y en diferentes condiciones climáticas.
+    \item \textbf{Sistema Integral:} El proyecto no se limita al hardware, sino que ofrece una solución completa que abarca la captura de datos, el procesamiento, el almacenamiento y la visualización, lo que aumenta su valor práctico para el usuario final.
+\end{itemize}
+
+\subsubsection{Limitaciones}
+\begin{itemize}
+    \item \textbf{Alcance del Experimento:} La prueba de concepto se realizó con un solo individuo, lo que impide una validación estadística robusta y la generalización de los resultados. Factores como la variabilidad entre plantas y las diferentes condiciones microclimáticas de un cultivo real no fueron evaluados.
+    \item \textbf{Resolución del Sensor Térmico:} La resolución de 32x24 píxeles del sensor MLX90640, aunque suficiente para esta prueba de concepto, puede ser una limitación para analizar plantas a mayor distancia o para obtener detalles finos de la distribución de temperatura en el dosel.
+    \item \textbf{Dependencia de la Conectividad:} Aunque cuenta con almacenamiento local en una tarjeta SD, la funcionalidad en tiempo real del sistema depende de una conexión Wi-Fi estable para la transmisión de datos al servidor, lo cual puede ser un desafío en zonas rurales.
+\end{itemize}
+
+\subsection{Impacto Potencial}
+La implementación de este sistema en un entorno real tiene el potencial de generar un impacto significativo en la agricultura del arándano. Al proporcionar a los agricultores una herramienta precisa y asequible para programar el riego basada en las necesidades reales de la planta, se pueden lograr beneficios como:
+\begin{itemize}
+    \item \textbf{Optimización del Uso del Agua:} Reducción del consumo de agua al evitar el riego innecesario o excesivo.
+    \item \textbf{Mejora del Rendimiento y Calidad del Cultivo:} Evitar el estrés hídrico, que afecta negativamente el tamaño y la calidad de la fruta.
+    \item \textbf{Sostenibilidad Agrícola:} Promover prácticas agrícolas más sostenibles y resilientes al cambio climático.
+\end{itemize}
+
+\section{Recomendaciones y Trabajo Futuro}
+\label{sec:recomendaciones}
+
+A partir de los resultados y las limitaciones identificadas, se proponen las siguientes líneas de trabajo futuro:
+
+\begin{itemize}
+    \item \textbf{Escalamiento del Estudio Experimental:} Realizar experimentos con un mayor número de plantas, incluyendo réplicas y grupos de control. Evaluar el sistema en condiciones de campo reales para analizar su comportamiento frente a la variabilidad climática y del cultivo.
+    
+    \item \textbf{Integración de Inteligencia Artificial:} Utilizar el conjunto de datos recopilado para entrenar y validar modelos de aprendizaje automático (e.g., SVM, Redes Neuronales) que puedan clasificar automáticamente el estado hídrico de las plantas (e.g., "Normal", "Estrés Leve", "Estrés Severo") y generar alertas automáticas.
+    
+    \item \textbf{Mejora del Hardware:} Explorar la integración de sensores térmicos de mayor resolución a medida que su costo disminuya. Incorporar una cámara en el espectro visible para correlacionar los datos térmicos con imágenes RGB y aplicar técnicas de visión por computador para una mejor segmentación del dosel.
+    
+    \item \textbf{Calibración Específica del CWSI:} Desarrollar una línea base del CWSI específica para el arándano var. Biloxi en las condiciones climáticas de la sabana de Bogotá, lo que aumentaría la precisión del índice.
+    
+    \item \textbf{Desarrollo de una Red de Sensores:} Ampliar el sistema para crear una red de nodos de monitoreo distribuidos en un cultivo, permitiendo generar mapas de estrés hídrico y una gestión del riego por zonas.
 \end{itemize}
 
 \section{Conclusiones Finales}
-\begin{itemize}
-    \item Resumen de los logros y aportes del proyecto.
-    \item Reflexión sobre los retos encontrados y las soluciones implementadas.
-    \item Recomendaciones para futuras investigaciones y mejoras en el sistema.
-\end{itemize}
+\label{sec:conclusiones_finales}
+
+Este trabajo de grado ha cumplido exitosamente su objetivo principal al demostrar que es posible desarrollar un sistema funcional y de bajo costo para la detección de estrés hídrico en plantas de arándano Biloxi mediante termografía infrarroja.
+
+Se ha diseñado y validado un prototipo de hardware que representa una alternativa asequible a los equipos comerciales. A través de un estudio experimental controlado, se comprobó que el sistema es capaz de detectar los cambios fisiológicos en la planta asociados a la falta de agua, validando la prueba de concepto.
+
+El proyecto no solo aporta una solución tecnológica, sino que también contribuye con un valioso conjunto de datos de 55 días de monitoreo continuo, que servirá como base para el desarrollo de futuros modelos de inteligencia artificial. A pesar de sus limitaciones, este trabajo sienta las bases para futuras investigaciones y desarrollos que podrían tener un impacto positivo en la sostenibilidad y eficiencia de la producción de arándanos en Colombia, facilitando la adopción de prácticas de agricultura de precisión en un sector clave de la economía nacional.

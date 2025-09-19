@@ -1,0 +1,25 @@
+# Archivos generados por LaTeX
+*.aux
+*.bbl
+*.blg
+*.log
+*.lof
+*.lot
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Archivos de salida
+*.pdf
+*.dvi
+*.ps
+
+# Archivos temporales y de respaldo del editor
+*~
+*.swp
+*.bak
+
+# Carpetas de compilación 
+_build/

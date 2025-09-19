@@ -1,29 +1,123 @@
-% Capítulo V: Estudio Experimental en Plantas de Arándano Biloxi
-\chapter{ESTUDIO EXPERIMENTAL}
+\chapter{Estudio Experimental}
+\label{chap:estudio_experimental}
 
 \section{Introducción}
-Se presenta el contexto del cultivo de arándano biloxi y la relevancia de detectar tempranamente Botrytis cinerea. Se definen los objetivos específicos del estudio experimental.
+\label{sec:exp_introduccion}
 
-\section{Objetivos}
+La gestión eficiente del agua en la agricultura se ha convertido en un desafío crítico, intensificado por los efectos del cambio climático y la creciente demanda de recursos hídricos \cite{Salgado2018}. Para cultivos de alto valor como el arándano (var. Biloxi), el estrés hídrico representa una de las principales amenazas para la productividad y la calidad del fruto. La detección temprana de esta condición es fundamental para optimizar las prácticas de riego y asegurar la sostenibilidad del cultivo.
+
+La termografía infrarroja (IRT) ha demostrado ser una herramienta eficaz para el monitoreo no invasivo del estado hídrico de las plantas \cite{Jones2004, PobleteEcheverria2023}, basándose en la premisa de que la temperatura de la superficie foliar aumenta cuando la planta cierra sus estomas para conservar agua \cite{Rinza2021}. Sin embargo, el alto costo de los equipos termográficos comerciales ha limitado su adopción, creando una brecha tecnológica especialmente para pequeños y medianos productores.
+
+Este capítulo detalla el estudio experimental realizado para validar un sistema de termografía de bajo costo como una solución viable para el monitoreo del estrés hídrico en el arándano. Se describe el diseño, la construcción y la validación metrológica de un prototipo de hardware, así como la metodología empleada para inducir, monitorear y analizar los efectos del estrés hídrico en una planta de arándano en condiciones controladas. El objetivo final de este experimento es demostrar la sensibilidad y fiabilidad del sistema propuesto para registrar patrones térmicos coherentes con la respuesta fisiológica de la planta, sentando las bases para su aplicación a mayor escala en la agricultura de precisión.
+
+\section{Objetivos del Estudio Experimental}
+\label{sec:exp_objetivos}
+
+\subsection{Objetivo General}
+Validar la viabilidad y sensibilidad de un prototipo de termografía de bajo costo para detectar y monitorear la respuesta fisiológica del arándano (var. Biloxi) sometido a un ciclo de estrés hídrico controlado.
+
+\subsection{Objetivos Específicos}
+\begin{enumerate}
+    \item Caracterizar y validar metrológicamente el prototipo de cámara termográfica de bajo costo para establecer su fiabilidad como instrumento de medición.
+    \item Registrar de forma continua la temperatura foliar y las variables ambientales (temperatura ambiente, humedad relativa) durante un ciclo completo de estrés hídrico y posterior recuperación.
+    \item Calcular el Índice de Estrés Hídrico del Cultivo (CWSI) a partir de los datos recopilados para cuantificar el nivel de estrés de la planta.
+    \item Analizar la correlación entre los datos térmicos obtenidos por el prototipo y la respuesta fisiológica esperada de la planta para demostrar la prueba de concepto del sistema.
+\end{enumerate}
+
+\section{Materiales y Métodos}
+\label{sec:exp_materiales_metodos}
+
+Para la realización de este estudio, se diseñó y construyó un sistema de adquisición de datos compuesto por un módulo de hardware central y una serie de sensores.
+
+\subsection{Arquitectura del Hardware}
+El prototipo se basa en un diseño modular centrado en el microcontrolador ESP32-S3, seleccionado por su capacidad de procesamiento de doble núcleo, conectividad Wi-Fi integrada y bajo consumo energético. La arquitectura del dispositivo se compone de los siguientes elementos clave:
+
 \begin{itemize}
-    \item Obtener el patógeno \textit{Botrytis cinerea} en condiciones controladas.
-    \item Infectar y registrar plantas de arándano biloxi con el hongo mediante datos cuantitativos y cualitativos.
-    \item Evaluar la efectividad de la detección temprana mediante termografía con los datos parciales.
-    \item Comparar los resultados entre plantas infectadas y de control.
+    \item \textbf{Microcontrolador (MCU):} Se utilizó un modelo LOLIN S3 de WeMos, que integra el microcontrolador ESP32-S3. Este componente se encarga de gestionar los sensores, procesar los datos y transmitirlos a través de la red Wi-Fi.
+    
+    \item \textbf{Sensor Térmico:} El núcleo del sistema es la matriz de sensores infrarrojos \textbf{MLX90640} \cite{Melexis2021}. Este sensor ofrece una resolución de 32x24 píxeles, proporcionando una matriz de 768 puntos de temperatura independientes. Opera en un rango de temperatura de -40\,°C a 300\,°C con una precisión de ±1.5\,°C, lo que es adecuado para aplicaciones agrícolas.
+    
+    \item \textbf{Sensores Ambientales:} Para contextualizar las mediciones térmicas, se integró un sensor \textbf{BME280} que mide la temperatura ambiente, la humedad relativa y la presión barométrica \cite{Bosch2018}. Adicionalmente, un sensor \textbf{BH1750} mide la iluminancia ambiental. Estos datos son cruciales para el cálculo de índices como el CWSI.
+    
+    \item \textbf{Almacenamiento y Alimentación:} El sistema incluye una ranura para tarjetas microSD para el almacenamiento local de datos en caso de pérdida de conexión Wi-Fi, garantizando la integridad de la información. La alimentación del prototipo se realiza a través de un puerto USB-C, compatible con fuentes de 5V DC.
 \end{itemize}
 
-\section{Preparación del Hongo \textit{Botrytis cinerea}}
-Descripción del protocolo para el manejo, cultivo y preparación del hongo, detallando medidas de seguridad y procedimientos para garantizar la viabilidad del patógeno.
+El ensamblaje se montó en una placa de circuito impreso (PCB) diseñada a medida para asegurar la estabilidad de las conexiones y la robustez del dispositivo en condiciones de campo.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.8\textwidth]{path/to/your/hardware_image.png} % Descomenta y ajusta la ruta a tu imagen
+    \caption{Diagrama del prototipo de hardware utilizado en el experimento.}
+    \label{fig:hardware_prototype}
+\end{figure}
+
+\subsection{Validación Metrológica del Sensor Térmico}
+Antes del experimento con la planta, se llevó a cabo una validación metrológica del sensor térmico MLX90640 para cuantificar su precisión, siguiendo los principios del Vocabulario Internacional de Metrología \cite{JCGM2008}. Se realizaron pruebas de calibración en un entorno controlado utilizando un cuerpo negro de referencia y una termocupla de alta precisión. La precisión del sensor se evaluó calculando el Error Absoluto Medio (MAE) y la Raíz del Error Cuadrático Medio (RMSE), confirmando que los errores se encontraban dentro de los límites especificados por el fabricante y eran aceptables para la aplicación \cite{RodriguezAlonso2022}.
 
 \section{Diseño Experimental}
+\label{sec:exp_diseno}
+
+El experimento se diseñó como una prueba de concepto para evaluar la capacidad del sistema en el monitoreo de un solo individuo de arándano (var. Biloxi).
+
 \begin{itemize}
-    \item \textbf{Procedimiento de Infección:} Descripción de cómo se realizará la inoculación en las plantas.
-    \item \textbf{Planificación de la Toma de Datos:} Definición del cronograma, frecuencia y condiciones bajo las cuales se efectuarán las mediciones.
-    \item \textbf{Técnicas Utilizadas:} Detalle de las metodologías (incluyendo termografía) y herramientas empleadas para la captura de datos.
+    \item \textbf{Sujeto Experimental:} Se utilizó una planta de arándano de la variedad Biloxi, una de las más cultivadas en la región. La planta se mantuvo en un microinvernadero para controlar las condiciones ambientales y aislarla de la lluvia.
+    
+    \item \textbf{Ubicación y Duración:} El estudio se llevó a cabo durante 55 días consecutivos, entre agosto y octubre de 2024, en el municipio de Facatativá, Cundinamarca, Colombia.
+    
+    \item \textbf{Tratamiento de Estrés Hídrico:} El experimento se dividió en tres fases:
+    \begin{enumerate}
+        \item \textbf{Fase de Aclimatación (Días 1-15):} La planta recibió riego normal y constante para asegurar que partiera de un estado hídrico óptimo y se adaptara a las condiciones del microinvernadero.
+        \item \textbf{Fase de Estrés Hídrico Inducido (Días 16-45):} Se suspendió completamente el riego para inducir un estado de estrés hídrico progresivo.
+        \item \textbf{Fase de Recuperación (Días 46-55):} Se reanudó el riego de manera normal para observar la capacidad de recuperación de la planta y la respuesta del sistema de monitoreo.
+    \end{enumerate}
 \end{itemize}
 
+El prototipo de hardware se instaló a una distancia fija de la planta, asegurando que el dosel foliar estuviera siempre dentro del campo de visión del sensor térmico.
+
 \section{Recolección y Análisis de Datos}
-Metodología para la recopilación de datos experimentales, métodos estadísticos aplicados para el análisis comparativo entre plantas infectadas y de control, y presentación de resultados preliminares.
+\label{sec:exp_recoleccion_analisis}
+
+La adquisición de datos se realizó de forma automatizada y continua durante los 55 días del experimento.
+
+\subsection{Recolección de Datos}
+El firmware del ESP32-S3 fue programado para capturar datos de todos los sensores a intervalos regulares de 15 minutos. En cada intervalo, se registraron los siguientes datos:
+\begin{itemize}
+    \item Una matriz de 768 valores de temperatura del sensor térmico MLX90640.
+    \item Temperatura ambiente (°C) del sensor BME280.
+    \item Humedad relativa (\%) del sensor BME280.
+    \item Iluminancia (lux) del sensor BH1750.
+\end{itemize}
+Los datos fueron transmitidos en formato JSON a un servidor para su almacenamiento y posterior análisis.
+
+\subsection{Procesamiento y Análisis de Datos}
+El análisis de los datos se centró en la extracción de la temperatura foliar a partir de la matriz térmica y el cálculo del CWSI.
+
+\begin{enumerate}
+    \item \textbf{Segmentación de la Imagen Térmica:} De cada matriz de 768 píxeles, se aplicó un algoritmo de segmentación para aislar los píxeles correspondientes exclusivamente a las hojas de la planta, descartando el fondo (suelo, maceta, estructura del invernadero). La temperatura foliar promedio ($T_c$) se calculó a partir de estos píxeles segmentados.
+    
+    \item \textbf{Cálculo del Índice de Estrés Hídrico (CWSI):} Se utilizó la metodología empírica del CWSI, desarrollada originalmente por Idso, Jackson y Reginato \cite{Idso1981}, que normaliza la temperatura del dosel con respecto a las condiciones ambientales. El índice se calculó utilizando la siguiente fórmula \cite{Quezada2020}:
+    
+    \[ CWSI = \frac{(T_c - T_{wet})}{(T_{dry} - T_{wet})} \]
+    
+    Donde:
+    \begin{itemize}
+        \item $T_c$ es la temperatura del dosel medida por el sensor.
+        \item $T_{wet}$ es la temperatura de referencia de una hoja que transpira libremente, calculada teóricamente a partir de la temperatura y humedad del aire.
+        \item $T_{dry}$ es la temperatura de referencia de una hoja que no transpira, estimada como $T_{ambiente} + 5\,^{\circ}\text{C}$.
+    \end{itemize}
+    
+    Un valor de CWSI cercano a 0 indica que la planta no tiene estrés, mientras que un valor cercano a 1 indica un estrés hídrico severo.
+\end{enumerate}
+
+Los datos de temperatura foliar y CWSI se graficaron a lo largo del tiempo para visualizar las tendencias durante las tres fases del experimento.
 
 \section{Resultados}
-Presentación detallada de los hallazgos experimentales, análisis crítico de los resultados y comparación con los objetivos planteados en el estudio. Se discutirán las implicaciones de la detección temprana y su potencial para mejorar el manejo del cultivo.
+\label{sec:exp_resultados}
+
+Los resultados obtenidos a lo largo de los 55 días de monitoreo demostraron la capacidad del sistema para detectar cambios en el estado hídrico de la planta de arándano.
+
+Durante la fase de estrés hídrico inducido, se observó un incremento sostenido y claro en la temperatura foliar promedio, así como en el valor del CWSI. Este comportamiento es consistente con la respuesta fisiológica esperada de una planta que, al experimentar falta de agua, cierra sus estomas para reducir la pérdida por transpiración, lo que a su vez eleva su temperatura superficial \cite{Jones2004}.
+
+Al reanudarse el riego en la fase de recuperación, el sistema registró un descenso rápido y significativo tanto en la temperatura foliar como en el CWSI. Este cambio abrupto indica que la planta reabrió sus estomas y reanudó la transpiración normal, enfriando sus hojas.
+
+La correlación entre la suspensión del riego y el aumento de los valores térmicos, así como la rápida normalización de estos valores tras la rehidratación, constituye una prueba de concepto exitosa. Demuestra que el prototipo de bajo costo posee la sensibilidad necesaria para detectar patrones térmicos directamente asociados al estrés hídrico. Si bien este experimento no incluyó un diseño estadístico con réplicas, los resultados son prometedores y validan el sistema como una herramienta viable para futuras investigaciones a mayor escala.

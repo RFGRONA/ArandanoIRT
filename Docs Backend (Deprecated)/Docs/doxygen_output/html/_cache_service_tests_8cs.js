@@ -1,0 +1,4 @@
+var _cache_service_tests_8cs =
+[
+    [ "ArandanoIRT_Backend.Tests.Unit.Infrastructure.Services.CacheServiceTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests.html", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services_1_1_cache_service_tests" ]
+];

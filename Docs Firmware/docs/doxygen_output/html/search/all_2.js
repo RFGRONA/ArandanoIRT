@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['camera_0',['camera',['../main_8cpp.html#a39d621063106a485e13b287e5e1065d1',1,'main.cpp']]],
+  ['captureandcopythermaldata_1',['captureAndCopyThermalData',['../main_8cpp.html#a3848fde5f658f3a6f8364a5fb37b6829',1,'main.cpp']]],
+  ['captureimages_2',['captureImages',['../main_8cpp.html#a68f0fb9a1a75da34f2556e8f1614a9f6',1,'main.cpp']]],
+  ['capturejpeg_3',['captureJPEG',['../class_o_v2640_sensor.html#a2cd8d790bc529b63926dfe190ceb9d62',1,'OV2640Sensor']]],
+  ['capturevisualjpeg_4',['captureVisualJPEG',['../main_8cpp.html#a1489d8bb8921f7d311a01d83fcacbbce',1,'main.cpp']]],
+  ['check_5factivation_5fendpoint_5',['CHECK_ACTIVATION_ENDPOINT',['../_a_p_i_8h.html#a3795ab19033b876c2fd05c2fd03d2e9c',1,'API.h']]],
+  ['checkactivation_6',['checkActivation',['../class_a_p_i.html#ad1eb726b035fb93aff32dead3bf646fc',1,'API']]],
+  ['checkbackendstatus_7',['checkBackendStatus',['../class_a_p_i.html#a4b5e41385595c8b20c8de569d735cc0d',1,'API']]],
+  ['checkinternetconnection_8',['checkInternetConnection',['../class_wi_fi_manager.html#a07d031131a9a41465aac6fdd5b09276a',1,'WiFiManager']]],
+  ['cleanupresources_9',['cleanupResources',['../main_8cpp.html#ab1dace57fb057cf2da2d6c3dfd779642',1,'main.cpp']]],
+  ['config_10',['Config',['../struct_config.html',1,'']]],
+  ['config_11',['config',['../main_8cpp.html#a4a8dd3a2de125b72d4fe6251a0a271b5',1,'main.cpp']]],
+  ['config_5ffilename_12',['CONFIG_FILENAME',['../main_8cpp.html#af3a37ddad69a98c185798e80a58dcbdb',1,'main.cpp']]],
+  ['connected_13',['CONNECTED',['../class_wi_fi_manager.html#ab4ff7e8ddd91018e00e5a8f4feb69d0faacc6b47fac9b15d2e67b3e3dc0387986',1,'WiFiManager']]],
+  ['connecting_14',['CONNECTING',['../class_wi_fi_manager.html#ab4ff7e8ddd91018e00e5a8f4feb69d0fa3ec2a84efd330eaea3eaeb66fe24fb14',1,'WiFiManager']]],
+  ['connecting_5fwifi_15',['CONNECTING_WIFI',['../_l_e_d_status_8h.html#a51a69e0b98357e170e63bc843e2fd1c0a778940e886f58a69cdd471a7ff817f00',1,'LEDStatus.h']]],
+  ['connection_5ffailed_16',['CONNECTION_FAILED',['../class_wi_fi_manager.html#ab4ff7e8ddd91018e00e5a8f4feb69d0fa1ee683b2cbd147a7d4fd5baa40ac80e2',1,'WiFiManager']]],
+  ['connection_5flost_17',['CONNECTION_LOST',['../class_wi_fi_manager.html#ab4ff7e8ddd91018e00e5a8f4feb69d0faee0ed510a54f93ae7b8f36a6551bb874',1,'WiFiManager']]],
+  ['connectionstatus_18',['ConnectionStatus',['../class_wi_fi_manager.html#ab4ff7e8ddd91018e00e5a8f4feb69d0f',1,'WiFiManager']]],
+  ['connecttowifi_19',['connectToWiFi',['../class_wi_fi_manager.html#a03359e72d115ec4288d3a66938fedf1e',1,'WiFiManager']]]
+];

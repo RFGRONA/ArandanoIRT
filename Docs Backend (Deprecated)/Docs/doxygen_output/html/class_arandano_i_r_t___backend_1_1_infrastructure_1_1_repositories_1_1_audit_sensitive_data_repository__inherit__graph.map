@@ -1,0 +1,7 @@
+<map id="ArandanoIRT_Backend.Infrastructure.Repositories.AuditSensitiveDataRepository" name="ArandanoIRT_Backend.Infrastructure.Repositories.AuditSensitiveDataRepository">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,341,268,512"/>
+<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_audit_sensitive_data_repository.html" title="Defines the repository contract specifically for managing AuditSensitiveDataEntity instances." alt="" coords="42,224,232,293"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,308,139,342,134,342,134,308"/>
+<area shape="rect" id="Node000003" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository.html" title=" " alt="" coords="50,5,223,176"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="139,191,139,224,134,224,134,191"/>
+</map>

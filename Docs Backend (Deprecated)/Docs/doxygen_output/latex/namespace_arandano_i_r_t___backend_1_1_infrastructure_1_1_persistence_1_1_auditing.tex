@@ -1,0 +1,17 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing Namespace Reference}
+\hypertarget{namespace_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing}{}\label{namespace_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing}\index{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing@{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_crop_generator}{Audit\+Crop\+Generator}}
+\begin{DoxyCompactList}\small\item\em Implements IAudit\+Entry\+Generator to create audit trail entries specifically for changes made to {\ttfamily Crop} entities. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator}{Audit\+Data\+Table\+Generator}}
+\begin{DoxyCompactList}\small\item\em Implements IAudit\+Entry\+Generator to create audit trail entries in the {\ttfamily Auditdatatable} for changes made to various data entities like {\ttfamily Sensordata}, {\ttfamily Thermaldata}, and {\ttfamily Plantdata}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_device_generator}{Audit\+Device\+Generator}}
+\begin{DoxyCompactList}\small\item\em Implements IAudit\+Entry\+Generator to create audit trail entries in the {\ttfamily Auditdevice} table for changes made to {\ttfamily Devicedata} entities. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_helper_service}{Audit\+Helper\+Service}}
+\begin{DoxyCompactList}\small\item\em Implements IAudit\+Helper\+Service providing utility methods commonly used during the generation of audit log entries, such as primary key retrieval, foreign key retrieval (Crop\+Id), and property value serialization. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_person_generator}{Audit\+Person\+Generator}}
+\begin{DoxyCompactList}\small\item\em Implements IAudit\+Entry\+Generator to create audit trail entries in the {\ttfamily Auditperson} table for changes made to {\ttfamily Person} entities. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_system_table_generator}{Audit\+System\+Table\+Generator}}
+\begin{DoxyCompactList}\small\item\em Implements IAudit\+Entry\+Generator to create audit trail entries in the {\ttfamily Auditsystemtable} for changes made to specific "{}system"{} or related data entities like {\ttfamily Plantstatehistory} and {\ttfamily Plantobservation}. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,0 +1,93 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Log\+Cleanup\+Service Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service}{}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service}\index{ArandanoIRT\_Backend.Infrastructure.Services.LogCleanupService@{ArandanoIRT\_Backend.Infrastructure.Services.LogCleanupService}}
+
+
+A background service responsible for periodically deleting old log files from the configured log directory to manage disk space.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Log\+Cleanup\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Log\+Cleanup\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service_adb06c2c27b4b668f346f32684f89d3aa}{Log\+Cleanup\+Service}} (ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service}{Log\+Cleanup\+Service}} $>$ logger, IConfiguration configuration)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Log\+Cleanup\+Service class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service_a94bd44a033c7e5618285429e90c9aff1}{Execute\+Async}} (Cancellation\+Token stopping\+Token)
+\begin{DoxyCompactList}\small\item\em Executes the background log cleanup task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A background service responsible for periodically deleting old log files from the configured log directory to manage disk space. 
+
+Inherits from Background\+Service for long-\/running background task execution. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service_adb06c2c27b4b668f346f32684f89d3aa}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service_adb06c2c27b4b668f346f32684f89d3aa} 
+\index{ArandanoIRT\_Backend.Infrastructure.Services.LogCleanupService@{ArandanoIRT\_Backend.Infrastructure.Services.LogCleanupService}!LogCleanupService@{LogCleanupService}}
+\index{LogCleanupService@{LogCleanupService}!ArandanoIRT\_Backend.Infrastructure.Services.LogCleanupService@{ArandanoIRT\_Backend.Infrastructure.Services.LogCleanupService}}
+\doxysubsubsection{\texorpdfstring{LogCleanupService()}{LogCleanupService()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Log\+Cleanup\+Service.\+Log\+Cleanup\+Service (\begin{DoxyParamCaption}\item[{ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service}{Log\+Cleanup\+Service}} $>$}]{logger,  }\item[{IConfiguration}]{configuration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Log\+Cleanup\+Service class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em logger} & The logger instance.\\
+\hline
+{\em configuration} & The application configuration (currently unused in this implementation but injected).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown if logger is null.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service_a94bd44a033c7e5618285429e90c9aff1}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_log_cleanup_service_a94bd44a033c7e5618285429e90c9aff1} 
+\index{ArandanoIRT\_Backend.Infrastructure.Services.LogCleanupService@{ArandanoIRT\_Backend.Infrastructure.Services.LogCleanupService}!ExecuteAsync@{ExecuteAsync}}
+\index{ExecuteAsync@{ExecuteAsync}!ArandanoIRT\_Backend.Infrastructure.Services.LogCleanupService@{ArandanoIRT\_Backend.Infrastructure.Services.LogCleanupService}}
+\doxysubsubsection{\texorpdfstring{ExecuteAsync()}{ExecuteAsync()}}
+{\footnotesize\ttfamily override async Task Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Log\+Cleanup\+Service.\+Execute\+Async (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{stopping\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Executes the background log cleanup task. 
+
+Periodically calls the cleanup logic. This method is called when the IHosted\+Service starts. The task returned should not complete until cancellation is requested.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stopping\+Token} & A Cancellation\+Token triggered when the application host requests shutdown.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task representing the long-\/running background service execution.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Infrastructure/\+Services/\mbox{\hyperlink{_log_cleanup_service_8cs}{Log\+Cleanup\+Service.\+cs}}\end{DoxyCompactItemize}

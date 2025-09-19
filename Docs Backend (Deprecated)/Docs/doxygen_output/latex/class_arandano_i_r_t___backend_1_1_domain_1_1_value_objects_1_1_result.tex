@@ -1,0 +1,248 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+
+
+Represents the outcome of an operation, indicating either success or failure.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a17391166c45bb7a552ba10afb67aa587}{Success}} ()
+\begin{DoxyCompactList}\small\item\em Creates a successful Result instance with no error message. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a963e83232270f378dde23f5c930b46aa}{Failure}} (string error\+Message)
+\begin{DoxyCompactList}\small\item\em Creates a failed Result instance with the specified error message. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a6908f2f67e50aae135015046fe66cd47}{Success}} (T value)
+\begin{DoxyCompactList}\small\item\em Creates a successful Result$<$\+T$>$ instance with the specified value. \end{DoxyCompactList}\item 
+static new \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_aaf4c8f104d444ba3e05fd99207878006}{Failure}} (string error\+Message)
+\begin{DoxyCompactList}\small\item\em Creates a failed Result$<$\+T$>$ instance with the specified error message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_ad8d390e7b92a87f1f8efe047b84fd3f2}{Result}} (bool is\+Success, string error\+Message)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Result class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_acef7d52252e47d22a11a609b8ff8d108}{Result}} (T value, bool is\+Success, string error\+Message)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Result$<$\+T$>$ class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a78ecfe9cc175febfedbd0db98af42145}{Is\+Success}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether the operation was successful. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_adf646cde9e7298183622b693ec82a287}{Error\+Message}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the error message associated with a failed operation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a47fc7bc8b148213b9bed6c50ff6a464d}{Is\+Failure}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether the operation failed. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_ac83d72b34198a2b1323156cba2a96c86}{Value}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the value returned by the successful operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the outcome of an operation, indicating either success or failure. 
+
+Represents the outcome of an operation that returns a value upon success.
+
+Contains an error message if the operation failed.
+
+Inherits from Result and includes a Value property for the successful result.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the value returned upon success.\\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_ad8d390e7b92a87f1f8efe047b84fd3f2}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_ad8d390e7b92a87f1f8efe047b84fd3f2} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}!Result@{Result}}
+\index{Result@{Result}!ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Result()}{Result()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result}}$<$ T $>$.\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} (\begin{DoxyParamCaption}\item[{bool}]{is\+Success,  }\item[{string}]{error\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Initializes a new instance of the Result class. 
+
+Protected constructor enforces consistency between success status and error message presence.
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Success} & Indicates if the operation was successful.\\
+\hline
+{\em error\+Message} & The error message if the operation failed; otherwise, string.\+Empty.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Operation\+Exception} & Thrown if {\itshape is\+Success}  is true but {\itshape error\+Message}  is not null or empty, or if {\itshape is\+Success}  is false but {\itshape error\+Message}  is null or empty. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_acef7d52252e47d22a11a609b8ff8d108}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_acef7d52252e47d22a11a609b8ff8d108} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}!Result@{Result}}
+\index{Result@{Result}!ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Result()}{Result()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result}}$<$ T $>$.\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} (\begin{DoxyParamCaption}\item[{T}]{value,  }\item[{bool}]{is\+Success,  }\item[{string}]{error\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Initializes a new instance of the Result$<$\+T$>$ class. 
+
+Protected constructor ensures consistency.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value returned by the operation (meaningful only if {\itshape is\+Success}  is true).\\
+\hline
+{\em is\+Success} & Indicates if the operation was successful.\\
+\hline
+{\em error\+Message} & The error message if the operation failed; otherwise, string.\+Empty.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a963e83232270f378dde23f5c930b46aa}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a963e83232270f378dde23f5c930b46aa} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}!Failure@{Failure}}
+\index{Failure@{Failure}!ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Failure()}{Failure()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result}}$<$ T $>$.Failure (\begin{DoxyParamCaption}\item[{string}]{error\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a failed Result instance with the specified error message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+Message} & The message describing the failure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new failed Result with the given error message.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown if {\itshape error\+Message}  is null (or becomes empty after check in constructor).\\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_aaf4c8f104d444ba3e05fd99207878006}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_aaf4c8f104d444ba3e05fd99207878006} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}!Failure@{Failure}}
+\index{Failure@{Failure}!ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Failure()}{Failure()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static new \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result}}$<$ T $>$.Failure (\begin{DoxyParamCaption}\item[{string}]{error\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a failed Result$<$\+T$>$ instance with the specified error message. 
+
+Hides the base Result.\+Failure method. The Value property will be initialized to the default value of type {\itshape T} .
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+Message} & The message describing the failure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new failed Result$<$\+T$>$ with the given error message and default value.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown if {\itshape error\+Message}  is null (or becomes empty after check in base constructor).\\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a17391166c45bb7a552ba10afb67aa587}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a17391166c45bb7a552ba10afb67aa587} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}!Success@{Success}}
+\index{Success@{Success}!ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Success()}{Success()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result}}$<$ T $>$.Success (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a successful Result instance with no error message. 
+
+\begin{DoxyReturn}{Returns}
+A new successful Result.
+\end{DoxyReturn}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a6908f2f67e50aae135015046fe66cd47}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a6908f2f67e50aae135015046fe66cd47} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}!Success@{Success}}
+\index{Success@{Success}!ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Success()}{Success()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result}}$<$ T $>$.Success (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a successful Result$<$\+T$>$ instance with the specified value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value returned by the successful operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new successful Result$<$\+T$>$ containing the value.
+\end{DoxyReturn}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_adf646cde9e7298183622b693ec82a287}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_adf646cde9e7298183622b693ec82a287} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}!ErrorMessage@{ErrorMessage}}
+\index{ErrorMessage@{ErrorMessage}!ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ErrorMessage}{ErrorMessage}}
+{\footnotesize\ttfamily string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result}}$<$ T $>$.Error\+Message\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the error message associated with a failed operation. 
+
+Is string.\+Empty if the operation was successful. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a47fc7bc8b148213b9bed6c50ff6a464d}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a47fc7bc8b148213b9bed6c50ff6a464d} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}!IsFailure@{IsFailure}}
+\index{IsFailure@{IsFailure}!ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{IsFailure}{IsFailure}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result}}$<$ T $>$.Is\+Failure\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether the operation failed. 
+
+Returns the opposite of Is\+Success. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a78ecfe9cc175febfedbd0db98af42145}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_a78ecfe9cc175febfedbd0db98af42145} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}!IsSuccess@{IsSuccess}}
+\index{IsSuccess@{IsSuccess}!ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{IsSuccess}{IsSuccess}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result}}$<$ T $>$.Is\+Success\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether the operation was successful. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_ac83d72b34198a2b1323156cba2a96c86}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result_ac83d72b34198a2b1323156cba2a96c86} 
+\index{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}!Value@{Value}}
+\index{Value@{Value}!ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$@{ArandanoIRT\_Backend.Domain.ValueObjects.Result$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Value}{Value}}
+{\footnotesize\ttfamily T \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Value\+Objects.\+Result}}$<$ T $>$.Value\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the value returned by the successful operation. 
+
+Accessing this property on a failed result may yield the default value for type {\itshape T} . Check Result.\+Is\+Success before accessing. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Domain/\+Value\+Objects/\mbox{\hyperlink{_result_pattern_8cs}{Result\+Pattern.\+cs}}\end{DoxyCompactItemize}

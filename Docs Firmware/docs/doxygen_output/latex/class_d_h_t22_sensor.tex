@@ -1,0 +1,100 @@
+\doxysection{DHT22\+Sensor Class Reference}
+\hypertarget{class_d_h_t22_sensor}{}\label{class_d_h_t22_sensor}\index{DHT22Sensor@{DHT22Sensor}}
+
+
+Wrapper class simplifying the use of a DHT22 temperature and humidity sensor.  
+
+
+
+
+{\ttfamily \#include $<$DHT22\+Sensor.\+h$>$}
+
+
+
+Collaboration diagram for DHT22\+Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{class_d_h_t22_sensor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_h_t22_sensor_af17d209e7c49f198c3fe46c30b86e594}{DHT22\+Sensor}} (int pin)
+\begin{DoxyCompactList}\small\item\em Constructor for the DHT22 sensor wrapper. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_d_h_t22_sensor_a7cf5a54da8e218c25138262365eab0db}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the DHT sensor library communication. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_d_h_t22_sensor_acc1bfaddd695874e282d0cdf739679aa}{read\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Reads the temperature from the sensor. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_d_h_t22_sensor_aaab7e0f64cd5419211f9ffa02d6fe6c5}{read\+Humidity}} ()
+\begin{DoxyCompactList}\small\item\em Reads the relative humidity from the sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class simplifying the use of a DHT22 temperature and humidity sensor. 
+
+This class encapsulates the Adafruit DHT library object for a DHT22 sensor, providing straightforward methods to initialize the sensor and read measurements. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_d_h_t22_sensor_af17d209e7c49f198c3fe46c30b86e594}\label{class_d_h_t22_sensor_af17d209e7c49f198c3fe46c30b86e594} 
+\index{DHT22Sensor@{DHT22Sensor}!DHT22Sensor@{DHT22Sensor}}
+\index{DHT22Sensor@{DHT22Sensor}!DHT22Sensor@{DHT22Sensor}}
+\doxysubsubsection{\texorpdfstring{DHT22Sensor()}{DHT22Sensor()}}
+{\footnotesize\ttfamily DHT22\+Sensor\+::\+DHT22\+Sensor (\begin{DoxyParamCaption}\item[{int}]{pin }\end{DoxyParamCaption})}
+
+
+
+Constructor for the DHT22 sensor wrapper. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & The GPIO pin number where the DHT22 sensor\textquotesingle{}s data line is connected. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_d_h_t22_sensor_a7cf5a54da8e218c25138262365eab0db}\label{class_d_h_t22_sensor_a7cf5a54da8e218c25138262365eab0db} 
+\index{DHT22Sensor@{DHT22Sensor}!begin@{begin}}
+\index{begin@{begin}!DHT22Sensor@{DHT22Sensor}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void DHT22\+Sensor\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the DHT sensor library communication. 
+
+This must be called once (e.\+g., in {\ttfamily \doxylink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}) before attempting to read values from the sensor. \Hypertarget{class_d_h_t22_sensor_aaab7e0f64cd5419211f9ffa02d6fe6c5}\label{class_d_h_t22_sensor_aaab7e0f64cd5419211f9ffa02d6fe6c5} 
+\index{DHT22Sensor@{DHT22Sensor}!readHumidity@{readHumidity}}
+\index{readHumidity@{readHumidity}!DHT22Sensor@{DHT22Sensor}}
+\doxysubsubsection{\texorpdfstring{readHumidity()}{readHumidity()}}
+{\footnotesize\ttfamily float DHT22\+Sensor\+::read\+Humidity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads the relative humidity from the sensor. 
+
+Attempts to read the current relative humidity value from the DHT22 sensor. \begin{DoxyReturn}{Returns}
+The relative humidity as a percentage (\%). Returns {\ttfamily NAN} (Not a Number) if the read operation failed (e.\+g., communication error, checksum failure). 
+\end{DoxyReturn}
+\Hypertarget{class_d_h_t22_sensor_acc1bfaddd695874e282d0cdf739679aa}\label{class_d_h_t22_sensor_acc1bfaddd695874e282d0cdf739679aa} 
+\index{DHT22Sensor@{DHT22Sensor}!readTemperature@{readTemperature}}
+\index{readTemperature@{readTemperature}!DHT22Sensor@{DHT22Sensor}}
+\doxysubsubsection{\texorpdfstring{readTemperature()}{readTemperature()}}
+{\footnotesize\ttfamily float DHT22\+Sensor\+::read\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads the temperature from the sensor. 
+
+Attempts to read the current temperature value from the DHT22 sensor. \begin{DoxyReturn}{Returns}
+The temperature in degrees Celsius (\$\texorpdfstring{$^\wedge$}{\string^}\{\textbackslash{}circ\}C\$). Returns {\ttfamily NAN} (Not a Number) if the read operation failed (e.\+g., communication error, checksum failure). 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+DHT22\+Sensor/\mbox{\hyperlink{_d_h_t22_sensor_8h}{DHT22\+Sensor.\+h}}\item 
+lib/\+DHT22\+Sensor/\mbox{\hyperlink{_d_h_t22_sensor_8cpp}{DHT22\+Sensor.\+cpp}}\end{DoxyCompactItemize}

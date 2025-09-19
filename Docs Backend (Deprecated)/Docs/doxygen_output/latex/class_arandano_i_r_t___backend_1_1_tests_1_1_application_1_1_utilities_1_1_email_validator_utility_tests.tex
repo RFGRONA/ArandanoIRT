@@ -1,0 +1,68 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Utilities.\+Email\+Validator\+Utility\+Tests Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests}{}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests}\index{ArandanoIRT\_Backend.Tests.Application.Utilities.EmailValidatorUtilityTests@{ArandanoIRT\_Backend.Tests.Application.Utilities.EmailValidatorUtilityTests}}
+
+
+Contains unit tests for the static Email\+Validator\+Utility class.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Utilities.\+Email\+Validator\+Utility\+Tests\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests_a4cb17dc3b3f3c9c3eed1f68e3663d45a}{Validate\+Email\+Async\+\_\+\+Valid\+Syntax\+Emails\+\_\+\+Should\+Not\+Fail\+On\+Syntax}} (string valid\+Email)
+\begin{DoxyCompactList}\small\item\em Tests that Validate\+Email\+Async does not fail due to syntax errors for various valid email formats. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests_a39fe6aefc952a77047601d680b79c8f5}{Validate\+Email\+Async\+\_\+\+Invalid\+Syntax\+Emails\+\_\+\+Should\+Return\+Failure}} (string? invalid\+Email)
+\begin{DoxyCompactList}\small\item\em Tests that Validate\+Email\+Async returns a failure result for various invalid email formats, primarily due to syntax errors or emptiness. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains unit tests for the static Email\+Validator\+Utility class. 
+
+Focuses primarily on syntax validation which is self-\/contained. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests_a39fe6aefc952a77047601d680b79c8f5}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests_a39fe6aefc952a77047601d680b79c8f5} 
+\index{ArandanoIRT\_Backend.Tests.Application.Utilities.EmailValidatorUtilityTests@{ArandanoIRT\_Backend.Tests.Application.Utilities.EmailValidatorUtilityTests}!ValidateEmailAsync\_InvalidSyntaxEmails\_ShouldReturnFailure@{ValidateEmailAsync\_InvalidSyntaxEmails\_ShouldReturnFailure}}
+\index{ValidateEmailAsync\_InvalidSyntaxEmails\_ShouldReturnFailure@{ValidateEmailAsync\_InvalidSyntaxEmails\_ShouldReturnFailure}!ArandanoIRT\_Backend.Tests.Application.Utilities.EmailValidatorUtilityTests@{ArandanoIRT\_Backend.Tests.Application.Utilities.EmailValidatorUtilityTests}}
+\doxysubsubsection{\texorpdfstring{ValidateEmailAsync\_InvalidSyntaxEmails\_ShouldReturnFailure()}{ValidateEmailAsync\_InvalidSyntaxEmails\_ShouldReturnFailure()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Utilities.\+Email\+Validator\+Utility\+Tests.\+Validate\+Email\+Async\+\_\+\+Invalid\+Syntax\+Emails\+\_\+\+Should\+Return\+Failure (\begin{DoxyParamCaption}\item[{string?}]{invalid\+Email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests that Validate\+Email\+Async returns a failure result for various invalid email formats, primarily due to syntax errors or emptiness. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em invalid\+Email} & An invalid email address string (or null).\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests_a4cb17dc3b3f3c9c3eed1f68e3663d45a}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_utilities_1_1_email_validator_utility_tests_a4cb17dc3b3f3c9c3eed1f68e3663d45a} 
+\index{ArandanoIRT\_Backend.Tests.Application.Utilities.EmailValidatorUtilityTests@{ArandanoIRT\_Backend.Tests.Application.Utilities.EmailValidatorUtilityTests}!ValidateEmailAsync\_ValidSyntaxEmails\_ShouldNotFailOnSyntax@{ValidateEmailAsync\_ValidSyntaxEmails\_ShouldNotFailOnSyntax}}
+\index{ValidateEmailAsync\_ValidSyntaxEmails\_ShouldNotFailOnSyntax@{ValidateEmailAsync\_ValidSyntaxEmails\_ShouldNotFailOnSyntax}!ArandanoIRT\_Backend.Tests.Application.Utilities.EmailValidatorUtilityTests@{ArandanoIRT\_Backend.Tests.Application.Utilities.EmailValidatorUtilityTests}}
+\doxysubsubsection{\texorpdfstring{ValidateEmailAsync\_ValidSyntaxEmails\_ShouldNotFailOnSyntax()}{ValidateEmailAsync\_ValidSyntaxEmails\_ShouldNotFailOnSyntax()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Utilities.\+Email\+Validator\+Utility\+Tests.\+Validate\+Email\+Async\+\_\+\+Valid\+Syntax\+Emails\+\_\+\+Should\+Not\+Fail\+On\+Syntax (\begin{DoxyParamCaption}\item[{string}]{valid\+Email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests that Validate\+Email\+Async does not fail due to syntax errors for various valid email formats. 
+
+Note\+: This test implicitly assumes DNS checks would pass for these syntactically valid emails, as DNS mocking is not feasible for the static method as implemented.
+
+
+\begin{DoxyParams}{Parameters}
+{\em valid\+Email} & A syntactically valid email address string.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tests/\+Unit/\+Application/\+Utilities/\mbox{\hyperlink{_email_validator_utility_tests_8cs}{Email\+Validator\+Utility\+Tests.\+cs}}\end{DoxyCompactItemize}

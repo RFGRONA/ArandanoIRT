@@ -1,0 +1,142 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Data\+Table\+Generator Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator}{}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator}\index{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator@{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator}}
+
+
+Implements IAudit\+Entry\+Generator to create audit trail entries in the {\ttfamily Auditdatatable} for changes made to various data entities like {\ttfamily Sensordata}, {\ttfamily Thermaldata}, and {\ttfamily Plantdata}.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Data\+Table\+Generator\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Data\+Table\+Generator\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator_a9f6baa98d15032223b1425a906d34a44}{Audit\+Data\+Table\+Generator}} (\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service}{IAudit\+Helper\+Service}} audit\+Helper, ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator}{Audit\+Data\+Table\+Generator}} $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Audit\+Data\+Table\+Generator class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator_a79e86be4de83266fd94857388ca098fa}{Can\+Handle}} (Entity\+Entry entry)
+\begin{DoxyCompactList}\small\item\em Determines whether this generator can process the specified entity entry for auditing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & The Entity Framework Core Entity\+Entry representing the tracked change.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if this generator can handle the entry; otherwise, {\ttfamily false}.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+IEnumerable$<$ object $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator_a4aea02654e3c6f10727b8be0d46505cb}{Generate\+Entries}} (Entity\+Entry entry, Audit\+Metadata metadata)
+\begin{DoxyCompactList}\small\item\em Generates one or more audit log entries based on the changes in the specified entity entry and the provided metadata.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & The Entity\+Entry containing the details of the entity change (e.\+g., original and current values).\\
+\hline
+{\em metadata} & The \doxylink{namespace_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_acdbe5518b9d805c6cd98bf6d38e24d9d}{Audit\+Metadata} containing context about the action being audited (user, time, etc.).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IEnumerable$<$\+T$>$ collection of objects, where each object represents a distinct audit log entry to be persisted. The specific type of these objects depends on the implementation. 
+\end{DoxyReturn}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements IAudit\+Entry\+Generator to create audit trail entries in the {\ttfamily Auditdatatable} for changes made to various data entities like {\ttfamily Sensordata}, {\ttfamily Thermaldata}, and {\ttfamily Plantdata}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator_a9f6baa98d15032223b1425a906d34a44}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator_a9f6baa98d15032223b1425a906d34a44} 
+\index{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator@{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator}!AuditDataTableGenerator@{AuditDataTableGenerator}}
+\index{AuditDataTableGenerator@{AuditDataTableGenerator}!ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator@{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator}}
+\doxysubsubsection{\texorpdfstring{AuditDataTableGenerator()}{AuditDataTableGenerator()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Data\+Table\+Generator.\+Audit\+Data\+Table\+Generator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_helper_service}{IAudit\+Helper\+Service}}}]{audit\+Helper,  }\item[{ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator}{Audit\+Data\+Table\+Generator}} $>$}]{logger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Audit\+Data\+Table\+Generator class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em audit\+Helper} & The helper service for common auditing tasks like serialization and ID retrieval.\\
+\hline
+{\em logger} & The logger for recording information and warnings.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown if audit\+Helper or logger is null.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator_a79e86be4de83266fd94857388ca098fa}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator_a79e86be4de83266fd94857388ca098fa} 
+\index{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator@{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator}!CanHandle@{CanHandle}}
+\index{CanHandle@{CanHandle}!ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator@{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator}}
+\doxysubsubsection{\texorpdfstring{CanHandle()}{CanHandle()}}
+{\footnotesize\ttfamily bool Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Data\+Table\+Generator.\+Can\+Handle (\begin{DoxyParamCaption}\item[{Entity\+Entry}]{entry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Determines whether this generator can process the specified entity entry for auditing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & The Entity Framework Core Entity\+Entry representing the tracked change.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if this generator can handle the entry; otherwise, {\ttfamily false}.
+\end{DoxyReturn}
+ 
+
+This generator handles entities of type {\ttfamily Sensordata}, {\ttfamily Thermaldata}, and {\ttfamily Plantdata}, directing their audit logs to the {\ttfamily Auditdatatable}. 
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_entry_generator_a53efd9339a7a1d5a1bcff5544d676334}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Auditing.\+IAudit\+Entry\+Generator}}.
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator_a4aea02654e3c6f10727b8be0d46505cb}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator_a4aea02654e3c6f10727b8be0d46505cb} 
+\index{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator@{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator}!GenerateEntries@{GenerateEntries}}
+\index{GenerateEntries@{GenerateEntries}!ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator@{ArandanoIRT\_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateEntries()}{GenerateEntries()}}
+{\footnotesize\ttfamily IEnumerable$<$ object $>$ Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Auditing.\+Audit\+Data\+Table\+Generator.\+Generate\+Entries (\begin{DoxyParamCaption}\item[{Entity\+Entry}]{entry,  }\item[{Audit\+Metadata}]{metadata }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates one or more audit log entries based on the changes in the specified entity entry and the provided metadata.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & The Entity\+Entry containing the details of the entity change (e.\+g., original and current values).\\
+\hline
+{\em metadata} & The \doxylink{namespace_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_acdbe5518b9d805c6cd98bf6d38e24d9d}{Audit\+Metadata} containing context about the action being audited (user, time, etc.).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IEnumerable$<$\+T$>$ collection of objects, where each object represents a distinct audit log entry to be persisted. The specific type of these objects depends on the implementation. 
+\end{DoxyReturn}
+ 
+
+Generates a single {\ttfamily Auditdatatable} record for INSERT, UPDATE, or DELETE operations on supported entity types ({\ttfamily Sensordata}, {\ttfamily Thermaldata}, {\ttfamily Plantdata}). Performs row-\/level auditing ("{}\+ALL"{} column) using the IAudit\+Helper\+Service. 
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_entry_generator_ad952c459b724298e36a045bdd2af3ba7}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Auditing.\+IAudit\+Entry\+Generator}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Infrastructure/\+Persistence/\+Auditing/\mbox{\hyperlink{_audit_data_table_generator_8cs}{Audit\+Data\+Table\+Generator.\+cs}}\end{DoxyCompactItemize}

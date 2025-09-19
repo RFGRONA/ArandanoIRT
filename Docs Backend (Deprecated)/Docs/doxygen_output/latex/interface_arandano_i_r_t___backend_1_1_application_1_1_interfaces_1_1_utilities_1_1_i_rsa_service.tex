@@ -1,0 +1,106 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IRsa\+Service Interface Reference}
+\hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service}{}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service}\index{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService@{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService}}
+
+
+Service interface for RSA encryption and decryption operations.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IRsa\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IRsa\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service_aac0231b4d0dbb4d7669b091b0bdb4f78}{Encrypt}} (string plain\+Text)
+\begin{DoxyCompactList}\small\item\em Encrypts data using the configured public key. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service_a447df17a32ea519f72b3a12e5ae87764}{Decrypt}} (string encrypted\+Text)
+\begin{DoxyCompactList}\small\item\em Decrypts data using the configured private key. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service_a3b38cc77d04f7ec3d6e32e3991d176db}{Get\+Public\+Key\+Pem}} ()
+\begin{DoxyCompactList}\small\item\em Gets the public key in PEM format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service interface for RSA encryption and decryption operations. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service_a447df17a32ea519f72b3a12e5ae87764}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service_a447df17a32ea519f72b3a12e5ae87764} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService@{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService}!Decrypt@{Decrypt}}
+\index{Decrypt@{Decrypt}!ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService@{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService}}
+\doxysubsubsection{\texorpdfstring{Decrypt()}{Decrypt()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IRsa\+Service.\+Decrypt (\begin{DoxyParamCaption}\item[{string}]{encrypted\+Text }\end{DoxyParamCaption})}
+
+
+
+Decrypts data using the configured private key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+Text} & The Base64 encoded encrypted string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decrypted plain text.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_rsa_service_a7a7e017dd2e6867f6d73f2bae5e77413}{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Rsa\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service_aac0231b4d0dbb4d7669b091b0bdb4f78}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service_aac0231b4d0dbb4d7669b091b0bdb4f78} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService@{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService}!Encrypt@{Encrypt}}
+\index{Encrypt@{Encrypt}!ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService@{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService}}
+\doxysubsubsection{\texorpdfstring{Encrypt()}{Encrypt()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IRsa\+Service.\+Encrypt (\begin{DoxyParamCaption}\item[{string}]{plain\+Text }\end{DoxyParamCaption})}
+
+
+
+Encrypts data using the configured public key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plain\+Text} & The data to encrypt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Base64 encoded encrypted string.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_rsa_service_a45ea782d903be2b62a68978b9542cd1b}{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Rsa\+Service}}.
+
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service_a3b38cc77d04f7ec3d6e32e3991d176db}\label{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_rsa_service_a3b38cc77d04f7ec3d6e32e3991d176db} 
+\index{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService@{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService}!GetPublicKeyPem@{GetPublicKeyPem}}
+\index{GetPublicKeyPem@{GetPublicKeyPem}!ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService@{ArandanoIRT\_Backend.Application.Interfaces.Utilities.IRsaService}}
+\doxysubsubsection{\texorpdfstring{GetPublicKeyPem()}{GetPublicKeyPem()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IRsa\+Service.\+Get\+Public\+Key\+Pem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the public key in PEM format. 
+
+\begin{DoxyReturn}{Returns}
+The public key string.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_rsa_service_a142d67bbae588b3466bc399d55cb6d97}{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Rsa\+Service}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Application/\+Interfaces/\+Utilities/\mbox{\hyperlink{_i_rsa_service_8cs}{IRsa\+Service.\+cs}}\end{DoxyCompactItemize}

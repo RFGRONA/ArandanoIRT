@@ -1,0 +1,44 @@
+\doxysection{lib/\+Error\+Logger/\+Error\+Logger.cpp File Reference}
+\hypertarget{_error_logger_8cpp}{}\label{_error_logger_8cpp}\index{lib/ErrorLogger/ErrorLogger.cpp@{lib/ErrorLogger/ErrorLogger.cpp}}
+
+
+Implements the \doxylink{class_error_logger}{Error\+Logger} utility class for sending remote error logs.  
+
+
+{\ttfamily \#include "{}Error\+Logger.\+h"{}}\newline
+{\ttfamily \#include $<$Arduino\+Json.\+h$>$}\newline
+{\ttfamily \#include $<$HTTPClient.\+h$>$}\newline
+{\ttfamily \#include $<$Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include "{}API.\+h"{}}\newline
+Include dependency graph for Error\+Logger.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_error_logger_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_p_i}{API}} \mbox{\hyperlink{_error_logger_8cpp_a1dfda070817b0f7ded5b0ced675beb54}{api}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements the \doxylink{class_error_logger}{Error\+Logger} utility class for sending remote error logs. 
+
+\begin{DoxyNote}{Note}
+This implementation relies on the ESP32 Wi\+Fi and HTTPClient libraries, Arduino\+Json, and requires Wi\+Fi to be connected for logs to be sent. 
+
+It also depends on a globally instantiated {\ttfamily api} object (from \doxylink{_a_p_i_8h}{API.\+h}/\+API.cpp) to check backend status via {\ttfamily api.\+check\+Backend\+Status()} before attempting to send logs. 
+\end{DoxyNote}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_error_logger_8cpp_a1dfda070817b0f7ded5b0ced675beb54}\label{_error_logger_8cpp_a1dfda070817b0f7ded5b0ced675beb54} 
+\index{ErrorLogger.cpp@{ErrorLogger.cpp}!api@{api}}
+\index{api@{api}!ErrorLogger.cpp@{ErrorLogger.cpp}}
+\doxysubsubsection{\texorpdfstring{api}{api}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_p_i}{API}} api\hspace{0.3cm}{\ttfamily [extern]}}
+

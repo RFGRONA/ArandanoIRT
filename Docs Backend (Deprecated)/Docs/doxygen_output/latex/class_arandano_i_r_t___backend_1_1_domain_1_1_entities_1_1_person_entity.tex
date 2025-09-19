@@ -1,0 +1,220 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity}{}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity}\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+
+
+Represents a user account in the system, containing personal details, credentials (typically hashed password), status flags, timestamps, and associations like the assigned crop.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a6390096cc89237dfed4d9e288c0c5120}{Person\+Entity}} (int id\+Person, string first\+Name, string last\+Name, string email, string password, Date\+Time created\+At, bool is\+Admin, bool all\+Notifications, int? crop\+Id=null)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Person\+Entity class, typically upon user creation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a4339e7170c82f7c0f0fa062fb932133a}{Id\+Person}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier for the person (user). \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_aa614c14eb8d32b6a667daacf2cc4c33b}{First\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the user\textquotesingle{}s first name. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_af9efa5d17b4e287a3179db6c60b8f222}{Last\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the user\textquotesingle{}s last name. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a2396243907f6bda539d0cdbe340abe02}{Email}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the user\textquotesingle{}s email address, typically used for login. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_ab8b6ee203c31198af81580c37bbe1c50}{Password}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the user\textquotesingle{}s password hash. \end{DoxyCompactList}\item 
+Date\+Time \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_afca275efdcd24ec09787a727cddc4da1}{Created\+At}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the date and time (usually UTC) when the user account was created. \end{DoxyCompactList}\item 
+Date\+Time? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a1108485e7c2d234c4527e4d154bce6c5}{Updated\+At}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the date and time (usually UTC) when the user account details were last updated. \end{DoxyCompactList}\item 
+Date\+Time? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a660201917ecb63c849992cf3951bedd6}{Last\+Login\+At}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the date and time (usually UTC) of the user\textquotesingle{}s last successful login. \end{DoxyCompactList}\item 
+Date\+Time? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_ab3e70171bf3aff8a7015631e9c5f3d26}{Last\+Password\+Change\+At}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the date and time (usually UTC) when the user\textquotesingle{}s password was last changed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a6ed6ceb04225ab9f9db7aef1ef5a05b3}{Is\+Admin}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether the user has administrative privileges. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_ad01b26d8ce46a54f41dfff88c57c0ff0}{All\+Notifications}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether the user wishes to receive all types of notifications. \end{DoxyCompactList}\item 
+int? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a878261c1f3103b942329638839736e1e}{Crop\+Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier of the crop this user is associated with. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a user account in the system, containing personal details, credentials (typically hashed password), status flags, timestamps, and associations like the assigned crop. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a6390096cc89237dfed4d9e288c0c5120}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a6390096cc89237dfed4d9e288c0c5120} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!PersonEntity@{PersonEntity}}
+\index{PersonEntity@{PersonEntity}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{PersonEntity()}{PersonEntity()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Person\+Entity (\begin{DoxyParamCaption}\item[{int}]{id\+Person,  }\item[{string}]{first\+Name,  }\item[{string}]{last\+Name,  }\item[{string}]{email,  }\item[{string}]{password,  }\item[{Date\+Time}]{created\+At,  }\item[{bool}]{is\+Admin,  }\item[{bool}]{all\+Notifications,  }\item[{int?}]{crop\+Id = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Person\+Entity class, typically upon user creation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Person} & The unique ID for the person (often generated by the database).\\
+\hline
+{\em first\+Name} & The user\textquotesingle{}s first name.\\
+\hline
+{\em last\+Name} & The user\textquotesingle{}s last name.\\
+\hline
+{\em email} & The user\textquotesingle{}s email address.\\
+\hline
+{\em password} & The user\textquotesingle{}s password (typically the hashed password).\\
+\hline
+{\em created\+At} & The creation timestamp.\\
+\hline
+{\em is\+Admin} & Flag indicating if the user is an administrator.\\
+\hline
+{\em all\+Notifications} & Flag indicating notification preference.\\
+\hline
+{\em crop\+Id} & The ID of the crop the user is associated with (optional, defaults to null).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown if {\itshape first\+Name}  is null or whitespace (Spanish message\+: "{}\+El nombre es requerido."{}). Thrown if {\itshape last\+Name}  is null or whitespace (Spanish message\+: "{}\+El apellido es requerido."{}). \\
+\hline
+\end{DoxyExceptions}
+
+
+Note that Updated\+At, Last\+Login\+At, and Last\+Password\+Change\+At properties are not set by this constructor and remain null initially. 
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_ad01b26d8ce46a54f41dfff88c57c0ff0}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_ad01b26d8ce46a54f41dfff88c57c0ff0} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!AllNotifications@{AllNotifications}}
+\index{AllNotifications@{AllNotifications}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{AllNotifications}{AllNotifications}}
+{\footnotesize\ttfamily bool Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+All\+Notifications\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether the user wishes to receive all types of notifications. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_afca275efdcd24ec09787a727cddc4da1}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_afca275efdcd24ec09787a727cddc4da1} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!CreatedAt@{CreatedAt}}
+\index{CreatedAt@{CreatedAt}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{CreatedAt}{CreatedAt}}
+{\footnotesize\ttfamily Date\+Time Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Created\+At\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the date and time (usually UTC) when the user account was created. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a878261c1f3103b942329638839736e1e}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a878261c1f3103b942329638839736e1e} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!CropId@{CropId}}
+\index{CropId@{CropId}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{CropId}{CropId}}
+{\footnotesize\ttfamily int? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Crop\+Id\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier of the crop this user is associated with. 
+
+Nullable if not associated with a specific crop. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a2396243907f6bda539d0cdbe340abe02}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a2396243907f6bda539d0cdbe340abe02} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!Email@{Email}}
+\index{Email@{Email}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{Email}{Email}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Email\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the user\textquotesingle{}s email address, typically used for login. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_aa614c14eb8d32b6a667daacf2cc4c33b}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_aa614c14eb8d32b6a667daacf2cc4c33b} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!FirstName@{FirstName}}
+\index{FirstName@{FirstName}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{FirstName}{FirstName}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+First\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the user\textquotesingle{}s first name. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a4339e7170c82f7c0f0fa062fb932133a}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a4339e7170c82f7c0f0fa062fb932133a} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!IdPerson@{IdPerson}}
+\index{IdPerson@{IdPerson}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{IdPerson}{IdPerson}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Id\+Person\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier for the person (user). 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a6ed6ceb04225ab9f9db7aef1ef5a05b3}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a6ed6ceb04225ab9f9db7aef1ef5a05b3} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!IsAdmin@{IsAdmin}}
+\index{IsAdmin@{IsAdmin}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{IsAdmin}{IsAdmin}}
+{\footnotesize\ttfamily bool Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Is\+Admin\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether the user has administrative privileges. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a660201917ecb63c849992cf3951bedd6}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a660201917ecb63c849992cf3951bedd6} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!LastLoginAt@{LastLoginAt}}
+\index{LastLoginAt@{LastLoginAt}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{LastLoginAt}{LastLoginAt}}
+{\footnotesize\ttfamily Date\+Time? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Last\+Login\+At\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets the date and time (usually UTC) of the user\textquotesingle{}s last successful login. 
+
+Nullable if never logged in. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_af9efa5d17b4e287a3179db6c60b8f222}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_af9efa5d17b4e287a3179db6c60b8f222} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!LastName@{LastName}}
+\index{LastName@{LastName}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{LastName}{LastName}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Last\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the user\textquotesingle{}s last name. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_ab3e70171bf3aff8a7015631e9c5f3d26}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_ab3e70171bf3aff8a7015631e9c5f3d26} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!LastPasswordChangeAt@{LastPasswordChangeAt}}
+\index{LastPasswordChangeAt@{LastPasswordChangeAt}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{LastPasswordChangeAt}{LastPasswordChangeAt}}
+{\footnotesize\ttfamily Date\+Time? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Last\+Password\+Change\+At\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets the date and time (usually UTC) when the user\textquotesingle{}s password was last changed. 
+
+Nullable if never changed after creation. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_ab8b6ee203c31198af81580c37bbe1c50}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_ab8b6ee203c31198af81580c37bbe1c50} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!Password@{Password}}
+\index{Password@{Password}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{Password}{Password}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Password\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the user\textquotesingle{}s password hash. 
+
+Direct access returns the stored hash, not the plain text password. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a1108485e7c2d234c4527e4d154bce6c5}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_person_entity_a1108485e7c2d234c4527e4d154bce6c5} 
+\index{ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}!UpdatedAt@{UpdatedAt}}
+\index{UpdatedAt@{UpdatedAt}!ArandanoIRT\_Backend.Domain.Entities.PersonEntity@{ArandanoIRT\_Backend.Domain.Entities.PersonEntity}}
+\doxysubsubsection{\texorpdfstring{UpdatedAt}{UpdatedAt}}
+{\footnotesize\ttfamily Date\+Time? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Person\+Entity.\+Updated\+At\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets the date and time (usually UTC) when the user account details were last updated. 
+
+Nullable if never updated. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Domain/\+Entities/\mbox{\hyperlink{_person_entity_8cs}{Person\+Entity.\+cs}}\end{DoxyCompactItemize}

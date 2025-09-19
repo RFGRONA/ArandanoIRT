@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_token_service.html" title="Defines a contract for services responsible for handling the lifecycle of authentication tokens,..." alt="" coords="5,5,246,48"/>
+<area shape="rect" id="Node000001" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_jwt_token_service.html" title="Implements the ITokenService interface, providing services for generating, validating,..." alt="" coords="294,5,534,48"/>
+<area shape="poly" id="edge59_Node000000_Node000001" title=" " alt="" coords="262,24,293,24,293,29,262,29"/>
+</map>

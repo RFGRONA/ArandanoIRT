@@ -1,0 +1,4 @@
+var interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_date_time_provider =
+[
+    [ "GetUtcNow", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_date_time_provider.html#a2f9c602c43693bdf4c9f2db74364a2c5", null ]
+];

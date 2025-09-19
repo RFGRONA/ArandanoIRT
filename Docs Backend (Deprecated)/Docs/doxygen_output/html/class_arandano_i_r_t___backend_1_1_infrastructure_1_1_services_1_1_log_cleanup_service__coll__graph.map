@@ -1,0 +1,5 @@
+<map id="ArandanoIRT_Backend.Infrastructure.Services.LogCleanupService" name="ArandanoIRT_Backend.Infrastructure.Services.LogCleanupService">
+<area shape="rect" id="Node000001" title="A background service responsible for periodically deleting old log files from the configured log dire..." alt="" coords="5,123,235,229"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="58,5,182,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,90,123,123,118,123,118,90"/>
+</map>

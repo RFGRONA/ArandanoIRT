@@ -1,0 +1,4 @@
+var interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_user_agent_parser =
+[
+    [ "Parse", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_user_agent_parser.html#ac06c931deddf8c867e6e87b83b6890b2", null ]
+];

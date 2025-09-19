@@ -1,0 +1,106 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Cloudflare\+Turnstile\+Service Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service}{}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service}\index{ArandanoIRT\_Backend.Infrastructure.Services.CloudflareTurnstileService@{ArandanoIRT\_Backend.Infrastructure.Services.CloudflareTurnstileService}}
+
+
+Implements the ICaptcha\+Service interface using the Cloudflare Turnstile API for verifying CAPTCHA challenges.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Cloudflare\+Turnstile\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Cloudflare\+Turnstile\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service_ab422c4301621d120ac9d0c41e3a5d401}{Cloudflare\+Turnstile\+Service}} (IHttp\+Client\+Factory http\+Client\+Factory, IConfiguration configuration, ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service}{Cloudflare\+Turnstile\+Service}} $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Cloudflare\+Turnstile\+Service class. \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service_a5363f25f1a833a7918e11df4c7ac9356}{Verify\+Captcha\+Async}} (string token)
+\begin{DoxyCompactList}\small\item\em Verifies the CAPTCHA token received from the client.
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The CAPTCHA response token from the client.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result indicating success (verified) or failure.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements the ICaptcha\+Service interface using the Cloudflare Turnstile API for verifying CAPTCHA challenges. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service_ab422c4301621d120ac9d0c41e3a5d401}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service_ab422c4301621d120ac9d0c41e3a5d401} 
+\index{ArandanoIRT\_Backend.Infrastructure.Services.CloudflareTurnstileService@{ArandanoIRT\_Backend.Infrastructure.Services.CloudflareTurnstileService}!CloudflareTurnstileService@{CloudflareTurnstileService}}
+\index{CloudflareTurnstileService@{CloudflareTurnstileService}!ArandanoIRT\_Backend.Infrastructure.Services.CloudflareTurnstileService@{ArandanoIRT\_Backend.Infrastructure.Services.CloudflareTurnstileService}}
+\doxysubsubsection{\texorpdfstring{CloudflareTurnstileService()}{CloudflareTurnstileService()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Cloudflare\+Turnstile\+Service.\+Cloudflare\+Turnstile\+Service (\begin{DoxyParamCaption}\item[{IHttp\+Client\+Factory}]{http\+Client\+Factory,  }\item[{IConfiguration}]{configuration,  }\item[{ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service}{Cloudflare\+Turnstile\+Service}} $>$}]{logger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Cloudflare\+Turnstile\+Service class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em http\+Client\+Factory} & The factory for creating Http\+Client instances.\\
+\hline
+{\em configuration} & The application configuration provider.\\
+\hline
+{\em logger} & The logger instance for this service.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown if http\+Client\+Factory, configuration, or logger is null.\\
+\hline
+{\em Invalid\+Operation\+Exception} & Thrown if the \textquotesingle{}Captcha\+:Turnstile\+Secret\+Key\textquotesingle{} configuration value is null or empty.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service_a5363f25f1a833a7918e11df4c7ac9356}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service_a5363f25f1a833a7918e11df4c7ac9356} 
+\index{ArandanoIRT\_Backend.Infrastructure.Services.CloudflareTurnstileService@{ArandanoIRT\_Backend.Infrastructure.Services.CloudflareTurnstileService}!VerifyCaptchaAsync@{VerifyCaptchaAsync}}
+\index{VerifyCaptchaAsync@{VerifyCaptchaAsync}!ArandanoIRT\_Backend.Infrastructure.Services.CloudflareTurnstileService@{ArandanoIRT\_Backend.Infrastructure.Services.CloudflareTurnstileService}}
+\doxysubsubsection{\texorpdfstring{VerifyCaptchaAsync()}{VerifyCaptchaAsync()}}
+{\footnotesize\ttfamily async Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} $>$ Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Services.\+Cloudflare\+Turnstile\+Service.\+Verify\+Captcha\+Async (\begin{DoxyParamCaption}\item[{string}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifies the CAPTCHA token received from the client.
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The CAPTCHA response token from the client.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result indicating success (verified) or failure.
+\end{DoxyReturn}
+ 
+
+This method communicates with the Cloudflare Turnstile API endpoint (Verify\+Endpoint). Its success depends on network connectivity, the availability of the Cloudflare service, and the correct configuration of the {\ttfamily Captcha\+:Turnstile\+Secret\+Key} setting. It uses cached Json\+Serializer\+Options for efficient response deserialization. 
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service_afbb74658bed5df16543a55ab71c2d91f}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+ICaptcha\+Service}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Infrastructure/\+Services/\mbox{\hyperlink{_captcha_service_8cs}{Captcha\+Service.\+cs}}\end{DoxyCompactItemize}

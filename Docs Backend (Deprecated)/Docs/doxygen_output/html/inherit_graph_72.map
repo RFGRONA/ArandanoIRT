@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository.html" title=" " alt="" coords="5,5,214,64"/>
+<area shape="rect" id="Node000001" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_sensor_data_repository.html" title="Defines the repository contract specifically for managing SensorDataEntity instances." alt="" coords="262,13,500,56"/>
+<area shape="poly" id="edge52_Node000000_Node000001" title=" " alt="" coords="230,32,261,32,261,37,230,37"/>
+<area shape="rect" id="Node000002" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_sensor_data_repository.html" title=" " alt="" coords="548,13,788,56"/>
+<area shape="poly" id="edge53_Node000001_Node000002" title=" " alt="" coords="515,32,548,32,548,37,515,37"/>
+</map>

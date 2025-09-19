@@ -1,0 +1,71 @@
+\doxysection{Error\+Logger Class Reference}
+\hypertarget{class_error_logger}{}\label{class_error_logger}\index{ErrorLogger@{ErrorLogger}}
+
+
+Provides a static method to format and send error details as JSON via HTTP POST.  
+
+
+
+
+{\ttfamily \#include $<$Error\+Logger.\+h$>$}
+
+
+
+Collaboration diagram for Error\+Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=141pt]{class_error_logger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_error_logger_a60feb973dfc6625946027cf109184bc4}{send\+Log}} (const String \&api\+Url, const String \&error\+Source, const String \&error\+Message)
+\begin{DoxyCompactList}\small\item\em Sends an error log message to the specified \doxylink{class_a_p_i}{API} endpoint. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a static method to format and send error details as JSON via HTTP POST. 
+
+This utility class simplifies sending structured error messages to a backend endpoint. It includes checks for network connectivity and backend status before attempting to send. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_error_logger_a60feb973dfc6625946027cf109184bc4}\label{class_error_logger_a60feb973dfc6625946027cf109184bc4} 
+\index{ErrorLogger@{ErrorLogger}!sendLog@{sendLog}}
+\index{sendLog@{sendLog}!ErrorLogger@{ErrorLogger}}
+\doxysubsubsection{\texorpdfstring{sendLog()}{sendLog()}}
+{\footnotesize\ttfamily bool Error\+Logger\+::send\+Log (\begin{DoxyParamCaption}\item[{const String \&}]{api\+Url,  }\item[{const String \&}]{error\+Source,  }\item[{const String \&}]{error\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sends an error log message to the specified \doxylink{class_a_p_i}{API} endpoint. 
+
+Static method implementation for sending structured error logs.
+
+Constructs a JSON payload with the error source and message\+: {\ttfamily \{"{}source"{}\+: error\+Source, "{}message"{}\+: error\+Message\}} and sends it via HTTP POST to the given URL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em api\+Url} & The full URL (String) of the backend logging endpoint. \\
+\hline
+{\em error\+Source} & A short string identifying the origin of the error (e.\+g., "{}\+SENSOR\+\_\+\+INIT"{}, "{}\+DHT\+\_\+\+READ"{}, "{}\+API\+\_\+\+FAIL"{}). \\
+\hline
+{\em error\+Message} & A detailed description of the error message (String). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the log message was successfully sent AND the server responded with an HTTP 2xx status code. Returns {\ttfamily false} if Wi\+Fi is disconnected, if the backend status check (via the global {\ttfamily api} object) fails, if the HTTP request fails, or if the server responds with a non-\/2xx status code. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function depends on a globally available {\ttfamily api} object of class {\ttfamily \doxylink{class_a_p_i}{API}} to check backend status via {\ttfamily api.\+check\+Backend\+Status()}. Ensure this object is instantiated globally. 
+
+This function currently uses an HTTP connection ({\ttfamily Wi\+Fi\+Client}). If the {\ttfamily api\+Url} requires HTTPS, the implementation in the .cpp file must be modified to use {\ttfamily Wi\+Fi\+Client\+Secure} and handle certificate validation appropriately. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Error\+Logger/\mbox{\hyperlink{_error_logger_8h}{Error\+Logger.\+h}}\item 
+lib/\+Error\+Logger/\mbox{\hyperlink{_error_logger_8cpp}{Error\+Logger.\+cpp}}\end{DoxyCompactItemize}

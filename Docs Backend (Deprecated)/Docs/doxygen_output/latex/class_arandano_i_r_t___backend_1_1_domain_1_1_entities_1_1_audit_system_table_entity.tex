@@ -1,0 +1,226 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}{}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity}\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+
+
+Represents a generic audit trail record tracking changes made to specific columns within identified system-\/level or configuration database tables, potentially associated with a crop context.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_af361af75c75534dce5fd2b935711d9a7}{Audit\+System\+Table\+Entity}} (int id\+Audit\+System\+Table, string table\+Name, string column\+Name, int record\+Id, int crop\+Id, string action, string? old\+Value, string? new\+Value, Date\+Time? performed\+At, int? performed\+By, string? performed\+By\+Ip, string? user\+Agent)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Audit\+System\+Table\+Entity class with detailed audit information for a system table change. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a183bc22dd51ebaaa72b19f058618648c}{Id\+Audit\+System\+Table}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier for this system table audit log entry. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a55cb580a9d2fe7bac2f5d1a55db97056}{Table\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the name of the system or configuration database table where the change occurred. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a799c8ead9e27de0ea688c1eecc3bf0fe}{Column\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the name of the column or property within the system table that was changed. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a179eca27b156a0c8250a4b040a927c2d}{Record\+Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the identifier (primary key) of the specific record within the system table that was affected. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_afaf45640c308a31c74f741c7dcd2098d}{Crop\+Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the identifier of the crop context relevant to this system table change, if applicable. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a6e3d8773106d283270c3d19c9d887141}{Action}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the type of action performed (e.\+g., "{}\+UPDATE\+\_\+\+CONFIG"{}, "{}\+ENABLE\+\_\+\+FEATURE"{}, "{}\+DISABLE\+\_\+\+FEATURE"{}). \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a43e680c7cee61b0cb8b1d82bf4529dab}{Old\+Value}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the value of the column before the change, if applicable (e.\+g., for UPDATE actions). \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a46941e658b4325f96bacdd4db81c4d4c}{New\+Value}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the value of the column after the change, if applicable (e.\+g., for creation or UPDATE actions). \end{DoxyCompactList}\item 
+Date\+Time? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a812ddb20a64dcd478c3587c970f7e11a}{Performed\+At}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the date and time (usually UTC) when the action was performed. \end{DoxyCompactList}\item 
+int? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_aeb95306cf4605494f94118c5f40ac0a0}{Performed\+By}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier of the user who performed the action, if available (e.\+g., an administrator). \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a487fe8a8b0bfd65df48f1edc585412a0}{Performed\+By\+Ip}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the IP address from which the action was performed, if available. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a9d43beb8af4e6d70ed4d0f06bcbe5573}{User\+Agent}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the user agent string of the client that performed the action, if available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a generic audit trail record tracking changes made to specific columns within identified system-\/level or configuration database tables, potentially associated with a crop context. 
+
+Structurally similar to Audit\+Data\+Table\+Entity, but potentially used for auditing system configuration tables. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_af361af75c75534dce5fd2b935711d9a7}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_af361af75c75534dce5fd2b935711d9a7} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!AuditSystemTableEntity@{AuditSystemTableEntity}}
+\index{AuditSystemTableEntity@{AuditSystemTableEntity}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{AuditSystemTableEntity()}{AuditSystemTableEntity()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Audit\+System\+Table\+Entity (\begin{DoxyParamCaption}\item[{int}]{id\+Audit\+System\+Table,  }\item[{string}]{table\+Name,  }\item[{string}]{column\+Name,  }\item[{int}]{record\+Id,  }\item[{int}]{crop\+Id,  }\item[{string}]{action,  }\item[{string?}]{old\+Value,  }\item[{string?}]{new\+Value,  }\item[{Date\+Time?}]{performed\+At,  }\item[{int?}]{performed\+By,  }\item[{string?}]{performed\+By\+Ip,  }\item[{string?}]{user\+Agent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Audit\+System\+Table\+Entity class with detailed audit information for a system table change. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Audit\+System\+Table} & The unique ID for this audit record (often generated by the database).\\
+\hline
+{\em table\+Name} & The name of the system table where the change occurred.\\
+\hline
+{\em column\+Name} & The name of the column changed.\\
+\hline
+{\em record\+Id} & The ID of the affected record within the table.\\
+\hline
+{\em crop\+Id} & The ID of the crop context for this action.\\
+\hline
+{\em action} & The action performed (e.\+g., "{}\+UPDATE\+\_\+\+CONFIG"{}).\\
+\hline
+{\em old\+Value} & The previous value (nullable).\\
+\hline
+{\em new\+Value} & The new value (nullable).\\
+\hline
+{\em performed\+At} & The timestamp of the action (nullable).\\
+\hline
+{\em performed\+By} & The ID of the user performing the action (nullable).\\
+\hline
+{\em performed\+By\+Ip} & The IP address associated with the action (nullable).\\
+\hline
+{\em user\+Agent} & The user agent of the client, if applicable (nullable).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown if {\itshape table\+Name}  is null or whitespace (Spanish message\+: "{}\+El nombre de la tabla es requerido."{}). Thrown if {\itshape column\+Name}  is null or whitespace (Spanish message\+: "{}\+El nombre de la columna es requerido."{}). Thrown if {\itshape action}  is null or whitespace (Spanish message\+: "{}\+La acción es requerida."{}). \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a6e3d8773106d283270c3d19c9d887141}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a6e3d8773106d283270c3d19c9d887141} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!Action@{Action}}
+\index{Action@{Action}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{Action}{Action}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Action\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the type of action performed (e.\+g., "{}\+UPDATE\+\_\+\+CONFIG"{}, "{}\+ENABLE\+\_\+\+FEATURE"{}, "{}\+DISABLE\+\_\+\+FEATURE"{}). 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a799c8ead9e27de0ea688c1eecc3bf0fe}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a799c8ead9e27de0ea688c1eecc3bf0fe} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!ColumnName@{ColumnName}}
+\index{ColumnName@{ColumnName}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{ColumnName}{ColumnName}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Column\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the name of the column or property within the system table that was changed. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_afaf45640c308a31c74f741c7dcd2098d}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_afaf45640c308a31c74f741c7dcd2098d} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!CropId@{CropId}}
+\index{CropId@{CropId}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{CropId}{CropId}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Crop\+Id\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the identifier of the crop context relevant to this system table change, if applicable. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a183bc22dd51ebaaa72b19f058618648c}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a183bc22dd51ebaaa72b19f058618648c} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!IdAuditSystemTable@{IdAuditSystemTable}}
+\index{IdAuditSystemTable@{IdAuditSystemTable}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{IdAuditSystemTable}{IdAuditSystemTable}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Id\+Audit\+System\+Table\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier for this system table audit log entry. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a46941e658b4325f96bacdd4db81c4d4c}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a46941e658b4325f96bacdd4db81c4d4c} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!NewValue@{NewValue}}
+\index{NewValue@{NewValue}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{NewValue}{NewValue}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+New\+Value\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the value of the column after the change, if applicable (e.\+g., for creation or UPDATE actions). 
+
+Null otherwise. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a43e680c7cee61b0cb8b1d82bf4529dab}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a43e680c7cee61b0cb8b1d82bf4529dab} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!OldValue@{OldValue}}
+\index{OldValue@{OldValue}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{OldValue}{OldValue}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Old\+Value\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the value of the column before the change, if applicable (e.\+g., for UPDATE actions). 
+
+Null otherwise. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a812ddb20a64dcd478c3587c970f7e11a}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a812ddb20a64dcd478c3587c970f7e11a} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!PerformedAt@{PerformedAt}}
+\index{PerformedAt@{PerformedAt}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{PerformedAt}{PerformedAt}}
+{\footnotesize\ttfamily Date\+Time? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Performed\+At\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the date and time (usually UTC) when the action was performed. 
+
+Nullable. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_aeb95306cf4605494f94118c5f40ac0a0}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_aeb95306cf4605494f94118c5f40ac0a0} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!PerformedBy@{PerformedBy}}
+\index{PerformedBy@{PerformedBy}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{PerformedBy}{PerformedBy}}
+{\footnotesize\ttfamily int? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Performed\+By\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier of the user who performed the action, if available (e.\+g., an administrator). 
+
+Nullable. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a487fe8a8b0bfd65df48f1edc585412a0}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a487fe8a8b0bfd65df48f1edc585412a0} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!PerformedByIp@{PerformedByIp}}
+\index{PerformedByIp@{PerformedByIp}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{PerformedByIp}{PerformedByIp}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Performed\+By\+Ip\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the IP address from which the action was performed, if available. 
+
+Nullable. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a179eca27b156a0c8250a4b040a927c2d}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a179eca27b156a0c8250a4b040a927c2d} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!RecordId@{RecordId}}
+\index{RecordId@{RecordId}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{RecordId}{RecordId}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Record\+Id\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the identifier (primary key) of the specific record within the system table that was affected. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a55cb580a9d2fe7bac2f5d1a55db97056}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a55cb580a9d2fe7bac2f5d1a55db97056} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!TableName@{TableName}}
+\index{TableName@{TableName}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{TableName}{TableName}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+Table\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the name of the system or configuration database table where the change occurred. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a9d43beb8af4e6d70ed4d0f06bcbe5573}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_system_table_entity_a9d43beb8af4e6d70ed4d0f06bcbe5573} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}!UserAgent@{UserAgent}}
+\index{UserAgent@{UserAgent}!ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditSystemTableEntity}}
+\doxysubsubsection{\texorpdfstring{UserAgent}{UserAgent}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+System\+Table\+Entity.\+User\+Agent\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the user agent string of the client that performed the action, if available. 
+
+Nullable. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Domain/\+Entities/\mbox{\hyperlink{_audit_system_table_entity_8cs}{Audit\+System\+Table\+Entity.\+cs}}\end{DoxyCompactItemize}

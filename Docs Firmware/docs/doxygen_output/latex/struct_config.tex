@@ -1,0 +1,91 @@
+\doxysection{Config Struct Reference}
+\hypertarget{struct_config}{}\label{struct_config}\index{Config@{Config}}
+
+
+Holds application configuration parameters loaded from Little\+FS or default values.  
+
+
+
+
+Collaboration diagram for Config\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{struct_config__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{struct_config_a804424388e0c9b9c3accceb144e1e4d0}{wifi\+\_\+ssid}} = "{}DEFAULT\+\_\+\+SSID"{}
+\begin{DoxyCompactList}\small\item\em Default Wi\+Fi SSID used if loading from config file fails. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{struct_config_abd2cb3697545308259b67c9dc2e75134}{wifi\+\_\+pass}} = "{}"{}
+\begin{DoxyCompactList}\small\item\em Default Wi\+Fi Password used if loading fails (or network is open). \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{struct_config_a2a5fcdd84a5565eb4b174c13e6852066}{api\+\_\+env}} = "{}"{}
+\begin{DoxyCompactList}\small\item\em Default \doxylink{class_a_p_i}{API} endpoint URL for sending environmental data. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{struct_config_a061df77c1b20a048f670a8bea1412adc}{api\+\_\+img}} = "{}"{}
+\begin{DoxyCompactList}\small\item\em Default \doxylink{class_a_p_i}{API} endpoint URL for sending image/thermal data (multipart). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_config_aee921ac69cd9066e0b0c00e6f2eda176}{sleep\+\_\+sec}} = 60
+\begin{DoxyCompactList}\small\item\em Default deep sleep duration in seconds between cycles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds application configuration parameters loaded from Little\+FS or default values. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_config_a2a5fcdd84a5565eb4b174c13e6852066}\label{struct_config_a2a5fcdd84a5565eb4b174c13e6852066} 
+\index{Config@{Config}!api\_env@{api\_env}}
+\index{api\_env@{api\_env}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{api\_env}{api\_env}}
+{\footnotesize\ttfamily String Config\+::api\+\_\+env = "{}"{}}
+
+
+
+Default \doxylink{class_a_p_i}{API} endpoint URL for sending environmental data. 
+
+\Hypertarget{struct_config_a061df77c1b20a048f670a8bea1412adc}\label{struct_config_a061df77c1b20a048f670a8bea1412adc} 
+\index{Config@{Config}!api\_img@{api\_img}}
+\index{api\_img@{api\_img}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{api\_img}{api\_img}}
+{\footnotesize\ttfamily String Config\+::api\+\_\+img = "{}"{}}
+
+
+
+Default \doxylink{class_a_p_i}{API} endpoint URL for sending image/thermal data (multipart). 
+
+\Hypertarget{struct_config_aee921ac69cd9066e0b0c00e6f2eda176}\label{struct_config_aee921ac69cd9066e0b0c00e6f2eda176} 
+\index{Config@{Config}!sleep\_sec@{sleep\_sec}}
+\index{sleep\_sec@{sleep\_sec}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{sleep\_sec}{sleep\_sec}}
+{\footnotesize\ttfamily int Config\+::sleep\+\_\+sec = 60}
+
+
+
+Default deep sleep duration in seconds between cycles. 
+
+\Hypertarget{struct_config_abd2cb3697545308259b67c9dc2e75134}\label{struct_config_abd2cb3697545308259b67c9dc2e75134} 
+\index{Config@{Config}!wifi\_pass@{wifi\_pass}}
+\index{wifi\_pass@{wifi\_pass}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{wifi\_pass}{wifi\_pass}}
+{\footnotesize\ttfamily String Config\+::wifi\+\_\+pass = "{}"{}}
+
+
+
+Default Wi\+Fi Password used if loading fails (or network is open). 
+
+\Hypertarget{struct_config_a804424388e0c9b9c3accceb144e1e4d0}\label{struct_config_a804424388e0c9b9c3accceb144e1e4d0} 
+\index{Config@{Config}!wifi\_ssid@{wifi\_ssid}}
+\index{wifi\_ssid@{wifi\_ssid}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{wifi\_ssid}{wifi\_ssid}}
+{\footnotesize\ttfamily String Config\+::wifi\+\_\+ssid = "{}DEFAULT\+\_\+\+SSID"{}}
+
+
+
+Default Wi\+Fi SSID used if loading from config file fails. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{main_8cpp}{main.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,29 @@
+\doxysection{DHT22\+Sensor.\+h}
+\hypertarget{_d_h_t22_sensor_8h_source}{}\label{_d_h_t22_sensor_8h_source}\index{lib/DHT22Sensor/DHT22Sensor.h@{lib/DHT22Sensor/DHT22Sensor.h}}
+\mbox{\hyperlink{_d_h_t22_sensor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ DHT22SENSOR\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ DHT22SENSOR\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <Arduino.h>}\ \textcolor{comment}{//\ Standard\ Arduino\ definitions}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <DHT.h>}\ \ \ \ \ \textcolor{comment}{//\ Include\ the\ Adafruit\ DHT\ sensor\ library}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d_h_t22_sensor}{DHT22Sensor}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_d_h_t22_sensor_af17d209e7c49f198c3fe46c30b86e594}{DHT22Sensor}}(\textcolor{keywordtype}{int}\ pin);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_h_t22_sensor_a7cf5a54da8e218c25138262365eab0db}{begin}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_d_h_t22_sensor_acc1bfaddd695874e282d0cdf739679aa}{readTemperature}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_d_h_t22_sensor_aaab7e0f64cd5419211f9ffa02d6fe6c5}{readHumidity}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ dhtPin;\ }
+\DoxyCodeLine{00058\ \ \ \ \ DHT\ dht;\ \ \ \ }
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DHT22SENSOR\_H}}
+
+\end{DoxyCode}

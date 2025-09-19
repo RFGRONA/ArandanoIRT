@@ -1,0 +1,168 @@
+\doxysection{MLX90640\+Sensor Class Reference}
+\hypertarget{class_m_l_x90640_sensor}{}\label{class_m_l_x90640_sensor}\index{MLX90640Sensor@{MLX90640Sensor}}
+
+
+Wrapper class simplifying the use of an MLX90640 thermal camera sensor.  
+
+
+
+
+{\ttfamily \#include $<$MLX90640\+Sensor.\+h$>$}
+
+
+
+Collaboration diagram for MLX90640\+Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{class_m_l_x90640_sensor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_l_x90640_sensor_a8985691f8175d13dcfac603e7d7e6c19}{MLX90640\+Sensor}} (Two\+Wire \&wire)
+\begin{DoxyCompactList}\small\item\em Constructor for the MLX90640 sensor wrapper. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_m_l_x90640_sensor_a07e238a015757e1bc1f6a009fac26eb5}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the MLX90640 sensor communication and configuration. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_m_l_x90640_sensor_a5506033c94be4f6a60f55269b4496027}{read\+Frame}} ()
+\begin{DoxyCompactList}\small\item\em Reads a new thermal data frame from the sensor into the internal buffer. \end{DoxyCompactList}\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_m_l_x90640_sensor_a0d552f357cfbc2509dde917cc2e364a1}{get\+Thermal\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Gets a direct pointer to the internal thermal data buffer. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_m_l_x90640_sensor_a52d81b059d30151be21cac3ebc189543}{get\+Average\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the average temperature from all pixels in the last successfully read frame. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_m_l_x90640_sensor_a514f07ec7d57cbb20ca1d0b6bc3e8580}{get\+Max\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Finds the maximum temperature among all pixels in the last successfully read frame. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_m_l_x90640_sensor_a4e373c81fdbbce4bc85b4b1eb5425eb7}{get\+Min\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Finds the minimum temperature among all pixels in the last successfully read frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class simplifying the use of an MLX90640 thermal camera sensor. 
+
+Encapsulates the Adafruit MLX90640 library object, providing methods to initialize the sensor, read full thermal frames (32x24 = 768 pixels), and access the data either as a raw buffer or through calculated statistics (min, max, average). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_m_l_x90640_sensor_a8985691f8175d13dcfac603e7d7e6c19}\label{class_m_l_x90640_sensor_a8985691f8175d13dcfac603e7d7e6c19} 
+\index{MLX90640Sensor@{MLX90640Sensor}!MLX90640Sensor@{MLX90640Sensor}}
+\index{MLX90640Sensor@{MLX90640Sensor}!MLX90640Sensor@{MLX90640Sensor}}
+\doxysubsubsection{\texorpdfstring{MLX90640Sensor()}{MLX90640Sensor()}}
+{\footnotesize\ttfamily MLX90640\+Sensor\+::\+MLX90640\+Sensor (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{wire }\end{DoxyParamCaption})}
+
+
+
+Constructor for the MLX90640 sensor wrapper. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wire} & Reference to the Two\+Wire instance (e.\+g., Wire, Wire1) the sensor is connected to. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_l_x90640_sensor_a07e238a015757e1bc1f6a009fac26eb5}\label{class_m_l_x90640_sensor_a07e238a015757e1bc1f6a009fac26eb5} 
+\index{MLX90640Sensor@{MLX90640Sensor}!begin@{begin}}
+\index{begin@{begin}!MLX90640Sensor@{MLX90640Sensor}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily bool MLX90640\+Sensor\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the MLX90640 sensor communication and configuration. 
+
+Attempts to initialize communication using the default I2C address (0x33). Configures the sensor operating parameters\+:
+\begin{DoxyItemize}
+\item Mode\+: Chess pattern readout ({\ttfamily MLX90640\+\_\+\+CHESS})
+\item ADC Resolution\+: 18-\/bit ({\ttfamily MLX90640\+\_\+\+ADC\+\_\+18\+BIT})
+\item Refresh Rate\+: 0.\+5 Hz ({\ttfamily MLX90640\+\_\+0\+\_\+5\+\_\+\+HZ}) for lower noise. This method should be called once in {\ttfamily \doxylink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}. \begin{DoxyNote}{Note}
+IMPORTANT\+: A delay MUST be added in your sketch {\itshape after} calling {\ttfamily \doxylink{class_m_l_x90640_sensor_a07e238a015757e1bc1f6a009fac26eb5}{begin()}} and {\itshape before} the first call to {\ttfamily \doxylink{class_m_l_x90640_sensor_a5506033c94be4f6a60f55269b4496027}{read\+Frame()}}. The required delay depends on the refresh rate (e.\+g., \texorpdfstring{$>$}{>} 1 second for 0.\+5 Hz, \texorpdfstring{$>$}{>} 0.\+5s for 1Hz). This allows the sensor time to perform its initial measurements. 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if initialization and configuration were successful, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{class_m_l_x90640_sensor_a52d81b059d30151be21cac3ebc189543}\label{class_m_l_x90640_sensor_a52d81b059d30151be21cac3ebc189543} 
+\index{MLX90640Sensor@{MLX90640Sensor}!getAverageTemperature@{getAverageTemperature}}
+\index{getAverageTemperature@{getAverageTemperature}!MLX90640Sensor@{MLX90640Sensor}}
+\doxysubsubsection{\texorpdfstring{getAverageTemperature()}{getAverageTemperature()}}
+{\footnotesize\ttfamily float MLX90640\+Sensor\+::get\+Average\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the average temperature from all pixels in the last successfully read frame. 
+
+Iterates through the internal {\ttfamily frame} buffer and computes the mean value. \begin{DoxyReturn}{Returns}
+The average temperature in degrees Celsius (\$\texorpdfstring{$^\wedge$}{\string^}\{\textbackslash{}circ\}C\$). Returns calculation based on current buffer content. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Ensure {\ttfamily \doxylink{class_m_l_x90640_sensor_a5506033c94be4f6a60f55269b4496027}{read\+Frame()}} was called successfully before relying on this value. 
+\end{DoxyNote}
+\Hypertarget{class_m_l_x90640_sensor_a514f07ec7d57cbb20ca1d0b6bc3e8580}\label{class_m_l_x90640_sensor_a514f07ec7d57cbb20ca1d0b6bc3e8580} 
+\index{MLX90640Sensor@{MLX90640Sensor}!getMaxTemperature@{getMaxTemperature}}
+\index{getMaxTemperature@{getMaxTemperature}!MLX90640Sensor@{MLX90640Sensor}}
+\doxysubsubsection{\texorpdfstring{getMaxTemperature()}{getMaxTemperature()}}
+{\footnotesize\ttfamily float MLX90640\+Sensor\+::get\+Max\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finds the maximum temperature among all pixels in the last successfully read frame. 
+
+Iterates through the internal {\ttfamily frame} buffer to find the highest temperature value. \begin{DoxyReturn}{Returns}
+The maximum temperature found in degrees Celsius (\$\texorpdfstring{$^\wedge$}{\string^}\{\textbackslash{}circ\}C\$). Returns calculation based on current buffer content. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Ensure {\ttfamily \doxylink{class_m_l_x90640_sensor_a5506033c94be4f6a60f55269b4496027}{read\+Frame()}} was called successfully before relying on this value. 
+\end{DoxyNote}
+\Hypertarget{class_m_l_x90640_sensor_a4e373c81fdbbce4bc85b4b1eb5425eb7}\label{class_m_l_x90640_sensor_a4e373c81fdbbce4bc85b4b1eb5425eb7} 
+\index{MLX90640Sensor@{MLX90640Sensor}!getMinTemperature@{getMinTemperature}}
+\index{getMinTemperature@{getMinTemperature}!MLX90640Sensor@{MLX90640Sensor}}
+\doxysubsubsection{\texorpdfstring{getMinTemperature()}{getMinTemperature()}}
+{\footnotesize\ttfamily float MLX90640\+Sensor\+::get\+Min\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finds the minimum temperature among all pixels in the last successfully read frame. 
+
+Iterates through the internal {\ttfamily frame} buffer to find the lowest temperature value. \begin{DoxyReturn}{Returns}
+The minimum temperature found in degrees Celsius (\$\texorpdfstring{$^\wedge$}{\string^}\{\textbackslash{}circ\}C\$). Returns calculation based on current buffer content. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Ensure {\ttfamily \doxylink{class_m_l_x90640_sensor_a5506033c94be4f6a60f55269b4496027}{read\+Frame()}} was called successfully before relying on this value. 
+\end{DoxyNote}
+\Hypertarget{class_m_l_x90640_sensor_a0d552f357cfbc2509dde917cc2e364a1}\label{class_m_l_x90640_sensor_a0d552f357cfbc2509dde917cc2e364a1} 
+\index{MLX90640Sensor@{MLX90640Sensor}!getThermalData@{getThermalData}}
+\index{getThermalData@{getThermalData}!MLX90640Sensor@{MLX90640Sensor}}
+\doxysubsubsection{\texorpdfstring{getThermalData()}{getThermalData()}}
+{\footnotesize\ttfamily float \texorpdfstring{$\ast$}{*} MLX90640\+Sensor\+::get\+Thermal\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a direct pointer to the internal thermal data buffer. 
+
+Provides access to the raw temperature data from the last successful {\ttfamily \doxylink{class_m_l_x90640_sensor_a5506033c94be4f6a60f55269b4496027}{read\+Frame()}} call. The buffer is a flat array containing 768 ({\ttfamily 32 \texorpdfstring{$\ast$}{*} 24}) float values representing pixel temperatures. \begin{DoxyReturn}{Returns}
+Pointer to the internal float array {\ttfamily frame} containing temperatures in degrees Celsius (\$\texorpdfstring{$^\wedge$}{\string^}\{\textbackslash{}circ\}C\$). 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The data pointed to is only valid after {\ttfamily \doxylink{class_m_l_x90640_sensor_a5506033c94be4f6a60f55269b4496027}{read\+Frame()}} returns {\ttfamily true}. Calling this before a successful read or after a failed read will return a pointer to potentially uninitialized or outdated data. The pointer itself remains valid. 
+\end{DoxyNote}
+\Hypertarget{class_m_l_x90640_sensor_a5506033c94be4f6a60f55269b4496027}\label{class_m_l_x90640_sensor_a5506033c94be4f6a60f55269b4496027} 
+\index{MLX90640Sensor@{MLX90640Sensor}!readFrame@{readFrame}}
+\index{readFrame@{readFrame}!MLX90640Sensor@{MLX90640Sensor}}
+\doxysubsubsection{\texorpdfstring{readFrame()}{readFrame()}}
+{\footnotesize\ttfamily bool MLX90640\+Sensor\+::read\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads a new thermal data frame from the sensor into the internal buffer. 
+
+Calls the underlying library function ({\ttfamily get\+Frame}) to retrieve all 768 pixel temperature values and store them in the internal {\ttfamily frame} buffer. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if a complete frame was successfully read, {\ttfamily false} if an error occurred (e.\+g., I2C communication failure, incomplete frame). 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+MLX90640\+Sensor/\mbox{\hyperlink{_m_l_x90640_sensor_8h}{MLX90640\+Sensor.\+h}}\item 
+lib/\+MLX90640\+Sensor/\mbox{\hyperlink{_m_l_x90640_sensor_8cpp}{MLX90640\+Sensor.\+cpp}}\end{DoxyCompactItemize}

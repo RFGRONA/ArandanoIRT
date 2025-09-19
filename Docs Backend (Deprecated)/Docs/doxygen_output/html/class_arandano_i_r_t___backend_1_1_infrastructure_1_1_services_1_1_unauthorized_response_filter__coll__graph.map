@@ -1,0 +1,5 @@
+<map id="ArandanoIRT_Backend.Infrastructure.Services.UnauthorizedResponseFilter" name="ArandanoIRT_Backend.Infrastructure.Services.UnauthorizedResponseFilter">
+<area shape="rect" id="Node000001" title="An Swagger operation filter that adds the 401 Unauthorized response type to operations that are prote..." alt="" coords="5,123,236,208"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="71,5,170,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,89,123,123,118,123,118,89"/>
+</map>

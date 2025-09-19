@@ -1,0 +1,13 @@
+<map id="lib/WifiManager/WiFiManager.h" name="lib/WifiManager/WiFiManager.h">
+<area shape="rect" id="Node000001" title="Defines a class to manage WiFi station (STA) connection state and handle non&#45;blocking reconnection." alt="" coords="37,5,241,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,65,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,35,67,73,64,69,119,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="88,80,190,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,33,142,64,136,64,136,33"/>
+<area shape="rect" id="Node000004" href="$_l_e_d_status_8h.html" title="Manages a single WS2812 NeoPixel LED for status indication." alt="" coords="214,80,310,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="162,30,228,69,226,74,159,35"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="128,155,265,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="252,109,220,145,216,141,248,105"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="289,155,365,181"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="275,105,308,141,304,145,271,109"/>
+</map>

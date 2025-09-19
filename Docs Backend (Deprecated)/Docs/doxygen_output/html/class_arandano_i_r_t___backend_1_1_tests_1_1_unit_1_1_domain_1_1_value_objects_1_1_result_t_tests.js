@@ -1,0 +1,8 @@
+var class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_result_t_tests =
+[
+    [ "Failure_ShouldReturnFailedResult_WithErrorMessageAndDefaultReferenceValue", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_result_t_tests.html#a74ec8ae90959411181e4fd7b9a9f887e", null ],
+    [ "Failure_ShouldReturnFailedResult_WithErrorMessageAndDefaultValueTypeValue", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_result_t_tests.html#aee0e4518366076c49d861dc482e48bd9", null ],
+    [ "FailureT_ShouldThrowException_WhenErrorMessageIsNullOrEmpty", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_result_t_tests.html#aa02ae2d8cd2fbf139b2f33b0497522fe", null ],
+    [ "Success_ShouldReturnSuccessfulResult_WithReferenceTypeValue", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_result_t_tests.html#a1d78aa260829d4f01334fc3b658bc954", null ],
+    [ "Success_ShouldReturnSuccessfulResult_WithValueTypeValue", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_result_t_tests.html#ada975d05b6605299c4a30e504605f659", null ]
+];

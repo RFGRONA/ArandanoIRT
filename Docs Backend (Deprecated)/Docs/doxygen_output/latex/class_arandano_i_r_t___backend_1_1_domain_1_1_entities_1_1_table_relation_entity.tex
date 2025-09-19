@@ -1,0 +1,86 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Table\+Relation\+Entity Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity}{}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity}\index{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity@{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity}}
+
+
+Represents a mapping between a unique identifier and a database table name.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Table\+Relation\+Entity\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity_a370d38888a01000f83cd51b6bccb46d9}{Table\+Relation\+Entity}} (int id\+Table\+Relation, string table\+Name)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Table\+Relation\+Entity class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity_a77701ebf26532a0d2ae187e15d25e8ef}{Id\+Table\+Relation}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier for the table relation mapping. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity_a49a2fe62ba5878d98b14f1181218e09a}{Table\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the name of the database table being referenced. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a mapping between a unique identifier and a database table name. 
+
+This is likely used to associate other entities (like Status\+Entity) with the specific type of table or entity they relate to. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity_a370d38888a01000f83cd51b6bccb46d9}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity_a370d38888a01000f83cd51b6bccb46d9} 
+\index{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity@{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity}!TableRelationEntity@{TableRelationEntity}}
+\index{TableRelationEntity@{TableRelationEntity}!ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity@{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity}}
+\doxysubsubsection{\texorpdfstring{TableRelationEntity()}{TableRelationEntity()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Table\+Relation\+Entity.\+Table\+Relation\+Entity (\begin{DoxyParamCaption}\item[{int}]{id\+Table\+Relation,  }\item[{string}]{table\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Table\+Relation\+Entity class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Table\+Relation} & The unique ID for this table relation record.\\
+\hline
+{\em table\+Name} & The name of the database table.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown if {\itshape table\+Name}  is null or whitespace (Spanish message\+: "{}\+El nombre de la tabla es requerido."{}). \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity_a77701ebf26532a0d2ae187e15d25e8ef}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity_a77701ebf26532a0d2ae187e15d25e8ef} 
+\index{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity@{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity}!IdTableRelation@{IdTableRelation}}
+\index{IdTableRelation@{IdTableRelation}!ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity@{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity}}
+\doxysubsubsection{\texorpdfstring{IdTableRelation}{IdTableRelation}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Table\+Relation\+Entity.\+Id\+Table\+Relation\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier for the table relation mapping. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity_a49a2fe62ba5878d98b14f1181218e09a}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_table_relation_entity_a49a2fe62ba5878d98b14f1181218e09a} 
+\index{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity@{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity}!TableName@{TableName}}
+\index{TableName@{TableName}!ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity@{ArandanoIRT\_Backend.Domain.Entities.TableRelationEntity}}
+\doxysubsubsection{\texorpdfstring{TableName}{TableName}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Table\+Relation\+Entity.\+Table\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the name of the database table being referenced. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Domain/\+Entities/\mbox{\hyperlink{_table_relation_entity_8cs}{Table\+Relation\+Entity.\+cs}}\end{DoxyCompactItemize}

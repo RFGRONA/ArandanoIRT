@@ -1,0 +1,74 @@
+\doxysection{Wi\+Fi\+Manager.\+h}
+\hypertarget{_wi_fi_manager_8h_source}{}\label{_wi_fi_manager_8h_source}\index{lib/WifiManager/WiFiManager.h@{lib/WifiManager/WiFiManager.h}}
+\mbox{\hyperlink{_wi_fi_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ WIFI\_MANAGER\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ WIFI\_MANAGER\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <WiFi.h>}\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ESP32\ WiFi\ library}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <HTTPClient.h>}\ \ \ \ \textcolor{comment}{//\ Required\ for\ checkInternetConnection\ method}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_l_e_d_status_8h}{LEDStatus.h}}"{}}\ \ \ \ \ \textcolor{comment}{//\ Required\ for\ status\ indication\ via\ LED}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ -\/-\/-\/\ WiFi\ Connection\ Timing\ and\ Retry\ Parameters\ -\/-\/-\/}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ WIFI\_CONNECT\_TIMEOUT\ \ \ \ \ \ \ \ 20000\ \ }}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ WIFI\_RECONNECT\_INTERVAL\ \ \ \ \ 5000\ \ \ }}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ MAX\_WIFI\_RECONNECT\_ATTEMPTS\ 5\ \ \ \ \ \ }}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_wi_fi_manager}{WiFiManager}}\ \{}
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_wi_fi_manager_ab4ff7e8ddd91018e00e5a8f4feb69d0f}{ConnectionStatus}}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_wi_fi_manager_ab4ff7e8ddd91018e00e5a8f4feb69d0fa26be00a30b40c9b34c0dcbb17201baf0}{DISCONNECTED}},\ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_wi_fi_manager_ab4ff7e8ddd91018e00e5a8f4feb69d0fa3ec2a84efd330eaea3eaeb66fe24fb14}{CONNECTING}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_wi_fi_manager_ab4ff7e8ddd91018e00e5a8f4feb69d0faacc6b47fac9b15d2e67b3e3dc0387986}{CONNECTED}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_wi_fi_manager_ab4ff7e8ddd91018e00e5a8f4feb69d0fa1ee683b2cbd147a7d4fd5baa40ac80e2}{CONNECTION\_FAILED}},\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_wi_fi_manager_ab4ff7e8ddd91018e00e5a8f4feb69d0faee0ed510a54f93ae7b8f36a6551bb874}{CONNECTION\_LOST}}\ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_wi_fi_manager_a7d2efc3a8d43169ad058fc1fe797e106}{WiFiManager}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_wi_fi_manager_a43c3e849fe701aee0c49a824a272e343}{begin}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_wi_fi_manager_a03359e72d115ec4288d3a66938fedf1e}{connectToWiFi}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{class_wi_fi_manager_ab4ff7e8ddd91018e00e5a8f4feb69d0f}{ConnectionStatus}}\ \mbox{\hyperlink{class_wi_fi_manager_a4d217b0c184ba5a8fbfddc3e077d9e12}{getConnectionStatus}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wi_fi_manager_a390036853ea37ba2d30a0aaa5c37fe25}{disconnect}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wi_fi_manager_a9edaf1a2e3ec04d2b63dd128e56f81f2}{handleWiFi}}();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_wi_fi_manager_a07d031131a9a41465aac6fdd5b09276a}{checkInternetConnection}}(\textcolor{keyword}{const}\ String\&\ testUrl\ =\ \textcolor{stringliteral}{"{}http://clients3.google.com/generate\_204"{}});}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wi_fi_manager_af2215b46ba203fd25e8e7559535371f8}{setCredentials}}(\textcolor{keyword}{const}\ String\&\ ssid,\ \textcolor{keyword}{const}\ String\&\ password);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{class_l_e_d_status}{LEDStatus}}\ \_led;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \_lastReconnectAttempt\ =\ 0;\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \_reconnectAttempts\ =\ 0;\ \ }
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{class_wi_fi_manager_ab4ff7e8ddd91018e00e5a8f4feb69d0f}{ConnectionStatus}}\ \_currentStatus\ =\ \mbox{\hyperlink{class_wi_fi_manager_ab4ff7e8ddd91018e00e5a8f4feb69d0fa26be00a30b40c9b34c0dcbb17201baf0}{DISCONNECTED}};\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_wi_fi_manager}{WiFiManager}}*\ \_instance;\ \ \ \ \ \ }
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ Store\ copies\ of\ credentials\ internally}}
+\DoxyCodeLine{00122\ \ \ \ \ String\ \_ssid;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ String\ \_password;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Static\ Event\ Handlers\ -\/-\/-\/}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ These\ static\ functions\ are\ registered\ with\ the\ ESP32\ WiFi\ event\ system.}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ When\ an\ event\ occurs,\ the\ corresponding\ static\ function\ is\ called.}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ Inside,\ it\ uses\ the\ static\ '\_instance'\ pointer\ to\ call\ methods\ or\ update}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ members\ of\ the\ actual\ WiFiManager\ object.}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ onWiFiConnected(WiFiEvent\_t\ event,\ WiFiEventInfo\_t\ info);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ onWiFiGotIP(WiFiEvent\_t\ event,\ WiFiEventInfo\_t\ info);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ onWiFiDisconnected(WiFiEvent\_t\ event,\ WiFiEventInfo\_t\ info);}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ End\ Static\ Event\ Handlers\ -\/-\/-\/}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{void}\ attemptReconnect();}
+\DoxyCodeLine{00167\ \};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WIFI\_MANAGER\_H}}
+
+\end{DoxyCode}

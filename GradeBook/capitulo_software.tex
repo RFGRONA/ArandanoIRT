@@ -1,5 +1,5 @@
 % Capítulo II: Documentación del Software
-\chapter{DOCUMENTACIÓN DEL SOFTWARE}
+\chapter{DOCUMENTACIÓN SOFTWARE}
 
 % =================================================
 % =================================================
@@ -27,7 +27,214 @@ Detalla los mecanismos y protocolos (por ejemplo, REST o WebSockets) que permite
 % =================================================
 
 \section{Determinación de Requerimientos}
-Texto sobre la determinación de requerimientos según formato IEEE...
+% --- RF01 ---
+\begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF01: Registro}}
+	\label{tab:rf01}
+	\begin{tabular}{@{}ll@{}} % l = left-aligned text, @{} removes side padding
+	  \toprule
+	  \textbf{Identificador} & RF01 \\
+	  \midrule
+	  \textbf{Nombre} & Registro \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & El administrador puede registrarse en el sistema de detección \\ 
+						   & proporcionando los datos solicitados en el formulario de registro. \\
+						   & Para que un usuario se pueda registrar, debe solicitar el código de \\
+						   & acceso proporcionado por el administrador para poder realizar \\
+						   & correctamente el registro. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF02 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF02: Inicio de sesión}}
+	\label{tab:rf02}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF02 \\
+	  \midrule
+	  \textbf{Nombre} & Inicio de sesión \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & Permite a los diferentes roles acceder al sistema de detección con \\
+						   & sus credenciales (usuario y contraseña), estas deben ser correctas \\
+						   & para su acceso. Al finalizar, se podrá cerrar sesión. En caso tal de \\
+						   & olvidar la contraseña, se tendrá la opción para recuperarla. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF03 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF03: CRUD cámara}}
+	\label{tab:rf03}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF03 \\
+	  \midrule
+	  \textbf{Nombre} & CRUD cámara \\
+	  \textbf{Roles} & Administrador \\
+	  \textbf{Descripción} & Se podrán agregar módulos termográficos al sistema de detección \\
+						   & para poder recibir y procesar los datos que estas envíen. Además de \\
+						   & visualizar y actualizar el estado de cada módulo termográfico. En \\
+						   & caso de ser necesario, se podrá eliminar la cámara del sistema de \\
+						   & detección. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF04 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF04: CRUD persona}}
+	\label{tab:rf04}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF04 \\
+	  \midrule
+	  \textbf{Nombre} & CRUD persona \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & Los distintos roles podrán actualizar sus datos personales o \\
+						   & contraseña. También podrán eliminar su cuenta. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF05 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF05: Módulo de mediciones}}
+	\label{tab:rf05}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF05 \\
+	  \midrule
+	  \textbf{Nombre} & Módulo de mediciones \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & El sistema de detección recopilará y mostrará los datos de las \\
+						   & mediciones tomadas por otros sensores por medio de gráficas y un \\
+						   & histórico. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF06 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF06: Módulo de procesamiento}}
+	\label{tab:rf06}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF06 \\
+	  \midrule
+	  \textbf{Nombre} & Módulo de procesamiento \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & El sistema de detección mostrará los datos recopilados por los \\
+						   & módulos de cámara por medio de gráficas. Además, se debe mostrar \\
+						   & el estado de cada planta y el histórico de datos de todas las plantas. \\
+						   & El procesamiento de los datos térmicos indicará el estado de cada \\
+						   & planta. Los roles podrán actualizar el estado proporcionado por el \\
+						   & sistema de ser necesario. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF07 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF07: Reportes}}
+	\label{tab:rf07}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF07 \\
+	  \midrule
+	  \textbf{Nombre} & Reportes \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & Los diferentes roles podrán generar reportes sobre el estado de las \\
+						   & plantas en formato PDF con base en los datos recopilados por los \\
+						   & módulos de cámara y/o por el módulo de procesamiento. Se podrá \\
+						   & escoger distintos filtros (una o varias plantas, lapsos de tiempo). \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF08 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF08: Notificaciones}}
+	\label{tab:rf08}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF08 \\
+	  \midrule
+	  \textbf{Nombre} & Notificaciones \\
+	  \textbf{Roles} & Administrador, Usuario (como receptores) \\
+	  \textbf{Descripción} & Se deben enviar notificaciones por correo electrónico a los distintos \\
+						   & roles en el cual se puedan alertar sobre cambios de estado en las \\
+						   & plantas y enviar notificaciones de seguridad. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF09 (Nuevo) ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF09: Gestionar Observaciones}}
+	\label{tab:rf09}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF09 \\ 
+	  \midrule
+	  \textbf{Nombre} & Gestionar Observaciones \\ 
+	  \textbf{Roles} & Administrador, Usuario\\ 
+	  \textbf{Descripción} & Permite a los usuarios registrar y consultar observaciones \\
+						   & cualitativas sobre el estado de las plantas.\\
+						   & Se utiliza una plantilla estandarizada para anotar aspectos visuales \\
+						   & (color, textura, uniformidad, daños), asignar una calificación \\
+						   & subjetiva y añadir notas, complementando los datos cuantitativos \\
+						   & para la metodología mixta y el procesamiento de datos. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RNF01 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento No Funcional RNF01: Seguridad}}
+	\label{tab:rnf01}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RNF01 \\ 
+	  \midrule
+	  \textbf{Nombre} & Seguridad \\ 
+	  \textbf{Roles} & N/A (Aplica al Sistema) \\ % Ajustado rol para RNF
+	  \textbf{Descripción} & El sistema de detección debe cumplir con los lineamientos y leyes \\
+						   & establecidos para la protección, integridad y disponibilidad de los \\
+						   & datos (Ley 1581 de 2012). \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RNF02 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento No Funcional RNF02: Copia de seguridad}}
+	\label{tab:rnf02}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RNF02 \\ 
+	  \midrule
+	  \textbf{Nombre} & Copia de seguridad \\ 
+	  \textbf{Roles} & N/A (Aplica al Sistema) \\ % Ajustado rol para RNF
+	  \textbf{Descripción} & Se debe asegurar un respaldo de los datos en caso de presentarse \\
+						   & alguna eventualidad no se vulnere la integridad de los datos. Esta \\
+						   & copia de seguridad se debe hacer de forma automática y semanal. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
 
 % =================================================
 % =================================================
@@ -42,10 +249,71 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \includegraphics[width=1\textwidth]{UML/Otros/Diagrama Entidad Relacion.png}
 \end{figure}
 
+El Modelo Entidad-Relación (MER), presentado en la Figura \ref{fig:der}, define la estructura lógica de la base de datos diseñada para el sistema, organizando la información necesaria para el funcionamiento de la aplicación. Las tablas se han agrupado lógicamente (y coloreado en el diagrama) según su propósito principal para facilitar su comprensión: Diccionarios de Datos (celeste), Datos de Usuarios (blanco), Datos de Cultivos (naranja), Datos de Dispositivos (morado), Datos de Plantas (verde) y Auditoría (rojo). A continuación, se describe el propósito y las relaciones clave de cada tabla dentro de estos grupos.
+
+\subsubsection*{Grupo 1: Diccionarios de Datos (Celeste)}
+Este grupo contiene tablas auxiliares que definen tipos o categorías reutilizables en otras partes del sistema.
+\begin{itemize}
+    \item \texttt{TableRelation}: Almacena los nombres de las tablas principales de la base de datos. Su propósito es permitir que la tabla \texttt{Status} pueda referenciar a qué tabla pertenece un estado específico, ofreciendo un mecanismo de categorización de estados.
+    \item \texttt{Status}: Define un conjunto genérico de estados posibles (ej. 'Activo', 'Inactivo', 'Pendiente') que pueden ser aplicados a diferentes entidades del sistema como invitaciones, plantas, dispositivos u observaciones. Se relaciona con \texttt{TableRelation} para indicar el contexto de cada estado y es referenciada por múltiples tablas (\texttt{CropInvitation}, \texttt{PlantData}, \texttt{DeviceData}, \texttt{DeviceActivation}, \texttt{PlantStateHistory}, \texttt{PlantObservation}) mediante claves foráneas.
+\end{itemize}
+
+\subsubsection*{Grupo 2: Datos de Usuarios (Blanco)}
+Este grupo gestiona la información y la autenticación de los usuarios del sistema.
+\begin{itemize}
+    \item \texttt{Person}: Tabla central para los usuarios. Almacena información personal básica (nombre, apellido), credenciales de acceso (email, contraseña cifrada), rol (\texttt{isAdmin}), preferencias de notificación, y timestamps relevantes (creación, actualización, último login, último cambio de contraseña). Se relaciona con \texttt{Crop} para indicar a qué cultivo pertenece el usuario (si no es administrador global). Es referenciada por múltiples tablas para indicar quién realizó una acción (\texttt{Crop}, \texttt{CropInvitation}, \texttt{DeviceData}, \texttt{PlantStateHistory}, \texttt{PlantObservation}, \texttt{RefreshToken}) y por las tablas de auditoría.
+    \item \texttt{ChangePassword}: Gestiona las solicitudes de restablecimiento de contraseña, almacenando un token temporal, su fecha de expiración y la referencia al usuario (\texttt{PersonId}) que lo solicitó.
+    \item \texttt{RefreshToken}: Almacena los tokens de refresco utilizados para mantener las sesiones de usuario activas de forma segura, junto con información del dispositivo y la IP asociada. Se relaciona con \texttt{Person}.
+    \item \texttt{FailedLoginAttempt}: Registra los intentos fallidos de inicio de sesión para monitoreo de seguridad, incluyendo la IP, información del dispositivo y la referencia al usario (\texttt{PersonId}).
+\end{itemize}
+
+\subsubsection*{Grupo 3: Datos de Cultivos (Naranja)}
+Define la información general sobre los cultivos gestionados.
+\begin{itemize}
+    \item \texttt{Crop}: Representa un cultivo específico, almacenando su nombre, dirección, ciudad y el identificador del usuario administrador de ese cultivo (\texttt{adminUserId}, FK a \texttt{Person}). Es una entidad central referenciada por \texttt{Person}, \texttt{CropInvitation}, \texttt{PlantData}, \texttt{DeviceData}, \texttt{SensorData}, \texttt{ThermalData} y las tablas de auditoría para contextualizar los datos.
+    \item \texttt{CropInvitation}: Gestiona los códigos de invitación que permiten a nuevos usuarios unirse a un cultivo existente. Almacena el código, fechas de validez, estado (\texttt{StatusId}), quién la creó (\texttt{createdBy}, FK a \texttt{Person}), quién la usó (\texttt{usedBy}, FK a \texttt{Person}) y a qué cultivo pertenece (\texttt{CropId}).
+\end{itemize}
+
+\subsubsection*{Grupo 4: Datos de Dispositivos (Morado)}
+Administra la información de los dispositivos de hardware (cámaras térmicas y otros sensores) utilizados para la recolección de datos.
+\begin{itemize}
+    \item \texttt{DeviceData}: Registra cada dispositivo físico, incluyendo su nombre, descripción, intervalo de recolección de datos (\texttt{dataCollectionTime}), estado (\texttt{StatusId}), fechas y usuarios de registro/actualización (FKs a \texttt{Person}). Puede estar asociado a un cultivo (\texttt{CropId}) y opcionalmente a una planta específica (\texttt{PlantId}). Es referenciada por \texttt{DeviceLog}, \texttt{DeviceToken} y \texttt{DeviceActivation}.
+    \item \texttt{DeviceLog}: Almacena registros (logs) de eventos o errores generados por los dispositivos, referenciando al dispositivo (\texttt{deviceId}) correspondiente.
+    \item \texttt{DeviceToken}: Gestiona los tokens de autenticación específicos para que los dispositivos puedan enviar datos de forma segura a la API. Se relaciona con \texttt{DeviceData}.
+    \item \texttt{DeviceActivation}: Controla el proceso de activación inicial de un dispositivo mediante un código, almacenando su estado (\texttt{activationStatus}, FK a \texttt{Status}) y fechas relevantes. Se relaciona con \texttt{DeviceData}.
+\end{itemize}
+
+\subsubsection*{Grupo 5: Datos de Plantas (Verde)}
+Este grupo centraliza toda la información relacionada con las plantas de arándano monitoreadas.
+\begin{itemize}
+    \item \texttt{PlantData}: Representa cada planta individual dentro de un cultivo. Almacena su nombre identificador, fecha de registro, estado actual (\texttt{StatusId}, ej. 'Saludable', 'No Saludable') y a qué cultivo pertenece (\texttt{CropId}). Es referenciada por \texttt{DeviceData} (opcionalmente), \texttt{PlantStateHistory}, \texttt{SensorData}, \texttt{ThermalData} y \texttt{PlantObservation}.
+    \item \texttt{PlantStateHistory}: Mantiene un historial de los cambios de estado de cada planta, registrando cuándo ocurrió el cambio (\texttt{changedAt}), quién lo realizó (\texttt{changedBy}, FK a \texttt{Person}) y cuál fue el nuevo estado (\texttt{StatusId}). Se relaciona con \texttt{PlantData}.
+    \item \texttt{SensorData}: Almacena las lecturas periódicas de sensores ambientales asociados a una planta (temperatura, humedad, intensidad lumínica) y opcionalmente datos climáticos de la ciudad. Incluye la fecha de registro (\texttt{recordedAt}) y referencias a la planta (\texttt{PlantId}) y al cultivo (\texttt{CropId}).
+    \item \texttt{ThermalData}: Guarda los datos crudos de las imágenes termográficas (en formato JSONB \texttt{thermalImageData}) y opcionalmente una imagen RGB (\texttt{rgbImageData}). Incluye la fecha de registro (\texttt{recordedAt}) y referencias a la planta (\texttt{PlantId}) y al cultivo (\texttt{CropId}).
+    \item \texttt{PlantObservation}: Registra observaciones manuales realizadas por los usuarios sobre el estado de una planta, incluyendo descripciones textuales, indicadores visuales (decoloraciones, uniformidad), notas, una calificación subjetiva y referencias a la última toma de datos (\texttt{SensorData} y \texttt{ThermalData})disponibles al momento de la observación. Se relaciona con \texttt{PlantData}, \texttt{Person} (\texttt{createdBy}) y \texttt{Status}.
+\end{itemize}
+
+\subsubsection*{Grupo 6: Auditoría (Rojo)}
+Este conjunto de tablas implementa un mecanismo detallado de auditoría para rastrear cambios en la base de datos.
+\begin{itemize}
+    \item Tablas de Auditoría (\texttt{AuditCrop}, 
+	\texttt{AuditDataTable}, 
+	\texttt{AuditDevice}, 
+	\texttt{AuditPerson},
+	\\\texttt{AuditSensitiveData}, 
+	\texttt{AuditSystemTable}): Cada una de estas tablas está diseñada para registrar modificaciones (inserciones, actualizaciones, eliminaciones) en las tablas principales correspondientes a su nombre o categoría. Almacenan información crucial como la tabla y columna modificada, el ID del registro afectado, la acción realizada ('INSERT', 'UPDATE', 'DELETE'), los valores antiguo y nuevo (cuando aplica), quién realizó el cambio (\texttt{performedBy}, FK a \texttt{Person}), cuándo (\texttt{performedAt}), desde qué IP (\texttt{performedByIp}) e información del dispositivo (\texttt{userAgent}). La tabla \texttt{AuditSensitiveData} se enfoca específicamente en el acceso o cambio de datos sensibles (ej. contraseñas, tokens), mientras que las otras auditan cambios en datos generales. Todas referencian al \texttt{cropId} para contextualizar la auditoría dentro de un cultivo específico.
+\end{itemize}
+
 % =================================================
 % =================================================
 
 \subsection{Diagramas de Casos de Uso}
+
+Un caso de uso es una unidad coherente de funcionalidad externamente visible proporcionada por un clasificador (denominado sistema) y expresada mediante secuencias de mensajes intercambiados por el sistema y uno o más actores de la unidad del sistema \cite{Rumbaugh2007}. El propósito de un caso de uso es definir una pieza de comportamiento coherente sin revelar la estructura interna del sistema \cite{Rumbaugh2007}.
+
+Esta sección presenta los diagramas de casos de uso que modelan las funcionalidades principales ofrecidas por el sistema. Estos diagramas ilustran, desde una perspectiva de alto nivel, cómo interactúan los diferentes actores principalmente el \texttt{Usuario}, el \texttt{Administrador} y, en ciertos escenarios, el propio \texttt{Sistema} con las funcionalidades clave del sistema (representadas por elipses). Cada diagrama está generalmente asociado a un módulo funcional o a un Requerimiento Funcional (RF) específico identificado en la especificación de requisitos, utilizando la notación estándar UML para representar actores, casos de uso, límites del sistema y relaciones como \texttt{<<Extend>>} o \texttt{<<Include>>}. El objetivo es proporcionar una visión clara del alcance funcional del sistema desde el punto de vista de sus usuarios.
+
+
 
 \begin{figure}[H]
     \centering
@@ -53,6 +321,22 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \label{fig:casos-uso-usuarios} % Opcional: Etiqueta para referencias
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF1 RF2.png}
 \end{figure}
+La Figura \ref{fig:casos-uso-usuarios} detalla los casos de uso correspondientes al \texttt{Módulo de autenticación} del sistema, cubriendo las funcionalidades de registro e inicio de sesión (RF01 y RF02). Los actores que interactúan con este módulo son el \texttt{Usuario} y el \texttt{Administrador}, ambos representados mediante la generalización \texttt{Persona}. A continuación se describe cada caso de uso:
+
+\subsubsection*{Caso de Uso: Solicitar código}
+Permite a un \texttt{Usuario} (actuando como \texttt{Persona}) solicitar un código de acceso. Según RF01, este código es necesario para que un \texttt{Usuario} pueda registrarse y asociarse a un cultivo existente, y debe ser proporcionado previamente por un \texttt{Administrador}.
+
+\subsubsection*{Caso de Uso: Registrar usuario}
+Corresponde a la funcionalidad RF01. Permite a \texttt{Persona} crear una nueva cuenta en el sistema. El flujo varía según el rol: un \texttt{Administrador} puede registrarse directamente, mientras que un \texttt{Usuario} necesita ingresar un código de acceso válido (obtenido a través del caso de uso \texttt{Solicitar código}) para completar su registro dentro de un cultivo específico.
+
+\subsubsection*{Caso de Uso: Iniciar sesión}
+Representa la funcionalidad principal de RF02, permitiendo a \texttt{Persona} acceder al sistema mediante la validación de sus credenciales (correo electrónico y contraseña). Un inicio de sesión exitoso otorga acceso a las funcionalidades correspondientes al rol del usuario (\texttt{Administrador} o \texttt{Usuario}). Este caso de uso es la base para poder interactuar con el resto del sistema y puede ser extendido por \texttt{Cerrar sesión}.
+
+\subsubsection*{Caso de Uso: Recuperar contraseña}
+Forma parte de la funcionalidad RF02. Ofrece a \texttt{Persona} un mecanismo para restablecer su contraseña si la ha olvidado. Típicamente, esto implica un proceso de verificación a través del correo electrónico registrado para garantizar la seguridad.
+
+\subsubsection*{Caso de Uso: Cerrar sesión}
+Este caso de uso extiende (`<<Extend>>`) a \texttt{Iniciar sesión}, para completar su funcionamiento. Representa la acción explícita y opcional que realiza \texttt{Persona} para terminar de forma segura su sesión activa dentro de la aplicación, después de haber iniciado sesión y realizado otras tareas.
 
 
 \begin{figure}[H]
@@ -62,6 +346,23 @@ Texto sobre la determinación de requerimientos según formato IEEE...
      \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF3.png}
 \end{figure}
 
+La Figura \ref{fig:casos-uso-camaras} describe los casos de uso asociados a la gestión (CRUD - Crear, Leer, Actualizar, Borrar) de los dispositivos de cámara o módulos termográficos, funcionalidad identificada como RF03 y exclusiva para el actor \texttt{Administrador}. El diagrama presenta un caso de uso central y las operaciones específicas que extienden su funcionalidad:
+
+\subsubsection*{Caso de Uso: CRUD Cámaras}
+Representa la funcionalidad principal o el punto de acceso para que el \texttt{Administrador} gestione los módulos termográficos registrados en el sistema. Este caso de uso, descrito en RF03, se ve extendida (`<<Extend>>`) por operaciones más específicas como registrar o consultar cámaras.
+
+\subsubsection*{Caso de Uso: Registrar cámara}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{CRUD Cámaras}. Permite al \texttt{Administrador} añadir un nuevo módulo termográfico al sistema (operación Create). Esto incluye la configuración inicial del dispositivo dentro de la plataforma.
+
+\subsubsection*{Caso de Uso: Consultar cámara}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{CRUD Cámaras}. Permite al \texttt{Administrador} buscar y visualizar la información detallada y el estado actual de los módulos termográficos ya registrados en el sistema (operación Read). Este caso de uso sirve como punto de partida para otras acciones opcionales.
+
+\subsubsection*{Caso de Uso: Editar cámara}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar cámara}. Una vez que el \textit{Administrador} ha consultado los detalles de una cámara específica, tiene la opción de modificar su configuración, nombre, descripción o actualizar su estado dentro del sistema (operación Update).
+
+\subsubsection*{Caso de Uso: Eliminar cámara}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar cámara}. Después de consultar o seleccionar una cámara, el \texttt{Administrador} puede optar por eliminar permanentemente el registro de ese dispositivo del sistema (operación Delete), usualmente si el dispositivo se da de baja o ya no se utiliza.
+
 
 \begin{figure}[H]
     \centering
@@ -69,6 +370,23 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \label{fig:casos-uso-perfiles}
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF4.png}
 \end{figure}
+
+La Figura \ref{fig:casos-uso-perfiles} detalla los casos de uso relacionados con la gestión del perfil de usuario dentro del sistema, funcionalidad descrita en RF04. Estas operaciones pueden ser realizadas tanto por el \texttt{Usuario} como por el \texttt{Administrador}, representados por la generalización \texttt{Persona}, sobre la información de su propia cuenta. El diagrama se centra en el módulo o funcionalidad \texttt{CRUD Persona}:
+
+\subsubsection*{Caso de Uso: CRUD Persona}
+Este caso de uso actúa como el punto de entrada general para que \texttt{Persona} administre la información asociada a su perfil en el sistema, tal como se indica en RF04. La funcionalidad principal que extiende (`<<Extend>>`) esta gestión es \texttt{Consultar perfil}.
+
+\subsubsection*{Caso de Uso: Consultar perfil}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{CRUD Persona}. Permite a \texttt{Persona} visualizar sus propios datos de perfil registrados en la aplicación (operación de Leer). Esta consulta es, generalmente, el paso previo necesario para poder realizar modificaciones o eliminar la cuenta.
+
+\subsubsection*{Caso de Uso: Editar perfil}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar perfil}. Una vez que \texttt{Persona} visualiza su perfil, este caso de uso le permite modificar sus datos personales registrados, como nombre, apellido, correo electrónico o preferencias de notificación (operación de Actualizar datos), de acuerdo con RF04.
+
+\subsubsection*{Caso de Uso: Eliminar perfil}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar perfil}. Habilita a \texttt{Persona} para solicitar la eliminación permanente de su cuenta y datos asociados del sistema (operación de Borrar), como lo permite RF04. Esta acción se realiza típicamente desde la vista del perfil del usuario.
+
+\subsubsection*{Caso de Uso: Cambiar contraseña}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar perfil}. Permite a \texttt{Persona} iniciar el proceso para actualizar su contraseña de acceso al sistema (operación de Actualizar contraseña), como se menciona en RF04. Usualmente, esta opción está disponible dentro de la sección de gestión o consulta del perfil.
 
 
 \begin{figure}[H]
@@ -78,6 +396,20 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF5.png}
 \end{figure}
 
+La Figura \ref{fig:casos-uso-mediciones} presenta los casos de uso asociados al \texttt{Modulo de mediciones} del sistema. Este módulo, accesible por los actores \texttt{Usuario} y \texttt{Administrador} (generalizados como \texttt{Persona}), funciona como el panel de control principal o \textit{Dashboard} tras el inicio de sesión. A continuación, se describen los casos de uso involucrados:
+
+\subsubsection*{Caso de Uso: Panel de control}
+Este caso de uso representa la pantalla principal que visualiza \texttt{Persona} al interactuar con el módulo de mediciones. Su función primordial, relacionada con RF05, es mostrar de forma consolidada los datos clave recopilados por los sensores y cámaras, típicamente mediante gráficas de las últimas 24 horas y los últimos valores registrados. Proporciona una visión general del estado del cultivo y sirve como punto central desde el cual se puede acceder (`<<Extend>>`) a otras funcionalidades específicas de gestión.
+
+\subsubsection*{Caso de Uso: CRUD Plantas}
+Extiende (`<<Extend>>`) la funcionalidad del \texttt{Panel de control}. Permite a \texttt{Persona} gestionar las plantas registradas en el sistema: añadir nuevas plantas, consultar su información, editar sus detalles o eliminarlas (Crear, Leer, Actualizar, Borrar). Esta es una funcionalidad esencial para administrar las entidades principales monitoreadas (\texttt{PlantData}).
+
+\subsubsection*{Caso de Uso: CRUD Cámaras}
+Extiende (`<<Extend>>`) la funcionalidad del \texttt{Panel de control}, proporcionando un acceso a la gestión de los dispositivos (módulos termográficos y sensores). Es importante resaltar que, aunque el \texttt{Panel de control} es accesible por \texttt{Persona}, la funcionalidad específica de \texttt{CRUD Cámaras} está restringida al rol \texttt{Administrador}, tal como se definió en RF03. Permite al \texttt{Administrador} realizar las operaciones de Crear, Leer, Actualizar y Borrar sobre los dispositivos desde este panel.
+
+\subsubsection*{Caso de Uso: Módulo Observaciones}
+Extiende (`<<Extend>>`) la funcionalidad del \texttt{Panel de control}. Representa la funcionalidad añadida para gestionar las observaciones cualitativas realizadas sobre las plantas. Permite a \texttt{Persona} registrar y consultar notas descriptivas sobre aspectos visuales (decoloraciones, uniformidad, notas sobre hojas/tallos) o calificaciones subjetivas del estado de la planta. Esta funcionalidad es clave para cumplir con la metodología de investigación y permitir una mejor compresión de los datos recopilados.
+
 
 \begin{figure}[H]
     \centering
@@ -85,6 +417,29 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \label{fig:casos-uso-plantas}
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF6.png}
 \end{figure}
+
+La Figura \ref{fig:casos-uso-plantas} ilustra los casos de uso pertenecientes al \texttt{Modulo de procesamiento}, cuya funcionalidad principal (descrita en RF06) es la gestión de las plantas y la visualización de su estado y datos procesados. Los actores involucrados son el \texttt{Usuario} y el \texttt{Administrador} (generalizados como \texttt{Persona}), además de un actor externo, el \texttt{Sistema de analisis}.
+
+\subsubsection*{Caso de Uso: Panel de control}
+Reutilizado del diagrama anterior (Figura \ref{fig:casos-uso-mediciones}), sirve como punto de entrada general para \texttt{Persona}, desde donde se puede acceder (`<<Extend>>`) a la funcionalidad específica de gestión de plantas (\texttt{CRUD Planta}).
+
+\subsubsection*{Caso de Uso: CRUD Planta}
+Actúa como el caso de uso central para la administración del ciclo de vida de las plantas dentro de este módulo. Es accedido desde el \texttt{Panel de control} y engloba las operaciones fundamentales sobre las plantas, siendo extendido (`<<Extend>>`) por acciones más específicas como \texttt{Registrar planta} y \texttt{Consultar planta}.
+
+\subsubsection*{Caso de Uso: Registrar planta}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{CRUD Planta}. Permite a \texttt{Persona} añadir una nueva planta al sistema (operación Create), registrando su información inicial para comenzar el monitoreo.
+
+\subsubsection*{Caso de Uso: Consultar planta}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{CRUD Planta}. Permite a \texttt{Persona} visualizar (Leer) la información detallada de una planta específica. Principalmente, según RF06, mostrar su estado actual (resultado del procesamiento de datos). Este caso de uso también es utilizado por el \texttt{Sistema de analisis} externo, para consultar el estado o datos procesados de las plantas. Sirve como base para otras operaciones extendidas.
+
+\subsubsection*{Caso de Uso: Editar planta}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar planta}. Permite a \texttt{Persona} modificar (Actualizar) la información asociada a una planta existente. Como se especifica en RF06, esto incluye la capacidad de los usuarios para actualizar manualmente el estado asignado a la planta si lo consideran necesario tras una revisión. Este caso de uso también es utilizado por el \texttt{Sistema de analisis} externo, para actualizar el estado de una planta después de procesar los datos obtenidos de los sensores y cámaras.
+
+\subsubsection*{Caso de Uso: Eliminar planta}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar planta}. Otorga a \texttt{Persona} la capacidad de eliminar (Borrar) el registro de una planta del sistema, por ejemplo, si la planta física es retirada del cultivo.
+
+\subsubsection*{Caso de Uso: Ver historial de estados}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar planta}. Permite a \texttt{Persona} acceder y visualizar el registro histórico de los cambios de estado que ha tenido una planta a lo largo del tiempo, funcionalidad explícitamente mencionada en RF06 para el seguimiento de la condición de las plantas.
 
 
 \begin{figure}[H]
@@ -94,6 +449,20 @@ Texto sobre la determinación de requerimientos según formato IEEE...
      \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF7.png}
 \end{figure}
 
+La Figura \ref{fig:casos-uso-reportes} presenta los casos de uso correspondientes a la generación de \texttt{Reportes} del sistema, funcionalidad descrita en RF07. Tanto el \texttt{Usuario} como el \texttt{Administrador} (generalizados como \texttt{Persona}) pueden acceder a estas funcionalidades para obtener informes sobre el estado de las plantas y otros módulos del sistema.
+
+\subsubsection*{Caso de Uso: Generar reporte}
+Este es el caso de uso principal que inicia \texttt{Persona} para solicitar la creación de un informe. Principalmente, el sistema compila la información relevante sobre el estado de las plantas basándose en los datos recopilados y procesados. El resultado es un reporte consolidado que se genera en formato PDF.
+
+\subsubsection*{Caso de Uso: Filtrar datos}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Generar reporte}. Proporciona a \texttt{Persona} la opción de aplicar criterios específicos para refinar el contenido del informe antes de su generación final. Por ejemplo, filtrar por planta(s) específica(s) o por lapsos de tiempo.
+
+\subsubsection*{Caso de Uso: Descargar Reporte}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Filtrar datos} (y, por lo tanto, la de \texttt{Generar reporte}). Una vez que el reporte ha sido generado (y posiblemente filtrado), este caso de uso permite a \texttt{Persona} descargar el archivo resultante (en formato PDF) a su dispositivo local para su consulta o almacenamiento.
+
+\subsubsection*{Caso de Uso: Adjuntar Reporte}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Filtrar datos}. Representa una opción disponible después de generar (y filtrar) el reporte. Permite de adjuntar el reporte generado por medio de un correo electrónico del usuario autenticado.
+
 
 \begin{figure}[H]
     \centering
@@ -101,6 +470,14 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \label{fig:casos-uso-notificaciones}
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF8.png}
 \end{figure}
+
+La Figura \ref{fig:casos-uso-notificaciones} ilustra los casos de uso del \texttt{Modulo de Notificaciones}, que corresponden a la funcionalidad descrita en RF08. En este módulo, el actor principal que inicia las acciones es el propio \texttt{Sistema}, indicando que estas notificaciones son procesos automatizados. Estas alertas se envían por correo electrónico a los roles \texttt{Administrador} y \texttt{Usuario} del sistema.
+
+\subsubsection*{Caso de Uso: Notificar cambio de estado en planta}
+Este caso de uso es ejecutado automáticamente por el \texttt{Sistema}. Se activa cuando se produce un cambio significativo en el estado registrado de una planta (por ejemplo, al pasar de 'Saludable' a 'No Saludable' o viceversa, basado en el procesamiento de datos o una actualización manual). El objetivo es alertar proactivamente a los usuarios relevantes (\texttt{Administrador}, \texttt{Usuario}) por correo electrónico sobre la nueva condición de la planta, facilitando una respuesta rápida.
+
+\subsubsection*{Caso de Uso: Notificar intentos fallidos de inicio de sesión}
+Iniciado también por el \texttt{Sistema}, este caso de uso forma parte de las "notificaciones de seguridad" mencionadas en RF08. Se activa cuando el sistema detecta una actividad potencialmente sospechosa, como múltiples intentos fallidos de inicio de sesión asociados a una cuenta de usuario. El propósito es informar al usuario afectado, mediante correo electrónico, sobre estos intentos para que pueda verificar la seguridad de su cuenta y tomar acciones si es necesario (ej. cambiar contraseña).
 
 
 \begin{figure}[H]
@@ -110,17 +487,72 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF9.png}
 \end{figure}
 
+La Figura \ref{fig:casos-uso-observaciones} describe los casos de uso para el \texttt{Modulo de Observaciones}. Esta funcionalidad, descrita en RF09, es esencial para la metodología mixta del proyecto, permitiendo la recolección de datos cualitativos sobre las plantas. Los actores \texttt{Usuario} y \texttt{Administrador} (generalizados como \texttt{Persona}) interactúan con este módulo.
+
+\subsubsection*{Caso de Uso: Modulo de Observación}
+Este caso de uso representa el punto de entrada principal para que \texttt{Persona} interactúe con las funcionalidades de registro y consulta de observaciones cualitativas de las plantas. Sirve como interfaz para acceder a las operaciones específicas que extienden (`<<Extend>>`) su funcionalidad.
+
+\subsubsection*{Caso de Uso: Registrar Observación}
+Extiende (`<<Extend>>`) la funcionalidad del \texttt{Modulo de Observación}. Permite a \texttt{Persona} registrar una nueva observación cualitativa sobre una planta específica, utilizando la plantilla definida en el diseño experimental. Esto incluye seleccionar el estado general visual, describir cambios, anotar aspectos específicos de color/textura y hojas/tallos, asignar una calificación subjetiva y opcionalmente notas adicionales. Estos datos son cruciales para complementar los datos cuantitativos y tener una mejor comprensión de los datos.
+
+\subsubsection*{Caso de Uso: Consultar Observación}
+Extiende (`<<Extend>>`) la funcionalidad del \texttt{Modulo de Observación}. Permite a \texttt{Persona} buscar y visualizar las observaciones cualitativas previamente registradas para una planta. Esto facilita el seguimiento de la evolución visual descrita en el diseño experimental y la comparación con los datos cuantitativos (termografía, sensores).
+
+
 % =================================================
 % =================================================
 
 \subsection{Diagramas de Secuencia}
+Un diagrama de secuencia muestra un conjunto de mensajes ordenados en una secuencia temporal \cite{Rumbaugh2007}. Cada rol se muestra como una línea de vida es decir, una línea vertical que representa al rol a lo largo del tiempo a través de la interacción completa \cite{Rumbaugh2007}. Los mensajes se muestran con flechas entre líneas de vida \cite{Rumbaugh2007}.
 
+\subsection*{Líneas de Vida Principales}
+
+Los diagramas de secuencia presentados en este documento ilustran las interacciones entre diferentes componentes del sistema para realizar casos de uso específicos. Debido al considerable número de escenarios detallados, se presenta a continuación una descripción general de las líneas de vida (\textit{lifelines}) que aparecen de forma recurrente, representando los actores y las capas arquitectónicas principales del sistema:
+
+\begin{itemize}
+    \item \texttt{:Persona}: Representa al usuario final que interactúa con el sistema a través de la interfaz gráfica. Dependiendo del contexto, puede ser un \texttt{Usuario} o un \texttt{Administrador}. Es el iniciador de las secuencias asociadas a funcionalidades interactivas.
+
+    \item \texttt{:Vista}: Simboliza la interfaz de usuario cliente con la que interactúa \texttt{:Persona}. Esta línea de vida representa la aplicación ejecutándose en diferentes plataformas (web, movil u otras). Sus responsabilidades incluyen presentar información, capturar datos del usuario, realizar validaciones iniciales y enviar solicitudes (vía \texttt{HTTPS}) a la API backend, así como mostrar las respuestas recibidas.
+
+    \item \texttt{:Infraestructura}: Representa la capa más externa de la API backend, siguiendo los principios de la Arquitectura Cebolla (\textit{Onion Architecture}). Esta capa actúa como la fachada de la API, recibiendo las solicitudes HTTP desde \texttt{:Vista}. Es responsable de manejar los controladores (endpoints), la configuración, la comunicación con elementos externos como la base de datos \texttt{PostgreSQL} (a través de \texttt{ODBC} o un ORM), la gestión de logs, la autenticación/autorización a nivel de API, y otros aspectos transversales (\textit{cross-cutting concerns}). Traduce las solicitudes del exterior hacia las capas internas y las respuestas de las capas internas hacia el exterior.
+
+    \item \texttt{:Aplicacion}: Representa la capa de lógica de aplicación en la Arquitectura Cebolla. Contiene la orquestación de los casos de uso del sistema. Recibe las solicitudes ya procesadas por la capa de \texttt{:Infraestructura}, invoca la lógica de negocio necesaria en la capa de \texttt{:Dominio}, coordina las transacciones y prepara los datos de respuesta para la capa de \texttt{:Infraestructura}. Implementa la lógica específica de la aplicación que no pertenece estrictamente al dominio ni a la infraestructura.
+
+    \item \texttt{:Dominio}: Simboliza el núcleo del sistema, la capa más interna y central de la Arquitectura Cebolla. Alberga las entidades de negocio (ej. Planta, Cultivo, Usuario), los objetos de valor, las reglas de negocio fundamentales, los eventos de dominio y, crucialmente, las interfaces de los repositorios (abstracciones para el acceso a datos). Procesa la lógica de negocio pura, respondiendo a las invocaciones de la capa de \texttt{:Aplicacion} y es completamente independiente de las tecnologías de UI, base de datos o infraestructura externa. La persistencia real de los datos (definida por las interfaces de repositorio) se implementa típicamente en la capa de \texttt{:Infraestructura}.
+\end{itemize}
+
+Generalmente, el flujo de una solicitud iniciada por el usuario sigue la secuencia \texttt{:Persona} $\rightarrow$ \texttt{:Vista} $\rightarrow$ \texttt{:Infraestructura} $\rightarrow$ \texttt{:Aplicacion} $\rightarrow$ \texttt{:Dominio}. La capa de \texttt{:Dominio} (o \texttt{:Aplicacion} a través de ella) utiliza las interfaces de repositorio, cuya implementación en \texttt{:Infraestructura} interactúa con la base de datos. La respuesta viaja de vuelta siguiendo el camino inverso: \texttt{:Dominio} $\rightarrow$ \texttt{:Aplicacion} $\rightarrow$ \texttt{:Infraestructura} $\rightarrow$ \texttt{:Vista} $\rightarrow$ \texttt{:Persona}. Esta estructura promueve la separación de responsabilidades y la mantenibilidad del sistema.
+
+Es importante señalar que aquellos diagramas que introducen líneas de vida con roles particulares no cubiertos en la descripción general (como la línea de vida \texttt{:Camara} detallada en la Figura\ref{fig:seq_activar_camara}) o aquellos que representan patrones de interacción fundamentales y reutilizables (como el flujo base para envío de formularios mostrado en la Figura\ref{fig:seq_base_formulario}) incluyen una descripción textual específica adjunta. 
+Para los diagramas de secuencia restantes, se entiende que siguen el patrón general de interacción entre las capas \texttt{:Vista}, \texttt{:Infraestructura}, \texttt{:Aplicacion} y \texttt{:Dominio}, utilizando las responsabilidades asignadas a cada línea de vida según se describió previamente. 
 
 \begin{figure}[H]
     \centering
     \caption{Diagrama de secuencia base: Envío de formulario.}
     \includegraphics[width=0.8\textwidth]{UML/Secuencia/Diagrama de Secuencia Base Envio Formulario.png}
+	\label{fig:seq_base_formulario}
 \end{figure}
+\subsubsection*{Líneas de Vida Involucradas}
+Las líneas de vida principales en este diagrama base son:
+\begin{itemize}
+    \item \texttt{:Persona}: Representa al usuario (\texttt{Usuario} o \texttt{Administrador}) que interactúa con la interfaz gráfica del sistema. Es quien inicia la acción, ingresa los datos y toma la decisión final de confirmar o cancelar el envío.
+    \item \texttt{:Vista}: Representa el componente de la interfaz de usuario (la pantalla o ventana específica) que contiene el formulario. Recibe los datos ingresados, gestiona el proceso de envío inicial y maneja el diálogo de confirmación con el usuario.
+\end{itemize}
+
+\subsubsection*{Descripción del Flujo Genérico}
+La secuencia describe el siguiente flujo general:
+\begin{enumerate}
+    \item El proceso comienza cuando \texttt{:Persona} accede a un formulario (1: \texttt{Ingresa a un formulario}) e introduce los datos requeridos (2: \texttt{Ingresar datos del formulario}).
+    \item \texttt{:Persona} inicia la acción de envío (3: \texttt{Enviar formulario}) hacia la \texttt{:Vista}.
+    \item La \texttt{:Vista} realiza un procesamiento inicial (4: \texttt{Procesar solicitud}), que podría incluir validaciones del lado del cliente.
+    \item La \texttt{:Vista} solicita una confirmación explícita al usuario mostrando una ventana emergente (5: \texttt{Mostrar ventana emergente de confirmación}).
+    \item Se presenta un fragmento alternativo (\texttt{alt}) basado en la respuesta de \texttt{:Persona}:
+    \begin{itemize}
+        \item \textbf{Si \texttt{[Confirma acción]}:} \texttt{:Persona} confirma el envío (6). La \texttt{:Vista} procede con el procesamiento definitivo de la solicitud (7), cierra la ventana emergente (8) y permite continuar la secuencia (9), lo que usualmente implica una redirección o un mensaje de éxito. \textit{(Nota: El paso 7 es donde, en diagramas específicos, se detallaría la comunicación con controladores, servicios y base de datos)}.
+        \item \textbf{Si \texttt{[Cancela acción]}:} \texttt{:Persona} cancela el envío (10). La \texttt{:Vista} procesa la cancelación (11), cierra la ventana emergente (12) y vuelve a mostrar el formulario (13), permitiendo al usuario corregir datos o abandonar la tarea.
+    \end{itemize}
+\end{enumerate}
+Este diagrama establece la interacción fundamental usuario-interfaz para operaciones de formulario, haciendo énfasis en el paso de confirmación antes del procesamiento final.
 
 
 \begin{figure}[H]
@@ -169,14 +601,27 @@ Texto sobre la determinación de requerimientos según formato IEEE...
 	\centering
 		\caption{Diagrama de Secuencia para Activar Cámara (RF3.1.1).}
 	\includegraphics[width=0.63\textwidth]{UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Cámara.png}
+	\label{fig:seq_activar_camara}
 \end{figure}
 
+\subsubsection*{Línea de Vida :Camara}
+La responsabilidad principal de la línea de vida \texttt{:Camara} es interactuar con la API del sistema. Encapsula la lógica autónoma del dispositivo físico, manejando su activación, configuración, el ciclo periódico de toma y envío de datos (ambientales y de imagen), y la gestión básica de errores de comunicación con la API. Su comportamiento se divide en dos fases principales:
 
-\begin{figure}[H]
-	\centering
-	\caption{Diagrama de Secuencia para Activar Hardware (RF3.1.1).}
-	\includegraphics[width=0.6\textwidth]{UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Hardware.png}
-\end{figure}
+1.  \textbf{Fase de Activación:}
+    \begin{itemize}
+        \item Al iniciar y verificar la conexión de red, la \texttt{:Camara} envía un código de activación único a la API.
+        \item Espera una respuesta de la API. Si la activación es exitosa, recibe la configuración operativa (ej. intervalo de muestreo) que fue definida por el \texttt{Administrador} durante el registro del dispositivo en el sistema.
+        \item Almacena esta configuración recibida de forma persistente (memoria no volátil) para guiar su funcionamiento futuro.
+        \item Si el proceso de activación falla (ej. código inválido, API no responde correctamente), la \texttt{:Camara} entra en un estado de error y detiene el proceso, sin pasar a la fase operativa.
+    \end{itemize}
+
+2.  \textbf{Fase Operativa (Ciclo de Trabajo):}
+    \begin{itemize}
+        \item Una vez activada, la \texttt{:Camara} opera en un ciclo continuo basado en el intervalo de tiempo definido en su configuración almacenada.
+        \item Al inicio de cada ciclo, verifica la disponibilidad de la API.
+        \item \textbf{Si la API está disponible:} Procede a recolectar los datos de los sensores ambientales (temperatura, humedad, etc.) y los envía a la API. Seguidamente, captura las imágenes (termográfica y RGB) y las envía también a la API. Después de enviar los datos, entra en un modo de bajo consumo o reposo hasta que el temporizador del ciclo indique el inicio del siguiente.
+        \item \textbf{Si la API no está disponible:} La \texttt{:Camara} omite la recolección y envío de datos para ese ciclo. Entra en un periodo de espera antes de volver a intentar la verificación de la API en el siguiente ciclo programado.
+    \end{itemize}
 
 
 \begin{figure}[H]
@@ -329,6 +774,18 @@ Texto sobre la determinación de requerimientos según formato IEEE...
 
 \subsection{Diagramas de Actividades}
 
+Una actividad muestra el flujo de control entre las actividades computacionales involucradas en la realización de un cálculo o un flujo de trabajo \cite{Rumbaugh2007}. Una acción es un paso computacional primitivo y un nodo de actividad es un grupo de acciones o subactividades \cite{Rumbaugh2007}. Una actividad describe tanto el cómputo secuencial como el concurrente \cite{Rumbaugh2007}.
+
+Los diagramas de actividad presentados a continuación modelan los flujos de trabajo (\textit{workflows}) asociados a procesos o funcionalidades clave del sistema. Estos diagramas utilizan particiones verticales, comúnmente conocidas como calles o \textit{swimlanes}, para asignar claramente la responsabilidad de cada acción a un participante específico del proceso. En la mayoría de los diagramas de este documento, se utilizan dos calles principales:
+
+\begin{itemize}
+    \item \textbf{\texttt{Usuario}}: Esta calle agrupa todas aquellas actividades que son ejecutadas directamente por la persona que interactúa con la interfaz gráfica del sistema. Representa las acciones del usuario final, ya sea que actúe con el rol de \texttt{Usuario} o de \texttt{Administrador}. Ejemplos típicos de actividades en esta calle incluyen: ingresar datos en un formulario, seleccionar opciones, iniciar una acción (como presionar un botón) y visualizar mensajes o resultados mostrados por la aplicación.
+
+    \item \textbf{\texttt{Sistema}}: Esta calle engloba todas las actividades y procesos que son realizados internamente por la aplicación software (backend y/o frontend). Representa las operaciones automáticas del sistema, tales como: procesar la información enviada por el usuario, validar datos según reglas de negocio, ejecutar algoritmos, consultar o actualizar información en la base de datos, determinar estados, generar respuestas y preparar la información que se devolverá a la interfaz para ser visualizada por el usuario.
+\end{itemize}
+
+La separación de actividades entre estas dos calles principales (\texttt{Usuario} y \texttt{Sistema}) permite visualizar de manera clara la interacción entre el usuario humano y la lógica interna de la aplicación a lo largo de un flujo de trabajo específico. Otros diagramas podrían incluir calles adicionales si participan otros actores o sistemas externos específicos en un proceso particular.
+
 \begin{figure}[H]
     \centering
     \caption{Diagrama de Actividad para el Registro (RF1.0).}
@@ -360,91 +817,88 @@ Texto sobre la determinación de requerimientos según formato IEEE...
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Recuperar Contraseña (RF2.2).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png}
+ \includegraphics[width=0.45\textwidth]{UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Crear Cámara (RF3.1).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png}
+ \includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Activar Cámara (RF3.1.1).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png}
+	\includegraphics[width=0.7\textwidth]{UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png}
+	\label{fig:act_activar_hardware}
 \end{figure}
 
-
-\begin{figure}[H]
-	\centering
-		\caption{Diagrama de Actividad para Activar Hardware (RF3.1.1).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Hardware.png}
-\end{figure}
+El diagrama de actividad de la Figura~\ref{fig:act_activar_hardware} muestra el flujo de trabajo para la activación e inicio de operación del dispositivo físico. Conforme a la descripción general proporcionada al inicio de esta sección, las calles \texttt{Administrador} y \texttt{Sistema} representan las acciones del usuario y del backend, respectivamente. La calle \texttt{Hardware}, corresponden a la lógica ejecutada por el firmware del propio dispositivo.
+Este flujo describe cómo el hardware gestiona su activación inicial y luego opera en un ciclo de verificación, recolección, envío y espera, interactuando con el \texttt{Sistema} cuando es necesario y gestionando su consumo de energía.
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Consultar Cámara (RF3.2).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png}
+ \includegraphics[width=0.65\textwidth]{UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Editar Cámara (RF3.3).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png}
+ \includegraphics[width=0.4\textwidth]{UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Eliminar Cámara (RF3.4).}
-\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png}
+\includegraphics[width=0.4\textwidth]{UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Consultar Perfil (RF4.1).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png}
+	\includegraphics[width=0.6\textwidth]{UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Editar Perfil (RF4.2).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png}
+ \includegraphics[width=0.45\textwidth]{UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Eliminar Perfil (RF4.3).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png}
+ \includegraphics[width=0.45\textwidth]{UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Cambiar Contraseña (RF4.4).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png}
+	\includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Agregar Integrante de Cultivo (RF4.5).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png}
+ \includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Eliminar Integrante de Cultivo (RF4.6).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png}
+ \includegraphics[width=0.45\textwidth]{UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png}
 \end{figure}
 
 \begin{figure}[H]
@@ -457,56 +911,56 @@ Texto sobre la determinación de requerimientos según formato IEEE...
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Crear Planta (RF6.1).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png}
+ \includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Consultar Planta (RF6.2).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png}
+ \includegraphics[width=0.65\textwidth]{UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Editar Planta (RF6.3).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png}
+	\includegraphics[width=0.4\textwidth]{UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Eliminar Planta (RF6.4).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png}
+ \includegraphics[width=0.4\textwidth]{UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Generar Reporte (RF7.0).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png}
+	\includegraphics[width=0.65\textwidth]{UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Descargar Reporte (RF7.1).}
-\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png}
+\includegraphics[width=0.65\textwidth]{UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Adjuntar Reporte (RF7.2).}
-\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png}
+\includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Notificar Planta (RF8.1).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png}
+ \includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png}
 \end{figure}
 
 
@@ -520,32 +974,48 @@ Texto sobre la determinación de requerimientos según formato IEEE...
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Crear Observación (RF9.1).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png}
+ \includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Consultar Observación (RF9.2).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png}
+	\includegraphics[width=0.65\textwidth]{UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png}
 \end{figure}
 
 % =================================================
 % =================================================
 
 \subsection{Diagrama de Clases}
-Incluir el diagrama con descripciones por cada clase.
+
+Una clase es la descripción de un concepto del dominio de la aplicación o del dominio de la solución \cite{Rumbaugh2007}. Las clases son el centro alrededor del cual se organiza la vista de clases \cite{Rumbaugh2007}. La vista estática se muestra en los diagramas de clases \cite{Rumbaugh2007}.
+
+En esta sección se presenta el diagrama de clases principal del sistema. Se describirán las tablas (clases) más importantes, sus atributos, las relaciones (asociaciones, generalizaciones) entre ellas y cómo estas estructuras en conjunto definen el funcionamiento general y la organización de los datos del sistema.
 
 % =================================================
 % =================================================
 
 \subsection{Diagrama de Despliegue}
+
+La vista de despliegue muestra la disposición física de los nodos, que son recursos computacionales de tiempo de ejecución, como computadoras u otros dispositivos \cite{Rumbaugh2007}. Durante la ejecución, los nodos pueden contener artefactos, que son entidades físicas como archivos \cite{Rumbaugh2007}.
+
 \begin{figure}[H]
     \centering
     \caption{Diagrama de Despliegue del Sistema.}
     \label{fig:despliegue}
     \includegraphics[width=0.8\textwidth]{UML/Otros/Diagrama de Despliegue.png}
 \end{figure}
+
+El Diagrama de Despliegue, mostrado en la Figura \ref{fig:despliegue}, representa la arquitectura física del sistema y cómo sus componentes de software se distribuyen en diferentes nodos de hardware y servidores. 
+Se identifican cuatro nodos principales: 
+\begin{itemize}
+    \item \texttt{Frontend}: Representa el entorno cliente donde se ejecuta la interfaz de usuario. Despliega un componente \texttt{Uno Platform} y genera artefactos para diversas plataformas (\texttt{.wasm}, \texttt{.apk}, \texttt{.exe}).
+    \item \texttt{<<Servidor de aplicación>>}: Alojado en la plataforma \texttt{Somee}, donde se despliega el componente principal de backend: la \texttt{API Net Core 8}.
+    \item \texttt{<<Servidor Base de Datos>>}: Alojado en \texttt{HelioHost}, que ejecuta el sistema gestor de base de datos \texttt{PostgreSQL 13.20}.
+    \item \texttt{<<Hardware>> Dispositivo sensores}: Representa el dispositivo físico encargado de la toma de datos y ejecuta su propio \texttt{Firmware}.
+\end{itemize}
+La comunicación entre el \texttt{Frontend} y la \texttt{API}, así como entre el \texttt{Dispositivo sensores} y la \texttt{API}, se establece a través del protocolo seguro \texttt{HTTPS}. La \texttt{API} interactúa con la base de datos mediante \texttt{ODBC}. El diagrama ilustra una arquitectura distribuida cliente-servidor, donde tanto los usuarios finales como los dispositivos de hardware se comunican con un servicio central (API) que gestiona la lógica y la persistencia de los datos.
 
 % =================================================
 % =================================================

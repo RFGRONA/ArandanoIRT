@@ -1,0 +1,37 @@
+\doxysection{MLX90640\+Sensor.\+h}
+\hypertarget{_m_l_x90640_sensor_8h_source}{}\label{_m_l_x90640_sensor_8h_source}\index{lib/MLX90640Sensor/MLX90640Sensor.h@{lib/MLX90640Sensor/MLX90640Sensor.h}}
+\mbox{\hyperlink{_m_l_x90640_sensor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ MLX90640SENSOR\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ MLX90640SENSOR\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <Arduino.h>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Standard\ Arduino\ definitions}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <Wire.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Required\ for\ I2C\ communication\ (TwoWire\ class)}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <Adafruit\_MLX90640.h>}\ \textcolor{comment}{//\ Include\ the\ Adafruit\ MLX90640\ library}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_l_x90640_sensor}{MLX90640Sensor}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_m_l_x90640_sensor_a8985691f8175d13dcfac603e7d7e6c19}{MLX90640Sensor}}(TwoWire\ \&wire);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_m_l_x90640_sensor_a07e238a015757e1bc1f6a009fac26eb5}{begin}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_m_l_x90640_sensor_a5506033c94be4f6a60f55269b4496027}{readFrame}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{class_m_l_x90640_sensor_a0d552f357cfbc2509dde917cc2e364a1}{getThermalData}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_m_l_x90640_sensor_a52d81b059d30151be21cac3ebc189543}{getAverageTemperature}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_m_l_x90640_sensor_a514f07ec7d57cbb20ca1d0b6bc3e8580}{getMaxTemperature}}();}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_m_l_x90640_sensor_a4e373c81fdbbce4bc85b4b1eb5425eb7}{getMinTemperature}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00098\ \ \ \ \ Adafruit\_MLX90640\ mlx;\ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{float}\ frame[32\ *\ 24];\ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ TwoWire\ \&\_wire;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MLX90640SENSOR\_H}}
+
+\end{DoxyCode}

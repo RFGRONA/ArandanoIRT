@@ -1,6 +1,17 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {1}{\ignorespaces \textit {Requerimiento Funcional RF01: Registro}}}{8}{table.caption.7}%
+\contentsline {table}{\numberline {2}{\ignorespaces \textit {Requerimiento Funcional RF02: Inicio de sesión}}}{9}{table.caption.8}%
+\contentsline {table}{\numberline {3}{\ignorespaces \textit {Requerimiento Funcional RF03: CRUD cámara}}}{9}{table.caption.9}%
+\contentsline {table}{\numberline {4}{\ignorespaces \textit {Requerimiento Funcional RF04: CRUD persona}}}{10}{table.caption.10}%
+\contentsline {table}{\numberline {5}{\ignorespaces \textit {Requerimiento Funcional RF05: Módulo de mediciones}}}{10}{table.caption.11}%
+\contentsline {table}{\numberline {6}{\ignorespaces \textit {Requerimiento Funcional RF06: Módulo de procesamiento}}}{11}{table.caption.12}%
+\contentsline {table}{\numberline {7}{\ignorespaces \textit {Requerimiento Funcional RF07: Reportes}}}{11}{table.caption.13}%
+\contentsline {table}{\numberline {8}{\ignorespaces \textit {Requerimiento Funcional RF08: Notificaciones}}}{12}{table.caption.14}%
+\contentsline {table}{\numberline {9}{\ignorespaces \textit {Requerimiento Funcional RF09: Gestionar Observaciones}}}{12}{table.caption.15}%
+\contentsline {table}{\numberline {10}{\ignorespaces \textit {Requerimiento No Funcional RNF01: Seguridad}}}{13}{table.caption.16}%
+\contentsline {table}{\numberline {11}{\ignorespaces \textit {Requerimiento No Funcional RNF02: Copia de seguridad}}}{13}{table.caption.17}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

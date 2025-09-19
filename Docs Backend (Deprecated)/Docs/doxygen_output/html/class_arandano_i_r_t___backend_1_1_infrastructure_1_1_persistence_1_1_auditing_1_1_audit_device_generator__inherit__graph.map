@@ -1,0 +1,5 @@
+<map id="ArandanoIRT_Backend.Infrastructure.Persistence.Auditing.AuditDeviceGenerator" name="ArandanoIRT_Backend.Infrastructure.Persistence.Auditing.AuditDeviceGenerator">
+<area shape="rect" id="Node000001" title="Implements IAuditEntryGenerator to create audit trail entries in the Auditdevice table for changes ma..." alt="" coords="5,144,268,272"/>
+<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_entry_generator.html" title="Defines a contract for components responsible for generating audit log entries based on entity change..." alt="" coords="70,5,203,96"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,111,139,144,134,144,134,111"/>
+</map>

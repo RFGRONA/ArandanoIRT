@@ -1,0 +1,107 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Interceptors.\+Audit\+Save\+Changes\+Interceptor Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor}{}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor}\index{ArandanoIRT\_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor@{ArandanoIRT\_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor}}
+
+
+An Save\+Changes\+Interceptor that automatically generates audit log entries for entity changes detected by the Db\+Context\textquotesingle{}s Change\+Tracker before saving.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Interceptors.\+Audit\+Save\+Changes\+Interceptor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_savd923f87bac820c7f5662ef28aa3fd117}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Interceptors.\+Audit\+Save\+Changes\+Interceptor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_sav88c4a3b6b2757db9f7852d6a10fff843}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor_a3b4553a9828606be87d25e7614609285}{Audit\+Save\+Changes\+Interceptor}} (\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_request_context_accessor}{IRequest\+Context\+Accessor}} request\+Context\+Accessor, \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_date_time_provider}{IDate\+Time\+Provider}} date\+Time\+Provider, IEnumerable$<$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_entry_generator}{IAudit\+Entry\+Generator}} $>$ audit\+Generators, ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor}{Audit\+Save\+Changes\+Interceptor}} $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Audit\+Save\+Changes\+Interceptor class. \end{DoxyCompactList}\item 
+override async Value\+Task$<$ Interception\+Result$<$ int $>$ $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor_a64b6dcee1e384424b00e997e2db00797}{Saving\+Changes\+Async}} (Db\+Context\+Event\+Data event\+Data, Interception\+Result$<$ int $>$ result, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Intercepts the saving changes operation asynchronously before it executes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An Save\+Changes\+Interceptor that automatically generates audit log entries for entity changes detected by the Db\+Context\textquotesingle{}s Change\+Tracker before saving. 
+
+It uses registered IAudit\+Entry\+Generator instances to create specific audit records. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor_a3b4553a9828606be87d25e7614609285}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor_a3b4553a9828606be87d25e7614609285} 
+\index{ArandanoIRT\_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor@{ArandanoIRT\_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor}!AuditSaveChangesInterceptor@{AuditSaveChangesInterceptor}}
+\index{AuditSaveChangesInterceptor@{AuditSaveChangesInterceptor}!ArandanoIRT\_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor@{ArandanoIRT\_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor}}
+\doxysubsubsection{\texorpdfstring{AuditSaveChangesInterceptor()}{AuditSaveChangesInterceptor()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Interceptors.\+Audit\+Save\+Changes\+Interceptor.\+Audit\+Save\+Changes\+Interceptor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_request_context_accessor}{IRequest\+Context\+Accessor}}}]{request\+Context\+Accessor,  }\item[{\mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_date_time_provider}{IDate\+Time\+Provider}}}]{date\+Time\+Provider,  }\item[{IEnumerable$<$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_auditing_1_1_i_audit_entry_generator}{IAudit\+Entry\+Generator}} $>$}]{audit\+Generators,  }\item[{ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor}{Audit\+Save\+Changes\+Interceptor}} $>$}]{logger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Audit\+Save\+Changes\+Interceptor class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request\+Context\+Accessor} & Accessor for retrieving current request context (user ID, IP, etc.).\\
+\hline
+{\em date\+Time\+Provider} & Provider for obtaining consistent UTC timestamps.\\
+\hline
+{\em audit\+Generators} & An enumerable collection of registered audit entry generators.\\
+\hline
+{\em logger} & Logger for recording interceptor activity.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown if any injected service is null.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor_a64b6dcee1e384424b00e997e2db00797}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor_a64b6dcee1e384424b00e997e2db00797} 
+\index{ArandanoIRT\_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor@{ArandanoIRT\_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor}!SavingChangesAsync@{SavingChangesAsync}}
+\index{SavingChangesAsync@{SavingChangesAsync}!ArandanoIRT\_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor@{ArandanoIRT\_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor}}
+\doxysubsubsection{\texorpdfstring{SavingChangesAsync()}{SavingChangesAsync()}}
+{\footnotesize\ttfamily override async Value\+Task$<$ Interception\+Result$<$ int $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Persistence.\+Interceptors.\+Audit\+Save\+Changes\+Interceptor.\+Saving\+Changes\+Async (\begin{DoxyParamCaption}\item[{Db\+Context\+Event\+Data}]{event\+Data,  }\item[{Interception\+Result$<$ int $>$}]{result,  }\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Intercepts the saving changes operation asynchronously before it executes. 
+
+Generates audit entries for detected changes and adds them to the Db\+Context to be saved within the same transaction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event\+Data} & Contextual information about the Save\+Changes operation.\\
+\hline
+{\em result} & The current interception result.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task$<$\+TResult$>$ representing the asynchronous operation, containing the possibly modified interception result.
+\end{DoxyReturn}
+
+
+Refactored workflow\+:
+\begin{DoxyEnumerate}
+\item Get Db\+Context.
+\item Get common audit metadata via helper.
+\item Generate all audit entries for tracked changes via helper.
+\item Add generated entries to the Db\+Context if any exist.
+\item Continue with the original Save\+Changes operation. 
+\end{DoxyEnumerate}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Infrastructure/\+Persistence/\+Interceptors/\mbox{\hyperlink{_audit_save_changes_interceptor_8cs}{Audit\+Save\+Changes\+Interceptor.\+cs}}\end{DoxyCompactItemize}

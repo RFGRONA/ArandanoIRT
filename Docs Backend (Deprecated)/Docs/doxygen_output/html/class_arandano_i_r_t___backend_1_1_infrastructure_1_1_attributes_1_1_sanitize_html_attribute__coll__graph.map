@@ -1,0 +1,5 @@
+<map id="ArandanoIRT_Backend.Infrastructure.Attributes.SanitizeHtmlAttribute" name="ArandanoIRT_Backend.Infrastructure.Attributes.SanitizeHtmlAttribute">
+<area shape="rect" id="Node000001" title="Attribute used to mark string properties on DTOs or models that should have HTML tags removed by the ..." alt="" coords="5,123,235,208"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="90,5,150,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,89,123,123,118,123,118,89"/>
+</map>

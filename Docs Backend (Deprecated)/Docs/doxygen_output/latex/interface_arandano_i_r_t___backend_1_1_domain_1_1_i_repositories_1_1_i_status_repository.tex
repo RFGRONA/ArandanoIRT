@@ -1,0 +1,74 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IStatus\+Repository Interface Reference}
+\hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_status_repository}{}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_status_repository}\index{ArandanoIRT\_Backend.Domain.IRepositories.IStatusRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IStatusRepository}}
+
+
+Defines the repository contract specifically for managing Status\+Entity instances.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IStatus\+Repository\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_status_repository__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IStatus\+Repository\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_status_repository__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ IEnumerable$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_status_entity}{Status\+Entity}} $>$ $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_status_repository_af9b05f88c9787af874c0dbc9e7247ada}{Get\+Statuses\+By\+Table\+Name\+Async}} (string table\+Name)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves all status entities associated with a specific table name, likely determined via the \doxylink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_status_entity_a2a2a1554bd7665112aa22fea8d39d889}{Status\+Entity.\+Table\+Relation\+Id}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository}{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IRepository$<$ Status\+Entity $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a5f4cec88eade2fcf139793d7d682d410}{Get\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves an entity by its unique identifier. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ IEnumerable$<$ T $>$ $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_af00b2fd2fbf6ba6ab9c4e8c1e7fe3f5b}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves all entities of type {\itshape T} . \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ T $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_ac8c7a18a474fbbd5c7d384e236dbeb44}{Create}} (T entity)
+\begin{DoxyCompactList}\small\item\em Asynchronously creates a new entity in the data store. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a3d0252a0ffba1cebba1cebc6534450b7}{Update}} (T entity)
+\begin{DoxyCompactList}\small\item\em Asynchronously updates an existing entity in the data store. \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ bool $>$ $>$ \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository_a10cff0edbe7c69524a0fd6ab2419edfc}{Delete}} (int id)
+\begin{DoxyCompactList}\small\item\em Asynchronously deletes an entity from the data store by its unique identifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the repository contract specifically for managing Status\+Entity instances. 
+
+Includes an operation to retrieve statuses by associated table name, in addition to the standard CRUD-\/like operations inherited from IRepository$<$\+T$>$. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_status_repository_af9b05f88c9787af874c0dbc9e7247ada}\label{interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_status_repository_af9b05f88c9787af874c0dbc9e7247ada} 
+\index{ArandanoIRT\_Backend.Domain.IRepositories.IStatusRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IStatusRepository}!GetStatusesByTableNameAsync@{GetStatusesByTableNameAsync}}
+\index{GetStatusesByTableNameAsync@{GetStatusesByTableNameAsync}!ArandanoIRT\_Backend.Domain.IRepositories.IStatusRepository@{ArandanoIRT\_Backend.Domain.IRepositories.IStatusRepository}}
+\doxysubsubsection{\texorpdfstring{GetStatusesByTableNameAsync()}{GetStatusesByTableNameAsync()}}
+{\footnotesize\ttfamily Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}}$<$ IEnumerable$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_status_entity}{Status\+Entity}} $>$ $>$ $>$ Arandano\+IRT\+\_\+\+Backend.\+Domain.\+IRepositories.\+IStatus\+Repository.\+Get\+Statuses\+By\+Table\+Name\+Async (\begin{DoxyParamCaption}\item[{string}]{table\+Name }\end{DoxyParamCaption})}
+
+
+
+Asynchronously retrieves all status entities associated with a specific table name, likely determined via the \doxylink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_status_entity_a2a2a1554bd7665112aa22fea8d39d889}{Status\+Entity.\+Table\+Relation\+Id}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table\+Name} & The name of the table for which to retrieve associated statuses.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task$<$\+TResult$>$ representing the asynchronous operation, containing a Result$<$\+T$>$ which holds an IEnumerable$<$\+T$>$ of relevant Status\+Entity instances if successful, or a failure result otherwise. The list may be empty. 
+\end{DoxyReturn}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Domain/\+IRepositories/\mbox{\hyperlink{_i_status_repository_8cs}{IStatus\+Repository.\+cs}}\end{DoxyCompactItemize}

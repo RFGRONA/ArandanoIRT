@@ -1,0 +1,5 @@
+var class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_date_time_provider_tests =
+[
+    [ "GetUtcNow_ShouldReturnDateTimeWithUtcKind", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_date_time_provider_tests.html#a2f5503d164c05bf3327bb99554f50653", null ],
+    [ "GetUtcNow_ShouldReturnTimeCloseToActualUtcNow", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_date_time_provider_tests.html#aace4ea55b7f71743b8aca298db3ae1a3", null ]
+];

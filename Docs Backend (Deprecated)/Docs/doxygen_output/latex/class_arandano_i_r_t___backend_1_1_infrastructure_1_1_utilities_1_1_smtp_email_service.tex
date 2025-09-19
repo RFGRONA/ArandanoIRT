@@ -1,0 +1,420 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service}{}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service}\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+
+
+Implements the IEmail\+Service interface using an underlying Email\+Sender\+Utility to send emails via SMTP.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a7e3c84ea269ea756830e9d2e70de1068}{Smtp\+Email\+Service}} (IConfiguration configuration, ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service}{Smtp\+Email\+Service}} $>$ logger)
+\begin{DoxyCompactList}\small\item\em Email\+Sender\+Utility instance for sending emails. \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} $>$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_ad729abce06912a5b21c2115cec419c96}{Send\+Email\+Async}} (string to, string subject, string html\+Body)
+\begin{DoxyCompactList}\small\item\em Sends an email asynchronously to the specified recipient.
+
+
+\begin{DoxyParams}{Parameters}
+{\em to} & The email address of the recipient.\\
+\hline
+{\em subject} & The subject line of the email.\\
+\hline
+{\em html\+Body} & The body of the email in HTML format.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task representing the asynchronous operation, with a result indicating success or failure.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_aa366cf0e26e35469844a8c57a15f5f3e}{Generate\+Password\+Reset\+Body}} (string user\+Name, string reset\+Token)
+\begin{DoxyCompactList}\small\item\em Generates the body for a password reset email, including the user\textquotesingle{}s name and reset token.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user requesting the password reset.\\
+\hline
+{\em reset\+Token} & The token used to validate the password reset request.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the password reset request.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a16d7b4688d607b3472a639f989dc4509}{Generate\+Welcome\+Body}} (string user\+Name)
+\begin{DoxyCompactList}\small\item\em Generates the body for a welcome email, including the user\textquotesingle{}s name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the new user receiving the welcome message.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the welcome email.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a00b76946bc49a221dbb25bfe566bf615}{Generate\+Account\+Confirmation\+Body}} (string user\+Name, string confirmation\+Link)
+\begin{DoxyCompactList}\small\item\em Generates the body for an account confirmation email, including the user\textquotesingle{}s name and confirmation link.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user confirming their account.\\
+\hline
+{\em confirmation\+Link} & The URL link that the user must follow to confirm their account.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the account confirmation message.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a315954dd0b693547fa8d9ba428da7be9}{Generate\+Invitation\+Body}} (string inviter\+Name, string crop\+Name, string access\+Code, string expiry\+Date)
+\begin{DoxyCompactList}\small\item\em Generates the body for an invitation email, including the inviter\textquotesingle{}s name, crop name, access code, and expiry date.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inviter\+Name} & The name of the person sending the invitation.\\
+\hline
+{\em crop\+Name} & The name of the crop associated with the invitation.\\
+\hline
+{\em access\+Code} & The access code required to join the invitation.\\
+\hline
+{\em expiry\+Date} & The date when the invitation expires.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the invitation.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a8737eeb9e0cfcb521bcc89a4a4f95b6e}{Generate\+Suspicious\+Activity\+Body}} (string user\+Name, Date\+Time attempt\+Time, string ip\+Address)
+\begin{DoxyCompactList}\small\item\em Generates the email body for a suspicious login activity warning.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user.\\
+\hline
+{\em attempt\+Time} & The approximate time of the suspicious activity.\\
+\hline
+{\em ip\+Address} & The IP address associated with the attempts.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the suspicious activity alert.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_af5a7c0542123111c623708ac0d2de611}{Generate\+Password\+Reset\+Token\+Body}} (string user\+Name, string reset\+Token)
+\begin{DoxyCompactList}\small\item\em Generates the simple email body containing only the password reset token.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user.\\
+\hline
+{\em reset\+Token} & The password reset token string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Plain text or simple HTML email body string.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a3f3aa1e862f2df416593033566dfce71}{Generate\+Password\+Change\+Confirmation\+Body}} (string user\+Name)
+\begin{DoxyCompactList}\small\item\em Generates the email body confirming a successful password change.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a4d2e7f8c60590b89d6a72b01f0b92b3b}{Generate\+Help\+Request\+Body}} (\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_help_request_dto}{Help\+Request\+Dto}} request)
+\begin{DoxyCompactList}\small\item\em Generates the email body for a help request submitted by a user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The help request data transfer object containing user details and message.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the help request notification.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements the IEmail\+Service interface using an underlying Email\+Sender\+Utility to send emails via SMTP. 
+
+Also provides methods to generate standard email body content. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a7e3c84ea269ea756830e9d2e70de1068}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a7e3c84ea269ea756830e9d2e70de1068} 
+\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}!SmtpEmailService@{SmtpEmailService}}
+\index{SmtpEmailService@{SmtpEmailService}!ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+\doxysubsubsection{\texorpdfstring{SmtpEmailService()}{SmtpEmailService()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service.\+Smtp\+Email\+Service (\begin{DoxyParamCaption}\item[{IConfiguration}]{configuration,  }\item[{ILogger$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service}{Smtp\+Email\+Service}} $>$}]{logger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Email\+Sender\+Utility instance for sending emails. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a00b76946bc49a221dbb25bfe566bf615}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a00b76946bc49a221dbb25bfe566bf615} 
+\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}!GenerateAccountConfirmationBody@{GenerateAccountConfirmationBody}}
+\index{GenerateAccountConfirmationBody@{GenerateAccountConfirmationBody}!ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+\doxysubsubsection{\texorpdfstring{GenerateAccountConfirmationBody()}{GenerateAccountConfirmationBody()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service.\+Generate\+Account\+Confirmation\+Body (\begin{DoxyParamCaption}\item[{string}]{user\+Name,  }\item[{string}]{confirmation\+Link }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates the body for an account confirmation email, including the user\textquotesingle{}s name and confirmation link.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user confirming their account.\\
+\hline
+{\em confirmation\+Link} & The URL link that the user must follow to confirm their account.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the account confirmation message.
+\end{DoxyReturn}
+ 
+
+
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_email_service_a303ffc0de6806eaad7d3a2eb54bc5e11}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IEmail\+Service}}.
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a4d2e7f8c60590b89d6a72b01f0b92b3b}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a4d2e7f8c60590b89d6a72b01f0b92b3b} 
+\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}!GenerateHelpRequestBody@{GenerateHelpRequestBody}}
+\index{GenerateHelpRequestBody@{GenerateHelpRequestBody}!ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+\doxysubsubsection{\texorpdfstring{GenerateHelpRequestBody()}{GenerateHelpRequestBody()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service.\+Generate\+Help\+Request\+Body (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_auth_1_1_help_request_dto}{Help\+Request\+Dto}}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates the email body for a help request submitted by a user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The help request data transfer object containing user details and message.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the help request notification.
+\end{DoxyReturn}
+ 
+
+
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_email_service_a37100084ffd86b3435513e371ca9696e}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IEmail\+Service}}.
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a315954dd0b693547fa8d9ba428da7be9}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a315954dd0b693547fa8d9ba428da7be9} 
+\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}!GenerateInvitationBody@{GenerateInvitationBody}}
+\index{GenerateInvitationBody@{GenerateInvitationBody}!ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+\doxysubsubsection{\texorpdfstring{GenerateInvitationBody()}{GenerateInvitationBody()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service.\+Generate\+Invitation\+Body (\begin{DoxyParamCaption}\item[{string}]{inviter\+Name,  }\item[{string}]{crop\+Name,  }\item[{string}]{access\+Code,  }\item[{string}]{expiry\+Date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates the body for an invitation email, including the inviter\textquotesingle{}s name, crop name, access code, and expiry date.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inviter\+Name} & The name of the person sending the invitation.\\
+\hline
+{\em crop\+Name} & The name of the crop associated with the invitation.\\
+\hline
+{\em access\+Code} & The access code required to join the invitation.\\
+\hline
+{\em expiry\+Date} & The date when the invitation expires.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the invitation.
+\end{DoxyReturn}
+ 
+
+
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_email_service_a734cf3193fe167e55926935405581f43}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IEmail\+Service}}.
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a3f3aa1e862f2df416593033566dfce71}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a3f3aa1e862f2df416593033566dfce71} 
+\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}!GeneratePasswordChangeConfirmationBody@{GeneratePasswordChangeConfirmationBody}}
+\index{GeneratePasswordChangeConfirmationBody@{GeneratePasswordChangeConfirmationBody}!ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+\doxysubsubsection{\texorpdfstring{GeneratePasswordChangeConfirmationBody()}{GeneratePasswordChangeConfirmationBody()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service.\+Generate\+Password\+Change\+Confirmation\+Body (\begin{DoxyParamCaption}\item[{string}]{user\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates the email body confirming a successful password change.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string.
+\end{DoxyReturn}
+ 
+
+
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_email_service_a7316f04287da60941e6519f049a60812}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IEmail\+Service}}.
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_aa366cf0e26e35469844a8c57a15f5f3e}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_aa366cf0e26e35469844a8c57a15f5f3e} 
+\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}!GeneratePasswordResetBody@{GeneratePasswordResetBody}}
+\index{GeneratePasswordResetBody@{GeneratePasswordResetBody}!ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+\doxysubsubsection{\texorpdfstring{GeneratePasswordResetBody()}{GeneratePasswordResetBody()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service.\+Generate\+Password\+Reset\+Body (\begin{DoxyParamCaption}\item[{string}]{user\+Name,  }\item[{string}]{reset\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates the body for a password reset email, including the user\textquotesingle{}s name and reset token.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user requesting the password reset.\\
+\hline
+{\em reset\+Token} & The token used to validate the password reset request.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the password reset request.
+\end{DoxyReturn}
+ 
+
+
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_email_service_adbdf5a041d21ab6b7407c33b69c963b4}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IEmail\+Service}}.
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_af5a7c0542123111c623708ac0d2de611}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_af5a7c0542123111c623708ac0d2de611} 
+\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}!GeneratePasswordResetTokenBody@{GeneratePasswordResetTokenBody}}
+\index{GeneratePasswordResetTokenBody@{GeneratePasswordResetTokenBody}!ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+\doxysubsubsection{\texorpdfstring{GeneratePasswordResetTokenBody()}{GeneratePasswordResetTokenBody()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service.\+Generate\+Password\+Reset\+Token\+Body (\begin{DoxyParamCaption}\item[{string}]{user\+Name,  }\item[{string}]{reset\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates the simple email body containing only the password reset token.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user.\\
+\hline
+{\em reset\+Token} & The password reset token string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Plain text or simple HTML email body string.
+\end{DoxyReturn}
+ 
+
+
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_email_service_ae037796d491e20e0725dc8cf39a09f08}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IEmail\+Service}}.
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a8737eeb9e0cfcb521bcc89a4a4f95b6e}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a8737eeb9e0cfcb521bcc89a4a4f95b6e} 
+\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}!GenerateSuspiciousActivityBody@{GenerateSuspiciousActivityBody}}
+\index{GenerateSuspiciousActivityBody@{GenerateSuspiciousActivityBody}!ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+\doxysubsubsection{\texorpdfstring{GenerateSuspiciousActivityBody()}{GenerateSuspiciousActivityBody()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service.\+Generate\+Suspicious\+Activity\+Body (\begin{DoxyParamCaption}\item[{string}]{user\+Name,  }\item[{Date\+Time}]{attempt\+Time,  }\item[{string}]{ip\+Address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates the email body for a suspicious login activity warning.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user.\\
+\hline
+{\em attempt\+Time} & The approximate time of the suspicious activity.\\
+\hline
+{\em ip\+Address} & The IP address associated with the attempts.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the suspicious activity alert.
+\end{DoxyReturn}
+ 
+
+
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_email_service_a58fe9509f83bf2d1509533bfb530c78f}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IEmail\+Service}}.
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a16d7b4688d607b3472a639f989dc4509}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_a16d7b4688d607b3472a639f989dc4509} 
+\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}!GenerateWelcomeBody@{GenerateWelcomeBody}}
+\index{GenerateWelcomeBody@{GenerateWelcomeBody}!ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+\doxysubsubsection{\texorpdfstring{GenerateWelcomeBody()}{GenerateWelcomeBody()}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service.\+Generate\+Welcome\+Body (\begin{DoxyParamCaption}\item[{string}]{user\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates the body for a welcome email, including the user\textquotesingle{}s name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the new user receiving the welcome message.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTML email body string for the welcome email.
+\end{DoxyReturn}
+ 
+
+
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_email_service_a44e2841c1700bc5be020adc29fdf2d2b}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IEmail\+Service}}.
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_ad729abce06912a5b21c2115cec419c96}\label{class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service_ad729abce06912a5b21c2115cec419c96} 
+\index{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}!SendEmailAsync@{SendEmailAsync}}
+\index{SendEmailAsync@{SendEmailAsync}!ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService@{ArandanoIRT\_Backend.Infrastructure.Utilities.SmtpEmailService}}
+\doxysubsubsection{\texorpdfstring{SendEmailAsync()}{SendEmailAsync()}}
+{\footnotesize\ttfamily async Task$<$ \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_value_objects_1_1_result}{Result}} $>$ Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Utilities.\+Smtp\+Email\+Service.\+Send\+Email\+Async (\begin{DoxyParamCaption}\item[{string}]{to,  }\item[{string}]{subject,  }\item[{string}]{html\+Body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sends an email asynchronously to the specified recipient.
+
+
+\begin{DoxyParams}{Parameters}
+{\em to} & The email address of the recipient.\\
+\hline
+{\em subject} & The subject line of the email.\\
+\hline
+{\em html\+Body} & The body of the email in HTML format.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task representing the asynchronous operation, with a result indicating success or failure.
+\end{DoxyReturn}
+ 
+
+Performs email address validation before attempting to send. Wraps the potentially synchronous Send\+Email method of Email\+Sender\+Utility in Task.\+Run to conform to the async interface. Consider making Email\+Sender\+Utility.\+Send\+Email asynchronous using Smtp\+Client.\+Send\+Mail\+Async for better performance. 
+
+Implements \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_email_service_ae1fe92219ee4cc68efb33ef33faeb002}{Arandano\+IRT\+\_\+\+Backend.\+Application.\+Interfaces.\+Utilities.\+IEmail\+Service}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Infrastructure/\+Utilities/\mbox{\hyperlink{_smtp_email_service_8cs}{Smtp\+Email\+Service.\+cs}}\end{DoxyCompactItemize}

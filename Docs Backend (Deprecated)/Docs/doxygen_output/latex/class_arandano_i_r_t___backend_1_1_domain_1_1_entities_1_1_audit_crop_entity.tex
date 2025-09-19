@@ -1,0 +1,210 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity}{}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity}\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+
+
+Represents a single audit trail record tracking changes specifically related to crop data.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a9d5ff7fcdebbe7e37ee6c01e029b5cee}{Audit\+Crop\+Entity}} (int id\+Audit\+Crop, string column\+Name, int record\+Id, int crop\+Id, string action, string? old\+Value, string? new\+Value, Date\+Time? performed\+At, int? performed\+By, string? performed\+By\+Ip, string? user\+Agent)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Audit\+Crop\+Entity class with detailed audit information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a3617937a99ee00870b9abfee2242d6ac}{Id\+Audit\+Crop}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier for this audit log entry. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a042d57f78f345fee82db8753e21b52d8}{Column\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the name of the column or property that was changed. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a0650aa975b45dac1258089bcc3bc7df0}{Record\+Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the identifier of the specific record (e.\+g., Crop\+Entity ID) that was affected. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a3bcc501fdb71f3e9cedc626cfb5f8470}{Crop\+Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the identifier of the crop to which this audit entry pertains. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a9dad47f6450f44ff450706bedcbc56f8}{Action}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the type of action performed (e.\+g., "{}\+INSERT"{}, "{}\+UPDATE"{}, "{}\+DELETE"{}). \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a16971c18fcd9ef8aa676d78273d47e2e}{Old\+Value}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the value of the column/property before the change, if applicable (e.\+g., for UPDATE actions). \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a62b6bc17bf485764f9bf6afb67d6cd6c}{New\+Value}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the value of the column/property after the change, if applicable (e.\+g., for INSERT or UPDATE actions). \end{DoxyCompactList}\item 
+Date\+Time? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a4af312392ba5856132a57fe25d627e7c}{Performed\+At}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the date and time (usually UTC) when the action was performed. \end{DoxyCompactList}\item 
+int? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a171a0fa16985732a813fd3b84d860ab3}{Performed\+By}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier of the user who performed the action, if available. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a9be9c83094f0a12b81c8b28fb19828fd}{Performed\+By\+Ip}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the IP address from which the action was performed, if available. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a99c7b2ad1993c6a12b9178ce92bd72c8}{User\+Agent}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the user agent string of the client that performed the action, if available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a single audit trail record tracking changes specifically related to crop data. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a9d5ff7fcdebbe7e37ee6c01e029b5cee}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a9d5ff7fcdebbe7e37ee6c01e029b5cee} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!AuditCropEntity@{AuditCropEntity}}
+\index{AuditCropEntity@{AuditCropEntity}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{AuditCropEntity()}{AuditCropEntity()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+Audit\+Crop\+Entity (\begin{DoxyParamCaption}\item[{int}]{id\+Audit\+Crop,  }\item[{string}]{column\+Name,  }\item[{int}]{record\+Id,  }\item[{int}]{crop\+Id,  }\item[{string}]{action,  }\item[{string?}]{old\+Value,  }\item[{string?}]{new\+Value,  }\item[{Date\+Time?}]{performed\+At,  }\item[{int?}]{performed\+By,  }\item[{string?}]{performed\+By\+Ip,  }\item[{string?}]{user\+Agent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Audit\+Crop\+Entity class with detailed audit information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Audit\+Crop} & The unique ID for this audit record (often generated by the database).\\
+\hline
+{\em column\+Name} & The name of the column/property changed.\\
+\hline
+{\em record\+Id} & The ID of the affected crop-\/related record.\\
+\hline
+{\em crop\+Id} & The ID of the crop this audit relates to.\\
+\hline
+{\em action} & The action performed (e.\+g., "{}\+UPDATE"{}).\\
+\hline
+{\em old\+Value} & The previous value (nullable).\\
+\hline
+{\em new\+Value} & The new value (nullable).\\
+\hline
+{\em performed\+At} & The timestamp of the action (nullable).\\
+\hline
+{\em performed\+By} & The ID of the user performing the action (nullable).\\
+\hline
+{\em performed\+By\+Ip} & The IP address of the user (nullable).\\
+\hline
+{\em user\+Agent} & The user agent of the client (nullable).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown if {\itshape column\+Name}  is null or whitespace (Spanish message\+: "{}\+El nombre de la columna es requerido."{}). Thrown if {\itshape action}  is null or whitespace (Spanish message\+: "{}\+La acción es requerida."{}). \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a9dad47f6450f44ff450706bedcbc56f8}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a9dad47f6450f44ff450706bedcbc56f8} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!Action@{Action}}
+\index{Action@{Action}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{Action}{Action}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+Action\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the type of action performed (e.\+g., "{}\+INSERT"{}, "{}\+UPDATE"{}, "{}\+DELETE"{}). 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a042d57f78f345fee82db8753e21b52d8}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a042d57f78f345fee82db8753e21b52d8} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!ColumnName@{ColumnName}}
+\index{ColumnName@{ColumnName}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{ColumnName}{ColumnName}}
+{\footnotesize\ttfamily string Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+Column\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the name of the column or property that was changed. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a3bcc501fdb71f3e9cedc626cfb5f8470}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a3bcc501fdb71f3e9cedc626cfb5f8470} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!CropId@{CropId}}
+\index{CropId@{CropId}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{CropId}{CropId}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+Crop\+Id\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the identifier of the crop to which this audit entry pertains. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a3617937a99ee00870b9abfee2242d6ac}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a3617937a99ee00870b9abfee2242d6ac} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!IdAuditCrop@{IdAuditCrop}}
+\index{IdAuditCrop@{IdAuditCrop}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{IdAuditCrop}{IdAuditCrop}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+Id\+Audit\+Crop\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier for this audit log entry. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a62b6bc17bf485764f9bf6afb67d6cd6c}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a62b6bc17bf485764f9bf6afb67d6cd6c} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!NewValue@{NewValue}}
+\index{NewValue@{NewValue}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{NewValue}{NewValue}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+New\+Value\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the value of the column/property after the change, if applicable (e.\+g., for INSERT or UPDATE actions). 
+
+Null otherwise. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a16971c18fcd9ef8aa676d78273d47e2e}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a16971c18fcd9ef8aa676d78273d47e2e} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!OldValue@{OldValue}}
+\index{OldValue@{OldValue}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{OldValue}{OldValue}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+Old\+Value\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the value of the column/property before the change, if applicable (e.\+g., for UPDATE actions). 
+
+Null otherwise. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a4af312392ba5856132a57fe25d627e7c}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a4af312392ba5856132a57fe25d627e7c} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!PerformedAt@{PerformedAt}}
+\index{PerformedAt@{PerformedAt}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{PerformedAt}{PerformedAt}}
+{\footnotesize\ttfamily Date\+Time? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+Performed\+At\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the date and time (usually UTC) when the action was performed. 
+
+Nullable. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a171a0fa16985732a813fd3b84d860ab3}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a171a0fa16985732a813fd3b84d860ab3} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!PerformedBy@{PerformedBy}}
+\index{PerformedBy@{PerformedBy}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{PerformedBy}{PerformedBy}}
+{\footnotesize\ttfamily int? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+Performed\+By\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier of the user who performed the action, if available. 
+
+Nullable. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a9be9c83094f0a12b81c8b28fb19828fd}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a9be9c83094f0a12b81c8b28fb19828fd} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!PerformedByIp@{PerformedByIp}}
+\index{PerformedByIp@{PerformedByIp}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{PerformedByIp}{PerformedByIp}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+Performed\+By\+Ip\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the IP address from which the action was performed, if available. 
+
+Nullable. \Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a0650aa975b45dac1258089bcc3bc7df0}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a0650aa975b45dac1258089bcc3bc7df0} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!RecordId@{RecordId}}
+\index{RecordId@{RecordId}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{RecordId}{RecordId}}
+{\footnotesize\ttfamily int Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+Record\+Id\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the identifier of the specific record (e.\+g., Crop\+Entity ID) that was affected. 
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a99c7b2ad1993c6a12b9178ce92bd72c8}\label{class_arandano_i_r_t___backend_1_1_domain_1_1_entities_1_1_audit_crop_entity_a99c7b2ad1993c6a12b9178ce92bd72c8} 
+\index{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}!UserAgent@{UserAgent}}
+\index{UserAgent@{UserAgent}!ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity@{ArandanoIRT\_Backend.Domain.Entities.AuditCropEntity}}
+\doxysubsubsection{\texorpdfstring{UserAgent}{UserAgent}}
+{\footnotesize\ttfamily string? Arandano\+IRT\+\_\+\+Backend.\+Domain.\+Entities.\+Audit\+Crop\+Entity.\+User\+Agent\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the user agent string of the client that performed the action, if available. 
+
+Nullable. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Domain/\+Entities/\mbox{\hyperlink{_audit_crop_entity_8cs}{Audit\+Crop\+Entity.\+cs}}\end{DoxyCompactItemize}

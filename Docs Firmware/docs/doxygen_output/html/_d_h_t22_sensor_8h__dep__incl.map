@@ -1,0 +1,7 @@
+<map id="lib/DHT22Sensor/DHT22Sensor.h" name="lib/DHT22Sensor/DHT22Sensor.h">
+<area shape="rect" id="Node000001" title="Defines a wrapper class for the DHT22 temperature and humidity sensor." alt="" coords="107,5,326,32"/>
+<area shape="rect" id="Node000002" href="$_d_h_t22_sensor_8cpp.html" title="Implements the DHT22Sensor wrapper class methods." alt="" coords="5,80,239,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,44,140,82,137,77,186,40"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Main application firmware for an ESP32&#45;S3 based environmental and plant monitoring device." alt="" coords="263,80,360,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="247,40,297,77,293,82,244,44"/>
+</map>

@@ -1,0 +1,4 @@
+var _u_a_parser_adapter_tests_8cs =
+[
+    [ "ArandanoIRT_Backend.Tests.Unit.Infrastructure.Utilities.UAParserAdapterTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_u_a_parser_adapter_tests.html", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities_1_1_u_a_parser_adapter_tests" ]
+];

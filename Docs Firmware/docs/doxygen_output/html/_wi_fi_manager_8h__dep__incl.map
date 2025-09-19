@@ -1,0 +1,7 @@
+<map id="lib/WifiManager/WiFiManager.h" name="lib/WifiManager/WiFiManager.h">
+<area shape="rect" id="Node000001" title="Defines a class to manage WiFi station (STA) connection state and handle non&#45;blocking reconnection." alt="" coords="100,5,303,32"/>
+<area shape="rect" id="Node000002" href="$_wifi_manager_8cpp.html" title="Implements the WiFiManager class for handling WiFi connection, state, and reconnection logic on ESP32..." alt="" coords="5,80,219,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,44,129,82,126,78,172,40"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Main application firmware for an ESP32&#45;S3 based environmental and plant monitoring device." alt="" coords="242,80,339,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,40,277,78,274,82,227,44"/>
+</map>

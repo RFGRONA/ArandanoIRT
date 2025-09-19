@@ -1,0 +1,753 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Main application firmware for an ESP32-\/\+S3 based environmental and plant monitoring device.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Wire.\+h$>$}\newline
+{\ttfamily \#include "{}esp\+\_\+heap\+\_\+caps.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+sleep.\+h"{}}\newline
+{\ttfamily \#include $<$FS.\+h$>$}\newline
+{\ttfamily \#include $<$Little\+FS.\+h$>$}\newline
+{\ttfamily \#include $<$Arduino\+Json.\+h$>$}\newline
+{\ttfamily \#include "{}DHT22\+Sensor.\+h"{}}\newline
+{\ttfamily \#include "{}BH1750\+Sensor.\+h"{}}\newline
+{\ttfamily \#include "{}MLX90640\+Sensor.\+h"{}}\newline
+{\ttfamily \#include "{}OV2640\+Sensor.\+h"{}}\newline
+{\ttfamily \#include "{}LEDStatus.\+h"{}}\newline
+{\ttfamily \#include "{}Environment\+Data\+JSON.\+h"{}}\newline
+{\ttfamily \#include "{}Multipart\+Data\+Sender.\+h"{}}\newline
+{\ttfamily \#include "{}Wi\+Fi\+Manager.\+h"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_config}{Config}}
+\begin{DoxyCompactList}\small\item\em Holds application configuration parameters loaded from Little\+FS or default values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a18aefd12ad84d4c33dc97923cb821e47}{I2\+C\+\_\+\+SDA}}~47
+\begin{DoxyCompactList}\small\item\em GPIO pin assigned for the I2C SDA (Data) line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8cpp_a212ca328a6409c98f8c3dfbbe1ba561d}{I2\+C\+\_\+\+SCL}}~21
+\begin{DoxyCompactList}\small\item\em GPIO pin assigned for the I2C SCL (Clock) line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8cpp_a661d236dd49f3aef3a2cf46cf6a1405e}{DHT\+\_\+\+PIN}}~14
+\begin{DoxyCompactList}\small\item\em GPIO pin connected to the DHT22 temperature/humidity sensor data line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8cpp_a4d6de8ca5f59383a4457c8cc01fb18aa}{SENSOR\+\_\+\+READ\+\_\+\+RETRIES}}~3
+\begin{DoxyCompactList}\small\item\em Default number of attempts to read sensor data if an initial read fails. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8cpp_a269a6cfad0972318bcd4766eb6a1d7f2}{WIFI\+\_\+\+CONNECT\+\_\+\+TIMEOUT\+\_\+\+MS}}~20000
+\begin{DoxyCompactList}\small\item\em Default timeout (in milliseconds) for establishing the initial Wi\+Fi connection in the loop. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8cpp_af3a37ddad69a98c185798e80a58dcbdb}{CONFIG\+\_\+\+FILENAME}}~"{}/config.\+json"{}
+\begin{DoxyCompactList}\small\item\em Filename used for storing configuration settings on the Little\+FS filesystem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{main_8cpp_acac6663471fb2dd51594dfa2032f43e7}{load\+Configuration}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Loads configuration from Little\+FS into the global \textquotesingle{}config\textquotesingle{} struct. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a7e6b0660d881edd77a29ec2a6c1505f4}{initialize\+Sensors}} ()
+\begin{DoxyCompactList}\small\item\em Initializes all hardware sensors sequentially. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a84098a5663901228161f8abf5723a485}{read\+Environment\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Reads environmental sensor data (light, temp, humidity) with retries. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a68f0fb9a1a75da34f2556e8f1614a9f6}{capture\+Images}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}jpeg\+Image, size\+\_\+t \&jpeg\+Length, float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}thermal\+Data)
+\begin{DoxyCompactList}\small\item\em Captures thermal and visual image data into allocated buffers. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a8af7b0449f7212f64821e04861eb655d}{send\+Image\+Data}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}jpeg\+Image, size\+\_\+t jpeg\+Length, float \texorpdfstring{$\ast$}{*}thermal\+Data)
+\begin{DoxyCompactList}\small\item\em Sends captured image data (thermal and visual) to the image \doxylink{class_a_p_i}{API} endpoint. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ab4f41d905b33042885a5ce6ef20d0628}{deep\+Sleep}} (unsigned long seconds)
+\begin{DoxyCompactList}\small\item\em Enters ESP32 deep sleep for a specified duration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ab1dace57fb057cf2da2d6c3dfd779642}{cleanup\+Resources}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}jpeg\+Image, float \texorpdfstring{$\ast$}{*}thermal\+Data)
+\begin{DoxyCompactList}\small\item\em Frees allocated memory buffers and deinitializes the camera. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_af23c8cb4c0cce662674ce2f951cbbb10}{ensure\+Wi\+Fi\+Connected}} (unsigned long timeout)
+\begin{DoxyCompactList}\small\item\em Ensures Wi\+Fi is connected, blocking with a timeout if necessary. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a759ba90fd772c6315a455c0465a0939d}{led\+Blink}} ()
+\begin{DoxyCompactList}\small\item\em Performs a simple visual blink sequence using the status LED. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a2531a428197475f184bd61c0b412396a}{init\+Serial}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the Serial port for debugging if ENABLE\+\_\+\+DEBUG\+\_\+\+SERIAL is defined. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a586efe898f67cacd16a9870785d921eb}{init\+LED}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the status LED via the \doxylink{class_l_e_d_status}{LEDStatus} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a39b0a968d56c59593b64d590744b3e7a}{init\+Filesystem}} ()
+\begin{DoxyCompactList}\small\item\em Initializes and mounts the Little\+FS filesystem, formatting if necessary. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ad9e9a31379d5bf38d229c73c60c5ca1b}{load\+Config\+And\+Set\+Credentials}} ()
+\begin{DoxyCompactList}\small\item\em Loads configuration and applies Wi\+Fi credentials to the \doxylink{class_wi_fi_manager}{Wi\+Fi\+Manager}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a8866f49797089aa32206d9569d100c17}{handle\+Sensor\+Init\+Failure}} ()
+\begin{DoxyCompactList}\small\item\em Handles actions to take if sensor initialization fails (LED, sleep). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a6d8ed76e3dd30efe743d9682f8143159}{init\+DHTSensor}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the DHT22 sensor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a323e2072d92b5d5287f62f49438d9cfe}{init\+I2C}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the I2C bus (Wire) with defined pins and clock speed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a761fcf01f7210847fa80aacfe0fd9e6e}{init\+Light\+Sensor}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the BH1750 light sensor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a55dc75ba72bd7bc110feff58a3ab66bc}{init\+Thermal\+Sensor}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the MLX90640 thermal sensor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_af6f8d10a880fa70198318baf167d6f32}{init\+Camera\+Sensor}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the OV2640 camera sensor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_ae744cde97a3dd51fca63f5fe669f6b52}{handle\+Wi\+Fi\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Handles the initial Wi\+Fi connection check in the main loop, sleeping on failure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a2ee84e86ced7fc5e539662d16ebba30a}{perform\+Environment\+Tasks}} ()
+\begin{DoxyCompactList}\small\item\em Orchestrates reading and sending environmental data tasks. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_ae582dcc0c8bd4adbaa5efeb9e87568d4}{perform\+Image\+Tasks}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}jpeg\+Image, size\+\_\+t \&jpeg\+Length, float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}thermal\+Data)
+\begin{DoxyCompactList}\small\item\em Orchestrates capturing and sending image data tasks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_afb695ba6a969a978ab839f704bfa8f0d}{prepare\+For\+Sleep}} (bool cycle\+Status\+OK)
+\begin{DoxyCompactList}\small\item\em Performs final actions before entering deep sleep (LED status, FS unmount). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a75c566167f07a347bb45dad9f50b3742}{read\+Light\+Sensor\+With\+Retry}} (float \&light\+Level)
+\begin{DoxyCompactList}\small\item\em Reads the light sensor value with retries. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a454c04c92445cd8afe26417a0cd5ae1b}{read\+DHTSensor\+With\+Retry}} (float \&temperature, float \&humidity)
+\begin{DoxyCompactList}\small\item\em Reads temperature and humidity from the DHT sensor with retries. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a1db60f04a6709326119b992894d3aa0b}{send\+Environment\+Data\+To\+Server}} (float light\+Level, float temperature, float humidity)
+\begin{DoxyCompactList}\small\item\em Sends the collected environmental data to the configured server endpoint. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a3848fde5f658f3a6f8364a5fb37b6829}{capture\+And\+Copy\+Thermal\+Data}} (float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}thermal\+Data\+Buffer)
+\begin{DoxyCompactList}\small\item\em Captures a thermal data frame and copies it into a newly allocated buffer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a1489d8bb8921f7d311a01d83fcacbbce}{capture\+Visual\+JPEG}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}jpeg\+Image\+Buffer, size\+\_\+t \&jpeg\+Length)
+\begin{DoxyCompactList}\small\item\em Captures a visual JPEG image into a buffer allocated by the camera driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Setup function, runs once on power-\/on or reset (including wake from deep sleep). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Main application loop function, runs repeatedly after setup completes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_config}{Config}} \mbox{\hyperlink{main_8cpp_a4a8dd3a2de125b72d4fe6251a0a271b5}{config}}
+\item 
+\mbox{\hyperlink{class_b_h1750_sensor}{BH1750\+Sensor}} \mbox{\hyperlink{main_8cpp_ad20dd7b095236e2f83d414db00ddb6f0}{light\+Sensor}} (Wire, \mbox{\hyperlink{main_8cpp_a18aefd12ad84d4c33dc97923cb821e47}{I2\+C\+\_\+\+SDA}}, \mbox{\hyperlink{main_8cpp_a212ca328a6409c98f8c3dfbbe1ba561d}{I2\+C\+\_\+\+SCL}})
+\begin{DoxyCompactList}\small\item\em Light sensor object using the default Wire I2C bus. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_m_l_x90640_sensor}{MLX90640\+Sensor}} \mbox{\hyperlink{main_8cpp_a81f2654d11b1c1ad07aa381a7b3e9f4b}{thermal\+Sensor}} (Wire)
+\begin{DoxyCompactList}\small\item\em Thermal camera object using the default Wire I2C bus. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_d_h_t22_sensor}{DHT22\+Sensor}} \mbox{\hyperlink{main_8cpp_a10fa8e3115759f6702f21d979ad58543}{dht\+Sensor}} (\mbox{\hyperlink{main_8cpp_a661d236dd49f3aef3a2cf46cf6a1405e}{DHT\+\_\+\+PIN}})
+\begin{DoxyCompactList}\small\item\em Temperature/\+Humidity sensor object connected to DHT\+\_\+\+PIN. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_o_v2640_sensor}{OV2640\+Sensor}} \mbox{\hyperlink{main_8cpp_a39d621063106a485e13b287e5e1065d1}{camera}}
+\begin{DoxyCompactList}\small\item\em Visual camera object (uses ESP-\/\+IDF driver). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_l_e_d_status}{LEDStatus}} \mbox{\hyperlink{main_8cpp_ada5712ec18caa2f8ac19983607a7c570}{led}}
+\begin{DoxyCompactList}\small\item\em Status LED management object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_wi_fi_manager}{Wi\+Fi\+Manager}} \mbox{\hyperlink{main_8cpp_a8afdaf6df934dd5aa47343293903c670}{wifi\+Manager}}
+\begin{DoxyCompactList}\small\item\em Wi\+Fi connection management object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main application firmware for an ESP32-\/\+S3 based environmental and plant monitoring device. 
+
+This firmware initializes various sensors (DHT22, BH1750, MLX90640, OV2640), loads configuration settings from Little\+FS, connects to a Wi\+Fi network using the loaded credentials, periodically reads sensor data, captures thermal and visual images, sends the collected data to configured \doxylink{class_a_p_i}{API} endpoints, and enters deep sleep mode between operational cycles to conserve power. It includes system status indication via a WS2812 LED and optional serial debugging output. 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8cpp_af3a37ddad69a98c185798e80a58dcbdb}\label{main_8cpp_af3a37ddad69a98c185798e80a58dcbdb} 
+\index{main.cpp@{main.cpp}!CONFIG\_FILENAME@{CONFIG\_FILENAME}}
+\index{CONFIG\_FILENAME@{CONFIG\_FILENAME}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_FILENAME}{CONFIG\_FILENAME}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+FILENAME~"{}/config.\+json"{}}
+
+
+
+Filename used for storing configuration settings on the Little\+FS filesystem. 
+
+\Hypertarget{main_8cpp_a661d236dd49f3aef3a2cf46cf6a1405e}\label{main_8cpp_a661d236dd49f3aef3a2cf46cf6a1405e} 
+\index{main.cpp@{main.cpp}!DHT\_PIN@{DHT\_PIN}}
+\index{DHT\_PIN@{DHT\_PIN}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{DHT\_PIN}{DHT\_PIN}}
+{\footnotesize\ttfamily \#define DHT\+\_\+\+PIN~14}
+
+
+
+GPIO pin connected to the DHT22 temperature/humidity sensor data line. 
+
+\Hypertarget{main_8cpp_a212ca328a6409c98f8c3dfbbe1ba561d}\label{main_8cpp_a212ca328a6409c98f8c3dfbbe1ba561d} 
+\index{main.cpp@{main.cpp}!I2C\_SCL@{I2C\_SCL}}
+\index{I2C\_SCL@{I2C\_SCL}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{I2C\_SCL}{I2C\_SCL}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SCL~21}
+
+
+
+GPIO pin assigned for the I2C SCL (Clock) line. 
+
+\Hypertarget{main_8cpp_a18aefd12ad84d4c33dc97923cb821e47}\label{main_8cpp_a18aefd12ad84d4c33dc97923cb821e47} 
+\index{main.cpp@{main.cpp}!I2C\_SDA@{I2C\_SDA}}
+\index{I2C\_SDA@{I2C\_SDA}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{I2C\_SDA}{I2C\_SDA}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SDA~47}
+
+
+
+GPIO pin assigned for the I2C SDA (Data) line. 
+
+\Hypertarget{main_8cpp_a4d6de8ca5f59383a4457c8cc01fb18aa}\label{main_8cpp_a4d6de8ca5f59383a4457c8cc01fb18aa} 
+\index{main.cpp@{main.cpp}!SENSOR\_READ\_RETRIES@{SENSOR\_READ\_RETRIES}}
+\index{SENSOR\_READ\_RETRIES@{SENSOR\_READ\_RETRIES}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_READ\_RETRIES}{SENSOR\_READ\_RETRIES}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+READ\+\_\+\+RETRIES~3}
+
+
+
+Default number of attempts to read sensor data if an initial read fails. 
+
+\Hypertarget{main_8cpp_a269a6cfad0972318bcd4766eb6a1d7f2}\label{main_8cpp_a269a6cfad0972318bcd4766eb6a1d7f2} 
+\index{main.cpp@{main.cpp}!WIFI\_CONNECT\_TIMEOUT\_MS@{WIFI\_CONNECT\_TIMEOUT\_MS}}
+\index{WIFI\_CONNECT\_TIMEOUT\_MS@{WIFI\_CONNECT\_TIMEOUT\_MS}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{WIFI\_CONNECT\_TIMEOUT\_MS}{WIFI\_CONNECT\_TIMEOUT\_MS}}
+{\footnotesize\ttfamily \#define WIFI\+\_\+\+CONNECT\+\_\+\+TIMEOUT\+\_\+\+MS~20000}
+
+
+
+Default timeout (in milliseconds) for establishing the initial Wi\+Fi connection in the loop. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a3848fde5f658f3a6f8364a5fb37b6829}\label{main_8cpp_a3848fde5f658f3a6f8364a5fb37b6829} 
+\index{main.cpp@{main.cpp}!captureAndCopyThermalData@{captureAndCopyThermalData}}
+\index{captureAndCopyThermalData@{captureAndCopyThermalData}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{captureAndCopyThermalData()}{captureAndCopyThermalData()}}
+{\footnotesize\ttfamily bool capture\+And\+Copy\+Thermal\+Data (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{thermal\+Data\+Buffer }\end{DoxyParamCaption})}
+
+
+
+Captures a thermal data frame and copies it into a newly allocated buffer. 
+
+Reads a frame from the MLX90640 thermal sensor, allocates a new buffer in PSRAM (if available) or heap, and copies the thermal data into it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em thermal\+Data\+Buffer} & Pointer to a {\ttfamily float\texorpdfstring{$\ast$}{*}} variable in the caller. On success, this variable will be updated to point to the newly allocated buffer containing the copied thermal data (768 floats). Set to {\ttfamily nullptr} on failure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the thermal frame was read, memory was allocated, and data was copied successfully. {\ttfamily false} otherwise (read failure, allocation failure). 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a68f0fb9a1a75da34f2556e8f1614a9f6}\label{main_8cpp_a68f0fb9a1a75da34f2556e8f1614a9f6} 
+\index{main.cpp@{main.cpp}!captureImages@{captureImages}}
+\index{captureImages@{captureImages}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{captureImages()}{captureImages()}}
+{\footnotesize\ttfamily bool capture\+Images (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{jpeg\+Image,  }\item[{size\+\_\+t \&}]{jpeg\+Length,  }\item[{float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{thermal\+Data }\end{DoxyParamCaption})}
+
+
+
+Captures thermal and visual image data into allocated buffers. 
+
+Orchestrates capturing both thermal and visual images.
+
+Calls helper functions ({\ttfamily capture\+And\+Copy\+Thermal\+Data}, {\ttfamily capture\+Visual\+JPEG}) that handle the actual capture and memory allocation. This function manages the output pointers and ensures resources are handled correctly if one capture fails. Sets LED state to indicate data capture error on failure. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em jpeg\+Image} & Pointer to a {\ttfamily uint8\+\_\+t\texorpdfstring{$\ast$}{*}}. On success, this will point to the buffer containing the allocated JPEG data. Set to {\ttfamily nullptr} on failure. \\
+\hline
+\mbox{\texttt{ out}}  & {\em jpeg\+Length} & Reference to a {\ttfamily size\+\_\+t}. On success, this will contain the size (in bytes) of the JPEG data. Set to 0 on failure. \\
+\hline
+\mbox{\texttt{ out}}  & {\em thermal\+Data} & Pointer to a {\ttfamily float\texorpdfstring{$\ast$}{*}}. On success, this will point to the buffer containing the allocated thermal data (768 floats). Set to {\ttfamily nullptr} on failure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if BOTH the thermal data capture/copy AND the visual JPEG capture were successful. {\ttfamily false} if either capture failed. Resources allocated by a successful first capture will be freed if the second fails. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a1489d8bb8921f7d311a01d83fcacbbce}\label{main_8cpp_a1489d8bb8921f7d311a01d83fcacbbce} 
+\index{main.cpp@{main.cpp}!captureVisualJPEG@{captureVisualJPEG}}
+\index{captureVisualJPEG@{captureVisualJPEG}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{captureVisualJPEG()}{captureVisualJPEG()}}
+{\footnotesize\ttfamily bool capture\+Visual\+JPEG (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{jpeg\+Image\+Buffer,  }\item[{size\+\_\+t \&}]{jpeg\+Length }\end{DoxyParamCaption})}
+
+
+
+Captures a visual JPEG image into a buffer allocated by the camera driver. 
+
+Captures a JPEG image using the OV2640 camera sensor.
+
+Calls the {\ttfamily camera.\+capture\+JPEG()} method, which handles buffer allocation (in PSRAM) internally. The allocated buffer\textquotesingle{}s address and size are returned via the output parameters. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em jpeg\+Image\+Buffer} & Pointer to a {\ttfamily uint8\+\_\+t\texorpdfstring{$\ast$}{*}} variable in the caller. On success, this will be updated to point to the buffer allocated by the camera driver containing the JPEG data. Set to {\ttfamily nullptr} on failure. \\
+\hline
+\mbox{\texttt{ out}}  & {\em jpeg\+Length} & Reference to a {\ttfamily size\+\_\+t} variable in the caller. On success, this will be updated with the size (in bytes) of the captured JPEG image. Set to 0 on failure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the JPEG image was captured and the buffer allocated successfully. {\ttfamily false} otherwise (capture failed or allocation failed). 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_ab1dace57fb057cf2da2d6c3dfd779642}\label{main_8cpp_ab1dace57fb057cf2da2d6c3dfd779642} 
+\index{main.cpp@{main.cpp}!cleanupResources@{cleanupResources}}
+\index{cleanupResources@{cleanupResources}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cleanupResources()}{cleanupResources()}}
+{\footnotesize\ttfamily void cleanup\+Resources (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{jpeg\+Image,  }\item[{float \texorpdfstring{$\ast$}{*}}]{thermal\+Data }\end{DoxyParamCaption})}
+
+
+
+Frees allocated memory buffers and deinitializes the camera. 
+
+Cleans up resources allocated during the operational cycle.
+
+Specifically, frees the memory buffers allocated for the JPEG image and the thermal data copy using {\ttfamily free()}. Also deinitializes the camera peripheral by calling {\ttfamily camera.\+end()} to release hardware resources. This should be called before entering deep sleep. 
+\begin{DoxyParams}{Parameters}
+{\em jpeg\+Image} & Pointer to the allocated JPEG image buffer (or nullptr if allocation failed/not captured). \\
+\hline
+{\em thermal\+Data} & Pointer to the allocated thermal data buffer (or nullptr if allocation failed/not captured). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_ab4f41d905b33042885a5ce6ef20d0628}\label{main_8cpp_ab4f41d905b33042885a5ce6ef20d0628} 
+\index{main.cpp@{main.cpp}!deepSleep@{deepSleep}}
+\index{deepSleep@{deepSleep}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{deepSleep()}{deepSleep()}}
+{\footnotesize\ttfamily void deep\+Sleep (\begin{DoxyParamCaption}\item[{unsigned long}]{seconds }\end{DoxyParamCaption})}
+
+
+
+Enters ESP32 deep sleep for a specified duration. 
+
+Enters ESP32 deep sleep mode for a specified number of seconds.
+
+Configures the ESP32 to wake up using the timer peripheral after the given duration. Turns off the status LED before sleeping. Execution effectively stops here until the device wakes up (which causes a reset). 
+\begin{DoxyParams}{Parameters}
+{\em seconds} & The duration (unsigned long) to sleep in seconds. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_af23c8cb4c0cce662674ce2f951cbbb10}\label{main_8cpp_af23c8cb4c0cce662674ce2f951cbbb10} 
+\index{main.cpp@{main.cpp}!ensureWiFiConnected@{ensureWiFiConnected}}
+\index{ensureWiFiConnected@{ensureWiFiConnected}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ensureWiFiConnected()}{ensureWiFiConnected()}}
+{\footnotesize\ttfamily bool ensure\+Wi\+Fi\+Connected (\begin{DoxyParamCaption}\item[{unsigned long}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Ensures Wi\+Fi is connected, blocking with a timeout if necessary. 
+
+See \doxylink{class_wi_fi_manager}{Wi\+Fi\+Manager} for non-\/blocking handling.
+
+Checks the current connection status via \doxylink{class_wi_fi_manager}{Wi\+Fi\+Manager}. If not connected, it initiates a connection attempt and waits up to the specified timeout for the connection to establish (status becomes CONNECTED). Uses the \doxylink{class_wi_fi_manager}{Wi\+Fi\+Manager}\textquotesingle{}s non-\/blocking handler internally during the wait loop. Sets LED status appropriately. 
+\begin{DoxyParams}{Parameters}
+{\em timeout} & The maximum time in milliseconds to wait for a connection. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the device is connected to Wi\+Fi (either initially or after connecting within the timeout). {\ttfamily false} if the connection attempt fails or times out. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a8866f49797089aa32206d9569d100c17}\label{main_8cpp_a8866f49797089aa32206d9569d100c17} 
+\index{main.cpp@{main.cpp}!handleSensorInitFailure@{handleSensorInitFailure}}
+\index{handleSensorInitFailure@{handleSensorInitFailure}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handleSensorInitFailure()}{handleSensorInitFailure()}}
+{\footnotesize\ttfamily void handle\+Sensor\+Init\+Failure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles actions to take if sensor initialization fails (LED, sleep). 
+
+Handles the failure scenario during sensor initialization in \doxylink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup()}.
+
+Logs the failure (if debug enabled), ensures the error LED state is set (should be set by the failing sensor init function), unmounts the filesystem cleanly, and then enters deep sleep using the configured sleep duration. This function does not return, as {\ttfamily \doxylink{main_8cpp_ab4f41d905b33042885a5ce6ef20d0628}{deep\+Sleep()}} halts execution. \Hypertarget{main_8cpp_ae744cde97a3dd51fca63f5fe669f6b52}\label{main_8cpp_ae744cde97a3dd51fca63f5fe669f6b52} 
+\index{main.cpp@{main.cpp}!handleWiFiConnection@{handleWiFiConnection}}
+\index{handleWiFiConnection@{handleWiFiConnection}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handleWiFiConnection()}{handleWiFiConnection()}}
+{\footnotesize\ttfamily bool handle\+Wi\+Fi\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles the initial Wi\+Fi connection check in the main loop, sleeping on failure. 
+
+Manages the Wi\+Fi connection check at the beginning of each loop cycle.
+
+Calls {\ttfamily ensure\+Wi\+Fi\+Connected} which blocks until connected or timeout/failure. If connection fails, it initiates the deep sleep sequence immediately, including resource cleanup, as proceeding without Wi\+Fi is not viable for this application. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if Wi\+Fi connection is verified or established successfully. {\ttfamily false} if Wi\+Fi connection fails (in which case deep sleep is initiated and this function technically doesn\textquotesingle{}t return normally). 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_af6f8d10a880fa70198318baf167d6f32}\label{main_8cpp_af6f8d10a880fa70198318baf167d6f32} 
+\index{main.cpp@{main.cpp}!initCameraSensor@{initCameraSensor}}
+\index{initCameraSensor@{initCameraSensor}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initCameraSensor()}{initCameraSensor()}}
+{\footnotesize\ttfamily bool init\+Camera\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the OV2640 camera sensor. 
+
+\Hypertarget{main_8cpp_a6d8ed76e3dd30efe743d9682f8143159}\label{main_8cpp_a6d8ed76e3dd30efe743d9682f8143159} 
+\index{main.cpp@{main.cpp}!initDHTSensor@{initDHTSensor}}
+\index{initDHTSensor@{initDHTSensor}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initDHTSensor()}{initDHTSensor()}}
+{\footnotesize\ttfamily bool init\+DHTSensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the DHT22 sensor. 
+
+\Hypertarget{main_8cpp_a39b0a968d56c59593b64d590744b3e7a}\label{main_8cpp_a39b0a968d56c59593b64d590744b3e7a} 
+\index{main.cpp@{main.cpp}!initFilesystem@{initFilesystem}}
+\index{initFilesystem@{initFilesystem}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initFilesystem()}{initFilesystem()}}
+{\footnotesize\ttfamily bool init\+Filesystem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes and mounts the Little\+FS filesystem, formatting if necessary. 
+
+Initializes the Little\+FS filesystem.
+
+Attempts to mount the filesystem. If mounting fails, it attempts to format the filesystem and then mount it again. If formatting also fails, it indicates a critical error (sets error LED) and returns false. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if the filesystem is successfully mounted (either initially or after formatting). {\ttfamily false} if mounting and formatting both fail (critical error). 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a323e2072d92b5d5287f62f49438d9cfe}\label{main_8cpp_a323e2072d92b5d5287f62f49438d9cfe} 
+\index{main.cpp@{main.cpp}!initI2C@{initI2C}}
+\index{initI2C@{initI2C}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initI2C()}{initI2C()}}
+{\footnotesize\ttfamily bool init\+I2C (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the I2C bus (Wire) with defined pins and clock speed. 
+
+\Hypertarget{main_8cpp_a7e6b0660d881edd77a29ec2a6c1505f4}\label{main_8cpp_a7e6b0660d881edd77a29ec2a6c1505f4} 
+\index{main.cpp@{main.cpp}!initializeSensors@{initializeSensors}}
+\index{initializeSensors@{initializeSensors}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initializeSensors()}{initializeSensors()}}
+{\footnotesize\ttfamily bool initialize\+Sensors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes all hardware sensors sequentially. 
+
+Initializes all connected hardware sensors sequentially.
+
+Initializes DHT22, I2C bus (for BH1750 \& MLX90640), BH1750, MLX90640, and OV2640. Includes necessary delays between initializations, especially for I2C sensors and the MLX90640 stabilization period. Sets error LED and returns false immediately if any sensor initialization fails. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if all sensors were initialized successfully. {\ttfamily false} if any sensor failed. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a586efe898f67cacd16a9870785d921eb}\label{main_8cpp_a586efe898f67cacd16a9870785d921eb} 
+\index{main.cpp@{main.cpp}!initLED@{initLED}}
+\index{initLED@{initLED}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initLED()}{initLED()}}
+{\footnotesize\ttfamily void init\+LED (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the status LED via the \doxylink{class_l_e_d_status}{LEDStatus} object. 
+
+Initializes the status LED.
+
+Calls the begin() method of the global \doxylink{class_l_e_d_status}{LEDStatus} object and sets an initial state (e.\+g., ALL\+\_\+\+OK) to indicate the setup process has started. \Hypertarget{main_8cpp_a761fcf01f7210847fa80aacfe0fd9e6e}\label{main_8cpp_a761fcf01f7210847fa80aacfe0fd9e6e} 
+\index{main.cpp@{main.cpp}!initLightSensor@{initLightSensor}}
+\index{initLightSensor@{initLightSensor}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initLightSensor()}{initLightSensor()}}
+{\footnotesize\ttfamily bool init\+Light\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the BH1750 light sensor. 
+
+\Hypertarget{main_8cpp_a2531a428197475f184bd61c0b412396a}\label{main_8cpp_a2531a428197475f184bd61c0b412396a} 
+\index{main.cpp@{main.cpp}!initSerial@{initSerial}}
+\index{initSerial@{initSerial}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initSerial()}{initSerial()}}
+{\footnotesize\ttfamily void init\+Serial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the Serial port for debugging if ENABLE\+\_\+\+DEBUG\+\_\+\+SERIAL is defined. 
+
+Initializes the Serial port for debugging output if enabled.
+
+Starts Serial communication at 115200 baud and prints a boot/wake message including the device\textquotesingle{}s unique chip ID (MAC address based). \Hypertarget{main_8cpp_a55dc75ba72bd7bc110feff58a3ab66bc}\label{main_8cpp_a55dc75ba72bd7bc110feff58a3ab66bc} 
+\index{main.cpp@{main.cpp}!initThermalSensor@{initThermalSensor}}
+\index{initThermalSensor@{initThermalSensor}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initThermalSensor()}{initThermalSensor()}}
+{\footnotesize\ttfamily bool init\+Thermal\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the MLX90640 thermal sensor. 
+
+\Hypertarget{main_8cpp_a759ba90fd772c6315a455c0465a0939d}\label{main_8cpp_a759ba90fd772c6315a455c0465a0939d} 
+\index{main.cpp@{main.cpp}!ledBlink@{ledBlink}}
+\index{ledBlink@{ledBlink}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ledBlink()}{ledBlink()}}
+{\footnotesize\ttfamily void led\+Blink (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Performs a simple visual blink sequence using the status LED. 
+
+Used to indicate activity or the start/end of a cycle. \Hypertarget{main_8cpp_ad9e9a31379d5bf38d229c73c60c5ca1b}\label{main_8cpp_ad9e9a31379d5bf38d229c73c60c5ca1b} 
+\index{main.cpp@{main.cpp}!loadConfigAndSetCredentials@{loadConfigAndSetCredentials}}
+\index{loadConfigAndSetCredentials@{loadConfigAndSetCredentials}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loadConfigAndSetCredentials()}{loadConfigAndSetCredentials()}}
+{\footnotesize\ttfamily void load\+Config\+And\+Set\+Credentials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loads configuration and applies Wi\+Fi credentials to the \doxylink{class_wi_fi_manager}{Wi\+Fi\+Manager}. 
+
+Loads the application configuration and sets Wi\+Fi credentials.
+
+Calls {\ttfamily \doxylink{main_8cpp_acac6663471fb2dd51594dfa2032f43e7}{load\+Configuration()}} to populate the global {\ttfamily config} struct from the file specified by {\ttfamily CONFIG\+\_\+\+FILENAME}. If loading fails, default values in the {\ttfamily config} struct are used. Then, it passes the loaded (or default) SSID and password to the {\ttfamily wifi\+Manager} instance. \Hypertarget{main_8cpp_acac6663471fb2dd51594dfa2032f43e7}\label{main_8cpp_acac6663471fb2dd51594dfa2032f43e7} 
+\index{main.cpp@{main.cpp}!loadConfiguration@{loadConfiguration}}
+\index{loadConfiguration@{loadConfiguration}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loadConfiguration()}{loadConfiguration()}}
+{\footnotesize\ttfamily bool load\+Configuration (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+Loads configuration from Little\+FS into the global \textquotesingle{}config\textquotesingle{} struct. 
+
+Loads configuration from a JSON file on Little\+FS into the global \textquotesingle{}config\textquotesingle{} struct.
+
+Reads the specified file, parses its JSON content, and updates the members of the global {\ttfamily config} object. If the file doesn\textquotesingle{}t exist, cannot be opened, or contains invalid JSON, default values already present in the {\ttfamily config} struct will be used. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The full path to the configuration file on the Little\+FS filesystem (e.\+g., "{}/config.\+json"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the configuration file was successfully opened, parsed, and values were extracted. {\ttfamily false} otherwise (file not found, parse error). Defaults are used in case of {\ttfamily false}. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+\index{main.cpp@{main.cpp}!loop@{loop}}
+\index{loop@{loop}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main application loop function, runs repeatedly after setup completes. 
+
+Orchestrates the primary operational workflow cycle\+:
+\begin{DoxyEnumerate}
+\item Ensures Wi\+Fi connection is active (connects/retries if needed, sleeps on failure).
+\item Reads environmental sensor data and sends it to the server.
+\item Captures thermal and visual image data and sends it to the server.
+\item Cleans up resources allocated during the cycle (memory buffers, camera peripheral).
+\item Prepares for and enters deep sleep for the configured duration. 
+\end{DoxyEnumerate}\Hypertarget{main_8cpp_a2ee84e86ced7fc5e539662d16ebba30a}\label{main_8cpp_a2ee84e86ced7fc5e539662d16ebba30a} 
+\index{main.cpp@{main.cpp}!performEnvironmentTasks@{performEnvironmentTasks}}
+\index{performEnvironmentTasks@{performEnvironmentTasks}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{performEnvironmentTasks()}{performEnvironmentTasks()}}
+{\footnotesize\ttfamily bool perform\+Environment\+Tasks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Orchestrates reading and sending environmental data tasks. 
+
+Performs the environmental data task sequence\+: reading sensors and sending data.
+
+Calls the {\ttfamily read\+Environment\+Data} function which handles the sub-\/steps (reading with retries, sending data) and manages LED status for this task. Logs the overall success or failure of the task. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if the environmental data task (read \& send) completed successfully. {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_ae582dcc0c8bd4adbaa5efeb9e87568d4}\label{main_8cpp_ae582dcc0c8bd4adbaa5efeb9e87568d4} 
+\index{main.cpp@{main.cpp}!performImageTasks@{performImageTasks}}
+\index{performImageTasks@{performImageTasks}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{performImageTasks()}{performImageTasks()}}
+{\footnotesize\ttfamily bool perform\+Image\+Tasks (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{jpeg\+Image,  }\item[{size\+\_\+t \&}]{jpeg\+Length,  }\item[{float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{thermal\+Data }\end{DoxyParamCaption})}
+
+
+
+Orchestrates capturing and sending image data tasks. 
+
+Performs the image data task sequence\+: capturing images and sending data.
+
+Calls {\ttfamily capture\+Images} to get thermal and visual data buffers, then calls {\ttfamily send\+Image\+Data} to transmit them. Manages LED status updates during the process. Note\+: Memory allocated by {\ttfamily capture\+Images} (pointed to by the output parameters) MUST be freed later by {\ttfamily cleanup\+Resources}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em jpeg\+Image} & Pointer to a {\ttfamily uint8\+\_\+t\texorpdfstring{$\ast$}{*}} variable in the caller (loop). On successful capture, this variable will be updated to point to the allocated JPEG buffer. \\
+\hline
+\mbox{\texttt{ out}}  & {\em jpeg\+Length} & Reference to a {\ttfamily size\+\_\+t} variable in the caller. On successful capture, this will be updated with the JPEG buffer size. \\
+\hline
+\mbox{\texttt{ out}}  & {\em thermal\+Data} & Pointer to a {\ttfamily float\texorpdfstring{$\ast$}{*}} variable in the caller. On successful capture, this variable will be updated to point to the allocated thermal data buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if both image capture AND data sending were successful. {\ttfamily false} if either image capture failed OR data sending failed. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_afb695ba6a969a978ab839f704bfa8f0d}\label{main_8cpp_afb695ba6a969a978ab839f704bfa8f0d} 
+\index{main.cpp@{main.cpp}!prepareForSleep@{prepareForSleep}}
+\index{prepareForSleep@{prepareForSleep}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{prepareForSleep()}{prepareForSleep()}}
+{\footnotesize\ttfamily void prepare\+For\+Sleep (\begin{DoxyParamCaption}\item[{bool}]{cycle\+Status\+OK }\end{DoxyParamCaption})}
+
+
+
+Performs final actions before entering deep sleep (LED status, FS unmount). 
+
+Performs final actions before entering deep sleep.
+
+Sets the final status LED state based on the overall success of the loop cycle. Performs a final visual blink sequence. Unmounts the Little\+FS filesystem. 
+\begin{DoxyParams}{Parameters}
+{\em cycle\+Status\+OK} & Boolean indicating if the main loop cycle completed without any detected errors. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a454c04c92445cd8afe26417a0cd5ae1b}\label{main_8cpp_a454c04c92445cd8afe26417a0cd5ae1b} 
+\index{main.cpp@{main.cpp}!readDHTSensorWithRetry@{readDHTSensorWithRetry}}
+\index{readDHTSensorWithRetry@{readDHTSensorWithRetry}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{readDHTSensorWithRetry()}{readDHTSensorWithRetry()}}
+{\footnotesize\ttfamily bool read\+DHTSensor\+With\+Retry (\begin{DoxyParamCaption}\item[{float \&}]{temperature,  }\item[{float \&}]{humidity }\end{DoxyParamCaption})}
+
+
+
+Reads temperature and humidity from the DHT sensor with retries. 
+
+Reads temperature and humidity from the DHT22 sensor, attempting multiple times if necessary.
+
+Calls {\ttfamily dht\+Sensor.\+read\+Temperature()} and {\ttfamily dht\+Sensor.\+read\+Humidity()} up to {\ttfamily SENSOR\+\_\+\+READ\+\_\+\+RETRIES} times with a delay between attempts, until {\itshape both} readings are valid (not NaN -\/ Not a Number). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em temperature} & Reference to a float variable where the successfully read temperature (in degrees Celsius) will be stored. Initialized to NAN on entry. \\
+\hline
+\mbox{\texttt{ out}}  & {\em humidity} & Reference to a float variable where the successfully read relative humidity (in \%) will be stored. Initialized to NAN on entry. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if both temperature and humidity were read successfully as valid numbers within the allowed retries. {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a84098a5663901228161f8abf5723a485}\label{main_8cpp_a84098a5663901228161f8abf5723a485} 
+\index{main.cpp@{main.cpp}!readEnvironmentData@{readEnvironmentData}}
+\index{readEnvironmentData@{readEnvironmentData}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{readEnvironmentData()}{readEnvironmentData()}}
+{\footnotesize\ttfamily bool read\+Environment\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads environmental sensor data (light, temp, humidity) with retries. 
+
+Orchestrates reading environmental data and sending it to the server.
+
+This function calls helper functions that handle sensor reading with retries ({\ttfamily read\+Light\+Sensor\+With\+Retry}, {\ttfamily read\+DHTSensor\+With\+Retry}) and data sending ({\ttfamily send\+Environment\+Data\+To\+Server}). It manages the LED status during the process and returns an overall success/failure status for the entire environmental task. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if sensor data was successfully read AND successfully sent to the server. {\ttfamily false} if either the sensor reading or the data sending failed. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a75c566167f07a347bb45dad9f50b3742}\label{main_8cpp_a75c566167f07a347bb45dad9f50b3742} 
+\index{main.cpp@{main.cpp}!readLightSensorWithRetry@{readLightSensorWithRetry}}
+\index{readLightSensorWithRetry@{readLightSensorWithRetry}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{readLightSensorWithRetry()}{readLightSensorWithRetry()}}
+{\footnotesize\ttfamily bool read\+Light\+Sensor\+With\+Retry (\begin{DoxyParamCaption}\item[{float \&}]{light\+Level }\end{DoxyParamCaption})}
+
+
+
+Reads the light sensor value with retries. 
+
+Reads the BH1750 light sensor value, attempting multiple times if necessary.
+
+Calls the {\ttfamily light\+Sensor.\+read\+Light\+Level()} method up to {\ttfamily SENSOR\+\_\+\+READ\+\_\+\+RETRIES} times with a short delay between attempts until a valid reading (\texorpdfstring{$>$}{>}= 0) is obtained. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em light\+Level} & Reference to a float variable where the successfully read light level (in lux) will be stored. Initialized to -\/1.\+0f on entry. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if a valid light level was read successfully within the allowed retries. {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a1db60f04a6709326119b992894d3aa0b}\label{main_8cpp_a1db60f04a6709326119b992894d3aa0b} 
+\index{main.cpp@{main.cpp}!sendEnvironmentDataToServer@{sendEnvironmentDataToServer}}
+\index{sendEnvironmentDataToServer@{sendEnvironmentDataToServer}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{sendEnvironmentDataToServer()}{sendEnvironmentDataToServer()}}
+{\footnotesize\ttfamily bool send\+Environment\+Data\+To\+Server (\begin{DoxyParamCaption}\item[{float}]{light\+Level,  }\item[{float}]{temperature,  }\item[{float}]{humidity }\end{DoxyParamCaption})}
+
+
+
+Sends the collected environmental data to the configured server endpoint. 
+
+Sends the collected environmental data (light, temp, hum) to the configured server endpoint.
+
+Uses the {\ttfamily \doxylink{class_environment_data_j_s_o_n}{Environment\+Data\+JSON}} utility class to format the data as JSON and send it via HTTP POST. Manages LED status updates for the sending process (SENDING\+\_\+\+DATA, ERROR\+\_\+\+SEND). Logs success or failure status (if debug enabled). 
+\begin{DoxyParams}{Parameters}
+{\em light\+Level} & The light level value (float, lux) to send. \\
+\hline
+{\em temperature} & The temperature value (float, degrees Celsius) to send. \\
+\hline
+{\em humidity} & The relative humidity value (float, \%) to send. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the data was sent successfully (server returned HTTP 2xx). {\ttfamily false} otherwise (HTTP request failed or server returned an error). 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a8af7b0449f7212f64821e04861eb655d}\label{main_8cpp_a8af7b0449f7212f64821e04861eb655d} 
+\index{main.cpp@{main.cpp}!sendImageData@{sendImageData}}
+\index{sendImageData@{sendImageData}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{sendImageData()}{sendImageData()}}
+{\footnotesize\ttfamily bool send\+Image\+Data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{jpeg\+Image,  }\item[{size\+\_\+t}]{jpeg\+Length,  }\item[{float \texorpdfstring{$\ast$}{*}}]{thermal\+Data }\end{DoxyParamCaption})}
+
+
+
+Sends captured image data (thermal and visual) to the image \doxylink{class_a_p_i}{API} endpoint. 
+
+Sends the captured thermal and visual image data to the server via multipart POST.
+
+Uses the {\ttfamily \doxylink{class_multipart_data_sender}{Multipart\+Data\+Sender}} utility class to perform the HTTP request. Sets LED status according to the outcome (SENDING\+\_\+\+DATA during attempt, ERROR\+\_\+\+SEND on failure). 
+\begin{DoxyParams}{Parameters}
+{\em jpeg\+Image} & Pointer to the buffer containing the JPEG image data. \\
+\hline
+{\em jpeg\+Length} & Size of the JPEG image data in bytes. \\
+\hline
+{\em thermal\+Data} & Pointer to the buffer containing the thermal data (768 floats). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the data was sent successfully (HTTP 2xx response received). {\ttfamily false} otherwise (HTTP request failed or server returned error). 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Setup function, runs once on power-\/on or reset (including wake from deep sleep). 
+
+Initializes essential peripherals and systems in order\+: LED, Serial (optional), Little\+FS, loads configuration, sets Wi\+Fi credentials based on config, and initializes all connected sensors. If critical initialization steps (Little\+FS, Sensors) fail, it halts or enters deep sleep immediately to prevent undefined behavior in the main loop. 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_a39d621063106a485e13b287e5e1065d1}\label{main_8cpp_a39d621063106a485e13b287e5e1065d1} 
+\index{main.cpp@{main.cpp}!camera@{camera}}
+\index{camera@{camera}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_o_v2640_sensor}{OV2640\+Sensor}} camera}
+
+
+
+Visual camera object (uses ESP-\/\+IDF driver). 
+
+\Hypertarget{main_8cpp_a4a8dd3a2de125b72d4fe6251a0a271b5}\label{main_8cpp_a4a8dd3a2de125b72d4fe6251a0a271b5} 
+\index{main.cpp@{main.cpp}!config@{config}}
+\index{config@{config}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_config}{Config}} config}
+
+\Hypertarget{main_8cpp_a10fa8e3115759f6702f21d979ad58543}\label{main_8cpp_a10fa8e3115759f6702f21d979ad58543} 
+\index{main.cpp@{main.cpp}!dhtSensor@{dhtSensor}}
+\index{dhtSensor@{dhtSensor}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{dhtSensor}{dhtSensor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_d_h_t22_sensor}{DHT22\+Sensor}} dht\+Sensor(\mbox{\hyperlink{main_8cpp_a661d236dd49f3aef3a2cf46cf6a1405e}{DHT\+\_\+\+PIN}}) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{main_8cpp_a661d236dd49f3aef3a2cf46cf6a1405e}{DHT\+\_\+\+PIN}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Temperature/\+Humidity sensor object connected to DHT\+\_\+\+PIN. 
+
+\Hypertarget{main_8cpp_ada5712ec18caa2f8ac19983607a7c570}\label{main_8cpp_ada5712ec18caa2f8ac19983607a7c570} 
+\index{main.cpp@{main.cpp}!led@{led}}
+\index{led@{led}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{led}{led}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_l_e_d_status}{LEDStatus}} led}
+
+
+
+Status LED management object. 
+
+\Hypertarget{main_8cpp_ad20dd7b095236e2f83d414db00ddb6f0}\label{main_8cpp_ad20dd7b095236e2f83d414db00ddb6f0} 
+\index{main.cpp@{main.cpp}!lightSensor@{lightSensor}}
+\index{lightSensor@{lightSensor}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{lightSensor}{lightSensor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_b_h1750_sensor}{BH1750\+Sensor}} light\+Sensor(Wire, \mbox{\hyperlink{main_8cpp_a18aefd12ad84d4c33dc97923cb821e47}{I2\+C\+\_\+\+SDA}}, \mbox{\hyperlink{main_8cpp_a212ca328a6409c98f8c3dfbbe1ba561d}{I2\+C\+\_\+\+SCL}}) (\begin{DoxyParamCaption}\item[{Wire}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a18aefd12ad84d4c33dc97923cb821e47}{I2\+C\+\_\+\+SDA}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a212ca328a6409c98f8c3dfbbe1ba561d}{I2\+C\+\_\+\+SCL}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Light sensor object using the default Wire I2C bus. 
+
+\Hypertarget{main_8cpp_a81f2654d11b1c1ad07aa381a7b3e9f4b}\label{main_8cpp_a81f2654d11b1c1ad07aa381a7b3e9f4b} 
+\index{main.cpp@{main.cpp}!thermalSensor@{thermalSensor}}
+\index{thermalSensor@{thermalSensor}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{thermalSensor}{thermalSensor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_m_l_x90640_sensor}{MLX90640\+Sensor}} thermal\+Sensor(Wire) (\begin{DoxyParamCaption}\item[{Wire}]{ }\end{DoxyParamCaption})}
+
+
+
+Thermal camera object using the default Wire I2C bus. 
+
+\Hypertarget{main_8cpp_a8afdaf6df934dd5aa47343293903c670}\label{main_8cpp_a8afdaf6df934dd5aa47343293903c670} 
+\index{main.cpp@{main.cpp}!wifiManager@{wifiManager}}
+\index{wifiManager@{wifiManager}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{wifiManager}{wifiManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_wi_fi_manager}{Wi\+Fi\+Manager}} wifi\+Manager}
+
+
+
+Wi\+Fi connection management object. 
+

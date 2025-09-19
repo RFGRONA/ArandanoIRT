@@ -1,0 +1,5 @@
+<map id="ArandanoIRT_Backend.Infrastructure.Services.RequestContextAccessor" name="ArandanoIRT_Backend.Infrastructure.Services.RequestContextAccessor">
+<area shape="rect" id="Node000001" title="Implements IRequestContextAccessor to provide access to common data from the current HTTP request con..." alt="" coords="5,229,235,443"/>
+<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_request_context_accessor.html" title="Defines a contract for accessing information related to the current HTTP request context,..." alt="" coords="33,5,208,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,197,123,230,118,230,118,197"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,129,85,156"/>
+<area shape="rect" id="Node000001" href="$class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_business_rule_violation_exception.html" title="Represents an error that occurs when an operation violates a specific business rule or constraint." alt="" coords="145,5,366,64"/>
+<area shape="poly" id="edge69_Node000000_Node000001" title=" " alt="" coords="71,117,99,94,131,74,156,62,158,67,134,78,102,99,74,121"/>
+<area shape="rect" id="Node000002" href="$class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_database_update_exception.html" title="Represents an error that occurs when a database update operation (e.g., insert, update,..." alt="" coords="133,88,379,131"/>
+<area shape="poly" id="edge70_Node000000_Node000002" title=" " alt="" coords="100,131,132,126,132,132,100,137"/>
+<area shape="rect" id="Node000003" href="$class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_not_found_exception.html" title="Represents an error that occurs when a requested resource, entity, or record could not be found in th..." alt="" coords="152,155,360,197"/>
+<area shape="poly" id="edge71_Node000000_Node000003" title=" " alt="" coords="100,149,152,157,151,162,100,154"/>
+<area shape="rect" id="Node000004" href="$class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_validation_exception.html" title="Represents a general error that occurs when input data or an object&#39;s state fails one or more validat..." alt="" coords="152,221,360,264"/>
+<area shape="poly" id="edge72_Node000000_Node000004" title=" " alt="" coords="73,164,101,187,134,207,161,218,159,223,131,212,98,191,70,169"/>
+</map>

@@ -1,0 +1,157 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Interfaces.\+IServices.\+ICache\+Service Interface Reference}
+\hypertarget{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service}{}\label{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service}\index{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}}
+
+
+Defines a contract for a generic caching service.  
+
+
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Interfaces.\+IServices.\+ICache\+Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+T? \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_aacaa39f4221238d9bf3ea274197c4589}{Get$<$ T $>$}} (string key)
+\begin{DoxyCompactList}\small\item\em Retrieves a cached item by its key. \end{DoxyCompactList}\item 
+IEnumerable$<$ T $>$? \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_ac48ae79f1e661290e359b1a22d7ae1e3}{Get\+Collection$<$ T $>$}} (string key)
+\begin{DoxyCompactList}\small\item\em Retrieves a cached collection of items by its key. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_a2c0ed746f2f55a1934cd5c3f2b1aea72}{Set$<$ T $>$}} (string key, T value, Time\+Span expiration\+Time)
+\begin{DoxyCompactList}\small\item\em Adds or updates an item in the cache with a specified key and relative expiration time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_acfdd3a19128e13e8f981a1c732e958ad}{Set\+Collection$<$ T $>$}} (string key, IEnumerable$<$ T $>$ value, Time\+Span expiration\+Time)
+\begin{DoxyCompactList}\small\item\em Adds or updates a collection of items in the cache with a specified key and relative expiration time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_a061e6730aab387c1bb7453bc8da0b043}{Remove}} (string key)
+\begin{DoxyCompactList}\small\item\em Removes a cached item or collection identified by the specified key from the cache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines a contract for a generic caching service. 
+
+Provides asynchronous operations to get, set (with expiration), and remove cached data items and collections. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_aacaa39f4221238d9bf3ea274197c4589}\label{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_aacaa39f4221238d9bf3ea274197c4589} 
+\index{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}!Get$<$ T $>$@{Get$<$ T $>$}}
+\index{Get$<$ T $>$@{Get$<$ T $>$}!ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}}
+\doxysubsubsection{\texorpdfstring{Get$<$ T $>$()}{Get< T >()}}
+{\footnotesize\ttfamily T? Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Interfaces.\+IServices.\+ICache\+Service.\+Get$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{key }\end{DoxyParamCaption})}
+
+
+
+Retrieves a cached item by its key. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The expected type of the cached item.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The unique key identifying the cached item.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cached item of type {\itshape T}  if found and not expired; otherwise, the default value for type {\itshape T}  (typically {\ttfamily null} for reference types). 
+\end{DoxyReturn}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_ac48ae79f1e661290e359b1a22d7ae1e3}\label{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_ac48ae79f1e661290e359b1a22d7ae1e3} 
+\index{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}!GetCollection$<$ T $>$@{GetCollection$<$ T $>$}}
+\index{GetCollection$<$ T $>$@{GetCollection$<$ T $>$}!ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}}
+\doxysubsubsection{\texorpdfstring{GetCollection$<$ T $>$()}{GetCollection< T >()}}
+{\footnotesize\ttfamily IEnumerable$<$ T $>$? Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Interfaces.\+IServices.\+ICache\+Service.\+Get\+Collection$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{key }\end{DoxyParamCaption})}
+
+
+
+Retrieves a cached collection of items by its key. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The expected type of items in the cached collection.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The unique key identifying the cached collection.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IEnumerable$<$\+T$>$ containing the cached collection if found and not expired; otherwise, {\ttfamily null} (or potentially an empty enumerable depending on implementation). 
+\end{DoxyReturn}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_a061e6730aab387c1bb7453bc8da0b043}\label{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_a061e6730aab387c1bb7453bc8da0b043} 
+\index{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}!Remove@{Remove}}
+\index{Remove@{Remove}!ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Interfaces.\+IServices.\+ICache\+Service.\+Remove (\begin{DoxyParamCaption}\item[{string}]{key }\end{DoxyParamCaption})}
+
+
+
+Removes a cached item or collection identified by the specified key from the cache. 
+
+If the key does not exist, the operation typically completes without error.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The unique key of the item or collection to remove.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_a2c0ed746f2f55a1934cd5c3f2b1aea72}\label{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_a2c0ed746f2f55a1934cd5c3f2b1aea72} 
+\index{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}!Set$<$ T $>$@{Set$<$ T $>$}}
+\index{Set$<$ T $>$@{Set$<$ T $>$}!ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}}
+\doxysubsubsection{\texorpdfstring{Set$<$ T $>$()}{Set< T >()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Interfaces.\+IServices.\+ICache\+Service.\+Set$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{key,  }\item[{T}]{value,  }\item[{Time\+Span}]{expiration\+Time }\end{DoxyParamCaption})}
+
+
+
+Adds or updates an item in the cache with a specified key and relative expiration time. 
+
+If an item with the same key already exists, it is overwritten.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the item to cache.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The unique key to associate with the cached item.\\
+\hline
+{\em value} & The item to be stored in the cache.\\
+\hline
+{\em expiration\+Time} & The duration for which the item should remain valid in the cache, relative to the time it\textquotesingle{}s set.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_acfdd3a19128e13e8f981a1c732e958ad}\label{interface_arandano_i_r_t___backend_1_1_infrastructure_1_1_interfaces_1_1_i_services_1_1_i_cache_service_acfdd3a19128e13e8f981a1c732e958ad} 
+\index{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}!SetCollection$<$ T $>$@{SetCollection$<$ T $>$}}
+\index{SetCollection$<$ T $>$@{SetCollection$<$ T $>$}!ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService@{ArandanoIRT\_Backend.Infrastructure.Interfaces.IServices.ICacheService}}
+\doxysubsubsection{\texorpdfstring{SetCollection$<$ T $>$()}{SetCollection< T >()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Infrastructure.\+Interfaces.\+IServices.\+ICache\+Service.\+Set\+Collection$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{key,  }\item[{IEnumerable$<$ T $>$}]{value,  }\item[{Time\+Span}]{expiration\+Time }\end{DoxyParamCaption})}
+
+
+
+Adds or updates a collection of items in the cache with a specified key and relative expiration time. 
+
+If a collection with the same key already exists, it is overwritten.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of items in the collection to cache.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The unique key to associate with the cached collection.\\
+\hline
+{\em value} & The collection of items to be stored in the cache.\\
+\hline
+{\em expiration\+Time} & The duration for which the collection should remain valid in the cache, relative to the time it\textquotesingle{}s set.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Infrastructure/\+Interfaces/\+IServices/\mbox{\hyperlink{_i_cache_service_8cs}{ICache\+Service.\+cs}}\end{DoxyCompactItemize}

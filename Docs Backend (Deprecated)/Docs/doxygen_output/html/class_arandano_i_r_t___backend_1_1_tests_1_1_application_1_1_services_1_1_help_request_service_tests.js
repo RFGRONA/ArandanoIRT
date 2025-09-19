@@ -1,0 +1,13 @@
+var class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests =
+[
+    [ "HelpRequestServiceTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests.html#a1c8b7e6bb480aafce49c5e4c9cda0573", null ],
+    [ "Dispose", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests.html#aaacc8b836195b4b3f83481b9d7708b2d", null ],
+    [ "SendUnauthenticatedHelpAsync_AdminUserNotFound_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests.html#a28e768cac4a1d0f222c4f15c3a296974", null ],
+    [ "SendUnauthenticatedHelpAsync_CropHasNoAdmin_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests.html#ae9f3b08a141b400fbac4f1615d3bbc04", null ],
+    [ "SendUnauthenticatedHelpAsync_CropNotFound_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests.html#ab34274691b2c784fe25902795e87052f", null ],
+    [ "SendUnauthenticatedHelpAsync_EmailBodyGenerationFails_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests.html#a066f452c0683e894c6d7512cb762528b", null ],
+    [ "SendUnauthenticatedHelpAsync_EmailSendingFails_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests.html#a952a15732ef534dc220400d97fd22817", null ],
+    [ "SendUnauthenticatedHelpAsync_MissingRequiredFields_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests.html#abdd7261412acce00e47bf6c6c6f3925e", null ],
+    [ "SendUnauthenticatedHelpAsync_NullRequest_ReturnsFailure", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests.html#aedae54e717b411025808b82b8d2586f3", null ],
+    [ "SendUnauthenticatedHelpAsync_ValidRequest_ReturnsSuccess", "class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_help_request_service_tests.html#a538705deb77c1165a1885c398d2b5aa9", null ]
+];

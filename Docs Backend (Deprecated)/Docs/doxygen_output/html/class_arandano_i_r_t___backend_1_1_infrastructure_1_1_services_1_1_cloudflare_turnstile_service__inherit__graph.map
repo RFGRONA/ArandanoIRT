@@ -1,0 +1,5 @@
+<map id="ArandanoIRT_Backend.Infrastructure.Services.CloudflareTurnstileService" name="ArandanoIRT_Backend.Infrastructure.Services.CloudflareTurnstileService">
+<area shape="rect" id="Node000001" title="Implements the ICaptchaService interface using the Cloudflare Turnstile API for verifying CAPTCHA cha..." alt="" coords="5,123,235,229"/>
+<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service.html" title=" " alt="" coords="45,5,196,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,90,123,123,118,123,118,90"/>
+</map>

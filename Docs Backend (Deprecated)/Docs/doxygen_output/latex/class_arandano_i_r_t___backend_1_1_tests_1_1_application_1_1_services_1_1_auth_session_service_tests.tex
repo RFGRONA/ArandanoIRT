@@ -1,0 +1,162 @@
+\doxysection{Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests Class Reference}
+\hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests}{}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests}\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+
+
+Contains unit tests for the Auth\+Session\+Service class.  
+
+
+
+
+Inheritance diagram for Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a31e927de67dec64569fc00c4ac4eae7c}{Auth\+Session\+Service\+Tests}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Auth\+Session\+Service\+Tests class, setting up all mock dependencies and the service under test. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_adf20fcf817a41c3b4f40807e77306806}{Dispose}} ()
+\begin{DoxyCompactList}\small\item\em Disposes resources used by the test context, if any. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a829427a66db182c15cbeda8d1f0279ad}{Login\+Async\+\_\+\+Valid\+Credentials\+\_\+\+Returns\+Success\+Payload}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a04b1b4aef32442ffde7a94e2bbcaa844}{Login\+Async\+\_\+\+User\+Not\+Found\+\_\+\+Returns\+Failure}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a68a57a2696e0f0b2e47d0deed6649158}{Login\+Async\+\_\+\+Decryption\+Fails\+\_\+\+Returns\+Failure\+And\+Records\+Attempt}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a0599f6da8d011f378cde4748e986b0bc}{Login\+Async\+\_\+\+Incorrect\+Password\+\_\+\+Returns\+Failure\+And\+Records\+Attempt}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a8f2cd7f0ae26fd4b861edc9651c813d3}{Login\+Async\+\_\+\+Failed\+Attempt\+Threshold\+Met\+\_\+\+Sends\+Warning\+Email}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_aa8ebc5bda19b88758a22a8d4643027ea}{Login\+Async\+\_\+\+Token\+Generation\+Fails\+\_\+\+Returns\+Failure}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a85caf3312c24e1305399932cc7a8944e}{Refresh\+Token\+Async\+\_\+\+Valid\+Token\+\_\+\+Returns\+Success\+From\+Token\+Service}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a9f9d5ea062d04d5adf4439c2dd9dcf78}{Refresh\+Token\+Async\+\_\+\+Token\+Service\+Fails\+\_\+\+Returns\+Failure}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a6040792e64f6031520ebe94e24c359b2}{Logout\+Async\+\_\+\+Valid\+Token\+\_\+\+Returns\+Success\+From\+Token\+Service}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a898f89d40c023cfd2990aafb0af6279a}{Logout\+Async\+\_\+\+Token\+Service\+Fails\+\_\+\+Returns\+Failure}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a14c055aa2210ddfe2fcb161e35549459}{Logout\+Everywhere\+Async\+\_\+\+Valid\+Session\+Id\+\_\+\+Returns\+Success\+From\+Repo}} ()
+\item 
+async Task \mbox{\hyperlink{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a12149dcf1d7eff1959dbf4e32e507cee}{Logout\+Everywhere\+Async\+\_\+\+Repo\+Fails\+\_\+\+Returns\+Failure}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains unit tests for the Auth\+Session\+Service class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a31e927de67dec64569fc00c4ac4eae7c}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a31e927de67dec64569fc00c4ac4eae7c} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!AuthSessionServiceTests@{AuthSessionServiceTests}}
+\index{AuthSessionServiceTests@{AuthSessionServiceTests}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{AuthSessionServiceTests()}{AuthSessionServiceTests()}}
+{\footnotesize\ttfamily Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Auth\+Session\+Service\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Auth\+Session\+Service\+Tests class, setting up all mock dependencies and the service under test. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_adf20fcf817a41c3b4f40807e77306806}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_adf20fcf817a41c3b4f40807e77306806} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}}
+{\footnotesize\ttfamily void Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Dispose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Disposes resources used by the test context, if any. 
+
+Currently relies on GC but could implement IDisposable pattern if needed. \Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a68a57a2696e0f0b2e47d0deed6649158}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a68a57a2696e0f0b2e47d0deed6649158} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!LoginAsync\_DecryptionFails\_ReturnsFailureAndRecordsAttempt@{LoginAsync\_DecryptionFails\_ReturnsFailureAndRecordsAttempt}}
+\index{LoginAsync\_DecryptionFails\_ReturnsFailureAndRecordsAttempt@{LoginAsync\_DecryptionFails\_ReturnsFailureAndRecordsAttempt}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{LoginAsync\_DecryptionFails\_ReturnsFailureAndRecordsAttempt()}{LoginAsync\_DecryptionFails\_ReturnsFailureAndRecordsAttempt()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Login\+Async\+\_\+\+Decryption\+Fails\+\_\+\+Returns\+Failure\+And\+Records\+Attempt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a8f2cd7f0ae26fd4b861edc9651c813d3}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a8f2cd7f0ae26fd4b861edc9651c813d3} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!LoginAsync\_FailedAttemptThresholdMet\_SendsWarningEmail@{LoginAsync\_FailedAttemptThresholdMet\_SendsWarningEmail}}
+\index{LoginAsync\_FailedAttemptThresholdMet\_SendsWarningEmail@{LoginAsync\_FailedAttemptThresholdMet\_SendsWarningEmail}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{LoginAsync\_FailedAttemptThresholdMet\_SendsWarningEmail()}{LoginAsync\_FailedAttemptThresholdMet\_SendsWarningEmail()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Login\+Async\+\_\+\+Failed\+Attempt\+Threshold\+Met\+\_\+\+Sends\+Warning\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a0599f6da8d011f378cde4748e986b0bc}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a0599f6da8d011f378cde4748e986b0bc} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!LoginAsync\_IncorrectPassword\_ReturnsFailureAndRecordsAttempt@{LoginAsync\_IncorrectPassword\_ReturnsFailureAndRecordsAttempt}}
+\index{LoginAsync\_IncorrectPassword\_ReturnsFailureAndRecordsAttempt@{LoginAsync\_IncorrectPassword\_ReturnsFailureAndRecordsAttempt}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{LoginAsync\_IncorrectPassword\_ReturnsFailureAndRecordsAttempt()}{LoginAsync\_IncorrectPassword\_ReturnsFailureAndRecordsAttempt()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Login\+Async\+\_\+\+Incorrect\+Password\+\_\+\+Returns\+Failure\+And\+Records\+Attempt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_aa8ebc5bda19b88758a22a8d4643027ea}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_aa8ebc5bda19b88758a22a8d4643027ea} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!LoginAsync\_TokenGenerationFails\_ReturnsFailure@{LoginAsync\_TokenGenerationFails\_ReturnsFailure}}
+\index{LoginAsync\_TokenGenerationFails\_ReturnsFailure@{LoginAsync\_TokenGenerationFails\_ReturnsFailure}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{LoginAsync\_TokenGenerationFails\_ReturnsFailure()}{LoginAsync\_TokenGenerationFails\_ReturnsFailure()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Login\+Async\+\_\+\+Token\+Generation\+Fails\+\_\+\+Returns\+Failure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a04b1b4aef32442ffde7a94e2bbcaa844}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a04b1b4aef32442ffde7a94e2bbcaa844} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!LoginAsync\_UserNotFound\_ReturnsFailure@{LoginAsync\_UserNotFound\_ReturnsFailure}}
+\index{LoginAsync\_UserNotFound\_ReturnsFailure@{LoginAsync\_UserNotFound\_ReturnsFailure}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{LoginAsync\_UserNotFound\_ReturnsFailure()}{LoginAsync\_UserNotFound\_ReturnsFailure()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Login\+Async\+\_\+\+User\+Not\+Found\+\_\+\+Returns\+Failure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a829427a66db182c15cbeda8d1f0279ad}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a829427a66db182c15cbeda8d1f0279ad} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!LoginAsync\_ValidCredentials\_ReturnsSuccessPayload@{LoginAsync\_ValidCredentials\_ReturnsSuccessPayload}}
+\index{LoginAsync\_ValidCredentials\_ReturnsSuccessPayload@{LoginAsync\_ValidCredentials\_ReturnsSuccessPayload}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{LoginAsync\_ValidCredentials\_ReturnsSuccessPayload()}{LoginAsync\_ValidCredentials\_ReturnsSuccessPayload()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Login\+Async\+\_\+\+Valid\+Credentials\+\_\+\+Returns\+Success\+Payload (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a898f89d40c023cfd2990aafb0af6279a}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a898f89d40c023cfd2990aafb0af6279a} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!LogoutAsync\_TokenServiceFails\_ReturnsFailure@{LogoutAsync\_TokenServiceFails\_ReturnsFailure}}
+\index{LogoutAsync\_TokenServiceFails\_ReturnsFailure@{LogoutAsync\_TokenServiceFails\_ReturnsFailure}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{LogoutAsync\_TokenServiceFails\_ReturnsFailure()}{LogoutAsync\_TokenServiceFails\_ReturnsFailure()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Logout\+Async\+\_\+\+Token\+Service\+Fails\+\_\+\+Returns\+Failure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a6040792e64f6031520ebe94e24c359b2}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a6040792e64f6031520ebe94e24c359b2} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!LogoutAsync\_ValidToken\_ReturnsSuccessFromTokenService@{LogoutAsync\_ValidToken\_ReturnsSuccessFromTokenService}}
+\index{LogoutAsync\_ValidToken\_ReturnsSuccessFromTokenService@{LogoutAsync\_ValidToken\_ReturnsSuccessFromTokenService}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{LogoutAsync\_ValidToken\_ReturnsSuccessFromTokenService()}{LogoutAsync\_ValidToken\_ReturnsSuccessFromTokenService()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Logout\+Async\+\_\+\+Valid\+Token\+\_\+\+Returns\+Success\+From\+Token\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a12149dcf1d7eff1959dbf4e32e507cee}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a12149dcf1d7eff1959dbf4e32e507cee} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!LogoutEverywhereAsync\_RepoFails\_ReturnsFailure@{LogoutEverywhereAsync\_RepoFails\_ReturnsFailure}}
+\index{LogoutEverywhereAsync\_RepoFails\_ReturnsFailure@{LogoutEverywhereAsync\_RepoFails\_ReturnsFailure}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{LogoutEverywhereAsync\_RepoFails\_ReturnsFailure()}{LogoutEverywhereAsync\_RepoFails\_ReturnsFailure()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Logout\+Everywhere\+Async\+\_\+\+Repo\+Fails\+\_\+\+Returns\+Failure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a14c055aa2210ddfe2fcb161e35549459}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a14c055aa2210ddfe2fcb161e35549459} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!LogoutEverywhereAsync\_ValidSessionId\_ReturnsSuccessFromRepo@{LogoutEverywhereAsync\_ValidSessionId\_ReturnsSuccessFromRepo}}
+\index{LogoutEverywhereAsync\_ValidSessionId\_ReturnsSuccessFromRepo@{LogoutEverywhereAsync\_ValidSessionId\_ReturnsSuccessFromRepo}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{LogoutEverywhereAsync\_ValidSessionId\_ReturnsSuccessFromRepo()}{LogoutEverywhereAsync\_ValidSessionId\_ReturnsSuccessFromRepo()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Logout\+Everywhere\+Async\+\_\+\+Valid\+Session\+Id\+\_\+\+Returns\+Success\+From\+Repo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a9f9d5ea062d04d5adf4439c2dd9dcf78}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a9f9d5ea062d04d5adf4439c2dd9dcf78} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!RefreshTokenAsync\_TokenServiceFails\_ReturnsFailure@{RefreshTokenAsync\_TokenServiceFails\_ReturnsFailure}}
+\index{RefreshTokenAsync\_TokenServiceFails\_ReturnsFailure@{RefreshTokenAsync\_TokenServiceFails\_ReturnsFailure}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{RefreshTokenAsync\_TokenServiceFails\_ReturnsFailure()}{RefreshTokenAsync\_TokenServiceFails\_ReturnsFailure()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Refresh\+Token\+Async\+\_\+\+Token\+Service\+Fails\+\_\+\+Returns\+Failure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a85caf3312c24e1305399932cc7a8944e}\label{class_arandano_i_r_t___backend_1_1_tests_1_1_application_1_1_services_1_1_auth_session_service_tests_a85caf3312c24e1305399932cc7a8944e} 
+\index{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}!RefreshTokenAsync\_ValidToken\_ReturnsSuccessFromTokenService@{RefreshTokenAsync\_ValidToken\_ReturnsSuccessFromTokenService}}
+\index{RefreshTokenAsync\_ValidToken\_ReturnsSuccessFromTokenService@{RefreshTokenAsync\_ValidToken\_ReturnsSuccessFromTokenService}!ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests@{ArandanoIRT\_Backend.Tests.Application.Services.AuthSessionServiceTests}}
+\doxysubsubsection{\texorpdfstring{RefreshTokenAsync\_ValidToken\_ReturnsSuccessFromTokenService()}{RefreshTokenAsync\_ValidToken\_ReturnsSuccessFromTokenService()}}
+{\footnotesize\ttfamily async Task Arandano\+IRT\+\_\+\+Backend.\+Tests.\+Application.\+Services.\+Auth\+Session\+Service\+Tests.\+Refresh\+Token\+Async\+\_\+\+Valid\+Token\+\_\+\+Returns\+Success\+From\+Token\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tests/\+Unit/\+Application/\+Services/\mbox{\hyperlink{_auth_session_service_tests_8cs}{Auth\+Session\+Service\+Tests.\+cs}}\end{DoxyCompactItemize}

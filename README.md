@@ -1,19 +1,22 @@
-# Sistema de Aproximación a la Detección Temprana de *Botrytis Cinerea* en el Arándano Biloxi mediante Termografía
+# Sistema de Aproximación a la Detección Temprana de *Estrés Hídrico* en el Arándano Biloxi mediante Termografía
 
-Este proyecto tiene como objetivo desarrollar un sistema de bajo costo para la detección temprana del hongo *Botrytis Cinerea* en plantas de arándano, variedad Biloxi, utilizando imágenes termográficas y técnicas de inteligencia artificial. Se busca proporcionar una solución eficiente y asequible para los agricultores, ayudándoles a identificar posibles infecciones antes de que afecten gravemente la producción, lo cual resulta en una cosecha más saludable y productiva.
+Este proyecto tiene como objetivo desarrollar un sistema de bajo costo para la detección temprana de estrés hídrico en plantas de arándano, variedad Biloxi, utilizando imágenes termográficas y técnicas de inteligencia artificial. Se busca proporcionar una solución eficiente y asequible para los agricultores, ayudándoles a gestionar de manera más eficiente y responsable los recursos hídricos, lo cual resulta en una cosecha más saludable y productiva.
 
-### Estructura de la Documentación
+### Estructura del Proyecto
 
-La documentación de este proyecto está organizada en tres secciones principales, que corresponden a los tres componentes del sistema:
+El código y la documentación de este proyecto están organizados en los siguientes repositorios, cada uno enfocado en un componente clave del sistema:
 
-- **Frontend**: [ArandanoIRTFrontend](https://github.com/rfgrona/ArandanoIRTFrontend)
-  - Documentación sobre la interfaz de usuario, incluyendo su diseño y funcionamiento.
-  
-- **Backend**: [ArandanoIRTBackend](https://github.com/rfgrona/ArandanoIRTBackend)
-  - Detalles del servidor y la API, incluyendo cómo se gestionan los datos y se comunican los componentes.
+- **Software (Aplicación Web)**: [ArandanoIRTSoftware](https://github.com/rfgrona/ArandanoIRTSoftware)
+  - Contiene el código fuente de la aplicación web principal (desarrollada en .NET 8 MVC), que permite a los usuarios interactuar con el sistema, visualizar datos y ver los resultados del análisis.
 
-- **Firmware**: [ArandanoIRTFirmware](https://github.com/rfgrona/ArandanoIRTFirmware)
-  - Información sobre el desarrollo y funcionamiento del firmware que controla el hardware de captura de imágenes.
+- **Inteligencia Artificial (ML)**: [ArandanoIRT-ML](https://github.com/rfgrona/ArandanoIRT-ML)
+  - Aloja los modelos de Machine Learning, los notebooks de experimentación y los scripts utilizados para el análisis y procesamiento de las imágenes termográficas.
+
+- **Firmware (Control de Hardware)**: [ArandanoIRTFirmware](https://github.com/rfgrona/ArandanoIRTFirmware)
+  - Código desarrollado en PlatformIO para el microcontrolador que gestiona la captura de imágenes termográficas y la comunicación con el hardware del sistema.
+
+- **Infraestructura (Ops)**: [ArandanoIRTOps](https://github.com/rfgrona/ArandanoIRTOps)
+  - Contiene la configuración de la infraestructura como código (IaC) utilizando Docker para automatizar el despliegue y la operación de todos los servicios en el servidor.
 
 #### *Para más información, visite la Wiki del repositorio*
 ---

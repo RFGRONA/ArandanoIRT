@@ -1,6 +1,72 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
+{Congreso de la República de Colombia}%
+}{%
+{Congreso de la República de Colombia}%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+Congreso2009}
+\APACinsertmetastar {%
+Congreso2009}%
+\begin{APACrefauthors}%
+{Congreso de la República de Colombia}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2009}.
+\newblock
+\APACrefbtitle {Ley 1273 de 2009. Por medio de la cual se modifica el Código Penal, se crea un nuevo bien jurídico tutelado - denominado "de la protección de la información y de los datos" y se preservan integralmente los sistemas que utilicen las tecnologías de la información y las comunicaciones, entre otras disposiciones} {Ley 1273 de 2009. por medio de la cual se modifica el código penal, se crea un nuevo bien jurídico tutelado - denominado "de la protección de la información y de los datos" y se preservan integralmente los sistemas que utilicen las tecnologías de la información y las comunicaciones, entre otras disposiciones}.
+\newblock
+\APACaddressPublisher{Bogotá}{Diario Oficial No. 47.223}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Congreso de la República de Colombia}%
+}{%
+{Congreso de la República de Colombia}%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+Congreso2012}
+\APACinsertmetastar {%
+Congreso2012}%
+\begin{APACrefauthors}%
+{Congreso de la República de Colombia}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2012}.
+\newblock
+\APACrefbtitle {Ley Estatutaria 1581 de 2012. Por la cual se dictan disposiciones generales para la protección de datos personales} {Ley estatutaria 1581 de 2012. por la cual se dictan disposiciones generales para la protección de datos personales}.
+\newblock
+\APACaddressPublisher{Bogotá}{Diario Oficial No. 48.587}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Consejo Superior de la Universidad de Cundinamarca}%
+}{%
+{Consejo Superior de la Universidad de Cundinamarca}%
+}{%
+{\protect \APACyear {2018}}%
+}]{%
+UDEC2018}
+\APACinsertmetastar {%
+UDEC2018}%
+\begin{APACrefauthors}%
+{Consejo Superior de la Universidad de Cundinamarca}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2018}.
+\newblock
+\APACrefbtitle {Acuerdo No. 000004. Por medio del cual se adopta el Estatuto de Propiedad Intelectual de la Universidad de Cundinamarca} {Acuerdo no. 000004. por medio del cual se adopta el estatuto de propiedad intelectual de la universidad de cundinamarca}.
+\newblock
+\APACaddressPublisher{Fusagasugá}{Universidad de Cundinamarca}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Rumbaugh%
 , Jacobson%
 \BCBL {}\ \BBA {} Booch%

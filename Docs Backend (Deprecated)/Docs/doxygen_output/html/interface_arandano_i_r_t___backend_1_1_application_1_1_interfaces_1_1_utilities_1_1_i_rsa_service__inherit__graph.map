@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Application.Interfaces.Utilities.IRsaService" name="ArandanoIRT_Backend.Application.Interfaces.Utilities.IRsaService">
-<area shape="rect" id="Node000001" title="Service interface for RSA encryption and decryption operations." alt="" coords="12,5,228,133"/>
-<area shape="rect" id="Node000002" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_rsa_service.html" title="Implements the IRsaService interface, providing functionalities for RSA encryption (using public key)..." alt="" coords="5,181,235,331"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,148,123,182,118,182,118,148"/>
-</map>

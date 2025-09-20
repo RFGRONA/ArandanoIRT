@@ -12,10 +12,8 @@
 *.synctex.gz
 
 # Archivos de salida
-*.pdf
 *.dvi
 *.ps
-
 # Archivos temporales y de respaldo del editor
 *~
 *.swp

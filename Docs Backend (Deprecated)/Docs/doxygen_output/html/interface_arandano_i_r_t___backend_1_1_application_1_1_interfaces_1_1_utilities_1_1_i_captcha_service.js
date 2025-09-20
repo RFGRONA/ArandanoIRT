@@ -1,4 +1,0 @@
-var interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service =
-[
-    [ "VerifyCaptchaAsync", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service.html#afbb74658bed5df16543a55ab71c2d91f", null ]
-];

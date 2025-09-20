@@ -1,7 +1,0 @@
-<map id="lib/DHT22Sensor/DHT22Sensor.h" name="lib/DHT22Sensor/DHT22Sensor.h">
-<area shape="rect" id="Node000001" title="Defines a wrapper class for the DHT22 temperature and humidity sensor." alt="" coords="5,5,225,32"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="32,80,108,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,34,88,68,83,65,105,31"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="132,80,191,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,31,148,66,143,68,121,34"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_registration_service.html" title="Defines the contract for user registration operations." alt="" coords="5,5,249,64"/>
-<area shape="rect" id="Node000001" href="$class_arandano_i_r_t___backend_1_1_application_1_1_services_1_1_auth_registration_service.html" title="Implements services for registering new administrators and regular users." alt="" coords="297,13,524,56"/>
-<area shape="poly" id="edge8_Node000000_Node000001" title=" " alt="" coords="264,32,296,32,296,37,264,37"/>
-</map>

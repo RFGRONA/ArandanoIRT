@@ -1,5 +1,0 @@
-var interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_change_password_repository =
-[
-    [ "DeleteTokensByPersonIdAsync", "interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_change_password_repository.html#a9c168c487f17305163734b9a0594f172", null ],
-    [ "GetActiveByTokenAsync", "interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_change_password_repository.html#ab1eb4f0720fd18b76fdfdccac82ad5b2", null ]
-];

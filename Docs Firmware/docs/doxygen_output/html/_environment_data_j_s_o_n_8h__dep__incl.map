@@ -1,7 +1,0 @@
-<map id="lib/EnvironmentDataJSON/EnvironmentDataJSON.h" name="lib/EnvironmentDataJSON/EnvironmentDataJSON.h">
-<area shape="rect" id="Node000001" title="Defines a utility class to format and send environmental sensor data as JSON via HTTP POST requests." alt="" coords="94,5,269,48"/>
-<area shape="rect" id="Node000002" href="$_environment_data_j_s_o_n_8cpp.html" title="Implements the static method of the EnvironmentDataJSON utility class." alt="" coords="5,96,193,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,61,120,98,116,94,150,58"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Main application firmware for an ESP32&#45;S3 based environmental and plant monitoring device." alt="" coords="216,104,312,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,58,255,102,251,105,209,61"/>
-</map>

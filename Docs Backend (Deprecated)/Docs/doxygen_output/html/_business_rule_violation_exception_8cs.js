@@ -1,4 +1,0 @@
-var _business_rule_violation_exception_8cs =
-[
-    [ "ArandanoIRT_Backend.Domain.Exceptions.BusinessRuleViolationException", "class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_business_rule_violation_exception.html", "class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_business_rule_violation_exception" ]
-];

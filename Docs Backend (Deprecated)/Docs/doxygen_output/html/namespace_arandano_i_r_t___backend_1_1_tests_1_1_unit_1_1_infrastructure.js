@@ -1,6 +1,0 @@
-var namespace_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure =
-[
-    [ "Persistence", "namespace_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_persistence.html", "namespace_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_persistence" ],
-    [ "Services", "namespace_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services.html", "namespace_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_services" ],
-    [ "Utilities", "namespace_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities.html", "namespace_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_infrastructure_1_1_utilities" ]
-];

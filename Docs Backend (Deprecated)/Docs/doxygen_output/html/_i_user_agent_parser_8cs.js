@@ -1,4 +1,0 @@
-var _i_user_agent_parser_8cs =
-[
-    [ "ArandanoIRT_Backend.Application.Interfaces.Utilities.IUserAgentParser", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_user_agent_parser.html", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_user_agent_parser" ]
-];

@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Infrastructure.Utilities.DateTimeProvider" name="ArandanoIRT_Backend.Infrastructure.Utilities.DateTimeProvider">
-<area shape="rect" id="Node000001" title="Implements the IDateTimeProvider interface." alt="" coords="5,123,235,208"/>
-<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_date_time_provider.html" title="Provides the current time, abstracting away direct DateTime usage for testability." alt="" coords="60,5,180,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,89,123,123,118,123,118,89"/>
-</map>

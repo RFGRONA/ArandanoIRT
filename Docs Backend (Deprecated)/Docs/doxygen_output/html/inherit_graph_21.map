@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_captcha_service.html" title=" " alt="" coords="5,5,234,48"/>
-<area shape="rect" id="Node000001" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service.html" title="Implements the ICaptchaService interface using the Cloudflare Turnstile API for verifying CAPTCHA cha..." alt="" coords="282,5,522,48"/>
-<area shape="poly" id="edge12_Node000000_Node000001" title=" " alt="" coords="250,24,281,24,281,29,250,29"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Domain.IRepositories.ICropRepository" name="ArandanoIRT_Backend.Domain.IRepositories.ICropRepository">
-<area shape="rect" id="Node000001" title="Defines the repository contract specifically for managing CropEntity instances." alt="" coords="5,208,203,293"/>
-<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository.html" title=" " alt="" coords="22,5,186,160"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,175,107,208,102,208,102,175"/>
-</map>

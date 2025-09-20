@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Infrastructure.Utilities.UAParserAdapter" name="ArandanoIRT_Backend.Infrastructure.Utilities.UAParserAdapter">
-<area shape="rect" id="Node000001" title="Implements the IUserAgentParser interface by adapting the UAParser library (uap&#45;csharp) to parse User..." alt="" coords="5,123,235,229"/>
-<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_utilities_1_1_i_user_agent_parser.html" title=" " alt="" coords="63,5,178,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,90,123,123,118,123,118,90"/>
-</map>

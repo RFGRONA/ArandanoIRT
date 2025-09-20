@@ -1,7 +1,0 @@
-var namespace_arandano_i_r_t___backend_1_1_domain_1_1_exceptions =
-[
-    [ "BusinessRuleViolationException", "class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_business_rule_violation_exception.html", "class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_business_rule_violation_exception" ],
-    [ "DatabaseUpdateException", "class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_database_update_exception.html", "class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_database_update_exception" ],
-    [ "NotFoundException", "class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_not_found_exception.html", "class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_not_found_exception" ],
-    [ "ValidationException", "class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_validation_exception.html", "class_arandano_i_r_t___backend_1_1_domain_1_1_exceptions_1_1_validation_exception" ]
-];

@@ -1,4 +1,0 @@
-var _i_crop_invitation_repository_8cs =
-[
-    [ "ArandanoIRT_Backend.Domain.IRepositories.ICropInvitationRepository", "interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_crop_invitation_repository.html", "interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_crop_invitation_repository" ]
-];

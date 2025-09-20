@@ -1,9 +1,0 @@
-<map id="lib/MLX90640Sensor/MLX90640Sensor.h" name="lib/MLX90640Sensor/MLX90640Sensor.h">
-<area shape="rect" id="Node000001" title="Defines a wrapper class for the MLX90640 Thermal Camera sensor." alt="" coords="65,5,206,48"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,82,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,51,71,88,67,84,110,47"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="106,96,165,123"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,49,138,80,133,80,133,49"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="189,96,335,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,46,231,85,228,90,167,51"/>
-</map>

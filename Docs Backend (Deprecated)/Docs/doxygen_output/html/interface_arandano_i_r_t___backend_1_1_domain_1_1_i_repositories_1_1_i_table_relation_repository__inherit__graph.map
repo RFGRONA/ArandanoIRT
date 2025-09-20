@@ -1,7 +1,0 @@
-<map id="ArandanoIRT_Backend.Domain.IRepositories.ITableRelationRepository" name="ArandanoIRT_Backend.Domain.IRepositories.ITableRelationRepository">
-<area shape="rect" id="Node000001" title="Defines the repository contract specifically for managing TableRelationEntity instances." alt="" coords="5,224,243,309"/>
-<area shape="rect" id="Node000003" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_table_relation_repository.html" title=" " alt="" coords="9,357,239,528"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="127,324,127,358,122,358,122,324"/>
-<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository.html" title=" " alt="" coords="40,5,208,176"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,191,127,224,122,224,122,191"/>
-</map>

@@ -1,4 +1,0 @@
-var _audit_person_repository_8cs =
-[
-    [ "ArandanoIRT_Backend.Infrastructure.Repositories.AuditPersonRepository", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_person_repository.html", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_person_repository" ]
-];

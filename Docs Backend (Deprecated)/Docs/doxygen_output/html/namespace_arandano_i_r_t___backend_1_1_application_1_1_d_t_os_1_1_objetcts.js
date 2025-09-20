@@ -1,4 +1,0 @@
-var namespace_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_objetcts =
-[
-    [ "CropInfoDto", "class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_objetcts_1_1_crop_info_dto.html", "class_arandano_i_r_t___backend_1_1_application_1_1_d_t_os_1_1_objetcts_1_1_crop_info_dto" ]
-];

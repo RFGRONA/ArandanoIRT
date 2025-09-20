@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Application.Services.AuthSessionService" name="ArandanoIRT_Backend.Application.Services.AuthSessionService">
-<area shape="rect" id="Node000001" title="Implements services for user session management including login, token refresh, and logout." alt="" coords="5,229,222,443"/>
-<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service.html" title="Defines the contract for user session management operations, including login, token refresh,..." alt="" coords="25,5,202,181"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,197,116,230,111,230,111,197"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Application.Interfaces.IServices.IHelpRequestService" name="ArandanoIRT_Backend.Application.Interfaces.IServices.IHelpRequestService">
-<area shape="rect" id="Node000001" title="Defines the contract for handling help request operations." alt="" coords="5,5,261,91"/>
-<area shape="rect" id="Node000002" href="$class_arandano_i_r_t___backend_1_1_application_1_1_services_1_1_help_request_service.html" title="Implements services for handling user help requests." alt="" coords="23,139,244,245"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,106,136,139,130,139,130,106"/>
-</map>

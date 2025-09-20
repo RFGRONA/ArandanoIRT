@@ -1,5 +1,0 @@
-var interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_registration_service =
-[
-    [ "RegisterAdminAsync", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_registration_service.html#a1889fdfd921cc947301868f63e8512a6", null ],
-    [ "RegisterUserAsync", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_registration_service.html#a3b93ab5c6b30f7c4c2ac016b729fa089", null ]
-];

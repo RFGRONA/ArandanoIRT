@@ -5,23 +5,128 @@
 % =================================================
 
 \section{Plan de Proyecto}
-Texto del plan de proyecto...
+La gestión y planificación del proyecto se fundamentó en una adaptación del marco de trabajo ágil Scrum, tal como se describió en la sección de metodología. Este enfoque se eligió por su flexibilidad y su capacidad para adaptar el desarrollo a los hallazgos de la investigación de manera iterativa.
+
+Para la gestión operativa de esta metodología, incluyendo la administración del \textit{Product Backlog}, las historias de usuario y el seguimiento de los \textit{Sprints}, se utilizó la herramienta de software de código abierto \texttt{Plane}.
+
+La implementación de Scrum se adaptó a un contexto académico y de investigación, aplicando los siguientes elementos clave:
+\begin{itemize}
+    \item \textbf{Historias de Usuario:} Todos los requerimientos funcionales del sistema, identificados en la primera fase del proyecto, se tradujeron en historias de usuario.
+    \item \textbf{Product Backlog:} Se priorizaron las historias de usuario en un \textit{Product Backlog}, que sirvió como la hoja de ruta principal para el desarrollo.
+    \item \textbf{Sprints:} El trabajo de desarrollo se dividió en \textit{Sprints}, con duraciones que oscilaron entre dos y tres semanas. Generalmente, cada \textit{Product Backlog Item} (PBI) o conjunto de historias de usuario relacionadas se completaba dentro de un único \textit{Sprint}.
+    \item \textbf{Reuniones de Seguimiento:} Se realizaron reuniones semanales con la dirección del proyecto para revisar los adelantos, presentar el trabajo completado en el \textit{Sprint} y ajustar las prioridades para el siguiente ciclo.
+\end{itemize}
+
+El cronograma detallado de ejecución del proyecto, que agrupa las tareas en los \textit{Sprints} definidos, se presenta en el Diagrama de Gantt (Figura \ref{fig:gantt}). Este diagrama ilustra la secuencia de las actividades, su duración y las dependencias entre las fases de investigación, desarrollo, integración y pruebas.
+
+\begin{figure}[H]
+    \centering
+		\caption{Diagrama de Gantt del proyecto.}
+    \includegraphics[width=0.95\textwidth]{UML/Otros/Diagrama Gantt.png}
+    \label{fig:gantt}
+\end{figure}
+
 
 % =================================================
 % =================================================
 
 \section{Arquitectura del Software}
 
-Describe la estructura global del sistema, mostrando cómo se organizan e interconectan los componentes del frontend y backend.
+El presente capítulo detalla la arquitectura del software desarrollado para el sistema \textit{Arandano IRT}. Se describe la estructura adoptada, los patrones de diseño implementados y las tecnologías seleccionadas, justificando las decisiones tomadas en función de los requerimientos funcionales y no funcionales del proyecto, así como de las lecciones aprendidas durante las fases iniciales de desarrollo.
 
-\subsection{Desarrollo del Frontend}
-Documenta la implementación de la interfaz de usuario, detallando las tecnologías utilizadas y el diseño de la experiencia de usuario.
+El desarrollo del sistema partió de la construcción de un Prototipo Mínimo Viable (MVP), enfocado en validar las tecnologías centrales y las funcionalidades críticas de monitoreo y análisis. Esta fase inicial fue crucial, no solo para generar un conjunto de datos preliminar significativo (más de 3500 registros), sino también para identificar desafíos técnicos y refinar la arquitectura final. La experiencia con el MVP subrayó la importancia de una infraestructura resiliente. Un incidente específico, una interrupción prolongada del servicio debido a una falla en un proveedor externo (Cloudflare), motivó un rediseño orientado a minimizar las dependencias externas críticas y maximizar la autonomía operativa del sistema. Esta decisión estratégica ha resultado en una arquitectura robusta, evidenciada por un tiempo de actividad continuo superior a los 100 días desde su implementación final.
 
-\subsection{Desarrollo del Backend}
-Explica la lógica del servidor, la estructura de las APIs, la gestión de bases de datos y la implementación de la lógica de negocio que sustenta la aplicación.
+La arquitectura resultante se describe desde dos perspectivas complementarias: el diseño lógico, que aborda la organización interna del código y la aplicación del patrón Modelo-Vista-Controlador (MVC); y la arquitectura física, que detalla la distribución de los componentes de software en la infraestructura de despliegue. Finalmente, se presenta el stack (recursos) tecnológico que sustenta el sistema.
 
-\subsection{Integración Frontend-Backend}
-Detalla los mecanismos y protocolos (por ejemplo, REST o WebSockets) que permiten la comunicación y sincronización de datos entre la interfaz y el servidor.
+\subsection{Patrón Arquitectónico y Diseño Lógico}
+
+El sistema \textit{Arandano IRT} adopta el patrón arquitectónico Modelo-Vista-Controlador (MVC), aprovechando las capacidades ofrecidas por el framework \textbf{ASP.NET Core 8}. Se optó por una arquitectura monolítica modular en lugar de un enfoque desacoplado (como una Single Page Application (SPA) con una API backend separada), considerando el alcance del proyecto y la eficiencia en el desarrollo para un equipo reducido, decisión validada durante la fase del MVP. Esta elección permite una estructura cohesiva y un despliegue simplificado, sin sacrificar la organización interna del código.
+
+La implementación sigue la interpretación clásica del patrón MVC adaptada al ecosistema de ASP.NET Core, estructurando la aplicación en las siguientes capas lógicas principales, tomadas del la Arquitectura Cebolla (Onion Architecture), reflejadas en la organización de directorios del proyecto:
+
+\begin{itemize}
+    \item \textbf{Capa de Presentación (Vista - View)}: Responsable de la interfaz de usuario (UI) y la interacción directa con el usuario (\texttt{:Persona}). Esta capa se implementa principalmente mediante \textbf{Razor Pages} y componentes \textbf{Blazor/Razor} (\texttt{.cshtml}, ubicados en el directorio \texttt{/Views}. Estos componentes se renderizan en el servidor, generando el HTML que se envía al navegador del cliente. La lógica de presentación, el manejo de eventos de UI y las llamadas iniciales a la lógica de negocio residen aquí.
+
+    \item \textbf{Capa de Control (Controlador - Controller)}: Actúa como intermediario entre la Vista y el Modelo. Los controladores (\texttt{.cs}), situados en \texttt{3\_Presentation/Controllers}, reciben las solicitudes HTTP entrantes (generalmente iniciadas por acciones del usuario en la Vista), interpretan los datos de la solicitud, invocan la lógica de negocio necesaria a través de los servicios de la capa de aplicación y seleccionan la Vista apropiada para devolver la respuesta al cliente.
+
+    \item \textbf{Capa de Modelo (Model)}: Esta capa encapsula la lógica de negocio central, las reglas del dominio y el acceso a los datos. Se organiza en subcapas para una mejor separación de responsabilidades:
+        \begin{itemize}
+            \item \textbf{Dominio (\texttt{0\_Domain})}: Contiene las entidades principales del sistema (ej. \texttt{Crop}, \texttt{Plant}, \texttt{Device}), objetos de valor, enumeraciones (\texttt{Enums}) y reglas de negocio fundamentales que son independientes de la tecnología.
+            \item \textbf{Aplicación (\texttt{1\_Application})}: Orquesta los casos de uso. Contiene los Data Transfer Objects (DTOs) utilizados para la comunicación entre capas, las interfaces de los servicios de aplicación (\texttt{Contracts}) y sus implementaciones (\texttt{Implementation}). Los servicios de esta capa coordinan la lógica de negocio, interactuando con las entidades del Dominio y utilizando la capa de Infraestructura para tareas como la persistencia o el envío de correos.
+            \item \textbf{Infraestructura (\texttt{2\_Infrastructure})}: Implementa los detalles técnicos y las dependencias externas. Incluye la configuración del \textbf{DbContext de Entity Framework Core} para la persistencia de datos en PostgreSQL, la implementación de servicios externos (como envío de correos con Brevo, almacenamiento con MinIO), la gestión de la autenticación, tareas en segundo plano (\textit{background services}) y otros aspectos transversales. Proporciona las implementaciones concretas para las abstracciones definidas en las capas de Aplicación.
+        \end{itemize}
+\end{itemize}
+
+La comunicación entre estas capas se gestiona principalmente a través de Inyección de Dependencias (Dependency Injection), un principio fundamental en ASP.NET Core. Por ejemplo, un componente Razor en la Vista puede inyectar y utilizar un servicio definido en la capa de Aplicación. Este servicio, a su vez, puede inyectar y utilizar el \texttt{ApplicationDbContext} (definido en Infraestructura) para consultar o modificar entidades del Dominio persistidas en la base de datos. Este flujo unidireccional de dependencias (Presentación $\rightarrow$ Aplicación $\rightarrow$ Dominio $\leftarrow$ Infraestructura) asegura un bajo acoplamiento y facilita la mantenibilidad y testabilidad del sistema. La integración entre el frontend (Razor/Blazor) y el backend (Controladores, Servicios) se realiza mediante llamadas a métodos dentro del mismo proceso de aplicación, característico de la arquitectura monolítica seleccionada.
+
+
+\subsection{Arquitectura Física e Infraestructura}
+
+La arquitectura física define la distribución de los componentes de software en los nodos de hardware y la infraestructura subyacente que soporta la operación del sistema \textit{Arandano IRT}. Esta arquitectura ha sido diseñada priorizando la robustez y la autonomía operativa, como se discutió en la introducción de este capítulo. La Figura \ref{fig:diagrama_arquitectura} ilustra la topología de despliegue.
+
+\begin{figure}[!h]
+    \centering
+    \caption{Diagrama de Despliegue Físico del Sistema Arandano IRT.}
+    \includegraphics[width=0.6\textwidth]{UML/Otros/Diagrama Arquitectura.png} 
+    \label{fig:diagrama_arquitectura}
+\end{figure}
+
+El sistema se despliega sobre dos nodos físicos principales:
+
+\begin{enumerate}
+    \item \textbf{Servidor Central (Cloud VM)}: Se utiliza una Máquina Virtual (VM) alojada en el proveedor de infraestructura como servicio (IaaS), específicamente DigitalOcean. Este nodo ejecuta el sistema operativo \textbf{Ubuntu Server 24.04 LTS} y alberga la totalidad de la pila de servicios backend, orquestada mediante Docker y Docker Compose. Los componentes de software que se ejecutan en contenedores dentro de esta VM incluyen:
+        \begin{itemize}
+            \item La aplicación principal \textbf{ASP.NET Core 8} (Backend MVC y API).
+            \item El sistema gestor de base de datos \textbf{PostgreSQL 16}.
+            \item El servicio de almacenamiento de objetos compatible con S3, \textbf{MinIO}, utilizado para las copias de seguridad de la base de datos y almacenamiento de archivos.
+            \item La pila de observabilidad compuesta por \textbf{Loki/Promtail} para la agregación de logs y \textbf{Grafana} para la visualización y alertas.
+            \item El proxy inverso \textbf{Caddy}, que gestiona el tráfico HTTPS entrante, la terminación TLS y el enrutamiento hacia los servicios correspondientes.
+        \end{itemize}
+    El servidor está protegido por firewalls a nivel de red (proveedor cloud) y a nivel de host (\texttt{ufw}), además de contar con \texttt{Fail2Ban} para la prevención de intrusiones.
+
+    \item \textbf{Dispositivo de Monitoreo (IoT Device)}: Representa el hardware físico desplegado en campo cerca de las plantas de arándano. Este dispositivo integra los sensores ambientales y la cámara térmica. Ejecuta un \textbf{firmware} embebido (desarrollado específicamente para el proyecto, como se detalla en el capitulo correspondiente) responsable de la captura periódica de datos (temperatura, humedad, imágenes térmicas y RGB), el preprocesamiento básico, y la transmisión segura de esta información al Servidor Central.
+\end{enumerate}
+
+La comunicación entre estos nodos se realiza a través de protocolos de red estándar y seguros:
+
+\begin{itemize}
+    \item \textbf{Dispositivo IoT $\rightarrow$ Servidor Central}: El firmware del dispositivo de monitoreo envía los datos recolectados (lecturas ambientales, estadísticas térmicas, logs) a la API expuesta por la aplicación ASP.NET Core 8 en el servidor. Esta comunicación se realiza exclusivamente sobre \textbf{HTTPS (puerto 443)}, asegurando el cifrado de la información en tránsito. El dispositivo se autentica ante la API mediante tokens de seguridad gestionados por el sistema .
+    \item \textbf{Usuario (\texttt{:Persona}) $\rightarrow$ Servidor Central}: Los usuarios interactúan con la aplicación web a través de sus navegadores. Toda la comunicación entre el navegador del usuario y el servidor se realiza sobre \textbf{HTTPS (puerto 443)}, gestionada y asegurada por el proxy inverso Caddy, que maneja automáticamente los certificados TLS/SSL.
+\end{itemize}
+
+Esta arquitectura física centralizada en una VM gestionada con Docker simplifica el despliegue y mantenimiento, mientras que el uso de protocolos seguros garantiza la integridad y confidencialidad de los datos transmitidos, lo que ha permitido tener un sistema resiliente y confiable en operación continua.
+
+\subsection{Stack Tecnológico}
+
+La selección de las tecnologías para el sistema \textit{Arandano IRT} se basó en criterios de soporte comunitario, costos y alineación con la filosofía \textit{"Open Source Primero"} del proyecto, sin descartar el uso pragmático de servicios privativos donde ofrecían ventajas significativas en sus capas gratuitas. A continuación, se detallan los componentes clave del stack tecnológico implementado:
+
+\begin{itemize}
+    \item \textbf{Framework de Desarrollo Backend}: Se seleccionó \textbf{.NET 8} con el lenguaje \textbf{C\#}. Esta elección se fundamenta en su naturaleza multiplataforma, su ecosistema moderno de desarrollo, el alto rendimiento ofrecido por la plataforma y el robusto soporte de la comunidad y Microsoft. El uso de Entity Framework Core como ORM facilitó la interacción con la base de datos.
+
+    \item \textbf{Tecnologías de Frontend (UI)}: La interfaz de usuario se construyó utilizando \textbf{Razor Pages} y componentes \textbf{Blazor/Razor} dentro del mismo proyecto ASP.NET Core. Esta aproximación simplifica el desarrollo y despliegue al mantener una base de código unificada y aprovechar las capacidades de renderizado del lado del servidor. Se complementa con HTML5, CSS3 y JavaScript para la interactividad del cliente.
+
+    \item \textbf{Sistema Gestor de Base de Datos (SGBD)}: Se optó por \textbf{PostgreSQL 16}. Esta decisión se basa en su reputación como un SGBD relacional de código abierto potente, fiable, extensible (uso de la extensión \texttt{pgaudit}) y con un excelente manejo de tipos de datos complejos como JSONB, utilizado en varias tablas del sistema.
+
+    \item \textbf{Infraestructura de Despliegue y Orquestación}:
+        \begin{itemize}
+            \item \textbf{Proveedor IaaS}: Se utiliza \textbf{DigitalOcean} como proveedor de la máquina virtual, debido a que ofrece un credito gratuito a estudiantes mediante el Github Studen Pack 2025.
+            \item \textbf{Sistema Operativo}: \textbf{Ubuntu Server 24.04 LTS} fue seleccionado como el SO base por su estabilidad, amplio soporte y compatibilidad con el ecosistema de contenedores.
+            \item \textbf{Contenerización}: \textbf{Docker} y \textbf{Docker Compose} son pilares fundamentales, permitiendo empaquetar, desplegar y gestionar los diferentes servicios de forma aislada y reproducible.
+            \item \textbf{Proxy Inverso}: \textbf{Caddy} se emplea para gestionar el tráfico entrante, el enrutamiento a los contenedores y, crucialmente, la automatización completa de la gestión de certificados TLS/SSL.
+            \item \textbf{Almacenamiento de Objetos}: \textbf{MinIO} proporciona una solución de almacenamiento compatible con S3, auto-hospedada, utilizada específicamente para las copias de seguridad de la base de datos y almacenamieno de archivos (imágenes).
+        \end{itemize}
+
+    \item \textbf{Pila de Observabilidad}: Para el monitoreo y diagnóstico del sistema, se implementó una solución basada en:
+        \begin{itemize}
+            \item \textbf{Agregación de Logs}: \textbf{Loki} centraliza los logs generados por todos los contenedores.
+            \item \textbf{Recolección de Logs}: \textbf{Promtail} se configura como el agente encargado de recolectar y enviar los logs desde los contenedores a Loki.
+            \item \textbf{Visualización y Alertas}: \textbf{Grafana} se utiliza para consultar los logs almacenados en Loki mediante LogQL, visualizar métricas y configurar alertas proactivas.
+        \end{itemize}
+
+    \item \textbf{Servicios Externos Complementarios}: Aunque se priorizó el software auto-hospedado, se integraron servicios externos estratégicos como \textbf{Cloudflare} para la gestión avanzada de DNS y seguridad perimetral (WAF, Anti-DDoS, Anti-Bots), \textbf{Cloudflare Turnstile} como CAPTCHA no intrusivo, y \textbf{Brevo} para el envío fiable de notificaciones por correo electrónico transaccional certificado.
+\end{itemize}
+
+Esta combinación de tecnologías proporciona una base sólida, escalable y mantenible para el sistema, equilibrando el control ofrecido por las soluciones auto-hospedadas de código abierto con la conveniencia y especialización de algunos servicios externos privativos.
 
 % =================================================
 % =================================================
@@ -246,62 +351,54 @@ Detalla los mecanismos y protocolos (por ejemplo, REST o WebSockets) que permite
     \centering
     \caption{Diagrama Entidad-Relación del Sistema.}
     \label{fig:der}
-    \includegraphics[width=1\textwidth]{UML/Otros/Diagrama Entidad Relacion.png}
+    \includegraphics[width=0.7\textwidth]{UML/Otros/Diagrama Entidad Relacion.png}
 \end{figure}
 
-El Modelo Entidad-Relación (MER), presentado en la Figura \ref{fig:der}, define la estructura lógica de la base de datos diseñada para el sistema, organizando la información necesaria para el funcionamiento de la aplicación. Las tablas se han agrupado lógicamente (y coloreado en el diagrama) según su propósito principal para facilitar su comprensión: Diccionarios de Datos (celeste), Datos de Usuarios (blanco), Datos de Cultivos (naranja), Datos de Dispositivos (morado), Datos de Plantas (verde) y Auditoría (rojo). A continuación, se describe el propósito y las relaciones clave de cada tabla dentro de estos grupos.
+La estructura de la base de datos diseñada para el sistema \textit{Arandano IRT} organiza la información necesaria para el funcionamiento de la aplicación web y la gestión de los datos recolectados.  Las tablas se agrupan funcionalmente para facilitar su comprensión, como se describe a continuación.
 
-\subsubsection*{Grupo 1: Diccionarios de Datos (Celeste)}
-Este grupo contiene tablas auxiliares que definen tipos o categorías reutilizables en otras partes del sistema.
+\subsubsection*{Grupo 1: Tipos Enumerados (ENUMs)}
+Este grupo define tipos de datos personalizados que garantizan la consistencia y restringen los valores posibles para campos clave relacionados con estados o clasificaciones dentro del sistema. Estos tipos son fundamentales para mantener la integridad referencial semántica en diversas tablas.
 \begin{itemize}
-    \item \texttt{TableRelation}: Almacena los nombres de las tablas principales de la base de datos. Su propósito es permitir que la tabla \texttt{Status} pueda referenciar a qué tabla pertenece un estado específico, ofreciendo un mecanismo de categorización de estados.
-    \item \texttt{Status}: Define un conjunto genérico de estados posibles (ej. 'Activo', 'Inactivo', 'Pendiente') que pueden ser aplicados a diferentes entidades del sistema como invitaciones, plantas, dispositivos u observaciones. Se relaciona con \texttt{TableRelation} para indicar el contexto de cada estado y es referenciada por múltiples tablas (\texttt{CropInvitation}, \texttt{PlantData}, \texttt{DeviceData}, \texttt{DeviceActivation}, \texttt{PlantStateHistory}, \texttt{PlantObservation}) mediante claves foráneas.
+    \item \texttt{device\_status}: Cataloga los estados operativos de los dispositivos físicos de monitoreo.
+    \item \texttt{activation\_status}: Define las fases del proceso de activación de un nuevo dispositivo.
+    \item \texttt{token\_status}: Indica la validez de los tokens de autenticación para dispositivos.
+    \item \texttt{plant\_status}: Especifica los posibles estados de estrés hídrico detectados o asignados a una planta.
+    \item \texttt{experimental\_group\_type}: Clasifica las plantas según su rol en configuraciones experimentales (ej. Control, Estrés, Monitoreado).
 \end{itemize}
 
-\subsubsection*{Grupo 2: Datos de Usuarios (Blanco)}
-Este grupo gestiona la información y la autenticación de los usuarios del sistema.
+\subsubsection*{Grupo 2: Tablas Núcleo}
+Constituyen las entidades centrales del dominio del sistema, representando los elementos fundamentales del monitoreo.
 \begin{itemize}
-    \item \texttt{Person}: Tabla central para los usuarios. Almacena información personal básica (nombre, apellido), credenciales de acceso (email, contraseña cifrada), rol (\texttt{isAdmin}), preferencias de notificación, y timestamps relevantes (creación, actualización, último login, último cambio de contraseña). Se relaciona con \texttt{Crop} para indicar a qué cultivo pertenece el usuario (si no es administrador global). Es referenciada por múltiples tablas para indicar quién realizó una acción (\texttt{Crop}, \texttt{CropInvitation}, \texttt{DeviceData}, \texttt{PlantStateHistory}, \texttt{PlantObservation}, \texttt{RefreshToken}) y por las tablas de auditoría.
-    \item \texttt{ChangePassword}: Gestiona las solicitudes de restablecimiento de contraseña, almacenando un token temporal, su fecha de expiración y la referencia al usuario (\texttt{PersonId}) que lo solicitó.
-    \item \texttt{RefreshToken}: Almacena los tokens de refresco utilizados para mantener las sesiones de usuario activas de forma segura, junto con información del dispositivo y la IP asociada. Se relaciona con \texttt{Person}.
-    \item \texttt{FailedLoginAttempt}: Registra los intentos fallidos de inicio de sesión para monitoreo de seguridad, incluyendo la IP, información del dispositivo y la referencia al usario (\texttt{PersonId}).
+    \item \texttt{crops}: Representa cada unidad de cultivo o lote. Funciona como la entidad agrupadora principal, almacenando información geográfica y parámetros de configuración específicos del cultivo.
+    \item \texttt{users}: Almacena la información de los usuarios registrados en la aplicación web, incluyendo datos personales, credenciales de acceso gestionadas por ASP.NET Core Identity y configuraciones de cuenta personalizadas.
+    \item \texttt{plants}: Modela cada planta individual bajo monitoreo. Se vincula a un cultivo (\texttt{crop\_id}) y registra su estado de estrés hídrico actual (\texttt{status}), su clasificación experimental (\texttt{experimental\_group}) y datos asociados a la máscara térmica utilizada para el análisis de estrés hídrico.
 \end{itemize}
 
-\subsubsection*{Grupo 3: Datos de Cultivos (Naranja)}
-Define la información general sobre los cultivos gestionados.
+\subsubsection*{Grupo 3: Identidad y Autenticación de Usuarios (ASP.NET Core Identity)}
+Este conjunto de tablas implementa el esquema estándar de ASP.NET Core Identity, gestionando de forma robusta la autenticación, autorización basada en roles y la seguridad de las cuentas de usuario de la aplicación web.
 \begin{itemize}
-    \item \texttt{Crop}: Representa un cultivo específico, almacenando su nombre, dirección, ciudad y el identificador del usuario administrador de ese cultivo (\texttt{adminUserId}, FK a \texttt{Person}). Es una entidad central referenciada por \texttt{Person}, \texttt{CropInvitation}, \texttt{PlantData}, \texttt{DeviceData}, \texttt{SensorData}, \texttt{ThermalData} y las tablas de auditoría para contextualizar los datos.
-    \item \texttt{CropInvitation}: Gestiona los códigos de invitación que permiten a nuevos usuarios unirse a un cultivo existente. Almacena el código, fechas de validez, estado (\texttt{StatusId}), quién la creó (\texttt{createdBy}, FK a \texttt{Person}), quién la usó (\texttt{usedBy}, FK a \texttt{Person}) y a qué cultivo pertenece (\texttt{CropId}).
+    \item \texttt{roles}, \texttt{user\_roles}: Definen los roles disponibles en el sistema y establecen la relación muchos-a-muchos entre usuarios y roles.
+    \item \texttt{user\_claims}, \texttt{role\_claims}: Permiten la asignación de permisos granulares (claims) directamente a usuarios o a roles, facilitando un modelo de autorización flexible.
+    \item \texttt{user\_logins}, \texttt{user\_tokens}: Gestionan la integración con proveedores de identidad externos y el almacenamiento de tokens para funciones como la confirmación de correo o el restablecimiento de contraseña.
+    \item \texttt{invitation\_codes}: Administra un sistema de registro basado en invitaciones, controlando la generación, validez y uso de códigos únicos para la creación de nuevas cuentas de usuario, vinculando opcionalmente la invitación a quien la generó.
 \end{itemize}
 
-\subsubsection*{Grupo 4: Datos de Dispositivos (Morado)}
-Administra la información de los dispositivos de hardware (cámaras térmicas y otros sensores) utilizados para la recolección de datos.
+\subsubsection*{Grupo 4: Gestión y Autenticación de Dispositivos}
+Este grupo se enfoca en el registro, seguimiento del estado y la autenticación segura de los dispositivos de hardware (sensores, cámaras térmicas) responsables de la recolección de datos en campo.
 \begin{itemize}
-    \item \texttt{DeviceData}: Registra cada dispositivo físico, incluyendo su nombre, descripción, intervalo de recolección de datos (\texttt{dataCollectionTime}), estado (\texttt{StatusId}), fechas y usuarios de registro/actualización (FKs a \texttt{Person}). Puede estar asociado a un cultivo (\texttt{CropId}) y opcionalmente a una planta específica (\texttt{PlantId}). Es referenciada por \texttt{DeviceLog}, \texttt{DeviceToken} y \texttt{DeviceActivation}.
-    \item \texttt{DeviceLog}: Almacena registros (logs) de eventos o errores generados por los dispositivos, referenciando al dispositivo (\texttt{deviceId}) correspondiente.
-    \item \texttt{DeviceToken}: Gestiona los tokens de autenticación específicos para que los dispositivos puedan enviar datos de forma segura a la API. Se relaciona con \texttt{DeviceData}.
-    \item \texttt{DeviceActivation}: Controla el proceso de activación inicial de un dispositivo mediante un código, almacenando su estado (\texttt{activationStatus}, FK a \texttt{Status}) y fechas relevantes. Se relaciona con \texttt{DeviceData}.
+    \item \texttt{devices}: Registra cada dispositivo físico, asociándolo a un cultivo y opcionalmente a una planta específica. Almacena metadatos como el nombre, descripción, estado operativo y la frecuencia configurada para la recolección de datos.
+    \item \texttt{device\_activations}: Facilita el proceso seguro de incorporación (\textit{onboarding}) de nuevos dispositivos al sistema mediante códigos de activación de un solo uso, registrando el estado y temporalidad de dicho proceso.
+    \item \texttt{device\_tokens}: Almacena los tokens que permiten a los dispositivos autenticarse ante la API del sistema para el envío seguro de datos, gestionando su ciclo de vida (activo/revocado) y fechas de expiración.
 \end{itemize}
 
-\subsubsection*{Grupo 5: Datos de Plantas (Verde)}
-Este grupo centraliza toda la información relacionada con las plantas de arándano monitoreadas.
+\subsubsection*{Grupo 5: Recolección y Análisis de Datos}
+Este grupo es fundamental, ya que almacena las mediciones directas de los sensores, las observaciones cualitativas y los resultados derivados del procesamiento y análisis realizado por el sistema.
 \begin{itemize}
-    \item \texttt{PlantData}: Representa cada planta individual dentro de un cultivo. Almacena su nombre identificador, fecha de registro, estado actual (\texttt{StatusId}, ej. 'Saludable', 'No Saludable') y a qué cultivo pertenece (\texttt{CropId}). Es referenciada por \texttt{DeviceData} (opcionalmente), \texttt{PlantStateHistory}, \texttt{SensorData}, \texttt{ThermalData} y \texttt{PlantObservation}.
-    \item \texttt{PlantStateHistory}: Mantiene un historial de los cambios de estado de cada planta, registrando cuándo ocurrió el cambio (\texttt{changedAt}), quién lo realizó (\texttt{changedBy}, FK a \texttt{Person}) y cuál fue el nuevo estado (\texttt{StatusId}). Se relaciona con \texttt{PlantData}.
-    \item \texttt{SensorData}: Almacena las lecturas periódicas de sensores ambientales asociados a una planta (temperatura, humedad, intensidad lumínica) y opcionalmente datos climáticos de la ciudad. Incluye la fecha de registro (\texttt{recordedAt}) y referencias a la planta (\texttt{PlantId}) y al cultivo (\texttt{CropId}).
-    \item \texttt{ThermalData}: Guarda los datos crudos de las imágenes termográficas (en formato JSONB \texttt{thermalImageData}) y opcionalmente una imagen RGB (\texttt{rgbImageData}). Incluye la fecha de registro (\texttt{recordedAt}) y referencias a la planta (\texttt{PlantId}) y al cultivo (\texttt{CropId}).
-    \item \texttt{PlantObservation}: Registra observaciones manuales realizadas por los usuarios sobre el estado de una planta, incluyendo descripciones textuales, indicadores visuales (decoloraciones, uniformidad), notas, una calificación subjetiva y referencias a la última toma de datos (\texttt{SensorData} y \texttt{ThermalData})disponibles al momento de la observación. Se relaciona con \texttt{PlantData}, \texttt{Person} (\texttt{createdBy}) y \texttt{Status}.
-\end{itemize}
-
-\subsubsection*{Grupo 6: Auditoría (Rojo)}
-Este conjunto de tablas implementa un mecanismo detallado de auditoría para rastrear cambios en la base de datos.
-\begin{itemize}
-    \item Tablas de Auditoría (\texttt{AuditCrop}, 
-	\texttt{AuditDataTable}, 
-	\texttt{AuditDevice}, 
-	\texttt{AuditPerson},
-	\\\texttt{AuditSensitiveData}, 
-	\texttt{AuditSystemTable}): Cada una de estas tablas está diseñada para registrar modificaciones (inserciones, actualizaciones, eliminaciones) en las tablas principales correspondientes a su nombre o categoría. Almacenan información crucial como la tabla y columna modificada, el ID del registro afectado, la acción realizada ('INSERT', 'UPDATE', 'DELETE'), los valores antiguo y nuevo (cuando aplica), quién realizó el cambio (\texttt{performedBy}, FK a \texttt{Person}), cuándo (\texttt{performedAt}), desde qué IP (\texttt{performedByIp}) e información del dispositivo (\texttt{userAgent}). La tabla \texttt{AuditSensitiveData} se enfoca específicamente en el acceso o cambio de datos sensibles (ej. contraseñas, tokens), mientras que las otras auditan cambios en datos generales. Todas referencian al \texttt{cropId} para contextualizar la auditoría dentro de un cultivo específico.
+    \item \texttt{environmental\_readings}: Persiste las series temporales de datos ambientales (temperatura, humedad) recolectadas por cada dispositivo, incluyendo timestamps tanto del dispositivo como del servidor y opcionalmente, datos climáticos externos contextuales.
+    \item \texttt{thermal\_captures}: Almacena los metadatos y estadísticas clave extraídas de cada captura termográfica (temperaturas mínima, máxima, promedio, histograma), así como la referencia a la imagen RGB asociada (almacenada externamente). Incluye timestamps del dispositivo y del servidor.
+    \item \texttt{observations}: Permite a los usuarios registrar evaluaciones cualitativas manuales sobre el estado de las plantas, proporcionando un complemento a los datos cuantitativos de los sensores. Se vincula a la planta observada y al usuario que realizó el registro.
+    \item \texttt{plant\_status\_histories}: Funciona como un log de auditoría específico para el estado de las plantas. Registra cada cambio en el \texttt{plant\_status}, indicando la fecha, el nuevo estado, la planta afectada y si el cambio fue realizado manualmente por un usuario o automáticamente por el sistema tras un análisis.
+    \item \texttt{analysis\_results}: Guarda los resultados cuantitativos generados por los algoritmos de análisis del sistema, como el valor calculado del Índice de Estrés Hídrico (CWSI). Almacena el resultado junto con la fecha, la planta analizada y otros parámetros relevantes para la trazabilidad del cálculo, asegurando la unicidad por planta y timestamp.
 \end{itemize}
 
 % =================================================
@@ -507,24 +604,21 @@ Un diagrama de secuencia muestra un conjunto de mensajes ordenados en una secuen
 
 \subsection*{Líneas de Vida Principales}
 
-Los diagramas de secuencia presentados en este documento ilustran las interacciones entre diferentes componentes del sistema para realizar casos de uso específicos. Debido al considerable número de escenarios detallados, se presenta a continuación una descripción general de las líneas de vida (\textit{lifelines}) que aparecen de forma recurrente, representando los actores y las capas arquitectónicas principales del sistema:
+Los diagramas de secuencia presentados en este documento ilustran las interacciones entre diferentes componentes del sistema para realizar casos de uso específicos. A continuación, se presenta una descripción general de las líneas de vida (\textit{lifelines}) que aparecen de forma recurrente, representando los actores y las capas arquitectónicas principales del sistema, el cual sigue el patrón Modelo-Vista-Controlador (MVC) y organizado mediante carpetas que simulas las capas de la arquitctura cebolla (Onion Architecture).
 
 \begin{itemize}
     \item \texttt{:Persona}: Representa al usuario final que interactúa con el sistema a través de la interfaz gráfica. Dependiendo del contexto, puede ser un \texttt{Usuario} o un \texttt{Administrador}. Es el iniciador de las secuencias asociadas a funcionalidades interactivas.
 
-    \item \texttt{:Vista}: Simboliza la interfaz de usuario cliente con la que interactúa \texttt{:Persona}. Esta línea de vida representa la aplicación ejecutándose en diferentes plataformas (web, movil u otras). Sus responsabilidades incluyen presentar información, capturar datos del usuario, realizar validaciones iniciales y enviar solicitudes (vía \texttt{HTTPS}) a la API backend, así como mostrar las respuestas recibidas.
+    \item \texttt{:Vista}: Simboliza la interfaz de usuario (capa \textit{View} en MVC) con la que interactúa \texttt{:Persona}. Esta línea de vida representa la aplicación cliente (ej. aplicación web ejecutándose en el navegador). Sus responsabilidades incluyen presentar información al usuario, capturar sus entradas, realizar validaciones del lado del cliente y enviar solicitudes (vía \texttt{HTTP/S}) a los puntos de entrada del backend (\texttt{:Controlador}), así como renderizar las respuestas recibidas.
 
-    \item \texttt{:Infraestructura}: Representa la capa más externa de la API backend, siguiendo los principios de la Arquitectura Cebolla (\textit{Onion Architecture}). Esta capa actúa como la fachada de la API, recibiendo las solicitudes HTTP desde \texttt{:Vista}. Es responsable de manejar los controladores (endpoints), la configuración, la comunicación con elementos externos como la base de datos \texttt{PostgreSQL} (a través de \texttt{ODBC} o un ORM), la gestión de logs, la autenticación/autorización a nivel de API, y otros aspectos transversales (\textit{cross-cutting concerns}). Traduce las solicitudes del exterior hacia las capas internas y las respuestas de las capas internas hacia el exterior.
+    \item \texttt{:Controlador}: Representa la capa de Controladores (\textit{Controller} en MVC) en el backend. Actúa como el punto de entrada para las solicitudes HTTP provenientes de \texttt{:Vista}. Es responsable de interpretar la solicitud, invocar la lógica de negocio apropiada interactuando con el \texttt{:Modelo} (a través de servicios), coordinar las operaciones necesarias y seleccionar la \texttt{:Vista} adecuada (o devolver datos, como API) para generar la respuesta al cliente.
 
-    \item \texttt{:Aplicacion}: Representa la capa de lógica de aplicación en la Arquitectura Cebolla. Contiene la orquestación de los casos de uso del sistema. Recibe las solicitudes ya procesadas por la capa de \texttt{:Infraestructura}, invoca la lógica de negocio necesaria en la capa de \texttt{:Dominio}, coordina las transacciones y prepara los datos de respuesta para la capa de \texttt{:Infraestructura}. Implementa la lógica específica de la aplicación que no pertenece estrictamente al dominio ni a la infraestructura.
-
-    \item \texttt{:Dominio}: Simboliza el núcleo del sistema, la capa más interna y central de la Arquitectura Cebolla. Alberga las entidades de negocio (ej. Planta, Cultivo, Usuario), los objetos de valor, las reglas de negocio fundamentales, los eventos de dominio y, crucialmente, las interfaces de los repositorios (abstracciones para el acceso a datos). Procesa la lógica de negocio pura, respondiendo a las invocaciones de la capa de \texttt{:Aplicacion} y es completamente independiente de las tecnologías de UI, base de datos o infraestructura externa. La persistencia real de los datos (definida por las interfaces de repositorio) se implementa típicamente en la capa de \texttt{:Infraestructura}.
+    \item \texttt{:Modelo}: Simboliza la capa del Modelo (\textit{Model} en MVC). Encapsula los datos de la aplicación (entidades de dominio como Planta, Cultivo, Usuario), la lógica de negocio fundamental, las reglas de validación y la interacción con la capa de persistencia de datos. El \texttt{:Controlador} utiliza el \texttt{:Modelo} para leer o modificar el estado de la aplicación. La interacción directa con la base de datos (\texttt{PostgreSQL}) se realiza a través del ORM Entity Framework Core, orquestado mediante servicios, utilizando las entidades definidas en el Modelo.
 \end{itemize}
 
-Generalmente, el flujo de una solicitud iniciada por el usuario sigue la secuencia \texttt{:Persona} $\rightarrow$ \texttt{:Vista} $\rightarrow$ \texttt{:Infraestructura} $\rightarrow$ \texttt{:Aplicacion} $\rightarrow$ \texttt{:Dominio}. La capa de \texttt{:Dominio} (o \texttt{:Aplicacion} a través de ella) utiliza las interfaces de repositorio, cuya implementación en \texttt{:Infraestructura} interactúa con la base de datos. La respuesta viaja de vuelta siguiendo el camino inverso: \texttt{:Dominio} $\rightarrow$ \texttt{:Aplicacion} $\rightarrow$ \texttt{:Infraestructura} $\rightarrow$ \texttt{:Vista} $\rightarrow$ \texttt{:Persona}. Esta estructura promueve la separación de responsabilidades y la mantenibilidad del sistema.
+Generalmente, el flujo de una solicitud iniciada por el usuario sigue la secuencia \texttt{:Persona} $\rightarrow$ \texttt{:Vista} $\rightarrow$ \texttt{:Controlador}. El \texttt{:Controlador} interactúa entonces con el \texttt{:Modelo} (capas de servicio que usan el Modelo) para procesar la solicitud y acceder a los datos. Finalmente, el \texttt{:Controlador} selecciona una \texttt{:Vista} (o prepara una respuesta de datos) que se envía de vuelta a \texttt{:Persona} a través de la \texttt{:Vista} original: \texttt{:Controlador} $\rightarrow$ \texttt{:Vista} $\rightarrow$ \texttt{:Persona}. Esta estructura promueve la separación de responsabilidades característica del patrón MVC.
 
-Es importante señalar que aquellos diagramas que introducen líneas de vida con roles particulares no cubiertos en la descripción general (como la línea de vida \texttt{:Camara} detallada en la Figura\ref{fig:seq_activar_camara}) o aquellos que representan patrones de interacción fundamentales y reutilizables (como el flujo base para envío de formularios mostrado en la Figura\ref{fig:seq_base_formulario}) incluyen una descripción textual específica adjunta. 
-Para los diagramas de secuencia restantes, se entiende que siguen el patrón general de interacción entre las capas \texttt{:Vista}, \texttt{:Infraestructura}, \texttt{:Aplicacion} y \texttt{:Dominio}, utilizando las responsabilidades asignadas a cada línea de vida según se describió previamente. 
+Es importante señalar que aquellos diagramas que introducen líneas de vida con roles particulares no cubiertos en la descripción general (como la línea de vida \texttt{:Camara} detallada en la Figura\ref{fig:seq_activar_camara}) o aquellos que representan patrones de interacción fundamentales y reutilizables (como el flujo base para envío de formularios mostrado en la Figura\ref{fig:seq_base_formulario}) incluyen una descripción textual específica adjunta. Para los diagramas de secuencia restantes, se entiende que siguen el patrón general de interacción entre \texttt{:Vista}, \texttt{:Controlador} y \texttt{:Modelo}, utilizando las responsabilidades asignadas a cada línea de vida según se describió previamente.
 
 \begin{figure}[H]
     \centering
@@ -994,6 +1088,207 @@ Una clase es la descripción de un concepto del dominio de la aplicación o del 
 En esta sección se presenta el diagrama de clases principal del sistema. Se describirán las tablas (clases) más importantes, sus atributos, las relaciones (asociaciones, generalizaciones) entre ellas y cómo estas estructuras en conjunto definen el funcionamiento general y la organización de los datos del sistema.
 
 % =================================================
+% Diagrama: Entidades Principales y Datos de Monitoreo
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Entidades Principales y Datos de Monitoreo.}
+    \label{fig:dc_domain_core}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_0.1.png} 
+\end{figure}
+
+La Figura \ref{fig:dc_domain_core} presenta el núcleo del modelo de dominio del sistema. Se observan las entidades centrales que representan los elementos físicos monitoreados:
+\begin{itemize}
+    \item \texttt{Crop}: Representa el cultivo y actúa como la entidad contenedora principal (tenant).
+    \item \texttt{Plant}: Modela cada planta individual dentro de un cultivo. Es una entidad central que agrega gran parte de los datos de monitoreo.
+    \item \texttt{Device}: Representa el dispositivo físico de hardware encargado de la recolección de datos.
+\end{itemize}
+
+El diagrama ilustra las relaciones de composición y asociación entre estas entidades y los datos que generan o a los que están asociados:
+\begin{itemize}
+    \item Un \texttt{Crop} contiene múltiples \texttt{Plant} y \texttt{Device}.
+    \item Un \texttt{Device} está asociado a un \texttt{Crop} y opcionalmente a una \texttt{Plant} específica. La relación con \texttt{Plant} está configurada con \texttt{OnDelete(SetNull)}, lo que significa que si una planta se elimina, el campo \texttt{PlantId} en los dispositivos asociados se establecerá en nulo, pero los dispositivos no se eliminarán.
+    \item Tanto \texttt{Plant} como \texttt{Device} están asociados a las entidades que almacenan los datos recolectados: \texttt{EnvironmentalReading} (datos de sensores ambientales) y \texttt{ThermalCapture} (datos de capturas térmicas). Las relaciones de \texttt{Plant} con estos datos también usan \texttt{OnDelete(SetNull)}.
+    \item La entidad \texttt{Plant} también se relaciona con \texttt{AnalysisResult} (resultados del cálculo de CWSI), \texttt{PlantStatusHistory} (historial de cambios de estado) y \texttt{Observation} (anotaciones manuales de los usuarios).
+\end{itemize}
+
+Finalmente, el diagrama muestra el uso de enumeraciones (\texttt{enum}) como \texttt{PlantStatus}, \texttt{DeviceStatus} y \texttt{ExperimentalGroupType} para representar estados y clasificaciones de manera controlada y legible dentro del dominio. Se detallan todos los atributos de cada clase, especificando su tipo de dato (ej. \texttt{int}, \texttt{string}, \texttt{DateTime}, \texttt{float?}).
+
+
+% =================================================
+% Diagrama: Gestión de Usuarios y Roles
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Gestión de Usuarios y Roles.}
+    \label{fig:dc_domain_users}
+    \includegraphics[width=0.7\textwidth]{UML/Clases/DC_0.2.png}
+\end{figure}
+
+Continuando con el modelo de dominio, la Figura \ref{fig:dc_domain_users} ilustra las clases relacionadas con la gestión de usuarios y el control de acceso.
+\begin{itemize}
+    \item \texttt{User}: Representa a un usuario del sistema web. Esta clase hereda de la clase base \texttt{IdentityUser<int>} proporcionada por ASP.NET Core Identity, extendiéndola con atributos personalizados como \texttt{FirstName}, \texttt{LastName}, fechas de creación/actualización y el último inicio de sesión (\texttt{LastLoginAt}).
+    \item \texttt{ApplicationRole}: Representa un rol dentro del sistema (ej. Administrador). Hereda de \texttt{IdentityRole<int>} y, aunque no añade atributos propios, permite la integración con el sistema de roles de Identity.
+    \item \texttt{AccountSettings}: Modela las preferencias de notificación por correo electrónico de un usuario. Existe una relación de composición fuerte (indicada por el rombo negro) entre \texttt{User} y \texttt{AccountSettings}, significando que cada usuario tiene exactamente una instancia de configuración de cuenta asociada.
+    \item \texttt{InvitationCode}: Almacena los códigos de invitación de un solo uso para el registro de nuevos usuarios. Un \texttt{User} (administrador) puede crear múltiples códigos de invitación, representado por la asociación opcional (la relación puede tener \texttt{CreatedByUserId} nulo).
+\end{itemize}
+
+Este diagrama muestra cómo el sistema extiende las funcionalidades base de ASP.NET Core Identity para adaptarlas a las necesidades específicas del proyecto, como las configuraciones de cuenta y el flujo de invitaciones. Se detallan todos los atributos y sus tipos de dato correspondientes.
+
+% =================================================
+% Diagrama: Ciclo de Vida y Seguridad del Dispositivo
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Ciclo de Vida y Seguridad del Dispositivo.}
+    \label{fig:dc_domain_device_lifecycle}
+    \includegraphics[width=0.8\textwidth]{UML/Clases/DC_0.3.png} 
+    % Asegúrate de que la ruta 'UML/Clases/Diagrama_Dominio_Dispositivo_Seguridad.png' sea correcta
+\end{figure}
+
+La Figura \ref{fig:dc_domain_device_lifecycle} detalla las clases que gestionan el ciclo de vida y la seguridad de la entidad \texttt{Device}. Este subsistema es crucial para garantizar que solo el hardware autorizado pueda interactuar con la API del sistema.
+\begin{itemize}
+    \item \texttt{Device}: Es la clase central, ya presentada, que representa el dispositivo físico.
+    \item \texttt{DeviceActivation}: Modela el proceso de activación inicial y de un solo uso de un dispositivo. Almacena el \texttt{ActivationCode}, su fecha de expiración y el estado del proceso.
+    \item \texttt{DeviceToken}: Representa el par de tokens de autenticación (\texttt{AccessToken} y \texttt{RefreshToken}) que se generan para un dispositivo una vez que ha sido activado. Esta clase gestiona la validez y el estado de revocación de los tokens para la autenticación continua.
+\end{itemize}
+
+El diagrama muestra una relación de composición (indicada por el rombo negro) desde \texttt{Device} hacia \texttt{DeviceActivation} y \texttt{DeviceToken}. Esto significa que la existencia de los códigos de activación y los tokens está intrínsecamente ligada a la del dispositivo; son parte fundamental de su ciclo de vida. Adicionalmente, se utilizan las enumeraciones \texttt{DeviceStatus}, \texttt{ActivationStatus} y \texttt{TokenStatus} para gestionar los estados de cada entidad de forma controlada y explícita.
+
+% =================================================
+% Diagrama: Configuraciones de Cultivo
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Configuraciones de Cultivo.}
+    \label{fig:dc_domain_crop_settings}
+    \includegraphics[width=0.9\textwidth]{UML/Clases/DC_0.4.png} 
+    % Asegúrate de que la ruta 'UML/Clases/Diagrama_Dominio_Configuracion_Cultivo.png' sea correcta
+\end{figure}
+
+Finalmente, la Figura \ref{fig:dc_domain_crop_settings} detalla la estructura utilizada para gestionar las configuraciones específicas de cada cultivo.
+\begin{itemize}
+    \item \texttt{CropSettings}: Esta clase actúa como un contenedor principal que agrupa diferentes conjuntos de parámetros. Es parte de la entidad \texttt{Crop} a través de una relación de composición, y sus datos se almacenan en un campo de tipo \texttt{jsonb} en la base de datos.
+    \item \texttt{AnalysisParameters}: Contiene todos los umbrales y ventanas de tiempo que controlan cómo se ejecuta el análisis de estrés hídrico (CWSI).
+    \item \texttt{AnomalyParameters}: Define los parámetros utilizados para la detección de anomalías nocturnas en los datos de temperatura.
+    \item \texttt{CalibrationReminder}: Especifica la frecuencia con la que se deben generar recordatorios para la calibración de los dispositivos.
+\end{itemize}
+
+La relación entre \texttt{CropSettings} y las clases de parámetros específicos (\texttt{AnalysisParameters}, etc.) es también de composición (rombo negro), indicando que estos parámetros son parte integral de la configuración general del cultivo. Esta estructura permite organizar y extender fácilmente las configuraciones del sistema en el futuro.
+
+% =================================================
+% Diagrama: Gestión de Usuarios y Autenticación (Aplicación)
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Gestión de Usuarios y Autenticación (Capa de Aplicación).}
+    \label{fig:dc_app_users}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_1.1.png}
+\end{figure}
+
+La Figura \ref{fig:dc_app_users} representa el subsistema de la capa de aplicación encargado de la gestión de usuarios y la autenticación. Este diagrama ilustra las interacciones clave y las dependencias de los servicios que implementan esta lógica.
+\begin{itemize}
+    \item \textbf{Servicios Principales}: Se destacan las interfaces \texttt{IUserService} e \texttt{IInvitationService}, que definen los contratos para la gestión de usuarios e invitaciones, respectivamente. Sus implementaciones concretas, \texttt{UserService} e \texttt{InvitationService}, contienen la lógica de negocio detallada.
+    \item \textbf{Data Transfer Objects (DTOs)}: Se muestra el paquete \texttt{DTOs de Administración}, que agrupa las clases utilizadas para transferir datos entre la capa de presentación y los servicios. Clases como \texttt{LoginDto}, \texttt{RegisterDto}, \texttt{ChangePasswordDto}, y \texttt{ProfileInfoDto} encapsulan la información necesaria para operaciones específicas como el inicio de sesión, registro, cambio de contraseña y actualización de perfil. \texttt{UserDto} se utiliza para presentar información resumida de los usuarios en las vistas de administración.
+    \item \textbf{Dependencias}: El diagrama evidencia las dependencias de los servicios de aplicación con componentes del framework ASP.NET Core Identity (\texttt{UserManager}, \texttt{SignInManager}, \texttt{RoleManager}) para la gestión subyacente de usuarios y sesiones. También se muestra la dependencia con la interfaz \texttt{IAlertService} (definida en la capa de aplicación pero implementada en infraestructura) para el envío de notificaciones por correo electrónico.
+    \item \textbf{Flujo de Responsabilidades}: El \texttt{UserService} actúa como orquestador principal para la mayoría de las operaciones del ciclo de vida del usuario, interactuando con los gestores de Identity y delegando la lógica de invitaciones al \texttt{IInvitationService}.
+\end{itemize}
+
+Este diagrama detalla todos los atributos y métodos públicos de las clases de servicio e interfaces, así como los atributos de los DTOs, proporcionando una vista completa de la estructura y las responsabilidades de este módulo fundamental.
+
+
+% =================================================
+% Diagrama: Gestión de Entidades (CRUD) (Aplicación)
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Gestión de Entidades (CRUD) (Capa de Aplicación).}
+    \label{fig:dc_app_crud}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_1.2.png} 
+\end{figure}
+
+La Figura \ref{fig:dc_app_crud} detalla los subsistemas dentro de la capa de aplicación responsables de las operaciones de Creación, Lectura, Actualización y Eliminación (CRUD) para las entidades principales: Cultivo, Planta y Dispositivo. El diagrama se organiza en tres paquetes lógicos principales:
+\begin{itemize}
+    \item \textbf{Gestión de Cultivos}: Incluye la interfaz \texttt{ICropService} y su implementación \texttt{CropService}, junto con los DTOs asociados (\texttt{CropCreateDto}, \texttt{CropEditDto}, \texttt{CropDetailsDto}, \texttt{CropSummaryDto}) que definen los datos necesarios para interactuar con las operaciones CRUD de los cultivos desde la capa de presentación.
+    \item \textbf{Gestión de Plantas}: Contiene la interfaz \texttt{IPlantService} y su implementación \texttt{PlantService}, acompañados de sus DTOs correspondientes (\texttt{PlantCreateDto}, \texttt{PlantEditDto}, \texttt{PlantDetailsDto}, \texttt{PlantSummaryDto}). Este servicio gestiona el ciclo de vida de las plantas.
+    \item \textbf{Gestión de Dispositivos (Administración)}: Presenta la interfaz \texttt{IDeviceAdminService} y su implementación \texttt{DeviceAdminService}, junto con los DTOs específicos (\texttt{DeviceCreateDto}, \texttt{DeviceEditDto}, \texttt{DeviceDetailsDto}, \texttt{DeviceSummaryDto}, \texttt{DeviceCreationResultDto}) para la administración de los dispositivos de hardware desde la interfaz web.
+\end{itemize}
+
+Se observa que todos estos servicios dependen principalmente del \texttt{ApplicationDbContext} (ubicado en la capa de infraestructura) para interactuar con la base de datos. Además, existen dependencias entre servicios, como la de \texttt{DeviceAdminService} hacia \texttt{IPlantService}, necesaria para poblar listas desplegables en los formularios de dispositivos. Las interfaces \texttt{ICropFormData}, \texttt{IPlantFormData}, y \texttt{IDeviceFormData} actúan como contratos comunes para los DTOs de creación y edición, promoviendo la consistencia. El diagrama incluye los atributos y métodos públicos de todas las clases e interfaces representadas.
+
+% =================================================
+% Diagrama: Interacción con Dispositivos y Envío de Datos (Aplicación)
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Interacción con Dispositivos y Envío de Datos (Capa de Aplicación).}
+    \label{fig:dc_app_device_api}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_1.4.png} 
+    % Asegúrate de que la ruta 'UML/Clases/Diagrama_App_Device_API.png' sea correcta.
+\end{figure}
+
+La Figura \ref{fig:dc_app_device_api} ilustra la arquitectura de la API de la capa de aplicación, que sirve como punto de entrada para toda la comunicación proveniente de los dispositivos de hardware.
+\begin{itemize}
+    \item \textbf{Servicios de API}: El diagrama muestra las dos interfaces principales que definen esta frontera de comunicación:
+    \begin{itemize}
+        \item \texttt{IDeviceService}: Es responsable de todo el ciclo de vida de la autenticación del dispositivo, incluyendo la activación inicial, la validación de tokens y la generación de nuevos tokens de acceso y refresco.
+        \item \texttt{IDataSubmissionService}: Se encarga de recibir y procesar todos los datos enviados por los dispositivos una vez que están autenticados, como las lecturas ambientales y las capturas térmicas.
+    \end{itemize}
+    \item \textbf{Data Transfer Objects (DTOs) de la API}: Se detalla un conjunto completo de DTOs que actúan como contratos de datos para la API. Clases como \texttt{DeviceActivationRequestDto}, \texttt{DeviceAuthRequestDto}, \texttt{AmbientDataDto} y \texttt{ThermalDataDto} definen la estructura exacta de los payloads (generalmente en formato JSON) que los dispositivos deben enviar en sus peticiones. Del mismo modo, DTOs como \texttt{DeviceActivationResponseDto} definen la estructura de las respuestas del servidor.
+    \item \textbf{Dependencias de Infraestructura}: Se visualizan las dependencias de estos servicios con componentes de la capa de infraestructura. El \texttt{DataSubmissionService} depende de \texttt{IWeatherService} para enriquecer los datos y de \texttt{IFileStorageService} para almacenar imágenes. Por su parte, el \texttt{DeviceService} depende del \texttt{ApplicationDbContext} para la persistencia y de \texttt{TokenSettings} para la configuración de la duración de los tokens.
+\end{itemize}
+
+Este diagrama es clave para entender la interfaz programática que el firmware de los dispositivos de hardware debe consumir para interactuar correctamente con el sistema.
+
+% =================================================
+% Diagrama: Arquitectura de Peticiones y Seguridad (Infraestructura/Presentación)
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Arquitectura de Peticiones y Seguridad.}
+    \label{fig:dc_infra_security_pipeline}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_2-3.1.png} 
+\end{figure}
+
+La Figura \ref{fig:dc_infra_security_pipeline} ilustra los componentes clave de las capas de Infraestructura y Presentación que intervienen en el procesamiento y la seguridad de las peticiones HTTP entrantes, antes de que lleguen a la lógica de negocio de los controladores.
+\begin{itemize}
+    \item \texttt{UserAuditingMiddleware}: Es un componente de middleware que se ejecuta en cada petición. Su función principal es extraer el identificador del usuario autenticado (si existe) y establecerlo como el \texttt{application\_name} en la conexión de la base de datos (\texttt{ApplicationDbContext}). Esto permite una auditoría detallada a nivel de base de datos para rastrear qué usuario realizó cada operación.
+    \item \texttt{DeviceAuthenticationHandler}: Es un manejador de autenticación personalizado que hereda de \texttt{AuthenticationHandler}. Se activa específicamente para los endpoints de la API de dispositivos protegidos con la política \texttt{"DeviceAuthenticated"}. Utiliza el \texttt{IDeviceService} para validar el token de acceso (\texttt{AccessToken}) enviado en el encabezado de autorización y, si es válido, construye la identidad (ClaimsPrincipal) del dispositivo.
+    \item \texttt{ValidateTurnstileAttribute}: Es un filtro de acción (\texttt{ActionFilterAttribute}) que se aplica como un atributo (\texttt{[ValidateTurnstile]}) a las acciones de los controladores que manejan envíos de formularios públicos. Antes de que se ejecute la acción, este filtro extrae el token de Cloudflare Turnstile de la petición y utiliza el \texttt{ITurnstileService} para verificar su validez, previniendo así ataques automatizados por bots.
+\end{itemize}
+
+Este diagrama muestra cómo estas clases interceptan las solicitudes en diferentes etapas del pipeline de ASP.NET Core (Middleware, Autenticación, Filtro de Acción) para aplicar lógica transversal de seguridad y auditoría. Se visualizan también sus dependencias clave con servicios de la capa de aplicación y el contexto de la base de datos.
+
+% =================================================
+% Diagrama: Patrón de Controladores y Vistas (MVC / API)
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Patrón de Controladores y Vistas (MVC / API).}
+    \label{fig:dc_presentation_controllers}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_2-3.3.png}
+\end{figure}
+
+Finalmente, la Figura \ref{fig:dc_presentation_controllers} describe el patrón arquitectónico seguido por los controladores en la capa de Presentación. En lugar de mostrar cada controlador individualmente, este diagrama utiliza ejemplos representativos para ilustrar la estructura general.
+\begin{itemize}
+    \item \textbf{Controladores MVC}: Se muestra la clase base \texttt{BaseAdminController}, que hereda de la clase \texttt{Controller} de ASP.NET Core. Esta clase base centraliza lógica común para todos los controladores del área de administración, como el manejo estandarizado de los resultados de los servicios (\texttt{HandleServiceResult}) y la comunicación de mensajes al usuario a través de \texttt{TempData}. Un controlador típico como \texttt{CropsController} hereda de \texttt{BaseAdminController} y depende de la interfaz del servicio correspondiente (\texttt{ICropService}) para realizar las operaciones. Utiliza DTOs como \texttt{CropCreateDto} para recibir datos de los formularios y \texttt{CropSummaryDto} (o ViewModels) para pasar datos a las vistas.
+    \item \textbf{Controladores API}: Se representa con \texttt{DeviceApiController}, que hereda de \texttt{ControllerBase}. Estos controladores están diseñados para ser consumidos por clientes programáticos (como el hardware). Dependen de las interfaces de servicio (\texttt{IDeviceService}, \texttt{IDataSubmissionService}) y utilizan DTOs específicos de la API (como \texttt{DeviceActivationRequestDto} o \texttt{AmbientDataDto}) para definir los contratos de datos de los endpoints.
+    \item \textbf{Abstracciones y Dependencias}: El diagrama resalta cómo los controladores dependen de las interfaces de los servicios definidos en la capa de aplicación, respetando el principio de inversión de dependencias y manteniendo el acoplamiento bajo. También muestra cómo los DTOs actúan como la interfaz de datos entre la capa de presentación y la capa de aplicación.
+\end{itemize}
+
+Este patrón asegura que los controladores sean ligeros, centrados en manejar las peticiones HTTP y orquestar las llamadas a la lógica de negocio, manteniendo una clara separación de responsabilidades dentro de la arquitectura.
+
+
+% =================================================
 % =================================================
 
 \subsection{Diagrama de Despliegue}
@@ -1008,14 +1303,22 @@ La vista de despliegue muestra la disposición física de los nodos, que son rec
 \end{figure}
 
 El Diagrama de Despliegue, mostrado en la Figura \ref{fig:despliegue}, representa la arquitectura física del sistema y cómo sus componentes de software se distribuyen en diferentes nodos de hardware y servidores. 
-Se identifican cuatro nodos principales: 
+Se identifican dos nodos principales: 
+
 \begin{itemize}
-    \item \texttt{Frontend}: Representa el entorno cliente donde se ejecuta la interfaz de usuario. Despliega un componente \texttt{Uno Platform} y genera artefactos para diversas plataformas (\texttt{.wasm}, \texttt{.apk}, \texttt{.exe}).
-    \item \texttt{<<Servidor de aplicación>>}: Alojado en la plataforma \texttt{Somee}, donde se despliega el componente principal de backend: la \texttt{API Net Core 8}.
-    \item \texttt{<<Servidor Base de Datos>>}: Alojado en \texttt{HelioHost}, que ejecuta el sistema gestor de base de datos \texttt{PostgreSQL 13.20}.
-    \item \texttt{<<Hardware>> Dispositivo sensores}: Representa el dispositivo físico encargado de la toma de datos y ejecuta su propio \texttt{Firmware}.
+    \item \texttt{<<Servidor de aplicación>> Digital Ocean}: Representa el nodo principal del servidor que aloja la aplicación. Este servidor contiene un conjunto de componentes de software que operan de forma integrada mediante Docker Compose:
+    \begin{itemize}
+        \item \texttt{API Net Core 8}: Es el componente de aplicativo que gestiona la lógica de negocio y provee las vistas al usuario.
+        \item \texttt{PostgreSQL 16}: El sistema gestor de base de datos donde se almacenan los datos. Contiene PgAudit para proveer la auditoria de la base de datos al sistema de Logging.
+        \item \texttt{Loki/Promtail}: Componentes destinados a la recopilación y gestión de logs.
+        \item \texttt{Grafana}: Herramienta de visualización y monitoreo que consume los datos de \texttt{Loki/Promtail}.
+    \end{itemize}
+    \item \texttt{<<Hardware>> Dispositivo sensores}: Representa el dispositivo físico encargado de la toma de datos y ejecuta su propio componente de \texttt{Firmware}.
 \end{itemize}
-La comunicación entre el \texttt{Frontend} y la \texttt{API}, así como entre el \texttt{Dispositivo sensores} y la \texttt{API}, se establece a través del protocolo seguro \texttt{HTTPS}. La \texttt{API} interactúa con la base de datos mediante \texttt{ODBC}. El diagrama ilustra una arquitectura distribuida cliente-servidor, donde tanto los usuarios finales como los dispositivos de hardware se comunican con un servicio central (API) que gestiona la lógica y la persistencia de los datos.
+
+La comunicación entre el \texttt{Dispositivo sensores} (específicamente su \texttt{Firmware}) y la \texttt{API Net Core 8} se establece a través del protocolo seguro \texttt{HTTPS}.
+
+Internamente, dentro del servidor \texttt{Digital Ocean}, el diagrama ilustra las dependencias: la \texttt{API} interactúa con la base de datos \texttt{PostgreSQL} y, junto con esta, envía información (logs) al sistema \texttt{Loki/Promtail}, el cual a su vez alimenta a \texttt{Grafana} para la visualización.
 
 % =================================================
 % =================================================
@@ -1029,8 +1332,14 @@ Texto sobre el diseño de casos de prueba utilizando SonarQube.
 \section{Estimación de Recursos}
 Texto sobre la estimación de recursos utilizando el método de puntos de función o puntos de casos de uso.
 
+% =================================================
+% =================================================
+
 \section{Resultados de la Implementación del Software}
 Texto sobre el resultado de implementar el software.
+
+% =================================================
+% =================================================
 
 \section{Conclusiones y Recomendaciones del software}
 Discusión, conclusiones y recomendaciones sobre el software y su integración.

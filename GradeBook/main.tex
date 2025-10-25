@@ -250,44 +250,13 @@ Texto de la introducción (2 a 4 páginas).
 
 \include{capitulo_investigacion}   % Capítulo I: Informe de Investigación
 \include{capitulo_software}         % Capítulo II: Documentación del Software
-\include{capitulo_hardware}         % Capítulo IV: Desarrollo y Caracterización del Hardware
-\include{capitulo_experimento}      % Capítulo V: Estudio Experimental en Plantas de Arándano Biloxi
-\include{capitulo_ia}              % Capítulo VI: Integración de la Inteligencia Artificial en la Detección Temprana de Botrytis Cinerea
-\include{capitulo_conclusiones}     % Capítulo VII: Resultados Integrados y Conclusiones Globales
+\include{capitulo_hardware}         % Capítulo III: Desarrollo y Caracterización del Hardware
+\include{capitulo_experimento}      % Capítulo IV: Estudio Experimental en Plantas de Arándano Biloxi
+\include{capitulo_conclusiones}     % Capítulo V: Resultados Integrados y Conclusiones Globales
 
 % Bibliografía
 \addcontentsline{toc}{chapter}{Bibliografía}
 \bibliography{bibliografia}
-
-% Anexos
-\appendix  % Indica el inicio de los anexos
-
-\chapter*{Anexos}
-\addcontentsline{toc}{chapter}{Anexos}
-
-% Configurar el contador de secciones para usar letras mayúsculas
-\renewcommand{\thesection}{\Alph{section}}
-
-% Personalizar el formato de los títulos de las secciones para que muestren 'Anexo A.'
-\titleformat{\section}{\normalfont\Large\bfseries}{Anexo \thesection.}{1em}{}
-
-% Anexos numerados que aparecerán en el índice general
-\setcounter{section}{0}  % Reinicia el contador de secciones
-\section{Código Fuente del Módulo Principal}
-Incluir el manual de usuario...
-
-\section{Manual de Usuario por Roles}
-Incluir el manual de usuario...
-
-\section{Manual de Instalación}
-Incluir manual de instalación...
-
-\section{Artículos de Resultados de Investigación}
-Incluir artículos correspondientes...
-
-\section{Certificaciones de Ponencias y Controles de Seguimiento}
-
-\includepdfmerge[nup=1x2, pages={1}]{anexos/ponenciagab1.pdf,anexos/ponenciajuan1.pdf}
 
 % Fin del Documento
 \end{document}

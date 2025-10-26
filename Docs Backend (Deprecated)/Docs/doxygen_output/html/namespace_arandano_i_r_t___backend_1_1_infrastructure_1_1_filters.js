@@ -1,4 +1,0 @@
-var namespace_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters =
-[
-    [ "SanitizationActionFilter", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter.html", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_filters_1_1_sanitization_action_filter" ]
-];

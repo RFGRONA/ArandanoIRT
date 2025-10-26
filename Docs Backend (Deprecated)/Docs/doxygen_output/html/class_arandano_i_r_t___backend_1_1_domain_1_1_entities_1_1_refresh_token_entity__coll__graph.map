@@ -1,3 +1,0 @@
-<map id="ArandanoIRT_Backend.Domain.Entities.RefreshTokenEntity" name="ArandanoIRT_Backend.Domain.Entities.RefreshTokenEntity">
-<area shape="rect" id="Node000001" title="Represents a refresh token used to obtain new access tokens, extending user sessions." alt="" coords="5,5,203,368"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Application.Interfaces.Auditing.IAuditHelperService" name="ArandanoIRT_Backend.Application.Interfaces.Auditing.IAuditHelperService">
-<area shape="rect" id="Node000001" title="Defines a contract for a helper service providing common utility functions used during the audit logg..." alt="" coords="9,5,248,176"/>
-<area shape="rect" id="Node000002" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_helper_service.html" title="Implements IAuditHelperService providing utility methods commonly used during the generation of audit..." alt="" coords="5,224,252,416"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,191,131,224,126,224,126,191"/>
-</map>

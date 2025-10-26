@@ -1,3 +1,0 @@
-<map id="OV2640Sensor" name="OV2640Sensor">
-<area shape="rect" id="Node000001" title="Wrapper class simplifying interaction with an OV2640 camera via the ESP&#45;IDF driver." alt="" coords="5,5,125,139"/>
-</map>

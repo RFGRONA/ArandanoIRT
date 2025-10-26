@@ -1,6 +1,0 @@
-var namespace_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects =
-[
-    [ "ClientInfoTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests.html", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_client_info_tests" ],
-    [ "ResultTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_result_tests.html", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_result_tests" ],
-    [ "ResultTTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_result_t_tests.html", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_value_objects_1_1_result_t_tests" ]
-];

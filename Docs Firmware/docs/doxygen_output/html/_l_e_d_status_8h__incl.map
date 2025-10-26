@@ -1,7 +1,0 @@
-<map id="lib/LEDStatus/LEDStatus.h" name="lib/LEDStatus/LEDStatus.h">
-<area shape="rect" id="Node000001" title="Manages a single WS2812 NeoPixel LED for status indication." alt="" coords="49,5,230,32"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,143,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,34,97,70,93,67,126,31"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="166,80,243,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,31,185,67,181,70,149,34"/>
-</map>

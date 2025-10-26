@@ -1,7 +1,0 @@
-var namespace_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities =
-[
-    [ "PersonEntityTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_person_entity_tests.html", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_person_entity_tests" ],
-    [ "RefreshTokenEntityTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_refresh_token_entity_tests.html", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_refresh_token_entity_tests" ],
-    [ "SensorDataEntityTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests.html", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_sensor_data_entity_tests" ],
-    [ "StatusEntityTests", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_status_entity_tests.html", "class_arandano_i_r_t___backend_1_1_tests_1_1_unit_1_1_domain_1_1_entities_1_1_status_entity_tests" ]
-];

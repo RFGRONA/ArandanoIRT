@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Application.Interfaces.IServices.IAuthRegistrationService" name="ArandanoIRT_Backend.Application.Interfaces.IServices.IAuthRegistrationService">
-<area shape="rect" id="Node000001" title="Defines the contract for user registration operations." alt="" coords="5,5,238,128"/>
-<area shape="rect" id="Node000002" href="$class_arandano_i_r_t___backend_1_1_application_1_1_services_1_1_auth_registration_service.html" title="Implements services for registering new administrators and regular users." alt="" coords="13,176,230,304"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,143,124,176,119,176,119,143"/>
-</map>

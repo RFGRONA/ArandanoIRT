@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository.html" title=" " alt="" coords="5,5,214,64"/>
-<area shape="rect" id="Node000001" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_audit_system_table_repository.html" title="Defines the repository contract specifically for managing AuditSystemTableEntity instances." alt="" coords="262,5,474,64"/>
-<area shape="poly" id="edge30_Node000000_Node000001" title=" " alt="" coords="229,32,261,32,261,37,229,37"/>
-<area shape="rect" id="Node000002" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_system_table_repository.html" title=" " alt="" coords="522,13,789,56"/>
-<area shape="poly" id="edge31_Node000001_Node000002" title=" " alt="" coords="490,32,522,32,522,37,490,37"/>
-</map>

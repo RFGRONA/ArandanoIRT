@@ -1,4 +1,0 @@
-var _audit_data_table_generator_8cs =
-[
-    [ "ArandanoIRT_Backend.Infrastructure.Persistence.Auditing.AuditDataTableGenerator", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator.html", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator" ]
-];

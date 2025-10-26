@@ -1,5 +1,0 @@
-var interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_password_service =
-[
-    [ "RequestPasswordResetAsync", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_password_service.html#abcb2e2e7ba2c71c644c5abfdd997af48", null ],
-    [ "ResetPasswordAsync", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_password_service.html#a4d04038a1b4ffe25d6a7c472f50f6595", null ]
-];

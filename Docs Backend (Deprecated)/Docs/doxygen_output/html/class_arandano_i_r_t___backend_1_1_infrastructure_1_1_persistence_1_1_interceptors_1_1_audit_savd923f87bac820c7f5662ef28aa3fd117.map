@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor" name="ArandanoIRT_Backend.Infrastructure.Persistence.Interceptors.AuditSaveChangesInterceptor">
-<area shape="rect" id="Node000001" title="An SaveChangesInterceptor that automatically generates audit log entries for entity changes detected ..." alt="" coords="5,123,274,245"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="62,5,217,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,90,142,123,137,123,137,90"/>
-</map>

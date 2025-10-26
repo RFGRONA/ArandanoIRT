@@ -1,4 +1,0 @@
-var _captcha_service_8cs =
-[
-    [ "ArandanoIRT_Backend.Infrastructure.Services.CloudflareTurnstileService", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service.html", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_cloudflare_turnstile_service" ]
-];

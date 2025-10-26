@@ -1,7 +1,0 @@
-<map id="lib/MultipartDataSender/MultipartDataSender.h" name="lib/MultipartDataSender/MultipartDataSender.h">
-<area shape="rect" id="Node000001" title="Defines a utility class to send thermal data (JSON) and image data (JPEG) as a multipart/form&#45;data PO..." alt="" coords="90,5,247,48"/>
-<area shape="rect" id="Node000002" href="$_multipart_data_sender_8cpp.html" title="Implements the MultipartDataSender utility class for sending combined thermal (JSON) and image (JPEG)..." alt="" coords="5,96,175,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,62,110,97,106,94,138,58"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Main application firmware for an ESP32&#45;S3 based environmental and plant monitoring device." alt="" coords="199,104,296,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,58,238,102,234,105,195,61"/>
-</map>

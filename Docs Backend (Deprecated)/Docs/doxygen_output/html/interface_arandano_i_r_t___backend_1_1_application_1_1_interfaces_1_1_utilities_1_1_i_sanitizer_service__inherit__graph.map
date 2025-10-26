@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Application.Interfaces.Utilities.ISanitizerService" name="ArandanoIRT_Backend.Application.Interfaces.Utilities.ISanitizerService">
-<area shape="rect" id="Node000001" title="Defines the contract for a service that sanitizes input strings to remove potentially harmful content..." alt="" coords="10,5,230,91"/>
-<area shape="rect" id="Node000002" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_services_1_1_sanitizer_service.html" title="Implements the ISanitizerService." alt="" coords="5,139,235,245"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,106,123,139,118,139,118,106"/>
-</map>

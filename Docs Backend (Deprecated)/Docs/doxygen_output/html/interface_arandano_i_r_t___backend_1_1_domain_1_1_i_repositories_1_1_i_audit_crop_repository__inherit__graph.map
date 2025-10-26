@@ -1,7 +1,0 @@
-<map id="ArandanoIRT_Backend.Domain.IRepositories.IAuditCropRepository" name="ArandanoIRT_Backend.Domain.IRepositories.IAuditCropRepository">
-<area shape="rect" id="Node000001" title="Defines the repository contract specifically for managing AuditCropEntity instances." alt="" coords="12,208,228,293"/>
-<area shape="rect" id="Node000003" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_repositories_1_1_audit_crop_repository.html" title=" " alt="" coords="5,341,235,512"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="123,308,123,342,118,342,118,308"/>
-<area shape="rect" id="Node000002" href="$interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_repository.html" title=" " alt="" coords="24,5,216,160"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,175,123,208,118,208,118,175"/>
-</map>

@@ -1,3 +1,0 @@
-<map id="ArandanoIRT_Backend.Application.Interfaces.Auditing.IAuditEntryGenerator" name="ArandanoIRT_Backend.Application.Interfaces.Auditing.IAuditEntryGenerator">
-<area shape="rect" id="Node000001" title="Defines a contract for components responsible for generating audit log entries based on entity change..." alt="" coords="5,5,251,112"/>
-</map>

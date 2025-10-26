@@ -1,4 +1,0 @@
-var _i_help_request_service_8cs =
-[
-    [ "ArandanoIRT_Backend.Application.Interfaces.IServices.IHelpRequestService", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_help_request_service.html", "interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_help_request_service" ]
-];

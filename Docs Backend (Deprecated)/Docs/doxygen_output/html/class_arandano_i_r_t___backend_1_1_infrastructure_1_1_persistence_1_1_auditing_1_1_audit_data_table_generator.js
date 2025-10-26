@@ -1,6 +1,0 @@
-var class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator =
-[
-    [ "AuditDataTableGenerator", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator.html#a9f6baa98d15032223b1425a906d34a44", null ],
-    [ "CanHandle", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator.html#a79e86be4de83266fd94857388ca098fa", null ],
-    [ "GenerateEntries", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_auditing_1_1_audit_data_table_generator.html#a4aea02654e3c6f10727b8be0d46505cb", null ]
-];

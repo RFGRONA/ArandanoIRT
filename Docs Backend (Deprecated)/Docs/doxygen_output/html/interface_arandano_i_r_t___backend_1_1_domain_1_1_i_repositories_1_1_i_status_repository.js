@@ -1,4 +1,0 @@
-var interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_status_repository =
-[
-    [ "GetStatusesByTableNameAsync", "interface_arandano_i_r_t___backend_1_1_domain_1_1_i_repositories_1_1_i_status_repository.html#af9b05f88c9787af874c0dbc9e7247ada", null ]
-];

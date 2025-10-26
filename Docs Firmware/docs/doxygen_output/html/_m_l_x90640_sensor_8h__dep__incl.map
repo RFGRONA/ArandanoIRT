@@ -1,7 +1,0 @@
-<map id="lib/MLX90640Sensor/MLX90640Sensor.h" name="lib/MLX90640Sensor/MLX90640Sensor.h">
-<area shape="rect" id="Node000001" title="Defines a wrapper class for the MLX90640 Thermal Camera sensor." alt="" coords="86,5,227,48"/>
-<area shape="rect" id="Node000002" href="$_m_l_x90640_sensor_8cpp.html" title="Implements the MLX90640Sensor wrapper class methods." alt="" coords="5,96,159,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,62,101,97,97,94,128,58"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Main application firmware for an ESP32&#45;S3 based environmental and plant monitoring device." alt="" coords="183,104,280,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,58,223,102,219,105,182,62"/>
-</map>

@@ -1,5 +1,0 @@
-var class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor =
-[
-    [ "AuditSaveChangesInterceptor", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor.html#a3b4553a9828606be87d25e7614609285", null ],
-    [ "SavingChangesAsync", "class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor.html#a64b6dcee1e384424b00e997e2db00797", null ]
-];

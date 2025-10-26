@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$interface_arandano_i_r_t___backend_1_1_application_1_1_interfaces_1_1_i_services_1_1_i_auth_session_service.html" title="Defines the contract for user session management operations, including login, token refresh,..." alt="" coords="5,5,270,48"/>
-<area shape="rect" id="Node000001" href="$class_arandano_i_r_t___backend_1_1_application_1_1_services_1_1_auth_session_service.html" title="Implements services for user session management including login, token refresh, and logout." alt="" coords="318,5,545,48"/>
-<area shape="poly" id="edge9_Node000000_Node000001" title=" " alt="" coords="285,24,317,24,317,29,285,29"/>
-</map>

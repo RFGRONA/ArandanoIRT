@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,21,171,48"/>
-<area shape="rect" id="Node000001" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_persistence_1_1_interceptors_1_1_audit_save_changes_interceptor.html" title="An SaveChangesInterceptor that automatically generates audit log entries for entity changes detected ..." alt="" coords="219,5,498,64"/>
-<area shape="poly" id="edge89_Node000000_Node000001" title=" " alt="" coords="186,32,218,32,218,37,186,37"/>
-</map>

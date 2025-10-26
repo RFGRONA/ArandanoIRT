@@ -1,5 +1,0 @@
-<map id="ArandanoIRT_Backend.Application.Interfaces.Utilities.IEmailService" name="ArandanoIRT_Backend.Application.Interfaces.Utilities.IEmailService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,259,325"/>
-<area shape="rect" id="Node000002" href="$class_arandano_i_r_t___backend_1_1_infrastructure_1_1_utilities_1_1_smtp_email_service.html" title="Implements the IEmailService interface using an underlying EmailSenderUtility to send emails via SMTP..." alt="" coords="5,373,259,715"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,340,135,374,130,374,130,340"/>
-</map>

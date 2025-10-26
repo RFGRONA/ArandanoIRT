@@ -149,25 +149,49 @@ Para la construcción del sistema, se utilizarán elementos del marco de trabajo
 
 \section{Marcos de Referencia}
 \subsection{Marco Teórico}
-Texto del marco teórico...
+\label{subsec:marco_teorico}
+
+Este marco teórico sienta las bases conceptuales y científicas sobre las que se construye el presente proyecto. Se abordan tres pilares fundamentales: las características del cultivo de arándano variedad Biloxi y su sensibilidad hídrica, los mecanismos fisiológicos del estrés hídrico en las plantas y su detección, y los principios de la termografía infrarroja como herramienta de monitoreo en la agricultura de precisión, con énfasis en soluciones de bajo costo.
+
+\subsubsection{El Cultivo de Arándano (Vaccinium corymbosum L.)}
+\label{ssubsec:arandano}
+
+El arándano (Vaccinium corymbosum L.) es un frutal cuya popularidad y demanda han crecido exponencialmente a nivel mundial, impulsando su expansión en regiones con condiciones agroecológicas adecuadas, como el altiplano cundiboyacense en Colombia \cite{Aimeth2018, Augusto2023}. Dentro de las diversas variedades, la Biloxi se ha destacado por su adaptabilidad a climas con bajo requerimiento de frío invernal y por la calidad de su fruto, convirtiéndose en una opción preferente para los productores de la región \cite{QuintanaReina2020}.
+
+Una característica agronómica crucial del arándano es su sistema radicular. Este es típicamente superficial, fibroso y carente de pelos absorbentes, lo que implica una capacidad limitada para explorar el perfil del suelo en busca de agua y nutrientes \cite{Morales2017}. Esta particularidad morfológica hace que el cultivo sea especialmente sensible a las fluctuaciones en la disponibilidad hídrica del suelo. Tanto el déficit como el exceso de agua pueden impactar negativamente el desarrollo vegetativo, el calibre de los frutos y, en consecuencia, el rendimiento general de la cosecha \cite{Morales2017, Salgado2018}. Por ello, una gestión precisa y oportuna del riego es indispensable para asegurar la viabilidad económica y la sostenibilidad de la producción de arándano.
+
+\subsubsection{Estrés Hídrico en Plantas}
+\label{ssubsec:estres_hidrico}
+
+El estrés hídrico ocurre cuando la demanda de agua para la transpiración de la planta excede la capacidad de absorción de agua por las raíces, o cuando el contenido de agua en el suelo es insuficiente \cite{Jones2004}. Fisiológicamente, las plantas responden a esta condición mediante una serie de mecanismos adaptativos para conservar agua. Uno de los más importantes y tempranos es el cierre estomático \cite{Rinza2021}. Los estomas son poros microscópicos, principalmente en la superficie de las hojas, que regulan el intercambio gaseoso (CO2 y O2) y la pérdida de agua por transpiración. Al cerrarse, la planta reduce significativamente la pérdida de vapor de agua hacia la atmósfera.
+
+La transpiración, además de su rol en el transporte de agua y nutrientes, funciona como un mecanismo de termorregulación, enfriando la superficie foliar mediante la evaporación del agua \cite{GarciaTejero2015}. Por lo tanto, la reducción de la tasa transpiratoria debido al cierre estomático provoca un aumento medible en la temperatura de la superficie de las hojas \cite{Jones2004, Pineda2021}. Este incremento térmico es un indicador fisiológico directo y temprano del estrés hídrico, a menudo detectable antes de que aparezcan síntomas visuales como la marchitez o la decoloración foliar \cite{Pineda2021, Rinza2021}. La detección precoz de este cambio térmico es clave para intervenir con el riego antes de que el estrés cause daños irreversibles o mermas significativas en la producción.
+
+\subsubsection{Termografía Infrarroja (IRT) en la Agricultura de Precisión}
+\label{ssubsec:termografia}
+
+La termografía infrarroja (IRT) es una técnica no invasiva que permite capturar la radiación infrarroja emitida por la superficie de los objetos y convertirla en una imagen visible (termograma), donde cada color o nivel de gris representa una temperatura \cite{Jones2004}. Su aplicación en fisiología vegetal y ecofisiología se basa en la correlación directa entre la temperatura superficial de la hoja y diversos procesos fisiológicos, especialmente la transpiración y el estado hídrico \cite{Jones2004, GarciaTejero2015}.
+
+En la agricultura de precisión, la IRT se ha consolidado como una herramienta valiosa para monitorear el estrés hídrico en diversos cultivos \cite{PobleteEcheverria2023, Vieira2021}. Permite evaluar la variabilidad espacial y temporal del estado hídrico dentro de una parcela, facilitando una gestión del riego más eficiente y localizada \cite{GarciaTejero2015}. Uno de los índices más utilizados derivados de la termografía es el Índice de Estrés Hídrico del Cultivo (CWSI, por sus siglas en inglés), propuesto originalmente por Idso et al. \cite{Idso1981}. El CWSI normaliza la diferencia entre la temperatura del dosel (Tc) y la temperatura del aire (Ta) utilizando referencias de temperaturas foliares en condiciones de máxima transpiración (límite inferior o T\textsubscript{wet}) y mínima transpiración (límite superior o T\textsubscript{dry}), proporcionando un indicador cuantitativo del nivel de estrés (valores entre 0 y 1) \cite{Quezada2020}.
+
+A pesar de su potencial demostrado, la adopción generalizada de la IRT en la agricultura se ha visto históricamente limitada por el alto costo de las cámaras termográficas de grado científico o industrial \cite{GarciaTejero2015}. Sin embargo, avances recientes en la tecnología de sensores han propiciado la aparición de matrices de sensores infrarrojos de bajo costo, como el MLX90640 \cite{Melexis2021}, que, aunque con menor resolución espacial que las cámaras de alta gama, ofrecen una alternativa viable para aplicaciones específicas de monitoreo \cite{Dong2024}. Investigaciones como la de Dong et al. \cite{Dong2024} han explorado y validado el uso de estas tecnologías de bajo costo para el monitoreo de la temperatura del dosel en aplicaciones agrícolas, abriendo nuevas posibilidades para desarrollar herramientas de agricultura de precisión más asequibles y accesibles para un mayor número de productores. Este proyecto se inscribe en esta línea, buscando aprovechar el potencial de la termografía de bajo costo para abordar el desafío del manejo hídrico en el cultivo de arándano Biloxi.
 
 \subsection{Marco Legal}
-El desarrollo del presente proyecto de investigación y del sistema tecnológico asociado se enmarca en la normativa colombiana vigente, abordando tres ejes fundamentales: la propiedad intelectual, la protección de datos personales y la seguridad digital.
+\label{subsec:marco_legal}
 
-\subsubsection{Propiedad Intelectual y Derechos de Autor}
-La titularidad y gestión de los derechos de autor generados en este proyecto se rigen por el \textbf{Acuerdo No. 04 de 2018}, por medio del cual se adopta el Estatuto de Propiedad Intelectual de la Universidad de Cundinamarca \cite{UDEC2018}. Con base en este estatuto, se establecen las siguientes claridades:
+El desarrollo del proyecto se adhiere a la normativa colombiana, cubriendo aspectos clave de propiedad intelectual, protección de datos y seguridad digital.
+
+\subsubsection{Propiedad Intelectual, Derechos de Autor y Licenciamiento}
+La gestión de la propiedad intelectual se rige por el \textbf{Acuerdo No. 04 de 2018} de la Universidad de Cundinamarca \cite{UDEC2018}. Conforme a este y a los acuerdos del proyecto:
 \begin{itemize}
-    \item \textbf{Titularidad de los Estudiantes:} De acuerdo con el Artículo 16 del estatuto, la titularidad de los derechos de autor, tanto morales como patrimoniales, sobre el software desarrollado y el documento de tesis pertenece a los estudiantes autores, al ser una producción intelectual realizada en el marco de su trabajo de grado.
-    \item \textbf{Reconocimiento de Coautoría:} En cumplimiento del mismo Artículo 16, se reconoce el derecho moral de la directora del proyecto a ser incluida como coautora de la obra, en virtud de su rol de orientación y asesoría en la investigación.
-    \item \textbf{Licencia de Uso Académico para la Universidad:} Si bien la titularidad es de los estudiantes, se concede a la Universidad de Cundinamarca una licencia de uso no exclusiva y con fines académicos. Esto autoriza a la institución a incluir el trabajo de grado en sus bibliotecas y repositorios institucionales para fines de consulta, preservación e investigación, conforme a lo estipulado en los Artículos 14 y 24 del estatuto.
+    \item \textbf{Derechos Morales:} La autoría moral del software y del presente documento corresponde a los estudiantes y a la directora del proyecto, reconociendo su contribución intelectual fundamental \cite{UDEC2018}.
+    \item \textbf{Derechos Patrimoniales:} Los derechos patrimoniales sobre el software desarrollado son cedidos a la \textbf{Universidad de Cundinamarca}, conforme a lo estipulado en el marco del proyecto y el estatuto \cite{UDEC2018}.
+    \item \textbf{Licencia del Software:} El código fuente del software desarrollado se libera bajo la \textbf{Licencia MIT}, permitiendo su uso, modificación y distribución de forma abierta, fomentando la colaboración y la innovación.
+    \item \textbf{Uso Académico del Documento:} Se concede a la Universidad una licencia no exclusiva para el uso académico del presente documento, permitiendo su inclusión en repositorios institucionales para consulta y preservación \cite{UDEC2018}.
 \end{itemize}
 
 \subsubsection{Protección de Datos Personales}
-El sistema contempla la gestión de usuarios, por lo que su diseño y futura implementación se alinean con la \textbf{Ley Estatutaria 1581 de 2012}, por la cual se dictan disposiciones generales para la protección de datos personales \cite{Congreso2012}. El cumplimiento de esta ley se aborda desde dos perspectivas:
-\begin{itemize}
-    \item \textbf{Fase Académica Actual:} En la etapa de desarrollo, el cumplimiento se centra en la adopción de buenas prácticas y en el diseño del sistema. Se garantiza el respeto a los principios de la ley, como la finalidad (los datos se usan solo para la autenticación), la seguridad de la información y el ejercicio de los derechos del titular a través de las funcionalidades que permiten al usuario gestionar sus propios datos.
-    \item \textbf{Proyección a Futuro Uso Comercial:} Se reconoce que una eventual transición del sistema a un entorno comercial implicaría la asunción de obligaciones legales más estrictas, como el registro de la base de datos en el Registro Nacional de Bases de Datos (RNBD), la publicación de una política de tratamiento de datos y la implementación de canales formales para atender las solicitudes de los usuarios.
-\end{itemize}
+El diseño del sistema respeta la \textbf{Ley Estatutaria 1581 de 2012} \cite{Congreso2012}, garantizando la privacidad y seguridad de los datos de usuario. En la fase actual, se aplican buenas prácticas de seguridad y se asegura el ejercicio de los derechos del titular. Se contempla que una futura explotación comercial requeriría cumplir obligaciones adicionales (ej. registro RNBD, política de tratamiento).
 
-\subsubsection{Seguridad Digital y Delitos Informáticos}
-El desarrollo del software no solo se enfoca en la funcionalidad, sino también en la seguridad, considerando el marco de la \textbf{Ley 1273 de 2009}, que modifica el Código Penal en materia de delitos informáticos \cite{Congreso2009}. Las medidas de seguridad implementadas, como los controles de acceso y la autenticación de usuarios, tienen un doble propósito: proteger la integridad de los datos personales y prevenir de manera proactiva la comisión de conductas delictivas, como el acceso abusivo a un sistema informático. Este enfoque asegura que el proyecto se desarrolle de manera responsable y en conformidad con el marco legal que protege la información y los sistemas tecnológicos en el país.
+\subsubsection{Seguridad Digital}
+Las medidas de seguridad del software (autenticación, control de acceso) se alinean con la \textbf{Ley 1273 de 2009} sobre delitos informáticos \cite{Congreso2009}, protegiendo la integridad de los datos y previniendo accesos no autorizados al sistema.

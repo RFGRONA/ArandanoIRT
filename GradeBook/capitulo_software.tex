@@ -1147,7 +1147,6 @@ Este diagrama muestra cómo el sistema extiende las funcionalidades base de ASP.
     \caption{Diagrama de Clases: Ciclo de Vida y Seguridad del Dispositivo.}
     \label{fig:dc_domain_device_lifecycle}
     \includegraphics[width=0.8\textwidth]{UML/Clases/DC_0.3.png} 
-    % Asegúrate de que la ruta 'UML/Clases/Diagrama_Dominio_Dispositivo_Seguridad.png' sea correcta
 \end{figure}
 
 La Figura \ref{fig:dc_domain_device_lifecycle} detalla las clases que gestionan el ciclo de vida y la seguridad de la entidad \texttt{Device}. Este subsistema es crucial para garantizar que solo el hardware autorizado pueda interactuar con la API del sistema.
@@ -1168,7 +1167,6 @@ El diagrama muestra una relación de composición (indicada por el rombo negro) 
     \caption{Diagrama de Clases: Configuraciones de Cultivo.}
     \label{fig:dc_domain_crop_settings}
     \includegraphics[width=0.9\textwidth]{UML/Clases/DC_0.4.png} 
-    % Asegúrate de que la ruta 'UML/Clases/Diagrama_Dominio_Configuracion_Cultivo.png' sea correcta
 \end{figure}
 
 Finalmente, la Figura \ref{fig:dc_domain_crop_settings} detalla la estructura utilizada para gestionar las configuraciones específicas de cada cultivo.
@@ -1232,7 +1230,6 @@ Se observa que todos estos servicios dependen principalmente del \texttt{Applica
     \caption{Diagrama de Clases: Interacción con Dispositivos y Envío de Datos (Capa de Aplicación).}
     \label{fig:dc_app_device_api}
     \includegraphics[width=\textwidth]{UML/Clases/DC_1.4.png} 
-    % Asegúrate de que la ruta 'UML/Clases/Diagrama_App_Device_API.png' sea correcta.
 \end{figure}
 
 La Figura \ref{fig:dc_app_device_api} ilustra la arquitectura de la API de la capa de aplicación, que sirve como punto de entrada para toda la comunicación proveniente de los dispositivos de hardware.
@@ -1325,7 +1322,33 @@ Internamente, dentro del servidor \texttt{Digital Ocean}, el diagrama ilustra la
 % =================================================
 
 \section{Diseño de los Casos de Prueba}
-Texto sobre el diseño de casos de prueba utilizando SonarQube.
+\label{sec:calidad_codigo}
+
+Para evaluar la calidad del código fuente desarrollado para el sistema \textit{Arandano IRT}, se utilizó la herramienta de análisis estático de código SonarQube (Community Edition). El análisis estático permite examinar el código sin ejecutarlo, identificando posibles errores de programación (bugs), vulnerabilidades de seguridad, duplicaciones y malas prácticas (code smells) que podrían afectar la fiabilidad, mantenibilidad y seguridad del software a largo plazo.
+
+La Figura \ref{fig:sonarqube_results} muestra el resumen del análisis realizado por SonarQube sobre la rama principal (`main`) del repositorio de código del proyecto (\texttt{ArandanoIRTSoftware}).
+
+\begin{figure}[H] 
+    \centering
+    \caption{Resultados del Análisis Estático con SonarQube para el Proyecto Arandano IRT.}
+    \includegraphics[width=0.7\textwidth]{img/sonarqube.png}
+    \label{fig:sonarqube_results}
+\end{figure}
+
+Los resultados clave obtenidos del análisis son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Quality Gate:} El proyecto superó exitosamente el "Quality Gate" predeterminado de SonarQube, indicado por el estado "Passed". Esto significa que, según los umbrales por defecto de la herramienta, la calidad general del código nuevo (en este caso, todo el código base) cumple con los mínimos aceptables.
+    \item \textbf{Seguridad (Security):} El análisis no detectó vulnerabilidades abiertas ni puntos críticos de seguridad (Security Hotspots), otorgando una calificación 'A' en esta categoría. Este es un resultado positivo, indicando una buena adherencia a prácticas de codificación segura básicas.
+    \item \textbf{Fiabilidad (Reliability):} Se identificaron 10 problemas abiertos relacionados con la fiabilidad, resultando en una calificación 'C'. Estos problemas típicamente señalan código que podría comportarse de manera inesperada o provocar errores en ciertas condiciones (ej. manejo inadecuado de nulos, posibles excepciones no controladas).
+    \item \textbf{Mantenibilidad (Maintainability):} Se reportaron 254 problemas abiertos clasificados como "code smells", pero el sistema obtuvo una calificación 'A' en mantenibilidad. Esto sugiere que, aunque existen numerosas áreas con código que podría refactorizarse para mejorar la legibilidad o la eficiencia según las reglas de SonarQube, la deuda técnica estimada asociada es baja, y la estructura general del código es considerada mantenible.
+    \item \textbf{Duplicaciones (Duplications):} El nivel de código duplicado se estimó en 1.3\% sobre aproximadamente 25,000 líneas de código analizadas. Este es un porcentaje relativamente bajo, indicando un uso adecuado de abstracciones y reutilización.
+    \item \textbf{Cobertura de Pruebas (Coverage):} El análisis reportó una cobertura de código del \textbf{0.0\%}. Este resultado indica la ausencia de una suite de pruebas automatizadas (unitarias, de integración) que ejerciten el código fuente.
+\end{itemize}
+
+La falta de cobertura de pruebas automatizadas (0.0\%) es una limitación reconocida de la implementación actual. Dada la priorización del desarrollo de la funcionalidad central requerida por el MVP y la posterior implementación completa del sistema dentro de los plazos académicos establecidos, la creación de una suite exhaustiva de pruebas automatizadas fue diferida. Si bien se realizaron pruebas manuales funcionales durante las iteraciones de desarrollo para asegurar la correcta operación del sistema, la ausencia de pruebas automatizadas representa un componente de deuda técnica. Se recomienda la incorporación de estrategias de pruebas automatizadas (como pruebas unitarias para la lógica de negocio y pruebas de integración para los flujos clave) en futuras fases de mantenimiento o evolución del sistema, lo cual mejoraría significativamente la fiabilidad ante cambios y facilitaría la refactorización segura del código.
+
+El análisis estático con SonarQube proporcionó una evaluación objetiva de la calidad del código, destacando fortalezas importantes en seguridad y un nivel aceptable de mantenibilidad y duplicación. Sin embargo, también evidenció áreas de mejora en fiabilidad y, de manera crítica, la necesidad de incorporar pruebas automatizadas como una práctica esencial para garantizar la robustez y facilitar el mantenimiento futuro del software \textit{Arandano IRT}.
 
 % =================================================
 % =================================================

@@ -1463,7 +1463,7 @@ Se calificaron los 8 factores ambientales que influyeron en el desarrollo del pr
 \subsubsection*{Paso 6: Cálculo de UCP}
 Los Puntos de Casos de Uso Ajustados son:
 $UCP = UUCP \times TCF \times ECF = 304 \times 1.055 \times 0.695$
-$UCP = 320.72 \times 0.695 \approx 222.89 \approx \mathbf{223}$
+$UCP = 320.72 \times 0.695 \approx 222.9 \approx \mathbf{223}$
 
 \subsection{Estimación de Esfuerzo}
 Utilizando el valor UCP calculado y ajustando el Factor de Productividad (PF) a \textbf{15 horas-persona por UCP} para reflejar de manera más realista la eficiencia de un equipo de desarrollo académico ágil y dedicado, el esfuerzo total estimado para el desarrollo del sistema es:
@@ -1481,7 +1481,7 @@ Basado en el esfuerzo ajustado y los costos de infraestructura identificados, se
 
     \item \textbf{Costo Anual de Infraestructura:}
         \begin{itemize}
-            \item VM DigitalOcean (Plan \$14 USD/mes @ aprox. 4000 COP/USD): \$672,000 COP
+            \item VM DigitalOcean (Plan \$14 USD/mes con aprox. 4000 COP/USD): \$672,000 COP
             \item Registro de Dominio (`.co`, estimado): \$80,000 COP
             \item Servicios Externos (Brevo, Cloudflare): \$0 COP (Capas gratuitas)
             \item \textbf{Total Infraestructura Anual:} \textbf{\$752,000 COP}
@@ -1523,10 +1523,18 @@ Esta estimación ajustada proporciona una visión cuantitativa de los recursos i
 % =================================================
 
 \section{Resultados de la Implementación del Software}
-Texto sobre el resultado de implementar el software.
+\label{sec:resultados_implementacion}
 
-% =================================================
-% =================================================
+La implementación del software \textit{Arandano IRT} culminó con el despliegue exitoso de un sistema funcional y robusto, capaz de cumplir con los requerimientos definidos para el monitoreo del estrés hídrico en plantas de arándano Biloxi mediante termografía de bajo costo. Los resultados de esta fase abarcan tanto el producto de software final como las lecciones aprendidas durante el proceso de desarrollo e implementación.
 
-\section{Conclusiones y Recomendaciones del software}
-Discusión, conclusiones y recomendaciones sobre el software y su integración.
+Un aspecto fundamental del proceso fue la adopción de un enfoque iterativo iniciando con un Prototipo Mínimo Viable (MVP). Esta estrategia demostró ser altamente beneficiosa, permitiendo la validación temprana de las tecnologías seleccionadas (ASP.NET Core, PostgreSQL), la arquitectura MVC propuesta y las funcionalidades críticas de recolección y visualización de datos. El MVP no solo proporcionó una base sólida sobre la cual construir la versión final, sino que también facilitó la generación de un conjunto de datos inicial superior a 3,000 registros, esencial para las fases posteriores de análisis y experimentación. La experiencia con el MVP reafirmó la recomendación de priorizar la funcionalidad central sobre aspectos secundarios como el diseño detallado de la interfaz en las etapas iniciales de proyectos de naturaleza similar.
+
+La arquitectura monolítica modular, basada en el patrón Modelo-Vista-Controlador (MVC) con ASP.NET Core 8, resultó adecuada para el alcance del proyecto. Permitió una organización lógica del código mediante una organización de carpetas basadas en la arquitectura cebolla (Presentación, Controladores, Aplicación, Dominio, Infraestructura), facilitando el desarrollo y mantenimiento por parte del equipo. La separación de responsabilidades inherente al patrón, gestionada mediante inyección de dependencias, contribuyó a la cohesión y bajo acoplamiento del código fuente.
+
+En cuanto a la infraestructura, la decisión de implementar una pila tecnológica auto-hospedada y contenerizada con Docker sobre una máquina virtual en DigitalOcean demostró ser acertada. Esta elección fue motivada por un incidente durante la fase del MVP, donde una falla en un servicio externo (Cloudflare) provocó una interrupción prolongada, impidiendo la recolección de datos críticos. La arquitectura final, que minimiza las dependencias externas para las funciones esenciales y utiliza componentes como Caddy, MinIO, Loki y Grafana gestionados vía Docker Compose, ha exhibido una alta disponibilidad, manteniendo un tiempo de actividad del 100\% durante más de 100 días consecutivos de operación continua. Este resultado valida la robustez de la infraestructura implementada y su idoneidad para un sistema de monitoreo.
+
+Funcionalmente, el software implementado cubre todos los casos de uso definidos (Sección \ref{sec:casos_uso}), incluyendo la gestión de usuarios basada en ASP.NET Core Identity con un sistema de invitaciones, la administración de cultivos, plantas y dispositivos, la recepción de datos ambientales y térmicos desde el hardware, el registro de observaciones cualitativas, el procesamiento de datos para calcular el índice CWSI, la generación de reportes en PDF y un sistema de notificaciones automatizadas. La interfaz de usuario, desarrollada con Blazor/Razor, proporciona las herramientas necesarias para que los usuarios administren y consulten la información del sistema de manera efectiva.
+
+Finalmente, la estimación de recursos mediante el método de Puntos de Casos de Uso (UCP), ajustada con un factor de productividad de 15 horas/UCP, arrojó un esfuerzo total de 3,345 horas-persona (Sección \ref{sec:estimacion_recursos}). Esta cifra, derivada de un análisis formal de la complejidad funcional, técnica y ambiental, se alinea de manera realista con el tiempo invertido por el equipo de dos desarrolladores durante los 10 meses del proyecto, proporcionando una medida cuantitativa del trabajo realizado.
+
+Por lo que la implementación del software \textit{Arandano IRT} no solo entregó una herramienta funcional y técnicamente sólida, sino que también validó las decisiones arquitectónicas y metodológicas tomadas, resultando en un sistema estable y adaptado a las necesidades del monitoreo de estrés hídrico en el contexto del proyecto.

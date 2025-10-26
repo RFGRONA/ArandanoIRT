@@ -27,6 +27,7 @@
 \usepackage[table]{xcolor}         % Colores en tablas
 \usepackage[T1]{fontenc}           % Codificación de salida
 \usepackage{booktabs}              % Tablas con líneas horizontales
+\usepackage{siunitx}               % Para alinear números en tablas
 
 % Atributos de paquetes
 \counterwithout{figure}{chapter}
@@ -47,6 +48,13 @@
     linkcolor=black,   % Color para enlaces internos (índice, referencias cruzadas)
     citecolor=black,   % Color para enlaces de citas bibliográficas 
     urlcolor=blue      % Color para URLs externas
+}
+
+% Configuración para números en tablas
+\sisetup{
+    output-decimal-marker={,}, % Coma decimal
+    group-separator={.},       % Punto para miles
+    group-minimum-digits={4}   % Agrupar a partir de 4 dígitos
 }
 
 % Configuración de código fuente
@@ -229,15 +237,6 @@ A mixed research methodology will be used to develop the project, combining quan
 \listoffigures
 \addcontentsline{toc}{chapter}{Lista de Figuras}
 \newpage
-
-% Lista de Anexos (si aplica)
-\chapter*{Lista de Anexos}
-\addcontentsline{toc}{chapter}{Lista de Anexos}
-\begin{enumerate}
-    \item Anexo A: Título del Anexo A
-    \item Anexo B: Título del Anexo B
-    % Agregar más anexos si es necesario
-\end{enumerate}
 
 % Introducción
 \chapter*{Introducción}

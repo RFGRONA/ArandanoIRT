@@ -405,6 +405,7 @@ Este grupo es fundamental, ya que almacena las mediciones directas de los sensor
 % =================================================
 
 \subsection{Diagramas de Casos de Uso}
+\label{sec:casos_uso}
 
 Un caso de uso es una unidad coherente de funcionalidad externamente visible proporcionada por un clasificador (denominado sistema) y expresada mediante secuencias de mensajes intercambiados por el sistema y uno o más actores de la unidad del sistema \cite{Rumbaugh2007}. El propósito de un caso de uso es definir una pieza de comportamiento coherente sin revelar la estructura interna del sistema \cite{Rumbaugh2007}.
 
@@ -421,10 +422,10 @@ Esta sección presenta los diagramas de casos de uso que modelan las funcionalid
 La Figura \ref{fig:casos-uso-usuarios} detalla los casos de uso correspondientes al \texttt{Módulo de autenticación} del sistema, cubriendo las funcionalidades de registro e inicio de sesión (RF01 y RF02). Los actores que interactúan con este módulo son el \texttt{Usuario} y el \texttt{Administrador}, ambos representados mediante la generalización \texttt{Persona}. A continuación se describe cada caso de uso:
 
 \subsubsection*{Caso de Uso: Solicitar código}
-Permite a un \texttt{Usuario} (actuando como \texttt{Persona}) solicitar un código de acceso. Según RF01, este código es necesario para que un \texttt{Usuario} pueda registrarse y asociarse a un cultivo existente, y debe ser proporcionado previamente por un \texttt{Administrador}.
+Permite a un \texttt{Usuario} (actuando como \texttt{Persona}) solicitar un código de acceso. Según RF01, este código es necesario para que un \texttt{Usuario} pueda registrarse y asociarse a un cultivo existente, y debe ser proporcionado previamente por un \texttt{Administrador}. Para registrar al primer administrador, se debe ingresar con el usuario temporal \texttt{Bootsrap}. con las credenciales definidas en la instalación inicial del sistema y enviar el codigo al primer administrador.
 
 \subsubsection*{Caso de Uso: Registrar usuario}
-Corresponde a la funcionalidad RF01. Permite a \texttt{Persona} crear una nueva cuenta en el sistema. El flujo varía según el rol: un \texttt{Administrador} puede registrarse directamente, mientras que un \texttt{Usuario} necesita ingresar un código de acceso válido (obtenido a través del caso de uso \texttt{Solicitar código}) para completar su registro dentro de un cultivo específico.
+Corresponde a la funcionalidad RF01. Permite a \texttt{Persona} crear una nueva cuenta en el sistema. El flujo tanto para el \texttt{Administrador} como para un \texttt{Usuario} necesitan ingresar un código de acceso válido (obtenido a través del caso de uso \texttt{Solicitar código}) para completar su registro dentro de el sistema.
 
 \subsubsection*{Caso de Uso: Iniciar sesión}
 Representa la funcionalidad principal de RF02, permitiendo a \texttt{Persona} acceder al sistema mediante la validación de sus credenciales (correo electrónico y contraseña). Un inicio de sesión exitoso otorga acceso a las funcionalidades correspondientes al rol del usuario (\texttt{Administrador} o \texttt{Usuario}). Este caso de uso es la base para poder interactuar con el resto del sistema y puede ser extendido por \texttt{Cerrar sesión}.
@@ -1330,7 +1331,193 @@ Texto sobre el diseño de casos de prueba utilizando SonarQube.
 % =================================================
 
 \section{Estimación de Recursos}
-Texto sobre la estimación de recursos utilizando el método de puntos de función o puntos de casos de uso.
+\label{sec:estimacion_recursos}
+
+La estimación del esfuerzo y los recursos necesarios para el desarrollo y mantenimiento del sistema \textit{Arandano IRT} es fundamental para comprender la magnitud del proyecto. Dada la disponibilidad de una definición detallada de los casos de uso funcionales, se seleccionó el método de Puntos de Casos de Uso (UCP - Use Case Points) \cite{Karner1993} para cuantificar el tamaño funcional del software y derivar una estimación del esfuerzo requerido. Este método proporciona una estimación basada en la complejidad de las interacciones de los actores con el sistema y la complejidad intrínseca de las funcionalidades ofrecidas, ajustada por factores técnicos y ambientales del proyecto.
+
+\subsection{Metodología de Puntos de Casos de Uso (UCP)}
+El método UCP, propuesto por Gustav Karner, sigue un proceso estructurado en varios pasos:
+
+\begin{enumerate}
+    \item \textbf{Calcular el Peso No Ajustado de los Actores (UAW - Unadjusted Actor Weight):} Se identifican los actores del sistema y se clasifican según su complejidad (Simple, Promedio, Complejo), asignando un peso a cada uno. La suma ponderada de los actores constituye el UAW.
+    \item \textbf{Calcular el Peso No Ajustado de los Casos de Uso (UUCW - Unadjusted Use Case Weight):} Se identifican los casos de uso funcionales y se clasifican por complejidad (Simple, Promedio, Complejo) basándose en el número de transacciones o pasos significativos. La suma ponderada de los casos de uso da como resultado el UUCW.
+    \item \textbf{Calcular los Puntos de Casos de Uso No Ajustados (UUCP - Unadjusted Use Case Points):} Se obtiene sumando el UAW y el UUCW: $UUCP = UAW + UUCW$.
+    \item \textbf{Determinar el Factor de Complejidad Técnica (TCF - Technical Complexity Factor):} Se evalúa la influencia de 13 factores técnicos estándar (T1-T13) en una escala de 0 (irrelevante) a 5 (esencial). Se calcula el factor técnico $TF = \sum_{i=1}^{13} (Calificacion_i \times Peso_i)$ y luego $TCF = 0.6 + (0.01 \times TF)$.
+    \item \textbf{Determinar el Factor de Complejidad Ambiental (ECF - Environmental Complexity Factor):} Se evalúa la influencia de 8 factores ambientales estándar (E1-E8) relacionados con el equipo y el entorno del proyecto, en una escala de 0 a 5. Se calcula el factor ambiental $EF = \sum_{i=1}^{8} (Calificacion_i \times Peso_i)$ y luego $ECF = 1.4 + (-0.03 \times EF)$.
+    \item \textbf{Calcular los Puntos de Casos de Uso Ajustados (UCP o AUCP):} Se ajustan los puntos no ajustados utilizando los factores de complejidad: $UCP = UUCP \times TCF \times ECF$.
+    \item \textbf{Estimar el Esfuerzo Total:} Se multiplica el valor UCP por un factor de productividad (PF - Productivity Factor), que representa las horas-persona requeridas por cada UCP. $Esfuerzo (horas) = UCP \times PF$.
+\end{enumerate}
+
+\subsection{Aplicación del Método UCP al Proyecto}
+
+A continuación, se aplican los pasos del método UCP utilizando las clasificaciones y calificaciones proporcionadas, basadas en los casos de uso descritos en la Sección \ref{sec:casos_uso} y el conocimiento detallado del sistema.
+
+\subsubsection*{Paso 1 y 2: Cálculo de UAW y UUCW}
+Se identificaron y clasificaron los actores y casos de uso del sistema \textit{Arandano IRT}. El actor `Sistema` y el `Sistema de análisis` interno no se ponderan como actores externos según la metodología estándar. Las API externas consumidas (Cloudflare Turnstile, WeatherAPI, Brevo) se consideran en el factor T12.
+
+\begin{table}[H]
+    \centering
+    \caption{Cálculo del Peso No Ajustado de los Actores (UAW).}
+    \label{tab:uaw}
+    \begin{tabular}{l l c c S[table-format=2.0]}
+        \toprule
+        \textbf{Actor} & \textbf{Descripción} & \textbf{Clasificación} & \textbf{Peso} & {\textbf{Total}} \\
+        \midrule
+        Persona (Usuario/Admin) & Humano interactuando vía GUI & Complejo & 3 & 3 \\
+        Dispositivo IoT & Sistema externo vía API & Simple & 1 & 1 \\
+        \midrule
+        \multicolumn{5}{r}{\textbf{Total UAW: } \bfseries 4} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Cálculo del Peso No Ajustado de los Casos de Uso (UUCW).}
+    \label{tab:uucw}
+    \begin{tabular}{l c c S[table-format=3.0]}
+        \toprule
+        \textbf{Clasificación} & \textbf{Peso} & \textbf{Cantidad} & {\textbf{Total}} \\
+        \midrule
+        Simple & 5 & 14 & 70 \\
+        Promedio & 10 & 14 & 140 \\
+        Complejo & 15 & 6 & 90 \\
+        \midrule
+        \multicolumn{3}{r}{\textbf{Total UUCW}} & \bfseries 300 \\
+        \bottomrule
+    \end{tabular}
+    \smallskip
+    
+    \noindent\footnotesize{Nota: Se identificaron 36 casos de uso funcionales, incluyendo los de la API del dispositivo, clasificados según su número estimado de transacciones.}
+\end{table}
+
+\subsubsection*{Paso 3: Cálculo de UUCP}
+Los Puntos de Casos de Uso No Ajustados son:
+$UUCP = UAW + UUCW = 4 + 300 = \mathbf{304}$
+
+\subsubsection*{Paso 4: Cálculo del TCF}
+Se calificaron los 13 factores técnicos según su impacto en el proyecto.
+
+\begin{table}[H]
+    \centering
+    \caption{Cálculo del Factor de Complejidad Técnica (TCF).}
+    \label{tab:tcf}
+    \begin{tabular}{l l c S[table-format=2.1] S[table-format=2.1]}
+        \toprule
+        \textbf{ID} & \textbf{Factor Técnico} & \textbf{Peso} & \textbf{Calificación} & {\textbf{Resultado}} \\
+        \midrule
+        T1 & Sistema distribuido & 2 & 1 & 2.0 \\
+        T2 & Rendimiento & 1 & 4 & 4.0 \\
+        T3 & Eficiencia del usuario final & 1 & 4 & 4.0 \\
+        T4 & Complejidad del proc. interno & 1 & 5 & 5.0 \\
+        T5 & Reutilización de código & 1 & 4 & 4.0 \\
+        T6 & Facilidad de instalación & 0.5 & 5 & 2.5 \\
+        T7 & Facilidad de uso & 0.5 & 4 & 2.0 \\
+        T8 & Portabilidad & 2 & 3 & 6.0 \\
+        T9 & Facilidad de cambio & 1 & 4 & 4.0 \\
+        T10 & Concurrencia & 1 & 4 & 4.0 \\
+        T11 & Características de seguridad & 1 & 3 & 3.0 \\
+        T12 & Acceso a sistemas de terceros & 1 & 3 & 3.0 \\
+        T13 & Facilidad para formación & 1 & 2 & 2.0 \\
+        \midrule
+        \multicolumn{4}{r}{\textbf{Total Factor Técnico (TF)}} & \bfseries 45.5 \\
+        \midrule
+        \multicolumn{4}{r}{\textbf{Total Factor Técnico (TF)}} & \bfseries 45.5 \\
+        \midrule
+    \end{tabular}
+    \smallskip
+    
+    \noindent\footnotesize{Nota: Se utilizaron los pesos estándar para cada factor T.}
+\end{table}
+
+
+\subsubsection*{Paso 5: Cálculo del ECF}
+Se calificaron los 8 factores ambientales que influyeron en el desarrollo del proyecto.
+
+\begin{table}[H]
+    \centering
+    \caption{Cálculo del Factor de Complejidad Ambiental (ECF).}
+    \label{tab:ecf}
+    \begin{tabular}{l l c S[table-format=2.1] S[table-format=2.1]}
+        \toprule
+        \textbf{ID} & \textbf{Factor Ambiental} & \textbf{Peso} & \textbf{Calificación} & {\textbf{Resultado}} \\
+        \midrule
+        E1 & Familiaridad con proceso (Agile) & 1.5 & 5 & 7.5 \\
+        E2 & Experiencia en la aplicación & 0.5 & 2 & 1.0 \\
+        E3 & Experiencia en OO (C\#) & 1 & 4 & 4.0 \\
+        E4 & Capacidad del analista principal & 0.5 & 4 & 2.0 \\
+        E5 & Motivación del equipo & 1 & 5 & 5.0 \\
+        E6 & Estabilidad de requerimientos & 2 & 5 & 10.0 \\
+        E7 & Personal a tiempo parcial & -1 & 3 & -3.0 \\
+        E8 & Dificultad del lenguaje de prog. & -1 & 3 & -3.0 \\
+        E8 & Dificultad del lenguaje de prog. & -1 & 3 & -3.0 \\
+        \midrule
+        \multicolumn{4}{r}{\textbf{Total Factor Ambiental (EF)}} & \bfseries 23.5 \\
+        \bottomrule
+    \end{tabular}
+    \smallskip
+    
+    \noindent\footnotesize{Nota: Se utilizaron los pesos estándar para cada factor E.}
+\end{table}
+
+\subsubsection*{Paso 6: Cálculo de UCP}
+Los Puntos de Casos de Uso Ajustados son:
+$UCP = UUCP \times TCF \times ECF = 304 \times 1.055 \times 0.695$
+$UCP = 320.72 \times 0.695 \approx 222.89 \approx \mathbf{223}$
+
+\subsection{Estimación de Esfuerzo}
+Utilizando el valor UCP calculado y ajustando el Factor de Productividad (PF) a \textbf{15 horas-persona por UCP} para reflejar de manera más realista la eficiencia de un equipo de desarrollo académico ágil y dedicado, el esfuerzo total estimado para el desarrollo del sistema es:
+
+$Esfuerzo = UCP \times PF = 223 \times 15 = \mathbf{3,345}$ \textbf{horas-persona}.
+
+Esta cifra representa una estimación ajustada del tiempo total de desarrollo invertido por el equipo en análisis, diseño, implementación, pruebas y documentación del software, alineándose estrechamente con el esfuerzo real percibido durante los 10 meses del proyecto.
+
+\subsection{Estimación de Costos}
+Basado en el esfuerzo ajustado y los costos de infraestructura identificados, se presenta un resumen de los costos asociados al proyecto. Se utiliza una tarifa horaria estimada de \$15,000 COP para reflejar el contexto académico del desarrollo.
+
+\begin{itemize}
+    \item \textbf{Costo de Desarrollo:}
+    $3,345 \text{ horas} \times 15,000 \text{ COP/hora} = \mathbf{50,175,000 \text{ COP}}$ (Estimado)
+
+    \item \textbf{Costo Anual de Infraestructura:}
+        \begin{itemize}
+            \item VM DigitalOcean (Plan \$14 USD/mes @ aprox. 4000 COP/USD): \$672,000 COP
+            \item Registro de Dominio (`.co`, estimado): \$80,000 COP
+            \item Servicios Externos (Brevo, Cloudflare): \$0 COP (Capas gratuitas)
+            \item \textbf{Total Infraestructura Anual:} \textbf{\$752,000 COP}
+        \end{itemize}
+
+    \item \textbf{Costo Anual Estimado de Mantenimiento:}
+        \begin{itemize}
+            \item Esfuerzo de Mantenimiento (15\% del esfuerzo de desarrollo): $3,345 \times 0.15 \approx 502$ horas
+            \item Costo Esfuerzo Mantenimiento: $502 \text{ horas} \times 15,000 \text{ COP/hora} = \$7,530,000$ COP
+            \item Costo Infraestructura Anual: \$752,000 COP
+            \item \textbf{Total Mantenimiento Anual Estimado:} \textbf{\$8,282,000 COP}
+        \end{itemize}
+\end{itemize}
+
+La Tabla \ref{tab:costos_resumen} resume estos costos estimados ajustados.
+
+\begin{table}[H]
+    \centering
+    \caption{Resumen de Costos Estimados del Proyecto (COP) - Ajustado.}
+    \label{tab:costos_resumen} % Mantenemos la etiqueta o la cambiamos si prefieres
+    \begin{tabular}{l S[table-format=8.0]} % Ajustado table-format
+        \toprule
+        \textbf{Componente de Costo} & {\textbf{Valor Estimado (COP)}} \\
+        \midrule
+        Costo Único de Desarrollo & 50175000 \\
+        \midrule
+        Costo Anual de Infraestructura & 752000 \\
+        Costo Anual de Mantenimiento (Esfuerzo + Infra.) & 8282000 \\
+        \bottomrule
+    \end{tabular}
+    \smallskip
+    
+    \noindent\footnotesize{Nota: La tarifa horaria y el costo del dominio son estimaciones. El PF se ajustó a 15 h/UCP. Los costos de infraestructura pueden variar.}
+\end{table}
+
+Esta estimación ajustada proporciona una visión cuantitativa de los recursos invertidos en el desarrollo inicial y los costos recurrentes esperados para la operación y mantenimiento del sistema \textit{Arandano IRT}, reflejando de forma más cercana la realidad del proyecto académico.
 
 % =================================================
 % =================================================

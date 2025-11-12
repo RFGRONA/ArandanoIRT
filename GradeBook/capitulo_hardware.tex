@@ -1,59 +1,297 @@
 % Capítulo IV: Desarrollo y Caracterización del Hardware
-\chapter{DOCUMENTACIÓN DEL HARDWARE}
+\chapter{DESARROLLO Y CARACTERIZACIÓN DEL HARDWARE}
+\label{chap:hardware} % Etiqueta opcional para el capítulo
 
 \section{Introducción}
-En este capítulo se presenta la importancia del hardware en el sistema de detección temprana de Botrytis cinerea, justificando la selección de cada componente y su contribución al funcionamiento global del sistema.
+\label{sec:hardware_intro}
+Aunque la termografía infrarroja (IRT) es una técnica eficaz para el monitoreo agrícola \cite{ErazoAux2022, Hernanda2024, Quezada2020}, su adopción ha sido limitada por el alto costo de los equipos tradicionales, generando una brecha tecnológica \cite{Dong2024, Yun2023}. Los avances recientes en la fabricación de sensores térmicos de bajo costo, como el MLX90640, y microcontroladores potentes, ofrecen la posibilidad de desarrollar sistemas embebidos asequibles que superen esta barrera \cite{Dong2024}. No obstante, la viabilidad de esta tecnología emergente depende críticamente de su fiabilidad metrológica. Componentes de bajo costo pueden presentar limitaciones técnicas, como la deriva térmica y una alta sensibilidad a las condiciones ambientales, lo que exige procesos rigurosos de calibración y validación para asegurar la confiabilidad de los datos \cite{Acorsi2020, Jiao2022, Yun2023}.
 
-\section{Objetivos}
+Establecer la precisión, repetibilidad y fiabilidad de un sistema basado en estos componentes es un paso fundamental previo a su recomendación y despliegue en campo. Por lo tanto, el objetivo de este capítulo es describir en detalle el proceso de desarrollo, integración y caracterización del hardware del prototipo de monitoreo termográfico. Se abordará la selección y justificación de cada componente electrónico, el diseño e integración del sistema y la metodología experimental empleada para su validación y caracterización metrológica, con el fin de establecer su fiabilidad como instrumento de medición en aplicaciones agrícolas.
+
+\section{Descripción y Selección de Componentes}
+\label{sec:hardware_componentes}
+El diseño del sistema se basó en la integración de componentes electrónicos de bajo costo, alta disponibilidad, bajo consumo energético y tamaño reducido. Estos criterios son clave para el desarrollo de soluciones escalables en agricultura de precisión \cite{Dong2024, SanchezSutil2021}. A continuación, se detalla cada componente seleccionado y la justificación técnica de su elección.
+
+    \subsection{Microcontrolador ESP32-S3}
+    \label{subsec:hardware_esp32s3}
+    El componente central del prototipo es el microcontrolador ESP32-S3 de Espressif Systems \cite{ESP32S3Data}. Se trata de un sistema en chip (SoC) de bajo consumo energético, basado en una arquitectura de 32 bits. El dispositivo integra un microprocesador Xtensa® 32-bit LX7 de doble núcleo, capaz de operar a frecuencias de hasta 240 MHz. Además, proporciona conectividad inalámbrica dual, incorporando Wi-Fi de 2.4 GHz (compatible con IEEE 802.11b/g/n) y Bluetooth® 5 (LE).
+
+    La selección de este microcontrolador se justifica por sus características idóneas para aplicaciones de Internet de las Cosas (IoT) \cite{SanchezSutil2021}, su bajo costo y un conjunto de periféricos integrados que fueron cruciales para este proyecto. Entre estos destacan una interfaz de cámara (DVP 8-bit/16-bit) y un controlador de host SD/MMC. Se optó por una placa de desarrollo basada en la variante N16R8 (16MB de Flash y 8MB de PSRAM), cuyo alto rendimiento y capacidad de memoria son suficientes para las tareas de adquisición, procesamiento de imágenes y ejecución de algoritmos futuros. Adicionalmente, la placa de desarrollo seleccionada incluye un LED RGB integrado de alta luminosidad, empleado para proveer retroalimentación visual de los estados del sistema, el cual es controlado mediante el periférico LED PWM del microcontrolador.
+
+    A pesar de sus ventajas, se debe reportar una limitación encontrada durante la implementación. Las placas de desarrollo ESP32-S3 adquiridas presentaron problemas con sus antenas Wi-Fi integradas en la PCB. Se observó que la conectividad era nula o intermitente, presuntamente debido a una impedancia inadecuada de la antena. Para solventar este inconveniente y asegurar la conectividad Wi-Fi, fue necesario soldar una antena externa al puerto correspondiente en la placa, una modificación que estabilizó la comunicación con la red.
+
+    \subsection{Sensor Térmico MLX90640}
+    \label{subsec:hardware_mlx90640}
+    Para la medición de la temperatura superficial se seleccionó el sensor de imagen térmica MLX90640 de Melexis \cite{MLX90640Data}. Este componente es un arreglo (matriz) de termopilas infrarrojas completamente calibrado de fábrica, con una resolución de 32x24 píxeles, lo que resulta en un total de 768 puntos de medición independientes. Cada píxel puede medir la temperatura de objetos en un rango de -40\degree C a 300\degree C. El sensor opera con un voltaje de alimentación nominal de 3.3V y consume menos de 23mA durante su funcionamiento. La comunicación con el microcontrolador se realiza a través de una interfaz digital I\textsuperscript{2}C compatible con el modo FM+ (hasta 1MHz).
+
+    Una característica importante del MLX90640 es su disponibilidad en diferentes variantes según el campo de visión (Field of View - FOV). Existen opciones con un FOV amplio de 110\degree x 75\degree{} (variante BAA) y una opción más estrecha de 55\degree x 35\degree{} (variante BAB). Para este estudio, se seleccionó la variante BAB (MLX90640ESF-BAB), cuyo campo de visión más reducido es adecuado para enfocar el dosel de plantas individuales de arándano a distancias cortas. El sensor presenta una sensibilidad térmica, expresada como la Diferencia de Temperatura Equivalente a Ruido (Noise Equivalent Temperature Difference - NETD), de 0.1K RMS a una tasa de refresco de 1Hz. La tasa de refresco es programable por el usuario y puede variar entre 0.5Hz y 64Hz.
+
+    La elección de este sensor se justifica principalmente por su bajo costo en comparación con las cámaras térmicas industriales tradicionales, y su capacidad para proporcionar datos matriciales de temperatura. Esta característica supera las limitaciones de los termómetros infrarrojos de un solo punto, permitiendo capturar la distribución espacial de la temperatura en el objetivo, lo cual es fundamental para analizar el dosel del cultivo \cite{Dong2024}. 
+
+    Para la implementación de los prototipos, se utilizaron módulos basados en el chip MLX90640 provenientes de los fabricantes WaveShare y SeenGreat. Es importante notar que, aunque el chip base es el mismo (Melexis MLX90640), pueden existir diferencias menores en los componentes pasivos o el diseño de la placa entre módulos de distintos fabricantes. Las especificaciones y recomendaciones del fabricante del chip, Melexis, indican la necesidad de desacoplo adecuado de la fuente de alimentación mediante capacitores cercanos a los pines Vdd y Vss para minimizar el ruido.
+
+    \subsection{Sensor Ambiental BME280 / DHT22}
+    \label{subsec:hardware_sensores_amb}
+    Para contextualizar las mediciones térmicas y posibilitar el cálculo de índices como el CWSI (Índice de Estrés Hídrico del Cultivo), es fundamental registrar de manera precisa la temperatura del aire (Ta) y la humedad relativa (HR) \cite{Almeida2024, Katimbo2022}. Con este fin, se evaluaron dos tipos de sensores ambientales digitales de bajo costo durante el desarrollo del prototipo.
+
+    Inicialmente, se utilizó el sensor DHT22 (también conocido como AM2302). Este sensor utiliza un elemento capacitivo polimérico para la detección de humedad y un termistor para la temperatura. Opera con un voltaje de alimentación entre 3.3V y 6V DC y proporciona una señal digital calibrada a través de un protocolo de comunicación de bus único. El fabricante especifica una precisión típica de $\pm2$\% RH para la humedad (máximo $\pm5$\% RH) y $<\pm0.5$\degree C para la temperatura. Su bajo costo y facilidad de integración lo hicieron una opción atractiva en las etapas iniciales del diseño.
+
+    Posteriormente, y como alternativa, se integró el sensor BME280 de Bosch Sensortec. Este es un sensor ambiental digital de tipo microelectromecánico (MEMS) que mide no solo Ta y HR, sino también presión atmosférica. Opera con un voltaje de alimentación principal ($V_{DD}$) de 1.71V a 3.6V y un voltaje de interfaz ($V_{DDIO}$) de 1.2V a 3.6V. La comunicación se realiza a través de interfaces digitales I\textsuperscript{2}C (hasta 3.4 MHz) o SPI (hasta 10 MHz). El BME280 ofrece una precisión típica de $\pm3$\% RH para la humedad y $\pm1.0$\degree C para la temperatura en el rango de 0 a 65\degree C.
+
+    Durante la fase de caracterización experimental, se realizó una evaluación comparativa directa entre ambos tipos de sensores. Los prototipos 1 y 2 fueron equipados con el sensor BME280, mientras que el prototipo 3 utilizó un sensor DHT22 que había estado en uso previo. Los resultados, detallados más adelante en la sección \ref{subsec:hardware_resultados_amb}, mostraron un comportamiento casi idéntico y alta concordancia entre los dos sensores BME280. En contraste, el sensor DHT22 exhibió un sesgo sistemático significativo y una mayor inestabilidad en sus mediciones. Esta discrepancia se atribuyó tanto a la tecnología de polímero capacitivo del DHT22, susceptible a degradación y autocalentamiento \cite{SanchezSutil2021}, como al posible desgaste por uso previo del sensor específico en el prototipo 3.
+
+    Basado en esta evidencia experimental, que demostró la superior fiabilidad y consistencia del BME280 en las condiciones de prueba, se tomó la decisión de utilizar exclusivamente el sensor BME280 en los prototipos finales destinados a mediciones fiables. La integración se realizó mediante la interfaz I\textsuperscript{2}C.
+
+    \subsection{Sensor de Luminosidad BH1750}
+    \label{subsec:hardware_bh1750}
+    Para registrar la iluminancia ambiental, se integró al prototipo el sensor digital de luz ambiental BH1750FVI de ROHM Semiconductor. Este componente funciona como un luxómetro, convirtiendo la intensidad de la luz ambiental incidente en un valor digital. La comunicación con el microcontrolador ESP32-S3 se realiza a través de la interfaz de bus I\textsuperscript{2}C, compatible con velocidades de hasta 400 kHz \cite{BH1750Data}.
+
+    El BH1750FVI se caracteriza por una respuesta espectral diseñada para aproximarse a la del ojo humano, lo que lo hace adecuado para medir la iluminancia percibida. Presenta una dependencia reducida del tipo de fuente de luz (incandescente, fluorescente, LED, luz solar) y una influencia muy baja de la radiación infrarroja. El sensor ofrece una salida digital de 16 bits, capaz de medir en un amplio rango, típicamente de 1 a 65535 lux. Además, incorpora funciones para rechazar el ruido lumínico de 50Hz/60Hz y permite ajustar la sensibilidad para compensar la influencia de ventanas ópticas o extender el rango de detección. Opera con un voltaje de alimentación (Vcc) entre 2.4V y 3.6V y tiene un bajo consumo de corriente, típicamente 120 µA durante la medición y cercano a 0.01 µA en modo de bajo consumo (power down).
+
+    La selección de este sensor se justifica por la necesidad de proveer datos contextuales sobre las condiciones de iluminación ambiental en las que se realizan las mediciones termográficas. Durante las pruebas experimentales, el sensor BH1750FVI demostró un funcionamiento nominal y coherente, proporcionando lecturas de iluminancia consistentes con el entorno.
+
+    \subsection{Cámara RGB OV2640}
+    \label{subsec:hardware_ov2640}
+    Adicionalmente, el prototipo integró un sensor de imagen CMOS a color OV2640 de OmniVision \cite{OV2640Data}. Este sensor, con un tamaño de 1/4 de pulgada, ofrece una resolución nativa de 2 megapíxeles (1600x1200 píxeles, UXGA). Fue seleccionado por su bajo costo, pequeño tamaño y compatibilidad con la interfaz de cámara DVP (Digital Video Port) del microcontrolador ESP32-S3.
+
+    El OV2640 incluye un bloque de procesamiento de señal de imagen (ISP) integrado y soporta múltiples formatos de salida, como Raw RGB, RGB565, YUV422/420 y YCbCr422, además de formatos comprimidos como JPEG. Puede operar a diferentes velocidades de cuadro según la resolución seleccionada, alcanzando hasta 15 fps en UXGA/SXGA, 30 fps en SVGA y 60 fps en CIF. El control del sensor y la configuración de sus parámetros se realizan a través de la interfaz SCCB (Serial Camera Control Bus), compatible con el protocolo I\textsuperscript{2}C. Funciona con voltajes de alimentación separados para el núcleo (1.3V), la parte analógica (2.5-3.0V) y la interfaz de E/S (1.7V a 3.3V).
+
+    El propósito principal de incluir esta cámara en el prototipo fue proveer un contexto visual de la escena que se está midiendo con el sensor térmico. Las imágenes RGB capturadas sirven como referencia visual de la planta o el área bajo observación, complementando los datos térmicos. Durante las pruebas, la cámara OV2640 demostró un funcionamiento nominal, capturando imágenes a color de la escena de forma coherente con la configuración establecida.
+
+    \subsection{Regulador de Voltaje LM2596}
+    \label{subsec:hardware_lm2596}
+    Para la gestión de la alimentación del sistema, se seleccionó el regulador de voltaje reductor (step-down o buck) LM2596 de Texas Instruments. Este circuito integrado monolítico pertenece a la familia SIMPLE SWITCHER® y está diseñado para proporcionar todas las funciones activas necesarias para un regulador conmutado, simplificando el diseño de fuentes de alimentación \cite{LM2596Data}.
+
+    La función principal de este componente en el prototipo es convertir el voltaje de entrada de 12V DC, proveniente de una fuente de alimentación externa, a una salida regulada y estable de 3.3V DC. Este voltaje es el requerido para alimentar de forma segura tanto al microcontrolador ESP32-S3 como a los diversos sensores integrados (térmico, ambiental, luminosidad y cámara RGB).
+
+    La elección del LM2596S se justifica por varias de sus características clave:
+    \begin{itemize}
+        \item \textbf{Regulación a 3.3V:} Proporciona directamente el voltaje operativo requerido por los componentes principales del sistema, con una tolerancia garantizada de $\pm4\%$ sobre las condiciones de línea y carga especificadas.
+        \item \textbf{Capacidad de Corriente:} Es capaz de manejar una corriente de carga de salida de hasta 3A, lo cual es más que suficiente para el consumo total del prototipo, incluso considerando picos de consumo durante la transmisión Wi-Fi o el procesamiento intensivo.
+        \item \textbf{Amplio Rango de Entrada:} Admite un voltaje de entrada de hasta 40V, proporcionando flexibilidad y robustez frente a posibles variaciones en la fuente de alimentación de 12V.
+        \item \textbf{Alta Eficiencia:} Como regulador conmutado que opera a una frecuencia fija de 150 kHz, ofrece una alta eficiencia (típicamente 73\% con entrada de 12V y carga de 3A), minimizando la disipación de calor en comparación con reguladores lineales.
+        \item \textbf{Funciones de Protección:} Incorpora características de autoprotección esenciales, como limitación de corriente interna (con reducción de frecuencia en dos etapas). Estas protecciones ayudan a prevenir daños al regulador y a los componentes alimentados en caso de sobrecargas, cortocircuitos o sobrecalentamiento, contribuyendo a la robustez general del sistema.
+    \end{itemize}
+
+    Para la implementación, se siguió el circuito de aplicación típico recomendado por el fabricante, utilizando un módulo comercial basado en el LM2596S (versión de montaje superficial TO-263) que ya incluía los componentes externos necesarios (inductor, diodo, capacitores) en una pequeña placa PCB.
+
+\section{Diseño e Integración del Sistema}
+\label{sec:hardware_integracion}
+Esta sección describe cómo se ensamblaron los componentes electrónicos seleccionados y cómo se desarrolló el software embebido (firmware) para controlar el sistema y gestionar los datos.
+
+\subsection{Diseño Electrónico y Conexiones Físicas}
+\label{subsec:hardware_diseno_electronico}
+El ensamblaje físico de los prototipos se realizó utilizando placas de prototipado perforadas (protoboards) montadas sobre una base de madera, como se observa en las Figuras \ref{fig:prototipo_final_1} y \ref{fig:prototipo_inicial}. Esta metodología permitió una rápida iteración y modificación durante la fase de desarrollo y prueba. Todos los componentes (microcontrolador ESP32-S3, sensores MLX90640, BME280, BH1750, OV2640 y el módulo regulador LM2596) se interconectaron mediante cables DuPont sobre la protoboard.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Ensamblaje interno de los prototipos finales utilizando protoboard.}
+    \includegraphics[width=0.8\textwidth]{img/prototipo2.jpg}
+    \label{fig:prototipo_final_1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Ensamblaje interno del prototipo inicial.}
+    \includegraphics[width=0.6\textwidth]{img/prototipo1.jpg}
+    \label{fig:prototipo_inicial}
+\end{figure}
+
+La alimentación general del sistema proviene de una fuente externa de 12V DC, conectada a un terminal de tornillo. Desde allí, se alimenta el módulo regulador LM2596, que a su vez proporciona los 3.3V necesarios para el ESP32-S3 y los demás sensores. Se incluyeron pequeños ventiladores (fans) en la carcasa para facilitar la circulación de aire y mitigar posibles acumulaciones de calor generadas por los componentes electrónicos, aunque su efectividad real requeriría una evaluación térmica detallada.
+
+Las conexiones de datos entre el ESP32-S3 y los sensores se realizaron siguiendo las interfaces requeridas por cada componente:
 \begin{itemize}
-    \item Describir los componentes seleccionados para el sistema de detección.
-    \item Detallar la metodología utilizada para la caracterización y validación de cada componente.
-    \item Presentar los resultados obtenidos en la integración del hardware y su rendimiento en condiciones experimentales.
+    \item \textbf{Sensores MLX90640, BME280 y BH1750:} Se conectaron al bus I\textsuperscript{2}C del ESP32-S3, compartiendo las líneas SDA (Datos Serie) y SCL (Reloj Serie).
+    \item \textbf{Cámara OV2640:} Se conectó utilizando la interfaz de cámara DVP (Digital Video Port) paralela del ESP32-S3, que incluye líneas de datos (típicamente 8), reloj de píxel (PCLK), sincronización horizontal (HREF) y sincronización vertical (VSYNC), además de una interfaz I\textsuperscript{2}C separada (SCCB) para la configuración de la cámara.
+    \item \textbf{Módulo Lector SD:} Se utilizó la interfaz SPI del ESP32-S3 para la comunicación con la tarjeta SD, empleando las líneas MOSI, MISO, SCK y CS correspondientes.
+\end{itemize}
+El conjunto electrónico se alojó dentro de cajas plásticas (color naranja para los prototipos finales), proporcionando protección física a los componentes. Se realizaron perforaciones en las cajas para permitir el paso de cables (alimentación, antena externa) y asegurar la exposición de los sensores al ambiente (especialmente el térmico y ambiental).
+
+\subsection{Desarrollo e Integración del Firmware}
+\label{subsec:hardware_firmware}
+El firmware para el microcontrolador ESP32-S3 se desarrolló utilizando el entorno de desarrollo integrado (IDE) Visual Studio Code con la extensión PlatformIO. PlatformIO facilita la gestión de proyectos embebidos, incluyendo la compilación, carga del firmware y manejo de dependencias \cite{PlatformIO}. El framework de desarrollo empleado fue Arduino Core para ESP32 \cite{ArduinoESP32}, que proporciona un conjunto de librerías y funciones para interactuar con el hardware del microcontrolador de forma simplificada.
+
+La arquitectura del firmware se organizó de manera modular, separando responsabilidades en diferentes librerías y archivos fuente, como se evidencia en la estructura del proyecto proporcionada. La carpeta `src` contiene la lógica principal de la aplicación (`main.cpp`), controladores de ciclo (`CycleController`) y tareas específicas para la adquisición de datos ambientales (`EnvironmentTasks`) y de imágenes (`ImageTasks`), así como la inicialización del sistema (`SystemInit`).
+
+La carpeta `lib` alberga un conjunto de librerías personalizadas desarrolladas para este proyecto, encapsulando la interacción con cada sensor (`BH1750Sensor`, `BME280Sensor`, `MLX90640Sensor`, `OV2640Sensor`) y gestionando funcionalidades clave del sistema:
+\begin{itemize}
+    \item \textbf{Conectividad:} `WifiManager` para la gestión de la conexión a redes Wi-Fi.
+    \item \textbf{Comunicación:} `API` y `MultipartDataSender` para el envío de datos a un servidor backend.
+    \item \textbf{Interfaz Web:} `WebPortal` para ofrecer una interfaz de configuración y monitoreo accesible vía navegador, utilizando `ESPAsyncWebServer`.
+    \item \textbf{Almacenamiento:} `ConfigManager` para leer/escribir la configuración del dispositivo usando el sistema de archivos `LittleFS` \cite{LittleFS}, y `SDManager` para interactuar con la tarjeta SD.
+    \item \textbf{Gestión del Tiempo:} `TimeManager` para obtener y gestionar la hora del sistema, posiblemente mediante NTP (Network Time Protocol).
+    \item \textbf{Utilidades:} `LEDStatus` para controlar el LED RGB integrado, `ErrorLogger` para el registro de errores, y `EnvironmentDataJSON` para formatear los datos recolectados en JSON \cite{ArduinoJson}.
 \end{itemize}
 
-\section{Descripción de Componentes}
-\subsection{Microcontrolador ESP32-S3-WROOM-1 N16R8}
-Descripción del microcontrolador y sus características principales.
+El desarrollo se apoyó en librerías de terceros gestionadas por PlatformIO, incluyendo `Adafruit MLX90640` \cite{AdafruitMLX90640}, `BH1750` \cite{BH1750Lib}, `Adafruit BME280 Library` \cite{AdafruitBME280}, `DallasTemperature` \cite{DallasTemp} y `OneWire` \cite{OneWire} (sugiriendo pruebas con sensores DS18B20 no incluidos en el prototipo final), `ESPAsyncWebServer` \cite{ESPAsyncWebServer} con `AsyncTCP` \cite{AsyncTCP}, y `ArduinoJson` \cite{ArduinoJson} para la manipulación eficiente de datos JSON. La comunicación con los sensores I\textsuperscript{2}C (MLX90640, BME280, BH1750) se implementó utilizando la librería `Wire` estándar del framework Arduino \cite{ WireLib}.
 
-\subsection{Cámara termográfica MLX90640}
-Descripción del sensor de termografía, sus especificaciones y función en la detección.
+El flujo principal del firmware, orquestado en `main.cpp` y `CycleController`, involucra la inicialización de los componentes (`SystemInit`), la conexión a Wi-Fi, la sincronización horaria, y la ejecución periódica de tareas para leer los sensores ambientales y térmicos, capturar imágenes RGB, almacenar datos localmente (SD) y enviarlos al servidor backend a través de la API configurada. El portal web permite al usuario configurar parámetros como las credenciales Wi-Fi, la URL del servidor API y la frecuencia de muestreo.
 
-\subsection{Sensor de luz BH1750}
-Detalle del sensor de luminosidad y su relevancia en el monitoreo ambiental.
+\section{Metodología de Caracterización y Validación}
+\label{sec:hardware_metodologia}
+Para establecer la viabilidad y fiabilidad del prototipo como instrumento de medición en aplicaciones agrícolas, se diseñó e implementó una metodología de caracterización y validación experimental. Este proceso es indispensable para cuantificar la precisión del sistema y corregir posibles derivas instrumentales, un aspecto crítico al trabajar con sensores de bajo costo que son inherentemente más sensibles a las condiciones ambientales y al desgaste \cite{Jiao2022, Yun2023}. La metodología se estructuró en la definición de un sistema de referencia trazable y la ejecución de procedimientos experimentales específicos en entornos controlados.
 
-\subsection{Sensor de humedad y temperatura DHT22}
-Explicación del sensor de temperatura y humedad, resaltando su precisión y rango de medición.
-
-\subsection{Cámara RGB OV2640}
-Breve descripción de la cámara adicional y sus aplicaciones en el proyecto.
-
-\subsection{Regulador de voltaje LM2596}
-Descripción del regulador de voltaje y su importancia para garantizar la estabilidad del sistema.
-
-\section{Metodología de Caracterización}
-Esta sección describe el proceso sistemático para evaluar y validar el desempeño de cada componente y su integración en el sistema final.
-
-\subsection{Evaluación y verificación de componentes}
+\subsection{Sistema de Referencia Utilizado}
+\label{subsec:hardware_sistema_referencia}
+Se estableció un sistema de referencia para realizar las pruebas de calibración y evaluación de precisión del sensor térmico MLX90640. Este sistema permitió generar y medir temperaturas conocidas y estables que sirvieron como patrón de comparación para las lecturas del prototipo. Los componentes del sistema de referencia fueron (ver Figuras \ref{fig:cuerpo_gris} y \ref{fig:controlador_pid}):
 \begin{itemize}
-    \item \textbf{Definición de Parámetros de Evaluación:} Establecer los parámetros (por ejemplo, precisión, tiempo de respuesta y estabilidad) a medir para cada sensor y módulo.
-    \item \textbf{Diseño de Protocolos de Prueba:} Elaborar procedimientos detallados para realizar pruebas de calibración y verificación en condiciones controladas.
-    \item \textbf{Implementación de Ensayos Experimentales:} Ejecutar las pruebas en laboratorio, documentando condiciones ambientales, configuraciones y resultados obtenidos.
-    \item \textbf{Análisis de Resultados:} Comparar los datos obtenidos con las especificaciones del fabricante y los requerimientos del proyecto.
+    \item \textbf{Cuerpo Gris de Emisividad Conocida:} Se construyó un cuerpo gris utilizando una lámina de aluminio de $10 \times 15 \times 1$ cm, pintada con una capa de pintura negra mate resistente a altas temperaturas. Esta configuración asegura una emisividad alta y conocida, estimada en 0.96, lo cual es fundamental para mediciones termográficas precisas. Este cuerpo gris actuó como el objetivo cuya temperatura superficial sería medida por los prototipos. Para calentarlo de manera controlada, se colocó sobre una estufa eléctrica de resistencia.
+    \item \textbf{Controlador de Temperatura PID:} Se empleó un controlador de temperatura Proporcional-Integral-Derivativo (PID), modelo REX-C100 (RKC Instrument), para mantener la temperatura del cuerpo gris en un valor estable y predefinido durante las pruebas de calibración. El controlador ajustaba la potencia suministrada a la estufa eléctrica basándose en la retroalimentación de temperatura. Durante las pruebas con referencia estable, se configuraron temperaturas objetivo (SV - Set Value) de $170^{\circ}$C y $190^{\circ}$C.
+    \item \textbf{Termocupla Tipo K:} Para obtener la medición de referencia de la temperatura superficial del cuerpo gris con alta precisión, se utilizó una termocupla tipo K conectada directamente al controlador PID. Las termocuplas de este tipo ofrecen una precisión del orden de $\pm0.3^{\circ}$C en el rango de trabajo \cite{Acorsi2020}, sirviendo como el valor "verdadero" contra el cual se compararon las mediciones del sensor MLX90640. La punta de la termocupla se fijó en contacto directo con la superficie pintada del cuerpo gris.
 \end{itemize}
 
-\subsection{Configuración e Integración del Firmware}
+% Figura Cuerpo Gris
+\begin{figure}[h!]
+    \centering
+    \caption{Cuerpo gris (lámina de aluminio pintada de negro mate) sobre estufa eléctrica, con termocupla tipo K insertada para medición de temperatura de referencia.}
+    \includegraphics[width=0.7\textwidth]{img/cuerpogris.jpg}
+    \label{fig:cuerpo_gris}
+\end{figure}
+
+% Figura Controlador PID
+\begin{figure}[h!]
+    \centering
+    \caption{Controlador de temperatura PID REX-C100 utilizado para estabilizar la temperatura del cuerpo gris. Muestra la temperatura medida (PV) y la temperatura objetivo (SV).}
+    \includegraphics[width=0.5\textwidth]{img/pid.jpg}
+    \label{fig:controlador_pid}
+\end{figure}
+
+\subsection{Procedimientos Experimentales}
+\label{subsec:hardware_procedimientos}
+Se ejecutaron dos tipos principales de pruebas experimentales: pruebas de calibración cuantitativa y una prueba de contraste térmico. Todas las pruebas se realizaron en entornos controlados para minimizar la interferencia de variables externas como corrientes de aire o fluctuaciones bruscas de la temperatura ambiente. Los entornos utilizados fueron un microinvernadero (condiciones cercanas a la aplicación final) y una habitación cerrada sin ventilación.
+
+\textbf{Pruebas de Calibración:} El objetivo principal fue evaluar la precisión y estabilidad de los sensores térmicos MLX90640 bajo diferentes condiciones ambientales y de temperatura objetivo. Se utilizó el sistema de referencia (cuerpo gris calentado y controlado por PID) como fuente de temperatura estable y conocida. Se realizaron cuatro configuraciones de prueba distintas:
+\begin{enumerate}
+    \item \textit{Prueba en espacio controlado con referencia inestable:} Se evaluó la respuesta inicial de los sensores a una fuente de calor menos controlada (aproximadamente $190^{\circ}$C) durante el día en una habitación cerrada. Esto permitió observar la dinámica inicial y posibles derivas rápidas.
+    \item \textit{Prueba en invernadero con referencia estable (diurna):} Se analizó la precisión en el microinvernadero durante el día, usando una temperatura de referencia estable de $170^{\circ}$C. Esta prueba buscaba simular condiciones de operación diurnas, incluyendo la posible influencia de la radiación solar indirecta en el entorno del invernadero.
+    \item \textit{Prueba en invernadero con referencia estable (nocturna):} Se repitió la prueba anterior durante la noche, manteniendo la referencia estable a $170^{\circ}$C, para evaluar el desempeño en ausencia de radiación solar y con temperaturas ambientales potencialmente diferentes.
+    \item \textit{Prueba en espacio controlado con referencia estable:} Se realizaron mediciones con una temperatura de referencia estable de aproximadamente $190^{\circ}$C durante la noche en la habitación cerrada. Esta prueba permitió confirmar el comportamiento observado a alta temperatura sin las posibles perturbaciones ambientales presentes en el microinvernadero.
+\end{enumerate}
+
+\textbf{Verificación Posterior a 30°C:} Adicionalmente, transcurridos aproximadamente dos meses desde la caracterización inicial, se realizó una prueba de calibración complementaria. El objetivo fue verificar la consistencia y posible deriva de los prototipos 1 y 2 (equipados con sensores BME280 y MLX90640 nuevos al inicio) tras un periodo de uso intermitente, y evaluar su comportamiento en un rango de temperatura más cercano a las condiciones ambientales típicas ($30^{\circ}$C). Esta prueba se ejecutó utilizando el sistema de referencia con el cuerpo gris estabilizado a $30^{\circ}$C mediante el controlador PID. Las mediciones se llevaron a cabo al atardecer en la habitación cerrada, replicando las condiciones de las pruebas nocturnas anteriores para minimizar la influencia de factores externos.
+
+\textbf{Prueba de Contraste Térmico:} Esta prueba se diseñó específicamente para comparar de forma directa y simultánea el comportamiento de los tres prototipos ensamblados. El procedimiento consistió en:
+\begin{enumerate}
+    \item Colocar frente a los tres prototipos un objetivo caliente (un vaso con agua recién hervida, iniciando a $\sim60^{\circ}$C) y un objetivo frío (un vaso con agua y hielo, a $\sim11^{\circ}$C), sobre un fondo a temperatura ambiente.
+    \item Registrar secuencias de imágenes térmicas simultáneamente con los tres prototipos durante aproximadamente 20 minutos. Este tiempo fue suficiente para observar la dinámica de enfriamiento del objeto caliente y evaluar la estabilidad relativa de las mediciones entre los prototipos.
+    \item Extraer de cada imagen térmica capturada la temperatura máxima (correspondiente al objetivo caliente), la temperatura mínima (objetivo frío) y la temperatura promedio de toda la escena (768 píxeles).
+\end{enumerate}
+Esta prueba permitió evaluar la capacidad de los prototipos para medir un rango amplio de temperaturas y detectar posibles sesgos o derivas relativas entre ellos.
+
+\textbf{Adquisición y Preprocesamiento de Datos:} El firmware de los prototipos, desarrollado en PlatformIO, se encargó de leer los datos brutos de los sensores vía I\textsuperscript{2}C y enviarlos a un aplicativo web para su almacenamiento. La frecuencia de muestreo del sensor térmico se configuró en 0.5 Hz. Para el análisis posterior, realizado mediante scripts de Python, se implementó un paso de preprocesamiento consistente en promediar 6 capturas tomadas en 15 segundos para mejorar la estabilidad de los datos. A partir de los datos preprocesados, se calcularon las temperaturas máxima, mínima y promedio para cada cuadro térmico.
+
+\section{Resultados y Discusión}
+\label{sec:hardware_resultados}
+En esta sección se presentan los hallazgos derivados de la caracterización experimental de los sensores integrados en los prototipos. Los datos obtenidos permiten validar el desempeño comparativo del sistema en condiciones controladas, contrastando el rendimiento de diferentes tecnologías de sensores y evaluando el impacto del uso previo en su fiabilidad. Estos resultados se discutirán en el contexto de los objetivos de la investigación, estableciendo la viabilidad del hardware propuesto como una herramienta de bajo costo para aplicaciones en agricultura de precisión.
+
+\subsection{Desempeño de Sensores Ambientales}
+\label{subsec:hardware_resultados_amb}
+Se realizó una evaluación comparativa del rendimiento de los sensores ambientales integrados en los prototipos, enfocándose en la consistencia y fiabilidad de las mediciones de temperatura del aire (Ta) y humedad relativa (HR).
+
+La comparación inicial se centró en el desempeño de los sensores BME280 (instalados en los prototipos 1 y 2) frente a un sensor DHT22 previamente utilizado (instalado en el prototipo 3). Las mediciones registradas a lo largo de varias horas, presentadas en la Figura \ref{fig:comparacion_ambiental_dht_bme}, revelaron diferencias significativas. Los dos prototipos equipados con sensores BME280 mostraron un comportamiento casi idéntico y una alta concordancia entre sus lecturas, tanto de temperatura como de humedad. En marcado contraste, el prototipo 3 con el sensor DHT22 exhibió un sesgo sistemático pronunciado y una mayor inestabilidad. Cuantitativamente, el sensor DHT22 registró una temperatura media aproximadamente $4^{\circ}$C superior y una humedad promedio 21 puntos porcentuales inferior a las mediciones de los BME280. Además, su desviación estándar fue casi el doble, confirmando su menor fiabilidad y mayor variabilidad en las condiciones de prueba. Estos resultados, atribuibles tanto a la tecnología de polímero capacitivo del DHT22 (susceptible a degradación y autocalentamiento \cite{SanchezSutil2021}) como al posible desgaste por uso previo del sensor específico, justificaron la selección final del BME280 para los prototipos.
+
+% Figura Comparacion Ambiental DHT vs BME
+\begin{figure}[h!]
+    \centering
+    \caption{Comparación de mediciones de temperatura y humedad relativa entre los sensores BME280 (Cam 1 y Cam 2) y el sensor DHT22 (Cam 3) a lo largo del tiempo.}
+    \includegraphics[width=\textwidth]{img/comparacion_ambiental.png}
+    \label{fig:comparacion_ambiental_dht_bme}
+\end{figure}
+
+Para evaluar la respuesta dinámica y la consistencia de los sensores BME280 bajo cambios ambientales controlados, se realizó una prueba de contraste térmico adicional, cuyos resultados se presentan en la Figura \ref{fig:contraste_ambiental}. Durante esta prueba, los tres prototipos (equipados con BME280) fueron expuestos secuencialmente a un estímulo frío (zona azulada), en este caso una bolsa de hielo, y luego a un estímulo caliente (zona rojiza), en este caso un ventilador caliente. Se observa que los tres sensores respondieron coherentemente a los estímulos: la temperatura medida disminuyó durante la exposición al frío y aumentó marcadamente durante la exposición al calor, retornando gradualmente a las condiciones ambientales al cesar los estímulos. De manera similar, la humedad relativa mostró un aumento durante la fase fría y una disminución abrupta durante la fase caliente. Los prototipos 1 y 2 muestran nuevamente una alta concordancia. El prototipo 3, aunque sigue la misma tendencia, presenta un ligero desfase (offset) respecto a los otros dos, esto debido posiblmente al uso intensivo que tuve anteriormente. No obstante, la respuesta dinámica a los cambios fue similar en los tres casos, validando la capacidad de los sensores BME280 para detectar y seguir variaciones ambientales.
+
+% Figura Contraste Ambiental BME280
+\begin{figure}[h!]
+    \centering
+    \caption{Respuesta de los sensores de temperatura y humedad BME280 (Cams 1, 2 y 3) a estímulos controlados de frío y calor.}
+    \includegraphics[width=\textwidth]{img/contraste_ambiental.png} 
+    \label{fig:contraste_ambiental}
+\end{figure}
+
+Finalmente, se evaluó el desempeño de los sensores de luminosidad BH1750 integrados en los tres prototipos. La Figura \ref{fig:comparacion_luminosidad} muestra las lecturas de iluminancia (en Lux) registradas a lo largo de una tarde. Se observa que los tres sensores siguieron la tendencia general esperada, con valores altos durante las horas de luz diurna, fluctuaciones y una disminución progresiva hacia el atardecer. Si bien los tres sensores muestran un comportamiento similar en tendencia, se aprecian algunas diferencias en la magnitud y una mayor variabilidad aparente en el prototipo 3 en ciertos intervalos. En general, los sensores BH1750 proporcionaron mediciones coherentes del nivel de luz ambiental, cumpliendo su función de proveer datos contextuales.
+
+% Figura Comparacion Luminosidad BH1750
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{img/comparacion_luminosidad.png}
+    \caption{Comparación de las mediciones de luminosidad (Lux) registradas por los sensores BH1750 de los tres prototipos a lo largo del tiempo.}
+    \label{fig:comparacion_luminosidad}
+\end{figure}
+
+\subsection{Desempeño del Sensor Térmico}
+\label{subsec:hardware_resultados_termico}
+La caracterización de los sensores de imagen térmica MLX90640 fue un paso crucial para evaluar su precisión y fiabilidad en la medición de temperaturas superficiales. Se emplearon dos procedimientos experimentales principales: una prueba de contraste térmico cualitativa y una serie de pruebas de calibración cuantitativa contra un sistema de referencia.
+
+\textbf{Prueba de Contraste Térmico:}
+En esta prueba, se evaluó la capacidad de los tres prototipos (Cam 1 y Cam 2 con sensores SeenGreat, Cam 3 con sensor WaveShare, siendo este último el de uso previo) para medir simultáneamente un objetivo caliente ($\sim$40\degree C a 55\degree C) y uno frío ($\sim$5\degree C a 12\degree C). Los resultados se muestran en la Figura \ref{fig:contraste_termico}. Los tres prototipos lograron identificar y seguir la dinámica de enfriamiento del objetivo caliente (gráfica superior) y la relativa estabilidad del objetivo frío (gráfica central). Sin embargo, se observó un comportamiento diferencial notable en el prototipo 3. Este mostró un sesgo positivo consistente tanto en la medición de la temperatura mínima (objetivo frío) como en la temperatura promedio de toda la escena (gráfica inferior), registrando valores sistemáticamente más altos que los prototipos 1 y 2. Las mediciones del objetivo caliente fueron más cercanas entre los tres dispositivos, aunque la Cam 3 también tendió a registrar temperaturas ligeramente superiores al inicio.
+
+% Figura Contraste Térmico
+\begin{figure}[h!]
+    \centering
+    \caption{Prueba de contraste térmico: comparación de temperaturas máxima (vaso caliente), mínima (vaso frío) y promedio de la escena registradas por los tres prototipos (Cam 1, Cam 2: SeenGreat; Cam 3: WaveShare con uso previo).}
+    \includegraphics[width=\textwidth]{img/contraste_termico.png}
+    \label{fig:contraste_termico}
+\end{figure}
+
+\textbf{Pruebas de Calibración Cuantitativa:}
+Para una evaluación de la precisión, se compararon las lecturas de temperatura máxima de cada prototipo contra la temperatura medida por la termocupla de referencia acoplada al cuerpo gris. Se emplearon varias métricas de error:
 \begin{itemize}
-    \item \textbf{Diseño del Esquema de Integración:} Elaborar diagramas que muestren la conexión física entre el ESP32 y cada componente, indicando rutas de comunicación (I2C, SPI, etc.).
-    \item \textbf{Configuración en Platform.io IDE:} Documentar el proceso de configuración, instalación de librerías, asignación de pines y gestión de interrupciones o tiempos de muestreo.
-    \item \textbf{Pruebas de Integración:} Realizar pruebas para verificar la comunicación y correcta transmisión de datos entre el hardware y el firmware.
-    \item \textbf{Documentación de la Integración:} Registrar todos los pasos y resultados obtenidos para facilitar futuras revisiones o ajustes.
+    \item \textbf{Error Medio (ME)} o \textbf{Error Promedio}: Calculado como la media de las diferencias entre la lectura del sensor y la temperatura de referencia ($T_{medida} - T_{referencia}$). Indica el sesgo promedio del sensor (si tiende a medir por encima o por debajo del valor real).
+    \item \textbf{Error Absoluto Medio (MAE)}: Calculado como la media de los valores absolutos de las diferencias ($|T_{medida} - T_{referencia}|$). Representa la magnitud promedio del error, sin importar su signo.
+    \item \textbf{Raíz del Error Cuadrático Medio (RMSE)}: Calculado como la raíz cuadrada de la media de las diferencias al cuadrado ($\sqrt{\frac{1}{N}\sum(T_{medida} - T_{referencia})^2}$). Es una medida de la magnitud general del error, dando más peso a los errores grandes. Un RMSE bajo indica alta precisión y exactitud combinadas.
 \end{itemize}
 
-\subsection{Validación y Análisis de Resultados}
-En esta sección se evalúa el rendimiento global del sistema integrado mediante la comparación de datos experimentales controlados con los objetivos del proyecto. Se presentan datos, gráficos y análisis que demuestran el desempeño de cada componente y del sistema en conjunto, contrastándolos con los parámetros de referencia y registrando hallazgos para futuras revisiones.
+Los resultados de las pruebas de calibración bajo diferentes condiciones (presentados visualmente en la Figura \ref{fig:calibracion1}) confirmaron el desempeño inferior del prototipo 3 (equipado con el sensor MLX90640 de uso previo). En la prueba diurna en invernadero a $170^{\circ}$C, los prototipos 1 y 2 mantuvieron un RMSE bajo ($2.33^{\circ}$C y $3.11^{\circ}$C, respectivamente), indicando una buena precisión. En contraste, el prototipo 3 mostró un RMSE extremadamente alto de $20.83^{\circ}$C, con un error promedio (sesgo) negativo de $-17.28^{\circ}$C. Esta marcada diferencia subraya el impacto crítico del desgaste o uso intensivo previo en la fiabilidad de estos sensores de bajo costo. La desviación estándar ('std' en la salida del script) de las mediciones del prototipo 3 también fue consistentemente mayor, indicando una menor estabilidad.
 
-\section{Implementación del Sistema Integrado}
-Se describe la implementación práctica, incluyendo la integración final del hardware con el firmware, la calibración de sensores y la ejecución de pruebas en condiciones reales para ajustar y optimizar el sistema.
+A temperaturas de referencia más altas ($\sim190^{\circ}$C en espacio controlado), los prototipos 1 y 2 exhibieron un sesgo negativo consistente (ME de $-7.49^{\circ}$C y $-12.66^{\circ}$C), resultando en un RMSE mayor ($7.78^{\circ}$C y $12.85^{\circ}$C) que a $170^{\circ}$C. Sin embargo, este error seguía siendo considerablemente menor y más predecible que el del prototipo 3, cuyo sesgo negativo alcanzó $-17.59^{\circ}$C con un RMSE de $17.80^{\circ}$C. La menor precisión a temperaturas muy altas fue consistente entre los sensores nuevos, sugiriendo una característica intrínseca que podría ser corregida mediante calibración por software si fuese necesario para la aplicación específica. Las pruebas nocturnas a $170^{\circ}$C arrojaron resultados similares, con RMSEs bajos para los prototipos 1 y 2 ($4.07^{\circ}$C y $2.21^{\circ}$C) y un error mayor para el prototipo 3 ($7.81^{\circ}$C).
 
-\section{Resultados}
-Interpretación de los resultados finales obtenidos, identificando fortalezas y áreas de mejora, y estableciendo la relación entre el rendimiento del hardware y los objetivos del proyecto.
+% Figura Calibración 1 (Sesiones Tarde/Noche)
+\begin{figure}[h!]
+    \centering
+    \caption{Resultados de las pruebas de calibración iniciales. Comparación de temperaturas máxima, promedio y mínima entre los tres prototipos durante sesiones de tarde (izquierda) y noche (derecha), con indicación de las temperaturas de referencia.}
+    \includegraphics[width=\textwidth]{img/calibracion1.png}
+    \label{fig:calibracion1}
+\end{figure}
+
+\textbf{Verificación Posterior a 30°C:}
+La prueba de calibración realizada aproximadamente dos meses después, utilizando los prototipos 1 y 2, sirvió para verificar su comportamiento tras un periodo de uso y en rangos de temperatura más amplios, incluyendo una referencia de $30^{\circ}$C. Los resultados (mostrados gráficamente en la Figura \ref{fig:calibracion2}) indicaron una alta consistencia entre las mediciones de Cam 1 y Cam 2 en los tres puntos de referencia ($30^{\circ}$C, $170^{\circ}$C y $190^{\circ}$C). A $30^{\circ}$C, ambos prototipos mostraron mediciones muy cercanas a la referencia, validando su buen desempeño en temperaturas ambientales típicas. A $170^{\circ}$C y $190^{\circ}$C, se mantuvieron los patrones observados previamente: buena precisión a $170^{\circ}$C y un sesgo negativo similar entre ambos a $190^{\circ}$C. Esta consistencia a lo largo del tiempo y en diferentes rangos sugiere una estabilidad razonable de los sensores (cuando son nuevos y se manejan adecuadamente) y refuerza la validez de los prototipos 1 y 2.
+
+% Figura Calibración 2 (Verificación posterior)
+\begin{figure}[h!]
+    \centering
+    \caption{Resultados de la prueba de verificación posterior (~2 meses después). Comparación de temperaturas máxima, promedio y mínima entre los prototipos 1 y 2 a temperaturas de referencia de 30°C, 170°C y 190°C.}
+    \includegraphics[width=\textwidth]{img/calibracion2.png}
+    \label{fig:calibracion2}
+\end{figure}
+
+La caracterización térmica demostró cuantitativamente que el sensor MLX90640 previamente utilizado (Prototipo 3) presentaba una degradación significativa en su rendimiento, haciéndolo inadecuado para mediciones fiables. Por el contrario, los sensores nuevos (Prototipos 1 y 2) mostraron una precisión aceptable (RMSE < 3.2\degree C a 170\degree C) y un comportamiento consistente, validando su idoneidad para la arquitectura del sistema propuesto.
+
+\subsection{Validación del Sistema Integrado}
+\label{subsec:hardware_validacion_integrada}
+La evaluación individual de los componentes clave proporciona la base para validar el desempeño del sistema de monitoreo termográfico en su conjunto. Los resultados presentados en las subsecciones anteriores (\ref{subsec:hardware_resultados_amb} y \ref{subsec:hardware_resultados_termico}) confirman la idoneidad de la arquitectura de hardware seleccionada para los prototipos finales (configuración de Cam 1 y Cam 2).
+
+La combinación del microcontrolador ESP32-S3, el sensor ambiental microelectromecánico BME280 y los sensores térmicos MLX90640 (nuevos) demostró constituir un sistema de monitoreo estable y funcionalmente viable. Los sensores BME280 proporcionaron mediciones consistentes y fiables de temperatura y humedad ambiental, superando claramente al sensor DHT22 evaluado inicialmente. Los sensores térmicos MLX90640, cuando eran nuevos, mostraron una precisión aceptable para aplicaciones agrícolas, especialmente en rangos de temperatura cercanos a las condiciones ambientales y hasta 170°C (RMSE < 3.2°C). Aunque se observó un sesgo a temperaturas más elevadas (~190°C), este fue consistente y predecible, sugiriendo la posibilidad de corrección por software.
+
+La integración física mediante protoboard y la conexión a través de las interfaces digitales estándar (I\textsuperscript{2}C para MLX90640, BME280, BH1750; DVP y SCCB/I\textsuperscript{2}C para OV2640; SPI para tarjeta SD) funcionaron según lo esperado, permitiendo al firmware desarrollado gestionar la adquisición de datos de todos los periféricos. Los componentes complementarios, como el sensor de luminosidad BH1750 y la cámara RGB OV2640, también operaron nominalmente, proveyendo el contexto ambiental y visual deseado. El regulador LM2596 suministró la alimentación de 3.3V de manera estable.
+
+Un hallazgo fundamental de esta caracterización es la confirmación cuantitativa del impacto negativo del uso previo intensivo en la fiabilidad, particularmente evidente en el hardware del prototipo 3. Este resultado subraya la importancia crítica de utilizar componentes calibrados o al menos probados y verificar periódicamente su estado para asegurar la calidad de las mediciones en despliegues a largo plazo con tecnología de bajo costo.
+
+Por lo que, la caracterización experimental valida que la arquitectura de hardware propuesta, implementada en los prototipos 1 y 2 con componentes seleccionados y verificados, constituye un sistema integrado fiable y funcionalmente adecuado para la adquisición de datos termográficos y ambientales en el contexto agrícola. Esta validación es el fundamento técnico que permite posicionar al prototipo como una herramienta potencialmente útil y accesible para la monitorización del estrés hídrico y la toma de decisiones agronómicas.
+
+\subsection{Limitaciones y Recomendaciones para Trabajo Futuro}
+\label{subsec:hardware_limitaciones_futuro}
+Si bien la caracterización realizada validó la funcionalidad básica y la viabilidad del prototipo de hardware, es importante reconocer las limitaciones inherentes a este estudio y proponer líneas de mejora y trabajo futuro centradas específicamente en el desarrollo del sistema físico.
+
+Una limitación principal es que la validación del desempeño se realizó primordialmente en condiciones controladas (habitación cerrada y microinvernadero). Para consolidar la aplicabilidad real del sistema, es indispensable realizar evaluaciones exhaustivas a campo abierto. Esto expondrá el hardware a factores ambientales no controlados como la velocidad del viento (que puede afectar las lecturas de sensores de baja masa térmica \cite{GimenezGallego2021}), la lluvia, el polvo y la radiación solar directa, los cuales podrían impactar tanto la precisión de las mediciones como la durabilidad de los componentes. Podría ser necesario diseñar e implementar carcasas protectoras o filtros adicionales para mitigar estos efectos.
+
+Asimismo, la calibración térmica, aunque efectiva para detectar inconsistencias y validar el rango operativo básico, se concentró en puntos de referencia a temperaturas relativamente altas o muy específicas. Futuros trabajos deberían incluir una caracterización más exhaustiva con puntos de referencia estables y precisos a lo largo de todo el espectro de temperaturas de interés agrícola (e.g., 10°C a 40°C), utilizando un sistema de calibración más exacto. Esto permitiría desarrollar modelos de corrección más robustos, posiblemente implementados directamente en el firmware, y realizar una calibración radiométrica más completa para mitigar la sensibilidad del sensor a influencias externas.
+
+De cara al futuro, se proponen las siguientes mejoras y líneas de desarrollo para el hardware:
+\begin{itemize}
+    \item \textbf{Diseño Modular y Conectores:} El prototipado en protoboard, si bien útil para el desarrollo, no es robusto para despliegues a largo plazo. Se recomienda diseñar una placa de circuito impreso (PCB) a medida que integre los componentes principales. Además, implementar un sistema de conexión modular para los sensores (utilizando conectores estandarizados en lugar de conexiones directas o soldadas) facilitaría enormemente el reemplazo o la actualización de sensores individuales. Esto es particularmente relevante dado el impacto observado del desgaste en los componentes de bajo costo, permitiendo un mantenimiento más sencillo y económico.
+    \item \textbf{Prototipos Robustos y Carcasas a Medida:} Para mejorar la protección contra las condiciones ambientales de campo, se debe desarrollar una carcasa más robusta y específica para el dispositivo. El uso de impresión 3D permitiría diseñar e iterar rápidamente carcasas a medida que aseguren la protección de la electrónica, faciliten el montaje en campo (e.g., en postes o estructuras de soporte) y garanticen la exposición adecuada de los sensores al ambiente, minimizando al mismo tiempo la interferencia térmica de la propia carcasa.
+    \item \textbf{Adaptación para Plataformas Móviles (Drones):} Explorar la adaptación del diseño de hardware para su integración en vehículos aéreos no tripulados (UAVs o drones). Esto requeriría miniaturización adicional, optimización del consumo energético y posibles modificaciones en la óptica o el sistema de adquisición para mediciones aéreas, permitiendo cubrir áreas de cultivo más extensas.
+    \item \textbf{Sistema de Calibración Mejorado:} Desarrollar un sistema de calibración de cuerpo negro más preciso y versátil que el utilizado en este estudio, capaz de generar y mantener temperaturas de referencia estables en un rango más amplio y relevante para la agricultura, y bajo diferentes condiciones de humedad y flujo de aire controlados.
+\end{itemize}
+
+La implementación de estas mejoras en el hardware contribuiría significativamente a aumentar la robustez, fiabilidad, facilidad de mantenimiento y aplicabilidad del sistema de monitoreo termográfico de bajo costo, acercándolo a una solución práctica y escalable para la agricultura de precisión.

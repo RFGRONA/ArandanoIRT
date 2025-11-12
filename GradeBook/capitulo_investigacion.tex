@@ -3,27 +3,117 @@
 \chapter{INFORME DE INVESTIGACIÓN}
 
 \section{Estado del Arte}
-Texto del estado del arte...
+% --- INICIA EL ESTADO DEL ARTE ---
+\label{sec:estado_del_arte}
+
+La termografía infrarroja (IRT) es una técnica basada en el estudio de la radiación emitida por los cuerpos, lo que permite generar una imagen representativa de su temperatura superficial. En España, investigadores del Instituto de Investigación y Formación Agraria y Pesquera (IFAPA) señalan que esta técnica es robusta, rápida y versátil para el monitoreo agrícola \cite{GarciaTejero2015}. Su aplicabilidad se fundamenta en que la temperatura foliar es un valioso indicador del estado fisiológico de la planta, ya que responde a diversos factores de estrés \cite{Pineda2021}.
+
+Una de sus aplicaciones se da en el ámbito agrícola, donde se destaca frente a otros métodos de medición de temperatura. Esto se evidencia en el estudio ``Open-source time-lapse thermal imaging camera for canopy temperature monitoring'', realizado por investigadores de la Universidad Estatal de Michigan \cite{Dong2024}. En este trabajo, los autores analizan diversos métodos para monitorear la temperatura de la superficie foliar, cuyos resultados se sintetizan en la Tabla \ref{tab:comparativo_metodos}.
+
+\FloatBarrier
+\begin{table}[h!]
+    \centering
+    \caption{Comparativo entre métodos de medición de temperatura.}
+    \label{tab:comparativo_metodos}
+    \renewcommand{\arraystretch}{1.1}
+    \small
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{4.5cm}|>{\raggedright\arraybackslash}p{4.0cm}|>{\raggedright\arraybackslash}p{4.0cm}|}
+        \hline
+        \textbf{Método} & \textbf{Descripción} & \textbf{Ventajas} & \textbf{Desventajas} \\
+        \hline
+        Termómetro Infrarrojo & Utiliza un haz infrarrojo para medir la radiación/energía reflejada de una superficie objetivo. & 
+        \begin{itemize}[topsep=0pt, itemsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=1.2em]
+            \item Método sin contacto
+            \item Amplia disponibilidad en el mercado
+            \item Preciso con certificado de calibración
+        \end{itemize} & 
+        \begin{itemize}[topsep=0pt, itemsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=1.2em]
+            \item Problemas con la emisividad
+            \item Errores aumentan con la distancia
+            \item Limitado a un solo punto en la superficie de la hoja
+        \end{itemize} \\
+        \hline
+        Sonda de Temperatura Táctil & El sensor de temperatura se sujeta a la superficie de la hoja y mide la resistencia térmica usando una fuente de corriente constante y tres cables. &
+        \begin{itemize}[topsep=0pt, itemsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=1.2em]
+            \item Bajo costo
+            \item Alta precisión para mediciones puntuales
+        \end{itemize} &
+        \begin{itemize}[topsep=0pt, itemsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=1.2em]
+            \item Puede alterar el microambiente natural de la planta
+            \item Problemas con hojas pequeñas, jóvenes o muy delgadas
+            \item Fluctuaciones de temperatura en el cable del sensor
+        \end{itemize} \\
+        \hline
+        Cámara de Imagen Térmica & Utilizada ampliamente en agricultura para monitorear la salud de las plantas, programación de riego, detección de enfermedades, estimación de rendimiento, etc. &
+        \begin{itemize}[topsep=0pt, itemsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=1.2em]
+            \item Observación continua de imágenes térmicas
+            \item Información útil sobre el estrés hídrico y la salud de las plantas
+        \end{itemize} &
+        \begin{itemize}[topsep=0pt, itemsep=0pt, partopsep=0pt, parsep=0pt, leftmargin=1.2em]
+            \item Cámaras térmicas continúas limitadas y costosas
+            \item Método más complejo y caro en comparación con otros métodos
+        \end{itemize} \\
+        \hline
+    \end{tabular}
+\end{table}
+\FloatBarrier
+
+De acuerdo con la tabla anterior, se destacan las ventajas de la cámara de imagen térmica, que permite monitorear la temperatura de las plantas de manera no invasiva. Por lo anterior se propone utilizar esta tecnología para el proyecto. No obstante, debido a los altos costos de las cámaras térmicas, se busca emplear hardware de bajo costo, con la expectativa de obtener resultados que permitan cumplir los objetivos de esta investigación.
+
+% --- CÓDIGO PARA LA FIGURA 1 ---
+\begin{figure}[h!]
+    \centering
+    \caption{Imagen termográfica de una planta con cámara MLX90640.}
+    \includegraphics[width=0.7\textwidth]{img/termo.png} 
+    \label{fig:termografia_mlx}
+\end{figure}
+
+En la agricultura, la IRT se ha consolidado como una herramienta potente para la gestión hídrica. La relación es directa: el estrés por falta de agua provoca un cierre estomático que reduce la transpiración y, en consecuencia, eleva la temperatura de la planta \cite{GarciaTejero2015}. A pesar de su potencial, uno de los principales desafíos para su adopción ha sido el alto costo de los equipos comerciales. Sin embargo, investigaciones recientes en Estados Unidos, lideradas por la Universidad Estatal de Michigan, han demostrado la viabilidad de utilizar hardware de bajo costo, como cámaras térmicas compactas acopladas a microcomputadoras, para monitorear la temperatura del dosel con precisión suficiente para aplicaciones agrícolas, incluyendo el arándano \cite{Dong2024}.
+
+En el contexto latinoamericano, también se ha validado su eficacia. Un estudio conjunto entre el Instituto Federal de Espírito Santo en Brasil y la Universidad de Georgia en Estados Unidos, demostró que la termografía diferencia eficazmente entre plantas de cítricos con distintos niveles de riego en invernadero \cite{Vieira2021}. Asimismo, en Chile, investigadores de la Universidad de Concepción validaron el uso de índices térmicos como el CWSI (Índice de Estrés Hídrico del Cultivo) como un indicador fiable del estado hídrico en frutales \cite{Quezada2020}. Esta tecnología es particularmente relevante para el arándano, un cultivo cuyo sistema radicular superficial lo hace muy susceptible a las fluctuaciones de agua, según lo documentado por el Instituto de Investigaciones Agropecuarias de Chile \cite{Morales2017}. Una gestión hídrica inadecuada en este cultivo impacta negativamente el rendimiento y la calidad de la fruta, haciendo fundamental contar con métodos de detección de estrés.
+
+Este tema ha cobrado relevancia en Colombia, como lo demuestran los avances a nivel de software para el análisis de imágenes infrarrojas realizados por la Universidad del Valle, en su estudio sobre el uso de la termografía en América Latina \cite{Aux2022}. Paralelamente, la industria del arándano en el país ha crecido notablemente, con un aumento promedio anual del 9.1\% desde el año 2000 \cite{Aimeth2018}. Este crecimiento se ha acelerado desde 2019, siendo Boyacá uno de los departamentos líderes en la producción \cite{Blanco2023}. La importancia económica del cultivo es subrayada en un estudio de la Universidad de Cundinamarca, donde se destaca su gran potencial de exportación \cite{Augusto2023}. En este contexto, la Universidad Pedagógica y Tecnológica de Colombia menciona que la variedad Biloxi es la principal sembrada en el Altiplano Cundiboyacense debido a su resistencia, buen calibre y producción \cite{QuintanaReina2020}.
+
+En resumen, los estudios internacionales y regionales demuestran que la termografía es una tecnología con gran potencial para monitorear el estado hídrico de las plantas. Su aplicación en el arándano Biloxi ofrece una herramienta útil para detectar el estrés hídrico y optimizar el riego. Sin embargo, la aplicación de esta tecnología sigue estando limitada debido a los altos costos del hardware especializado. La combinación del crecimiento de la industria del arándano en Colombia y los avances en hardware de bajo costo ofrece una oportunidad clara para desarrollar soluciones tecnológicas que mejoren la producción y protección del cultivo en el país.
 
 \section{Línea de Investigación}
-Texto de la línea de investigación...
+\label{subsec:just_linea_inv}
+
+La adscripción de este proyecto a la línea de investigación \textbf{Aprendizaje, conocimiento, tecnologías, comunicación y digitalización} se justifica plenamente por la naturaleza y los objetivos de la solución propuesta. El sistema de detección de estrés hídrico no es un fin en sí mismo, sino una herramienta integral que aborda sistemáticamente cada uno de los pilares de esta línea:
+
+\begin{description}
+    \item [Tecnologías y Digitalización:] 
+    El núcleo del proyecto es la \emph{aplicación de tecnología} (hardware de bajo costo como sensores IRT y microcontroladores) y el desarrollo de software para la \emph{digitalización} de un proceso agrícola. Se captura un fenómeno físico y análogo (la temperatura foliar de la planta) y se transforma en datos digitales estructurados y analizables, lo cual es la esencia de la agricultura de precisión y la Industria 4.0.
+
+    \item [Conocimiento:] 
+    El sistema no se limita a recolectar datos; su función principal es procesar esa información digital para generar \emph{conocimiento} nuevo y accionable. Transforma lecturas térmicas brutas en un indicador claro y comprensible (un reporte de estado hídrico) que representa el estado fisiológico de la planta. Este es un conocimiento al que el agricultor no podría acceder por simple observación.
+
+    \item [Comunicación:] 
+    El resultado de este procesamiento se convierte en un acto de \emph{comunicación} fundamental. El sistema actúa como un puente que ``traduce'' el estado fisiológico del cultivo y \emph{comunica} eficazmente un reporte al agricultor. Se supera así la barrera de la detección visual tardía, estableciendo un nuevo canal de comunicación directo entre la planta y el productor.
+
+    \item [Aprendizaje:] 
+    Finalmente, la iniciativa cierra el ciclo del \emph{aprendizaje}. Al recibir esta información (comunicación) derivada del conocimiento (procesamiento), el agricultor \emph{aprende} en tiempo real sobre las necesidades hídricas de su cultivo. Este aprendizaje validado por datos fomenta una cultura de gestión eficiente, optimiza el uso de recursos y permite tomar decisiones informadas para mejorar la productividad.
+\end{description}
+
+En conjunto, el proyecto es un ejemplo claro de cómo la tecnología y la digitalización facilitan la generación de conocimiento, mejoran la comunicación y promueven un aprendizaje práctico y continuo en el sector agrícola.
 
 \section{Planteamiento del Problema y Pregunta de Investigación}
-La producción de arándanos está en aumento debido a su alta demanda, siendo la variedad Biloxi la que más se cultiva en el altiplano cundiboyacense según datos de Quintana (2020). Sin embargo, la planta requiere condiciones específicas de temperatura para dar fruto. La falta de estas condiciones la hace susceptible a enfermedades, representando un desafío significativo para los productores. Sin un manejo oportuno, las enfermedades pueden causar la muerte de las plantas, afectando el cultivo y provocando pérdidas económicas. Esto subraya la importancia de una gestión adecuada, reflejada en las exportaciones de frutos del género Vaccinium en Colombia, que alcanzaron los 2,2 millones de dólares, según la Asociación Nacional de Comercio Exterior (ANALDEX, 2022).
+\label{sec:planteamiento_problema}
 
-\bigskip
-Respecto a las enfermedades en plantas (fitopatologías), Quintana afirma que la Botrytis Cinerea es una de las más comunes en el arándano. La Botryotinia Fuckeliana (fase asexuada: Botrytis Cinerea), comúnmente conocida como Botrytis o moho gris, es una enfermedad fúngica que afecta una amplia variedad de plantas, incluyendo la planta de arándano Biloxi (Quintana, 2020). Esta enfermedad es particularmente destructiva en condiciones de alta humedad y temperaturas moderadas, promoviendo la formación de esporas. Los síntomas típicos de la Botrytis incluyen manchas marrones en hojas, flores y frutos, que eventualmente se cubren de un moho gris característico. En las hojas, causa lesiones de color café que comienzan generalmente por el centro de la lámina y se extienden hacia los bordes, produciendo una necrosis extensiva. En condiciones de alta humedad, sobre las lesiones de las hojas se desarrollan las estructuras reproductivas del patógeno (conidióforos y conidios), que dan un aspecto plomizo (grisáceo o plateado) en los tejidos (Morales, et al. 2017).
+La producción de arándanos en Colombia está en una fase de expansión significativa, impulsada por una alta demanda en los mercados internacionales. La variedad Biloxi se ha destacado como una de las más cultivadas en el altiplano cundiboyacense debido a su adaptabilidad y calidad de fruto \cite{QuintanaReina2020}. La relevancia económica de este cultivo se refleja en el notable crecimiento de las exportaciones. En 2024, estas sumaron US\$3,29 millones, lo que representó una cifra histórica que se elevó 85\,\% frente a 2023 y puso fin a tres años consecutivos de caídas \cite{DANE2025}.
 
-\bigskip
-Una técnica no invasiva ampliamente utilizada en agricultura para monitorear la salud de las plantas es la termografía infrarroja (IRT), permitiendo además gestionar el riego, detectar enfermedades y estimar la producción (Dong et al., 2024; Aux et al., 2022). Esta herramienta es fundamental para avanzar hacia una agricultura más automatizada, precisa y sostenible, permitiendo supervisar el estrés térmico en cultivos y analizar el impacto de patógenos en la transpiración de las plantas. Aunque la investigación demuestra que la IRT está superando sus limitaciones y se está convirtiendo en un método robusto, confiable y económico para determinar el estado hídrico de las plantas y detectar el estrés (Pineda et al., 2020), su alto costo actual restringe su uso principalmente a grupos de investigación y empresas especializadas (García Tejero et al., 2015).
+A pesar de su potencial, el arándano es un cultivo particularmente sensible a las condiciones hídricas. Su sistema radicular se caracteriza por ser fibroso, superficial y carente de pelos absorbentes, lo que limita su capacidad para explorar el perfil del suelo en busca de agua \cite{Morales2017}. Esta característica lo hace extremadamente vulnerable al estrés hídrico, tanto por déficit como por exceso, lo que puede provocar una reducción drástica en el crecimiento de la planta, el calibre de los frutos y, en última instancia, el rendimiento total del cultivo. Sin un manejo preciso del riego, los productores enfrentan un riesgo constante de pérdidas económicas significativas.
 
-\bigskip
-Teniendo en cuenta las afectaciones de la Botrytis a los cultivos de arándano, es crucial explorar métodos no invasivos como la termografía. Si la termografía permite hacer una detección temprana de esta enfermedad se podría mejorar la gestión de la salud del cultivo y reducir las pérdidas. Lo cual plantea la pregunta, ¿Cómo desarrollar un sistema para aproximar la detección temprana de Botrytis Cinerea en plantas de arándanos Biloxi mediante hardware de bajo costo?
+Fisiológicamente, las plantas responden al déficit de agua cerrando sus estomas para reducir la pérdida de agua por transpiración. La transpiración es un mecanismo de enfriamiento natural; por lo tanto, su disminución provoca un aumento medible en la temperatura de la superficie de las hojas \cite{GarciaTejero2015}. Este cambio térmico es un indicador temprano y fiable del estrés hídrico, a menudo detectable antes de que los síntomas visuales, como la marchitez, sean evidentes \cite{Pineda2021}.
+
+La termografía infrarroja (IRT) es una técnica no invasiva que permite detectar estas variaciones de temperatura y, por consiguiente, monitorear el estado hídrico de los cultivos para optimizar el riego \cite{Dong2024, Vieira2021}. Su aplicación en la agricultura de precisión es una herramienta valiosa para una gestión más sostenible y automatizada. Sin embargo, su adopción se ha visto limitada por el alto costo de los equipos termográficos, lo que los hace inaccesibles para muchos agricultores e investigadores \cite{GarciaTejero2015}.
+
+Considerando la vulnerabilidad del arándano Biloxi al estrés hídrico y la barrera económica de las tecnologías de monitoreo existentes, surge la necesidad de explorar alternativas más asequibles. Esto conduce a la siguiente pregunta de investigación: ¿Cómo se puede desarrollar un sistema que utilice hardware de bajo costo para la detección aproximada del estrés hídrico en plantas de arándano Biloxi mediante termografía?
 
 
 \section{Objetivo General y Objetivos Específicos}
 \subsection{Objetivo General}
-Desarrollar un sistema de detección aproximada de Botrytis Cinerea en plantas de arándano Biloxi utilizando termografía infrarroja (IRT) mediante hardware de bajo costo.
+Desarrollar un sistema basado en termografía infrarroja (IRT) y hardware de bajo costo para la detección del estrés hídrico en plantas de arándano Biloxi.
 
 \subsection{Objetivos Específicos}
 \begin{enumerate}
@@ -31,37 +121,77 @@ Desarrollar un sistema de detección aproximada de Botrytis Cinerea en plantas d
     \item Modelar la arquitectura del sistema mediante la creación de diagramas UML.
     \item Integrar el hardware del módulo termográfico para la recolección de datos.
     \item Desarrollar el software que recolecte los datos del módulo termográfico para su posterior procesamiento.
-    \item Analizar los datos obtenidos en plantas infectadas por Botrytis Cinerea y plantas saludables para determinar la precisión del sistema desarrollado.
+    \item Evaluar la generación de un reporte de estado hídrico que diferencie entre plantas de arándano Biloxi con riego óptimo y con déficit, a partir de los datos recopilados por el sistema.
 \end{enumerate}
 
 \section{ Alcance e Impacto del Proyecto }
-El presente proyecto busca ser un apoyo a la producción de arándanos a través de la implementación de tecnologías de precisión, como la termografía, para monitorear y gestionar la salud de los cultivos. Esto podría permitir a los agricultores minimizar las perdidas en los cultivos y poder “satisfacer los desafíos de seguridad alimentaria local, regional y global del siglo XXI” (Vargas Q. \& Best S., 2021).
+\label{sec:impacto}
 
-\bigskip
-La agricultura tecnificada y precisa es más sostenible porque permite utilizar recursos de manera óptima, como la utilización de fitosanitarios solo donde sea necesario. Según Manuel Pérez-Ruiz, director del máster en Agricultura Digital e Innovación Agroalimentaria de la Universidad de Sevilla, esta forma de agricultura también ayuda a que los agricultores sean más competitivos y no abandonen su territorio (Communications, 2024).
-Este proyecto está alineado con los Objetivos de Desarrollo Sostenible (ODS), específicamente con el ODS 9, que busca promover la inversión en infraestructura y la innovación para impulsar el crecimiento económico y el desarrollo sostenible. También contribuye a reducir la huella ecológica mediante la gestión eficiente de los recursos naturales compartidos y la implementación de prácticas agrícolas sostenibles, lo que se relaciona con el ODS 12.
+El presente proyecto busca ser un apoyo a la producción de arándanos a través de la implementación de tecnologías de precisión \emph{asequibles}, como la termografía de bajo costo, para monitorear y gestionar la salud de los cultivos. Esto podría permitir a los agricultores minimizar las pérdidas en las cosechas y, con ello, contribuir a ``satisfacer los desafíos de seguridad alimentaria local, regional y global del siglo XXI'' \cite{Vargas2021}.
 
-\bigskip
-La implementación de este proyecto puede tener un impacto significativo en la seguridad alimentaria y la economía local. Al reducir las pérdidas económicas en la producción de cultivos y al promover la eficiencia energética, podemos crear cadenas de producción y suministro más eficientes. Además, el acceso a tecnologías de precisión puede ayudar a reducir la brecha digital entre países desarrollados y en desarrollo, lo que se relaciona con el ODS 9.
+La agricultura de precisión, apoyada en tecnologías como la termografía, es fundamental para una producción más sostenible, ya que permite optimizar el uso de recursos críticos como el agua \cite{Pineda2021}. La capacidad de monitorear el estado hídrico de las plantas en tiempo real posibilita una gestión del riego más eficiente, aplicando agua solo cuando y donde es realmente necesario \cite{GarciaTejero2015}. Este enfoque no solo promueve la conservación del recurso hídrico, sino que también contribuye a que los agricultores sean más resilientes y competitivos \cite{Dong2024}.
+
+Este proyecto está alineado con los Objetivos de Desarrollo Sostenible (ODS) de las Naciones Unidas \cite{UNDPsf}. Específicamente, responde al \textbf{ODS 9 (Industria, Innovación e Infraestructura)}, al buscar promover la inversión y la innovación tecnológica en el sector agrícola. También contribuye directamente al \textbf{ODS 12 (Producción y Consumo Responsables)}, al fomentar una gestión eficiente de los recursos naturales mediante la implementación de prácticas agrícolas sostenibles.
+
+En el plano local, la implementación de este proyecto puede tener un impacto significativo en la seguridad alimentaria y la economía regional. Al reducir las pérdidas económicas en la producción, se fortalecen las cadenas de suministro y se mejora la competitividad de un cultivo de alta importancia para el país \cite{Aimeth2018, Augusto2023}. Además, el acceso a tecnologías de precisión de bajo costo ayuda a reducir la brecha digital, democratizando herramientas avanzadas que de otro modo serían inaccesibles para pequeños y medianos productores, lo cual se alinea nuevamente con las metas del ODS 9.
+
 
 
 \section{Metodología}
-\subsection{Metodología de Investigación}
-Para llevar a cabo esta investigación se utilizará la metodología de investigación mixta, la cual combina la perspectiva cuantitativa y cualitativa, lo que permite dar profundidad al análisis y comprender mejor los procesos. Esto implica recopilar, analizar e interpretar datos tanto cualitativos como cuantitativos para obtener una visión más completa de la problemática a estudiar. Esta metodología busca compensar las limitaciones de cada enfoque al mismo tiempo que fortalece la validez de la interpretación de los resultados (Hamui-Sutton, 2013).
+\label{sec:metodologia}
 
-\bigskip
-La metodología mixta en este proyecto se empleará con el fin de combinar la recopilación y análisis de datos cuantitativos, como las lecturas de temperatura obtenidas a través del módulo de cámara térmica, con la exploración cualitativa de los resultados, como la descripción de las características en las plantas de arándano biloxi. Además de los datos termográficos, también se tomarán en cuenta otras variables importantes para el crecimiento de la planta y el hongo, buscando así tener una visión más completa de los factores que influyen en su desarrollo.Esto permitirá obtener una vista más amplia de la problemática a estudiar, comprendiendo así la relación entre las lecturas termográficas y la presencia de Botrytis Cinerea, además de aquellos factores que puedan influir en la precisión del sistema.
+Para el desarrollo de la investigación se empleará una metodología mixta, que integra enfoques cuantitativos y cualitativos para obtener una comprensión más profunda del fenómeno estudiado. Este método permite combinar la recolección y análisis de datos numéricos con la interpretación de observaciones cualitativas, fortaleciendo así la validez de los resultados al compensar las limitaciones inherentes de cada enfoque por separado \cite{HamuiSutton2013}.
 
+En el contexto de este proyecto, el componente cuantitativo se centrará en la recolección y análisis de los datos de temperatura superficial de la canopia, obtenidos a través del módulo de cámara térmica. El componente cualitativo consistirá en el registro y la descripción de los indicadores visuales del estado de la planta, como la turgencia de las hojas y el vigor general, bajo diferentes regímenes de riego. La integración de ambos tipos de datos permitirá establecer una relación más robusta entre las lecturas termográficas y el nivel de estrés hídrico aplicado, comprendiendo los factores que puedan influir en la efectividad del sistema.
 
-\subsection{Metodología de Desarrollo}
-Para el desarrollo del sistema, se adoptarán elementos del marco de trabajo ágil Scrum, un enfoque de desarrollo iterativo y colaborativo diseñado para fomentar la adaptabilidad y la entrega continua de valor. Este método, reconocido por su flexibilidad y eficiencia, se basa en ciclos cortos de trabajo llamados Sprints, que permiten planificar, ejecutar y revisar tareas de manera organizada y dinámica (SCRUMstudy™, 2022).
+Para la construcción del sistema, se utilizarán elementos del marco de trabajo ágil Scrum. Este enfoque se caracteriza por su flexibilidad, adaptabilidad y enfoque en la entrega de valor de manera incremental a lo largo del proyecto \cite{SCRUMstudy2022}. Se organizará el trabajo en ciclos cortos o Sprints, gestionando las tareas a través de un Product Backlog para asegurar un desarrollo organizado y eficiente del prototipo.
 
-\bigskip
-Durante el proyecto, se trabajará en Sprints semanales, en los cuales se evaluarán los avances del Product Backlog previamente definido. Esta estructura facilita la retroalimentación constante, priorización de tareas y ajustes según las necesidades del proyecto, asegurando un desarrollo estructurado y orientado a cumplir los objetivos establecidos. La implementación de Scrum permitirá un desarrollo funcional que cumpla con las expectativas de precisión y eficacia requeridas.
 
 \section{Marcos de Referencia}
 \subsection{Marco Teórico}
-Texto del marco teórico...
+\label{subsec:marco_teorico}
+
+Este marco teórico sienta las bases conceptuales y científicas sobre las que se construye el presente proyecto. Se abordan tres pilares fundamentales: las características del cultivo de arándano variedad Biloxi y su sensibilidad hídrica, los mecanismos fisiológicos del estrés hídrico en las plantas y su detección, y los principios de la termografía infrarroja como herramienta de monitoreo en la agricultura de precisión, con énfasis en soluciones de bajo costo.
+
+\subsubsection{El Cultivo de Arándano (Vaccinium corymbosum L.)}
+\label{ssubsec:arandano}
+
+El arándano (Vaccinium corymbosum L.) es un frutal cuya popularidad y demanda han crecido exponencialmente a nivel mundial, impulsando su expansión en regiones con condiciones agroecológicas adecuadas, como el altiplano cundiboyacense en Colombia \cite{Aimeth2018, Augusto2023}. Dentro de las diversas variedades, la Biloxi se ha destacado por su adaptabilidad a climas con bajo requerimiento de frío invernal y por la calidad de su fruto, convirtiéndose en una opción preferente para los productores de la región \cite{QuintanaReina2020}.
+
+Una característica agronómica crucial del arándano es su sistema radicular. Este es típicamente superficial, fibroso y carente de pelos absorbentes, lo que implica una capacidad limitada para explorar el perfil del suelo en busca de agua y nutrientes \cite{Morales2017}. Esta particularidad morfológica hace que el cultivo sea especialmente sensible a las fluctuaciones en la disponibilidad hídrica del suelo. Tanto el déficit como el exceso de agua pueden impactar negativamente el desarrollo vegetativo, el calibre de los frutos y, en consecuencia, el rendimiento general de la cosecha \cite{Morales2017, Salgado2018}. Por ello, una gestión precisa y oportuna del riego es indispensable para asegurar la viabilidad económica y la sostenibilidad de la producción de arándano.
+
+\subsubsection{Estrés Hídrico en Plantas}
+\label{ssubsec:estres_hidrico}
+
+El estrés hídrico ocurre cuando la demanda de agua para la transpiración de la planta excede la capacidad de absorción de agua por las raíces, o cuando el contenido de agua en el suelo es insuficiente \cite{Jones2004}. Fisiológicamente, las plantas responden a esta condición mediante una serie de mecanismos adaptativos para conservar agua. Uno de los más importantes y tempranos es el cierre estomático \cite{Rinza2021}. Los estomas son poros microscópicos, principalmente en la superficie de las hojas, que regulan el intercambio gaseoso (CO2 y O2) y la pérdida de agua por transpiración. Al cerrarse, la planta reduce significativamente la pérdida de vapor de agua hacia la atmósfera.
+
+La transpiración, además de su rol en el transporte de agua y nutrientes, funciona como un mecanismo de termorregulación, enfriando la superficie foliar mediante la evaporación del agua \cite{GarciaTejero2015}. Por lo tanto, la reducción de la tasa transpiratoria debido al cierre estomático provoca un aumento medible en la temperatura de la superficie de las hojas \cite{Jones2004, Pineda2021}. Este incremento térmico es un indicador fisiológico directo y temprano del estrés hídrico, a menudo detectable antes de que aparezcan síntomas visuales como la marchitez o la decoloración foliar \cite{Pineda2021, Rinza2021}. La detección precoz de este cambio térmico es clave para intervenir con el riego antes de que el estrés cause daños irreversibles o mermas significativas en la producción.
+
+\subsubsection{Termografía Infrarroja (IRT) en la Agricultura de Precisión}
+\label{ssubsec:termografia}
+
+La termografía infrarroja (IRT) es una técnica no invasiva que permite capturar la radiación infrarroja emitida por la superficie de los objetos y convertirla en una imagen visible (termograma), donde cada color o nivel de gris representa una temperatura \cite{Jones2004}. Su aplicación en fisiología vegetal y ecofisiología se basa en la correlación directa entre la temperatura superficial de la hoja y diversos procesos fisiológicos, especialmente la transpiración y el estado hídrico \cite{Jones2004, GarciaTejero2015}.
+
+En la agricultura de precisión, la IRT se ha consolidado como una herramienta valiosa para monitorear el estrés hídrico en diversos cultivos \cite{PobleteEcheverria2023, Vieira2021}. Permite evaluar la variabilidad espacial y temporal del estado hídrico dentro de una parcela, facilitando una gestión del riego más eficiente y localizada \cite{GarciaTejero2015}. Uno de los índices más utilizados derivados de la termografía es el Índice de Estrés Hídrico del Cultivo (CWSI, por sus siglas en inglés), propuesto originalmente por Idso et al. \cite{Idso1981}. El CWSI normaliza la diferencia entre la temperatura del dosel (Tc) y la temperatura del aire (Ta) utilizando referencias de temperaturas foliares en condiciones de máxima transpiración (límite inferior o T\textsubscript{wet}) y mínima transpiración (límite superior o T\textsubscript{dry}), proporcionando un indicador cuantitativo del nivel de estrés (valores entre 0 y 1) \cite{Quezada2020}.
+
+A pesar de su potencial demostrado, la adopción generalizada de la IRT en la agricultura se ha visto históricamente limitada por el alto costo de las cámaras termográficas de grado científico o industrial \cite{GarciaTejero2015}. Sin embargo, avances recientes en la tecnología de sensores han propiciado la aparición de matrices de sensores infrarrojos de bajo costo, como el MLX90640 \cite{Melexis2021}, que, aunque con menor resolución espacial que las cámaras de alta gama, ofrecen una alternativa viable para aplicaciones específicas de monitoreo \cite{Dong2024}. Investigaciones como la de Dong et al. \cite{Dong2024} han explorado y validado el uso de estas tecnologías de bajo costo para el monitoreo de la temperatura del dosel en aplicaciones agrícolas, abriendo nuevas posibilidades para desarrollar herramientas de agricultura de precisión más asequibles y accesibles para un mayor número de productores. Este proyecto se inscribe en esta línea, buscando aprovechar el potencial de la termografía de bajo costo para abordar el desafío del manejo hídrico en el cultivo de arándano Biloxi.
 
 \subsection{Marco Legal}
-Texto del marco legal...
+\label{subsec:marco_legal}
+
+El desarrollo del proyecto se adhiere a la normativa colombiana, cubriendo aspectos clave de propiedad intelectual, protección de datos y seguridad digital.
+
+\subsubsection{Propiedad Intelectual, Derechos de Autor y Licenciamiento}
+La gestión de la propiedad intelectual se rige por el \textbf{Acuerdo No. 04 de 2018} de la Universidad de Cundinamarca \cite{UDEC2018}. Conforme a este y a los acuerdos del proyecto:
+\begin{itemize}
+    \item \textbf{Derechos Morales:} La autoría moral del software y del presente documento corresponde a los estudiantes y a la directora del proyecto, reconociendo su contribución intelectual fundamental \cite{UDEC2018}.
+    \item \textbf{Derechos Patrimoniales:} Los derechos patrimoniales sobre el software desarrollado son cedidos a la \textbf{Universidad de Cundinamarca}, conforme a lo estipulado en el marco del proyecto y el estatuto \cite{UDEC2018}.
+    \item \textbf{Licencia del Software:} El código fuente del software desarrollado se libera bajo la \textbf{Licencia MIT}, permitiendo su uso, modificación y distribución de forma abierta, fomentando la colaboración y la innovación.
+    \item \textbf{Uso Académico del Documento:} Se concede a la Universidad una licencia no exclusiva para el uso académico del presente documento, permitiendo su inclusión en repositorios institucionales para consulta y preservación \cite{UDEC2018}.
+\end{itemize}
+
+\subsubsection{Protección de Datos Personales}
+El diseño del sistema respeta la \textbf{Ley Estatutaria 1581 de 2012} \cite{Congreso2012}, garantizando la privacidad y seguridad de los datos de usuario. En la fase actual, se aplican buenas prácticas de seguridad y se asegura el ejercicio de los derechos del titular. Se contempla que una futura explotación comercial requeriría cumplir obligaciones adicionales (ej. registro RNBD, política de tratamiento).
+
+\subsubsection{Seguridad Digital}
+Las medidas de seguridad del software (autenticación, control de acceso) se alinean con la \textbf{Ley 1273 de 2009} sobre delitos informáticos \cite{Congreso2009}, protegiendo la integridad de los datos y previniendo accesos no autorizados al sistema.

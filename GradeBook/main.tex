@@ -12,7 +12,6 @@
 \usepackage{graphicx}              % Imágenes
 \usepackage{tocloft}               % Formato del índice
 \usepackage{hyperref}              % Hipervínculos
-\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue} 
 \usepackage{apacite}               % Citas y referencias APA
 \usepackage{enumerate}             % Listas enumeradas
 \usepackage{caption}               % Personalización de leyendas
@@ -22,9 +21,23 @@
 \usepackage{pdfpages}              % Incluir PDF (para anexos)
 \usepackage{color}                 % Colores
 \usepackage{xcolor}                % Colores
-\usepackage{float}
-\usepackage{chngcntr}
+\usepackage{float}                 % Posicionamiento de figuras
+\usepackage{chngcntr}              % Cambiar numeración de figuras y tablas
+\usepackage{array}                 % Tablas
+\usepackage[table]{xcolor}         % Colores en tablas
+\usepackage[T1]{fontenc}           % Codificación de salida
+\usepackage{booktabs}              % Tablas con líneas horizontales
+\usepackage{siunitx}               % Para alinear números en tablas
+\usepackage{enumitem}              % Listas personalizadas
+\usepackage{placeins}              % Control de flotantes
+\usepackage{textcomp}              % Símbolos adicionales
+\usepackage{amsmath}               % Símbolos matemáticos
+\usepackage{gensymb}               % Símbolos generales
+
+% Atributos de paquetes
 \counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\definecolor{tablecolor}{HTML}{CECECE}
 
 % Configuración de márgenes
 \geometry{
@@ -32,6 +45,21 @@
     right=2cm,
     top=4cm,
     bottom=3cm,
+}
+
+% Configuración de hipervinculos
+\hypersetup{
+    colorlinks=true,   % Colorea los enlaces en lugar de usar recuadros
+    linkcolor=black,   % Color para enlaces internos (índice, referencias cruzadas)
+    citecolor=black,   % Color para enlaces de citas bibliográficas 
+    urlcolor=blue      % Color para URLs externas
+}
+
+% Configuración para números en tablas
+\sisetup{
+    output-decimal-marker={,}, % Coma decimal
+    group-separator={.},       % Punto para miles
+    group-minimum-digits={4}   % Agrupar a partir de 4 dígitos
 }
 
 % Configuración de código fuente
@@ -80,11 +108,13 @@
 
 % Configuración de tablas y figuras
 \captionsetup[table]{font=normalsize,skip=0pt,singlelinecheck=false}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
 
 % Ajustar espacio antes/después de la leyenda
 \setlength{\abovecaptionskip}{8pt}   % espacio entre imagen y leyenda si la leyenda va debajo
 \setlength{\belowcaptionskip}{0pt}  % espacio después de la leyenda
 
+% Configuración de leyendas para figuras 
 \captionsetup[figure]{%
   position=above,                       % Coloca la leyenda (número y título) encima de la imagen
   labelfont=bf,                         % "Figura X." en negrita
@@ -94,6 +124,18 @@
   skip=10pt,                            % Espacio entre la leyenda y la imagen (ajusta este valor según lo requieras)
   justification=justified,
   singlelinecheck=false
+}
+
+% Configuración de leyendas para tablas
+\DeclareCaptionLabelFormat{apatable}{\textbf{Tabla #2}} % Define formato: "Tabla" + Número en negrita
+\captionsetup[table]{
+  labelformat=apatable,        % Usa el formato definido arriba
+  labelsep=newline,            % Salto de línea tras "Tabla X"
+  textfont=it,                 % Título en cursiva
+  font={normalsize,stretch=1.5}, % Tamaño normal, interlineado 1.5
+  justification=justified,     % Justifica el texto del título
+  singlelinecheck=false,       % Aplica justificación incluso a títulos cortos
+  skip=10pt                    % Espacio entre la leyenda y la tabla
 }
 
 % Configuración de citas y referencias APA
@@ -109,7 +151,7 @@
 \begin{titlepage}
     \begin{center}
         \vspace*{2cm}
-        {\Large\textbf{SISTEMA DE DETECCIÓN TEMPRANA DE BOTRYTIS CINEREA EN EL ARÁNDANO BILOXI MEDIANTE TERMOGRAFÍA}}\\[4cm]
+        {\Large\textbf{SISTEMA PARA LA DETECCIÓN DE ESTRÉS HÍDRICO EN EL ARÁNDANO BILOXI MEDIANTE TERMOGRAFÍA DE BAJO COSTO}}\\[4cm]
         {\large\textbf{AUTOR(ES)}}\\
         Juan Esteban Fuentes Rojas\\
         Gabriel Esteban Martinez Roldan\\[6cm]
@@ -125,7 +167,7 @@
 \thispagestyle{empty}
 \begin{center}
     \vspace*{2cm}
-    {\Large\textbf{SISTEMA DE DETECCIÓN TEMPRANA DE BOTRYTIS CINEREA EN EL ARÁNDANO BILOXI MEDIANTE TERMOGRAFÍA}}\\[3cm]
+    {\Large\textbf{SISTEMA PARA LA DETECCIÓN DE ESTRÉS HÍDRICO EN EL ARÁNDANO BILOXI MEDIANTE TERMOGRAFÍA DE BAJO COSTO}}\\[3cm]
     {\large\textbf{AUTOR(ES)}}\\
     Directora: Ing. Gina Maribel Valenzuela Sabogal\\
     Juan Esteban Fuentes Rojas\\
@@ -137,15 +179,78 @@
     Facatativá, Noviembre 2025
 \end{center}
 
-% Dedicatoria (opcional)
-\chapter*{Dedicatoria}
-\addcontentsline{toc}{chapter}{Dedicatoria}
-Texto de la dedicatoria...
+\chapter*{Dedicatorias}
+\addcontentsline{toc}{chapter}{Dedicatorias}
+
+\vspace*{\fill}
+\begin{center}
+\textit{A mi madre Sandra, por su amor incondicional, por acompañarme en cada paso y ser mi mayor apoyo durante este largo año de trabajo.}  
+
+\textit{Su fortaleza y confianza fueron el impulso que me permitió seguir adelante.}  
+
+\vspace{0.8cm}
+
+\textit{A mis hermanos, Sebastian, Thatiana e Isabella por sus comentarios, sugerencias y palabras de ánimo que siempre aportaron a la construcción de este proyecto.}
+
+\vspace{0.8cm}
+
+\textit{A mis amigos de la universidad, Gabriel Martínez, Felipe Valcarcel, Duvan Matallana, Laura Latorre y Santiago Sierra, por estar presentes cuando más los necesité, por su ayuda sincera y por compartir conmigo los momentos más difíciles y también los más felices de este proceso.}  
+
+\vspace{0.8cm}
+
+\textit{Y, con todo mi corazón, a mi pareja Estefania, mi querida Nia.}  
+
+\textit{Por su amor, comprensión y paciencia infinita; por acompañarme en cada desafío, en cada desvelo, y recordarme siempre por qué valía la pena continuar.}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\vspace*{\fill}
+\begin{center}
+\textit{Dedico este trabajo:}
+
+\vspace{0.5cm}
+
+\textit{Primeramente a Dios, fuente de fortaleza e inspiración,}  
+\textit{sin cuya guía no habría sido posible llegar hasta aquí.}
+
+\vspace{0.5cm}
+
+\textit{A mi familia, pilar fundamental en mi vida,}  
+\textit{en especial a mi madre, Nancy Roldan,}  
+\textit{por su amor y apoyo invaluable en cada paso.}
+
+\vspace{0.5cm}
+
+\textit{A mis amigos Ivone Lopez y Fredy Zarate,}
+\textit{también a Riveros, Felipe, Mayatana, Laura y Sierra,}
+\textit{por su compañía y palabras de aliento.}
+
+\vspace{0.5cm}
+
+\textit{A mi pareja, Angie Cardenas,}  
+\textit{por su presencia constante, paciencia y por ser}  
+\textit{un apoyo incondicional en todo momento.}
+\end{center}
+\vspace*{\fill}
+
+
 
 % Agradecimientos (opcional)
 \chapter*{Agradecimientos}
 \addcontentsline{toc}{chapter}{Agradecimientos}
-Texto de los agradecimientos...
+Expresamos nuestro más sincero agradecimiento al semillero de investigación LINUDECX por el espacio de aprendizaje y colaboración brindado.
+
+Agradecemos profundamente a nuestra directora de proyecto, Ing. Gina Valenzuela, por su constante guía, paciencia e invaluable apoyo durante todas las etapas de esta investigación. Su orientación fue fundamental para la culminación de este trabajo.
+
+Asimismo, agradecemos a los jurados, Ing. Alexander Espinosa, y en espeical al Ing. Jaime Andrade, por su tiempo y valiosa retroalimentación, cuyas observaciones permitieron enriquecer significativamente este trabajo.
+
+Un agradecimiento especial a Alvaro Bolivar, David Bolivar y Sebastian Martinez, por facilitar recursos que contribuyeron al desarrollo de esta investigación.
+
+Finalmente, agradecemos de corazón a nuestras mascotas, familias y parejas por su amor, comprensión y apoyo incondicional en todo momento. 
+
+Gracias a Dios por la fortaleza y las oportunidades brindadas.
 
 % Compromiso de Autor (Anexo final, incluir si es necesario)
 
@@ -155,27 +260,45 @@ Texto de los agradecimientos...
 
 % Interlineado sencillo para el resumen
 \begin{spacing}{1}
-    Texto del resumen en español (200 a 250 palabras, sin sangría).
+La gestión eficiente del agua es un desafío creciente en la agricultura, especialmente para cultivos sensibles como el arándano Biloxi. Las tecnologías de monitoreo avanzado, como la termografía infrarroja (IRT), pueden ayudar a optimizar el riego al detectar el estrés hídrico de forma temprana midiendo la temperatura de las plantas. Sin embargo, el alto costo de los equipos comerciales limita su uso, particularmente para pequeños y medianos productores.
+
+Este trabajo presenta el desarrollo completo de un sistema alternativo de bajo costo para monitorear el estrés hídrico en arándanos. Se construyó un prototipo utilizando componentes electrónicos asequibles, incluyendo un sensor térmico de matriz, sensores ambientales y un microcontrolador, junto con una aplicación web para visualizar los datos.
+
+Para asegurar la confianza en el sistema, primero se evaluó la precisión y fiabilidad de sus componentes de hardware en condiciones controladas. Se confirmó que, con piezas nuevas y bien seleccionadas, el prototipo ofrece mediciones consistentes. No obstante, se observó que el uso prolongado puede afectar la precisión de algunos sensores de bajo costo, destacando la importancia de revisiones periódicas.
+
+Posteriormente, se probó el sistema monitorizando una planta de arándano durante 55 días, simulando un periodo de sequía seguido de riego normal. El sistema demostró ser capaz de detectar los cambios en la temperatura de la planta asociados a la falta de agua y su posterior recuperación. Los indicadores térmicos calculados reflejaron claramente el aumento del estrés durante la sequía y la mejora tras volver a regar.
+
+Por lo tanto, este proyecto demuestra que es viable construir herramientas de monitoreo termográfico funcionales y asequibles. Se presenta una solución tecnológica completa y validada que abre la puerta a una agricultura de precisión más accesible, ayudando a los agricultores a tomar mejores decisiones sobre el riego y a fomentar un uso más sostenible del agua.
 \end{spacing}
 
 \vspace{1cm}
 
-\textbf{Palabras clave:} palabra1, palabra2, palabra3, palabra4, palabra5.
+\textbf{Palabras clave:} Termografía infrarroja, Estrés hídrico, Arándano Biloxi, Agricultura de precisión, Tecnología de bajo costo, Monitoreo de cultivos, Internet de las Cosas (IoT), Gestión del agua.
 
-\newpage  % Nueva página para el abstract y keywords
+\newpage % Nueva página para el abstract y keywords
 
 % Abstract and Keywords
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
-
 % Interlineado sencillo para el abstract
 \begin{spacing}{1}
-    Texto del resumen en inglés (200 a 250 palabras, sin sangría).
+Efficient water management is a growing challenge in agriculture, especially for sensitive crops like Biloxi blueberries. Advanced monitoring technologies, such as infrared thermography (IRT), can help optimize irrigation by detecting water stress early through plant temperature measurements. However, the high cost of commercial equipment limits its use, particularly for small and medium-sized producers.
+
+This work presents the complete development of an alternative low-cost system for monitoring water stress in blueberries. A prototype was built using affordable electronic components, including a thermal array sensor, environmental sensors, and a microcontroller, along with a web application to visualize the data.
+
+To ensure confidence in the system, the accuracy and reliability of its hardware components were first evaluated under controlled conditions. It was confirmed that, with new and well-selected parts, the prototype provides consistent measurements. However, it was observed that prolonged use can affect the accuracy of some low-cost sensors, highlighting the importance of periodic checks.
+
+Subsequently, the system was tested by monitoring a blueberry plant for 55 days, simulating a period of drought followed by normal irrigation. The system proved capable of detecting changes in plant temperature associated with water deficit and subsequent recovery. Calculated thermal indicators clearly reflected increased stress during drought and improvement after re-watering.
+
+In conclusion, this project demonstrates that it is feasible to build functional and affordable thermographic monitoring tools. A complete and validated technological solution is presented, opening the door to more accessible precision agriculture, helping farmers make better irrigation decisions and promoting more sustainable water use.
 \end{spacing}
 
 \vspace{1cm}
 
-\textbf{Keywords:} keyword1, keyword2, keyword3, keyword4, keyword5.
+\textbf{Keywords:} Infrared thermography, Water stress, Biloxi blueberry, Precision agriculture, Low-cost technology, Crop monitoring, Internet of Things (IoT), Water management.
+
+% --- FIN RESUMEN Y ABSTRACT ---
+% --- Aquí comenzaría tu \tableofcontents o el Capítulo 1 ---
 
 \newpage  % Nueva página para el índice general
 
@@ -184,28 +307,38 @@ Texto de los agradecimientos...
 \newpage
 
 % Lista de Tablas
+\renewcommand{\listtablename}{Lista de Tablas}
 \listoftables
 \addcontentsline{toc}{chapter}{Lista de Tablas}
 \newpage
 
+
 % Lista de Figuras
+\renewcommand{\listfigurename}{Lista de Figuras}
 \listoffigures
 \addcontentsline{toc}{chapter}{Lista de Figuras}
 \newpage
 
-% Lista de Anexos (si aplica)
-\chapter*{Lista de Anexos}
-\addcontentsline{toc}{chapter}{Lista de Anexos}
-\begin{enumerate}
-    \item Anexo A: Título del Anexo A
-    \item Anexo B: Título del Anexo B
-    % Agregar más anexos si es necesario
-\end{enumerate}
-
 % Introducción
 \chapter*{Introducción}
 \addcontentsline{toc}{chapter}{Introducción}
-Texto de la introducción (2 a 4 páginas).
+La agricultura contemporánea enfrenta el desafío dual de incrementar la producción de alimentos para una población creciente y, simultáneamente, adaptarse a los efectos del cambio climático, que intensifican la presión sobre recursos vitales como el agua \cite{Laveglia2024}. La gestión hídrica eficiente se ha convertido, por tanto, en una prioridad global, impulsando la adopción de prácticas agrícolas más sostenibles y tecnificadas. En este contexto, la agricultura de precisión emerge como una estrategia fundamental, empleando tecnologías para medir y responder a la variabilidad espacial y temporal de los cultivos, optimizando así el uso de insumos y mejorando la toma de decisiones agronómicas \cite{Dong2024, Vargas2021}.
+
+Entre los cultivos de alto valor que demandan una gestión hídrica cuidadosa se encuentra el arándano (\textit{Vaccinium corymbosum} L.), cuya popularidad ha impulsado su expansión en diversas regiones, incluyendo el altiplano cundiboyacense colombiano \cite{Aimeth2018}. La variedad Biloxi, adaptada a climas con bajos requerimientos de frío, es particularmente relevante en esta zona \cite{QuintanaReina2020, Balbontin2023}. Sin embargo, el arándano posee un sistema radicular superficial y poco eficiente, lo que lo hace extremadamente vulnerable al estrés hídrico, tanto por déficit como por exceso, comprometiendo significativamente el crecimiento de la planta, el calibre de los frutos y el rendimiento final de la cosecha \cite{Morales2017, INIA2017, Almutairi2021, Salgado2018}. La detección temprana y precisa del estrés hídrico es, por lo tanto, crucial para optimizar el riego y asegurar la sostenibilidad económica del cultivo \cite{Rinza2021}.
+
+La termografía infrarroja (IRT) se ha consolidado como una técnica no invasiva y eficaz para este propósito \cite{GarciaTejero2015, ErazoAux2022}. Se basa en el principio fisiológico de que las plantas, al experimentar déficit hídrico, cierran sus estomas para conservar agua, reduciendo la transpiración y provocando un aumento medible en la temperatura de la superficie foliar \cite{Jones2004, Pineda2021, Cho2024, Pradawet2023}. Índices derivados de la IRT, como el Índice de Estrés Hídrico del Cultivo (CWSI), permiten cuantificar este nivel de estrés \cite{Idso1981, Quezada2020}. No obstante, la aplicación generalizada de la IRT en la agricultura ha estado históricamente limitada por el elevado costo de las cámaras termográficas comerciales, creando una brecha tecnológica significativa, especialmente para pequeños y medianos productores \cite{Dong2024, Yun2023}.
+
+Avances recientes en la tecnología de sensores, particularmente la aparición de matrices térmicas de bajo costo como el MLX90640 \cite{Melexis2021}, han abierto nuevas posibilidades para desarrollar herramientas de monitoreo más asequibles \cite{Dong2024}. Sin embargo, la fiabilidad de estos componentes de bajo costo en aplicaciones agrícolas exigentes requiere una validación metrológica rigurosa antes de su implementación práctica \cite{Acorsi2020, Jiao2022, Yun2023}. Factores como el desgaste por uso y la sensibilidad a condiciones ambientales pueden impactar su precisión y estabilidad a largo plazo.
+
+Este trabajo aborda precisamente esta problemática, presentando el diseño, desarrollo, validación y prueba de concepto de un \textbf{sistema integral de bajo costo para la detección del estrés hídrico en arándano Biloxi mediante termografía infrarroja}. El sistema combina hardware asequible (microcontrolador ESP32-S3, sensor térmico MLX90640, sensores ambientales MEMS) con software embebido y una aplicación web para la adquisición, procesamiento (cálculo de $\Delta T$ y CWSI) y visualización de datos.
+
+El proyecto se estructura en cinco capítulos principales. El \textbf{Capítulo I} establece el marco de la investigación, presentando el estado del arte, el planteamiento del problema, los objetivos, el alcance y la metodología general. El \textbf{Capítulo II} detalla exhaustivamente la documentación del software desarrollado, incluyendo la arquitectura (MVC, Onion), el stack tecnológico, la especificación de requerimientos, el diseño detallado mediante diagramas UML (Casos de Uso, Secuencia, Actividad, Clases, Despliegue) y una estimación de recursos basada en Puntos de Casos de Uso. El \textbf{Capítulo III} se enfoca en la documentación del hardware, describiendo los componentes seleccionados y la metodología empleada para su caracterización y validación metrológica, abordando aspectos clave como la precisión y el impacto del desgaste. El \textbf{Capítulo IV} presenta el estudio experimental realizado como prueba de concepto (PoC), detallando el diseño metodológico (caso único n=1), el procedimiento de estrés hídrico inducido y recuperación, la recolección de datos y los resultados obtenidos en términos de respuesta térmica ($\Delta T$, CWSI) de la planta monitoreada. Finalmente, el \textbf{Capítulo V} consolida los resultados y conclusiones finales, discutiendo la consecución de los objetivos, las fortalezas y limitaciones del sistema desarrollado, su impacto potencial y las recomendaciones para trabajos futuros.
+
+Mediante la integración de la validación instrumental del hardware y la demostración funcional en un escenario experimental relevante, este trabajo busca no solo responder a la pregunta de investigación sobre la viabilidad de la termografía de bajo costo, sino también aportar una base técnica sólida para el desarrollo futuro de herramientas accesibles que impulsen una agricultura más precisa, eficiente y sostenible.
+
+\cleardoublepage
+\pagenumbering{arabic} % Reinicia numeración a arábiga para el cuerpo principal
+\setcounter{page}{1} % La página siguiente será la 1
 
 % Cuerpo del Documento
 \mainmatter
@@ -213,44 +346,13 @@ Texto de la introducción (2 a 4 páginas).
 
 \include{capitulo_investigacion}   % Capítulo I: Informe de Investigación
 \include{capitulo_software}         % Capítulo II: Documentación del Software
-\include{capitulo_hardware}         % Capítulo IV: Desarrollo y Caracterización del Hardware
-\include{capitulo_experimento}      % Capítulo V: Estudio Experimental en Plantas de Arándano Biloxi
-\include{capitulo_ia}              % Capítulo VI: Integración de la Inteligencia Artificial en la Detección Temprana de Botrytis Cinerea
-\include{capitulo_conclusiones}     % Capítulo VII: Resultados Integrados y Conclusiones Globales
+\include{capitulo_hardware}         % Capítulo III: Desarrollo y Caracterización del Hardware
+\include{capitulo_experimento}      % Capítulo IV: Estudio Experimental en Plantas de Arándano Biloxi
+\include{capitulo_conclusiones}     % Capítulo V: Resultados Integrados y Conclusiones Globales
 
 % Bibliografía
 \addcontentsline{toc}{chapter}{Bibliografía}
 \bibliography{bibliografia}
-
-% Anexos
-\appendix  % Indica el inicio de los anexos
-
-\chapter*{Anexos}
-\addcontentsline{toc}{chapter}{Anexos}
-
-% Configurar el contador de secciones para usar letras mayúsculas
-\renewcommand{\thesection}{\Alph{section}}
-
-% Personalizar el formato de los títulos de las secciones para que muestren 'Anexo A.'
-\titleformat{\section}{\normalfont\Large\bfseries}{Anexo \thesection.}{1em}{}
-
-% Anexos numerados que aparecerán en el índice general
-\setcounter{section}{0}  % Reinicia el contador de secciones
-\section{Código Fuente del Módulo Principal}
-Incluir el manual de usuario...
-
-\section{Manual de Usuario por Roles}
-Incluir el manual de usuario...
-
-\section{Manual de Instalación}
-Incluir manual de instalación...
-
-\section{Artículos de Resultados de Investigación}
-Incluir artículos correspondientes...
-
-\section{Certificaciones de Ponencias y Controles de Seguimiento}
-
-\includepdfmerge[nup=1x2, pages={1}]{anexos/ponenciagab1.pdf,anexos/ponenciajuan1.pdf}
 
 % Fin del Documento
 \end{document}

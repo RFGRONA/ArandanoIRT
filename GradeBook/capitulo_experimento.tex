@@ -1,29 +1,197 @@
-% Capítulo V: Estudio Experimental en Plantas de Arándano Biloxi
 \chapter{ESTUDIO EXPERIMENTAL}
+\label{chap:estudio_experimental}
+
+\section*{Nota Preliminar}
+
+Durante el desarrollo del presente proyecto de investigación, se presentó un cambio en el enfoque inicial del estudio. 
+Originalmente, la propuesta contemplaba el desarrollo de un \textbf{aplicativo web para la detección temprana de \textit{Botrytis cinerea}} en cultivos de arándano (\textit{Vaccinium corymbosum} variedad Biloxi). 
+Con el propósito de obtener muestras biológicas del hongo, se estableció contacto con diferentes instituciones nacionales, entre ellas \textbf{AGROSAVIA} y diversas universidades del país. 
+Sin embargo, no fue posible conseguir un aislamiento viable del patógeno ni una especie alternativa que infectara específicamente al arándano Biloxi.
+
+Debido a estas limitaciones experimentales y considerando el crecimiento técnico que alcanzó el aplicativo web en sus primeras etapas de desarrollo, se decidió redirigir el objetivo del proyecto hacia la implementación de un \textbf{sistema de detección de estrés hídrico}, manteniendo la base tecnológica desarrollada y orientando los esfuerzos a un problema de relevancia agronómica equivalente. 
+Este ajuste permitió continuar con la validación del sistema de adquisición de datos, el procesamiento térmico y el análisis del índice de estrés hídrico (CWSI), conservando la coherencia metodológica del trabajo.
+
+\vspace{0.5cm}
+
+\noindent\textbf{Recomendación para futuras investigaciones.} 
+Para investigaciones posteriores que busquen abordar el estudio de patógenos específicos en cultivos agrícolas, se recomienda priorizar la \textbf{obtención y verificación del agente causal} (hongo, patógeno o cepa) como una tarea preliminar o requisito previo antes de definir los objetivos experimentales o tecnológicos del proyecto. 
+De esta manera, se garantiza la viabilidad biológica del estudio y se optimizan los recursos destinados al desarrollo de herramientas de diagnóstico o detección temprana.
+
+
 
 \section{Introducción}
-Se presenta el contexto del cultivo de arándano biloxi y la relevancia de detectar tempranamente Botrytis cinerea. Se definen los objetivos específicos del estudio experimental.
+\label{sec:exp_introduccion}
 
-\section{Objetivos}
-\begin{itemize}
-    \item Obtener el patógeno \textit{Botrytis cinerea} en condiciones controladas.
-    \item Infectar y registrar plantas de arándano biloxi con el hongo mediante datos cuantitativos y cualitativos.
-    \item Evaluar la efectividad de la detección temprana mediante termografía con los datos parciales.
-    \item Comparar los resultados entre plantas infectadas y de control.
-\end{itemize}
+La agricultura moderna busca producir más alimentos de forma sostenible, adoptando prácticas que optimicen el uso del recurso hídrico \cite{Laveglia2024, Vargas2021}. Una estrategia fundamental para lograrlo es la agricultura de precisión que mide y responde a la variabilidad de los cultivos para mejorar su manejo \cite{Dong2024, Pineda2021}. Pero la implementación de técnicas avanzadas como la termografía infrarroja (en adelante IRT), un método no invasivo y eficaz para detectar estrés hídrico a través de la temperatura foliar \cite{GarciaTejero2015, Pineda2021}, ha sido limitada por el alto costo de los equipos comerciales \cite{Dong2024, Salgado2018}. Por lo tanto, existe una brecha tecnológica que frena su adopción, haciendo necesario el desarrollo de herramientas de monitoreo asequibles que democraticen el acceso a estas tecnologías.
 
-\section{Preparación del Hongo \textit{Botrytis cinerea}}
-Descripción del protocolo para el manejo, cultivo y preparación del hongo, detallando medidas de seguridad y procedimientos para garantizar la viabilidad del patógeno.
+En este escenario, el arándano (\textit{Vaccinium corymbosum} L.) se destaca como la cuarta frutilla de mayor importancia económica a nivel mundial \cite{Salgado2018}. En el altiplano cundiboyacense, la variedad Biloxi está en expansión \cite{QuintanaReina2020}, aunque su sistema radicular superficial y poco eficiente la hace altamente vulnerable al déficit hídrico, afectando crecimiento, calibre de frutos y rendimiento \cite{Morales2017, Almutairi2021}.
+
+Cuando las plantas enfrentan déficit de agua, cierran estomas, reducen la transpiración y elevan su temperatura foliar, un indicador temprano del estrés hídrico \cite{GarciaTejero2015, Kappes2024, Vieira2021}. La IRT permite detectar este fenómeno al registrar la radiación térmica de la planta y, mediante el índice de estrés hídrico del cultivo (CWSI por sus siglas en inglés), cuantificar el nivel de afectación \cite{Aux2022, Jimenez2021}.
+
+Recientes avances en hardware accesible han demostrado ser una alternativa prometedora para monitorear la temperatura foliar con suficiente precisión \cite{Dong2024}. En este contexto, la implementación de una prueba de concepto (PoC) se presenta como un paso metodológico crucial. Esta prueba se define como un estudio a escala reducida diseñado para demostrar la funcionalidad de una tecnología y verificar la factibilidad de un concepto antes de su desarrollo a gran escala \cite{Battaglia2021}.
+
+Por esto, considerando la susceptibilidad del arándano Biloxi al estrés hídrico, este estudio se plantea como realizar una prueba de concepto orientada a desarrollar un sistema de termografía de bajo costo para la detección temprana de estrés hídrico. El objetivo es demostrar la sensibilidad del sistema para registrar cambios térmicos que sean plausibles y coherentes con el estado hídrico de la planta, aportando así una base inicial para futuros estudios agronómicos a mayor escala.
+
+\section{Materiales y Métodos}
+\label{sec:exp_materiales_metodos}
+
+\subsection{Planteamiento Metodológico}
+\label{subsec:exp_planteamiento}
+
+Este estudio se diseñó como una prueba de concepto (PoC) para evaluar un sistema de monitoreo de bajo costo \cite{Battaglia2021, Pineda2021}. Para ello, se empleó un diseño de caso único ($n=1$) con una planta de arándano (var. Biloxi) de 18 meses en un microinvernadero ($120 \times 50 \times 50$ cm) en Madrid, Cundinamarca, Colombia, durante 55 días.
+
+El objetivo fue determinar si el sistema era lo suficientemente sensible para detectar los cambios térmicos esperados durante un ciclo de estrés-recuperación, utilizando la planta como su propio control. Este diseño es coherente con el enfoque de PoC, cuyo propósito es establecer la viabilidad funcional del sistema antes de su implementación en estudios con diseños estadísticos más complejos \cite{Battaglia2021, Pineda2021}. Además, se realizaron observaciones cualitativas del vigor de la planta (turgencia de hojas) para contextualizar los datos cuantitativos \cite{Salgado2018, Yu2015, Almutairi2021}.
 
 \section{Diseño Experimental}
-\begin{itemize}
-    \item \textbf{Procedimiento de Infección:} Descripción de cómo se realizará la inoculación en las plantas.
-    \item \textbf{Planificación de la Toma de Datos:} Definición del cronograma, frecuencia y condiciones bajo las cuales se efectuarán las mediciones.
-    \item \textbf{Técnicas Utilizadas:} Detalle de las metodologías (incluyendo termografía) y herramientas empleadas para la captura de datos.
-\end{itemize}
+\label{sec:exp_diseno}
+
+El experimento se diseñó como una prueba de concepto para evaluar la capacidad del sistema en el monitoreo de un solo individuo de arándano (var. Biloxi).
+\begin{description}
+    \item[Sujeto Experimental:] Se utilizó una planta de arándano de la variedad Biloxi, de 18 meses de edad, una de las más cultivadas en la región \cite{QuintanaReina2020}. La planta se mantuvo en un microinvernadero ($120 \times 50 \times 50$ cm) para controlar las condiciones ambientales y aislarla de la lluvia.
+    \item[Ubicación y Duración:] El estudio se llevó a cabo durante 55 días consecutivos, entre agosto y octubre de 2024, en el municipio de Facatativá, Cundinamarca, Colombia.
+    \item[Tratamiento de Estrés Hídrico:] El experimento se dividió en tres fases secuenciales sobre la misma planta, utilizándola como su propio control:
+        \begin{enumerate}
+           \item \textbf{Fase de Estrés Hídrico Inducido:} Se suspendió completamente el riego con el fin de provocar un estado de estrés hídrico progresivo en la planta, permitiendo evaluar la sensibilidad del sistema ante la disminución del contenido de agua foliar.
+            \item \textbf{Fase de Recuperación:} Posteriormente, tras dos semanas de estrés inducido, se reanudó el riego de manera normal para analizar la capacidad de recuperación de la planta y la respuesta del sistema de monitoreo durante el restablecimiento hídrico.
+        \end{enumerate}
+\end{description}
+El prototipo de hardware se instaló a una distancia fija de la planta, asegurando que el dosel foliar estuviera siempre dentro del campo de visión del sensor térmico MLX90640. Adicionalmente, se realizaron observaciones cualitativas periódicas del vigor de la planta (turgencia de hojas) para contextualizar los datos cuantitativos, siguiendo prácticas de evaluación agronómica \cite{Salgado2018, Yu2015, Almutairi2021}.
 
 \section{Recolección y Análisis de Datos}
-Metodología para la recopilación de datos experimentales, métodos estadísticos aplicados para el análisis comparativo entre plantas infectadas y de control, y presentación de resultados preliminares.
+\label{sec:exp_recoleccion_analisis}
+
+
+El firmware del ESP32-S3 fue programado para capturar datos de todos los sensores a intervalos regulares de \textbf{20 minutos} durante los 55 días del experimento. En cada intervalo, se registraron y transmitieron en formato JSON al servidor los siguientes datos:
+\begin{itemize}
+    \item Una matriz completa de $32 \times 24$ (768) valores de temperatura del sensor térmico MLX90640.
+    \item Temperatura ambiente (°C) y Humedad relativa (\%) del sensor DHT22.
+    \item Iluminancia (lux) del sensor BH1750.
+    \item Una imagen RGB de contexto capturada por la cámara de apoyo.
+\end{itemize}
+Estos datos fueron almacenados en la base de datos PostgreSQL para su posterior análisis.
+
+
+El análisis de los datos se centró en la extracción de la temperatura foliar a partir de la matriz térmica y el cálculo del CWSI, siguiendo estos pasos:
+
+\begin{enumerate}
+    \item \textbf{Reducción de Ruido y Segmentación Térmica:} 
+    Para cada registro temporal, se promediaron seis capturas térmicas consecutivas (tomadas en rápida sucesión por el firmware) para minimizar el ruido inherente al sensor MLX90640. 
+    Sobre la matriz promediada, se aplicó un algoritmo de segmentación espacial en Python para aislar los píxeles correspondientes exclusivamente a la canopia foliar, descartando el fondo (suelo, maceta, estructura del invernadero). 
+    La temperatura foliar promedio ($T_c$ o $T_{\text{canopia}}$) se calculó únicamente a partir de estos píxeles segmentados, una práctica recomendada para mejorar la precisión \cite{Quezada2020,Vieira2021}.
+
+    \item \textbf{Cálculo del Índice de Estrés Hídrico (CWSI):} 
+    Se utilizó la metodología empírica del CWSI, desarrollada originalmente por Idso et al. \cite{Idso1981}, que normaliza la diferencia entre la temperatura del dosel ($T_c$) y la temperatura del aire ($T_a$) utilizando referencias teóricas para las temperaturas foliares en condiciones de máxima transpiración ($T_{\text{wet}}$) y mínima transpiración ($T_{\text{dry}}$). 
+    El índice se calculó utilizando la siguiente fórmula \cite{Quezada2020}:
+
+    \[
+    \text{CWSI} = \frac{(T_c - T_a) - (T_{\text{wet}} - T_a)}{(T_{\text{dry}} - T_a) - (T_{\text{wet}} - T_a)}
+    \]
+
+    donde $(T_{\text{wet}} - T_a)$ representa el límite inferior (enfriamiento máximo) y $(T_{\text{dry}} - T_a)$ el límite superior (sin enfriamiento), ambos estimados a partir de modelos teóricos o líneas base empíricas \cite{Quezada2020,Aux2022}. 
+    En este estudio, se implementó un método de cálculo empírico con líneas base horarias para $T_{\text{wet}}$ y $T_{\text{dry}}$, buscando mitigar las variaciones térmicas naturales entre el día y la noche. 
+    Un valor de CWSI cercano a 0 indica ausencia de estrés, mientras que un valor cercano a 1 indica estrés hídrico severo.
+
+    \item \textbf{Análisis de Tendencias y Correlación Ambiental:} 
+    Los datos de $T_c$, $\Delta T = T_c - T_a$, y CWSI se graficaron a lo largo del tiempo para visualizar las tendencias durante las dos fases del experimento, (estrés y recuperación). 
+
+    Para correlacionar el rendimiento del sistema con las condiciones ambientales, se utilizó la API externa \textit{WeatherApi} para obtener la descripción climática textual (por ejemplo, ``Soleado'', ``Lluvia moderada'') en cada intervalo de medición. 
+    Se excluyeron del análisis comparativo por clima aquellas condiciones con menos de diez registros. 
+    Adicionalmente, se calculó el Déficit de Presión de Vapor (VPD) a partir de los datos de temperatura y humedad del DHT22 para segmentar el análisis de $\Delta T$ por demanda atmosférica.
+\end{enumerate}
+
+En total, se analizaron 3682 registros térmicos válidos.
 
 \section{Resultados}
-Presentación detallada de los hallazgos experimentales, análisis crítico de los resultados y comparación con los objetivos planteados en el estudio. Se discutirán las implicaciones de la detección temprana y su potencial para mejorar el manejo del cultivo.
+\label{sec:exp_resultados}
+
+Los resultados obtenidos con el sistema de monitoreo durante los 55 días permiten evaluar su capacidad para registrar la respuesta fisiológica de la planta de arándano (variedad Biloxi) ante el estrés hídrico inducido y su posterior recuperación.
+
+La Figura \ref{fig:dist_horaria_deltaT} muestra la distribución de los valores de $\Delta T$ (Estrés Térmico: $T_{\text{canopia}} - T_{\text{aire}}$) capturados por el sistema a lo largo de las 24 horas del día, agrupando todos los datos del experimento. Se revela un patrón circadiano bien definido. Durante las horas nocturnas (aproximadamente 20:00 a 06:00), las mediciones de $\Delta T$ se mantienen estables y muy cercanas a $0^{\circ}$C, con una variabilidad mínima. Este comportamiento es coherente con el hecho de que, sin la energía de la radiación solar, la actividad de transpiración es casi nula y la planta alcanza un equilibrio térmico con su entorno \cite{GarciaTejero2015}.
+
+% --- INICIO FIGURA 1 ---
+\begin{figure}[H] % Usar [H] del paquete float si se ancló la tabla
+    \centering
+    \caption{Distribución horaria del estrés térmico ($\Delta T$). Los boxes muestran la mediana y los cuartiles, los bigotes el rango intercuartílico $\times 1.5$.}
+    \includegraphics[width=0.8\textwidth]{img/distpng.png} 
+    \label{fig:dist_horaria_deltaT}
+\end{figure}
+% --- FIN FIGURA 1 ---
+
+En las horas fotosintéticamente activas, a partir de las 07:00, el sistema registra un marcado descenso en los valores de $\Delta T$, indicando el inicio de la transpiración y el consecuente enfriamiento foliar. Este proceso se intensifica a lo largo de la mañana, y las medianas de $\Delta T$ alcanzan sus valores más negativos (por debajo de $-5^{\circ}$C) entre las 10:00 y las 13:00. Este comportamiento es consistente con el enfriamiento por evaporación, mecanismo vital mediante el cual la planta disipa la carga térmica impuesta por la radiación solar \cite{GarciaTejero2015}.
+
+La característica más reveladora del gráfico es la \textbf{gran variabilidad} registrada durante este pico de actividad diurna (10:00-14:00), visible en la amplia dispersión de los datos (cajas y bigotes largos) y los valores extremos. Esta dispersión es crucial, ya que el gráfico agrupa los 55 días de datos, incluyendo tanto el periodo de estrés como el de recuperación. El valor mínimo registrado (aproximadamente $-13^{\circ}$C) representa la máxima capacidad de enfriamiento de la planta en días soleados y con riego óptimo. En contraste, el extremo superior de las cajas y bigotes (más cercano a $0^{\circ}$C) corresponde a los momentos en que la planta, bajo estrés hídrico severo, no podía transpirar eficazmente y su temperatura foliar se acercaba a la del aire. La \textbf{captura de este amplio rango dinámico} es la evidencia visual de que el sistema de bajo costo fue lo suficientemente sensible para registrar todo el espectro de respuestas fisiológicas de la planta, desde el riego óptimo hasta el estrés severo.
+
+Si bien la captura de este rango valida la sensibilidad del sensor, un análisis más profundo requiere normalizar las mediciones para eliminar la influencia de las condiciones ambientales. Por ello, se utilizó el CWSI como métrica clave. La Figura \ref{fig:heatmap_cwsi} presenta un mapa de calor que visualiza la evolución diaria y horaria de este índice durante el experimento. Los colores cálidos (amarillo) indican un alto estrés (CWSI $\approx 1$) detectado por el sistema, y los colores fríos (morado/azul), un bajo estrés (CWSI $\approx 0$). La línea punteada horizontal señala el momento de la reanudación del riego (Día 46). Los puntos blancos indican datos faltantes por fallas técnicas menores.
+
+% --- INICIO FIGURA 2 ---
+\begin{figure}[H]
+    \centering
+    \caption{Mapa horario del Índice de Estrés Hídrico del Cultivo (CWSI) durante los 55 días del experimento. La línea punteada marca la reanudación del riego.}
+    \includegraphics[width=\textwidth]{img/horario.png}
+    \label{fig:heatmap_cwsi}
+\end{figure}
+% --- FIN FIGURA 2 ---
+
+El mapa de calor demuestra claramente el funcionamiento del sistema. Durante el periodo de sequía inducida (antes de la línea punteada), el sistema registró consistentemente los valores más altos de CWSI (predominio de colores verdes/amarillos) durante las horas de máxima demanda atmosférica (aproximadamente 10:00-17:00). Tras la reanudación del riego (después de la línea punteada), se observa una \textbf{transición vertical abrupta} hacia colores fríos (morados/azules) en esas mismas horas, indicando una rápida recuperación del estado hídrico de la planta. Esta clara diferencia antes y después del riego valida la sensibilidad del sistema para detectar cambios en el estado hídrico a lo largo del tiempo. El aumento del CWSI durante la sequía es consecuencia directa de la reducción de la transpiración por cierre estomático \cite{Pineda2021}, mientras que el descenso post-riego refleja la reapertura estomática y la reanudación del enfriamiento \cite{Yu2015}.
+
+Adicionalmente, el sistema capturó interacciones complejas. Se observan algunas noches con CWSI elevado durante la fase de sequía, sugiriendo estrés acumulado. Inversamente, algunas tardes muestran CWSI bajo, probablemente por eventos climáticos (lluvia, nubosidad) que enfrían externamente la hoja, ``enmascarando'' temporalmente el estrés interno \cite{Carolayn2020}. Dado que estas observaciones demuestran una fuerte dependencia entre las mediciones térmicas y el clima, se vuelve fundamental analizar esta relación. La Figura \ref{fig:deltaT_vs_clima} compara la distribución de $\Delta T$ bajo diferentes condiciones climáticas reportadas por la API externa.
+
+% --- INICIO FIGURA 3 ---
+\begin{figure}[H]
+    \centering
+    \caption{Distribución del estrés térmico ($\Delta T$) segmentado por condición climática externa.}
+    \includegraphics[width=0.8\textwidth]{img/clima.png}
+    \label{fig:deltaT_vs_clima}
+\end{figure}
+% --- FIN FIGURA 3 ---
+El gráfico muestra dos comportamientos opuestos. En condiciones de alta humedad y baja radiación ("Niebla moderada", "Lluvia"), los valores de $\Delta T$ se agrupan cerca de $0^{\circ}$C con mínima variabilidad, reflejando la limitación física de la transpiración en aire saturado. Por el contrario, en días de alta radiación ("Soleado", "Despejado"), el sistema registra la máxima capacidad de enfriamiento ($\Delta T$ medianos $<-5^{\circ}$C, mínimos $\approx -12^{\circ}$C) y la mayor variabilidad, que representa la diferencia entre la planta estresada y la bien regada bajo esas condiciones. Este gráfico (Figura \ref{fig:deltaT_vs_clima}) ilustra que las mediciones térmicas no pueden interpretarse aisladamente y valida la necesidad de usar índices normalizados como el CWSI o análisis segmentados por demanda atmosférica (VPD) \cite{Pineda2021}.
+
+Tras establecer la fuerte dependencia de las mediciones térmicas con el clima en la Figura \ref{fig:deltaT_vs_clima}, la Tabla \ref{tab:deltaT_vs_VPD} ofrece un análisis cuantitativo más riguroso. Esta presenta una comparación del $\Delta T$ promedio medido por el sistema entre el periodo de ``Estrés Hídrico'' y el de ``Recuperación'', segmentado por rangos equivalentes de Déficit de Presión de Vapor (VPD).
+
+% --- INICIO TABLA 1 ---
+\FloatBarrier
+\begin{table}[h!]
+    \centering
+    \caption{Comparación del estrés térmico ($\Delta T$) bajo demandas atmosféricas equivalentes.}
+    \label{tab:deltaT_vs_VPD}
+    \small % Hace la fuente un poco más pequeña si es necesario
+    \begin{tabular}{c c c c c}
+        \toprule
+        \textbf{Rango VPD} & \multicolumn{2}{c}{\textbf{Estrés Hídrico}} & \multicolumn{2}{c}{\textbf{Recuperación}} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+        \textbf{(kPa)} & \textbf{$\Delta T$ Promedio (°C)} & \textbf{N Muestras} & \textbf{$\Delta T$ Promedio (°C)} & \textbf{N Muestras} \\
+        \midrule
+        {[}0.0, 0.5) & 0.31 & 685 & 0.07 & 930 \\
+        {[}0.5, 1.0) & -0.38 & 438 & -0.46 & 432 \\
+        {[}1.0, 1.5) & -1.89 & 174 & -2.14 & 238 \\
+        {[}1.5, 2.0) & -2.89 & 85 & -3.25 & 139 \\
+        {[}2.0, 2.5) & -4.16 & 61 & -4.19 & 93 \\
+        {[}2.5, 3.0) & -5.26 & 36 & -5.20 & 51 \\
+        {[}3.0, 3.5) & -6.55 & 22 & -6.19 & 28 \\
+        {[}3.5, 4.0) & -6.08 & 21 & -6.83 & 33 \\
+        {[}4.0, 4.5) & -7.20 & 22 & -7.45 & 24 \\
+        {[}4.5, 5.0) & -8.00 & 13 & -7.75 & 17 \\
+        {[}5.0, 5.5) & -8.41 & 4 & -9.68 & 15 \\
+        {[}5.5, 6.0) & -8.26 & 2 & -9.11 & 12 \\
+        {[}6.0, 6.5) & -9.89 & 4 & -10.15 & 7 \\
+        {[}6.5, 7.0) & -9.34 & 5 & -11.15 & 3 \\
+        {[}7.0, 7.5) & -10.44 & 1 & -10.66 & 3 \\
+        {[}7.5, 8.0) & N/A & N/A & -13.47 & 2 \\
+        {[}8.0, 8.5) & N/A & N/A & -13.36 & 2 \\
+        {[}8.5, 9.0) & N/A & N/A & -13.71 & 1 \\
+        \bottomrule
+    \end{tabular}
+    \vspace{0.5em} % Añade un pequeño espacio vertical después de la tabla
+    % \footnotesize{\textit{Nota:} Comparación del $\Delta T$ promedio medido por el sistema entre periodos.} % Puedes añadir una nota si lo deseas
+\end{table}
+\FloatBarrier
+% --- FIN TABLA 1 ---
+
+El análisis revela tres zonas de comportamiento que, en conjunto, validan la capacidad del sistema para detectar el estado hídrico:
+\begin{itemize}
+    \item \textbf{Zona de Evidencia Consistente (VPD < 2.5 kPa):} En condiciones de baja a moderada demanda atmosférica, donde se concentra la mayoría de las observaciones, los datos indican que el $\Delta T$ promedio registrado en la planta estresada es sistemáticamente más alto (menos negativo) que en la planta en recuperación. Esta diferencia, que es consistente con una menor capacidad de enfriamiento, refleja el principio básico de la termografía: el cierre estomático bajo estrés reduce la transpiración y eleva la temperatura foliar \cite{GarciaTejero2015}.
+    \item \textbf{Zona de Transición y Ruido Estadístico (VPD 2.5-5.0 kPa):} En este rango, las diferencias de $\Delta T$ se reducen e incluso se invierten. Este comportamiento se atribuye a dos factores combinados: la escasa cantidad de muestras en esta franja (que aumenta la incertidumbre estadística) y los límites fisiológicos del arándano. Con una demanda atmosférica muy alta, incluso una planta bien regada puede tener dificultades para absorber agua a la misma velocidad que la transpira, debido a su sistema radicular superficial \cite{Morales2017, Salgado2018}. Esto provoca que la respuesta térmica de la planta en ambas fases (estresada y en recuperación) converja, reduciendo la claridad de la señal en estas condiciones extremas y poco frecuentes.
+    \item \textbf{Zona de Tendencia Sugerida (VPD > 5.0 kPa):} En este rango extremo, los datos son escasos para establecer conclusiones definitivas, pero sugieren una tendencia interesante. Mientras la planta en recuperación alcanzó un enfriamiento máximo ($\Delta T$ de hasta -13.71 $^{\circ}$C), la ausencia de registros para la planta estresada en las condiciones más severas apunta a un posible cierre estomatal casi total como mecanismo de supervivencia para evitar la deshidratación \cite{Yu2015}. Esto sugiere que es precisamente bajo esta alta exigencia donde la diferencia entre un estado hídrico saludable y uno deficiente se vuelve más pronunciada, destacando el potencial del sistema para detectar estrés severo.
+\end{itemize}
+Estos resultados cuantitativos, segmentados por VPD, refuerzan la validación de la sensibilidad del sistema para detectar diferencias en el estado hídrico bajo condiciones ambientales comparables.
+

@@ -1,33 +1,345 @@
 % Capítulo II: Documentación del Software
-\chapter{DOCUMENTACIÓN DEL SOFTWARE}
+\chapter{DOCUMENTACIÓN SOFTWARE}
 
 % =================================================
 % =================================================
 
 \section{Plan de Proyecto}
-Texto del plan de proyecto...
+La gestión y planificación del proyecto se fundamentó en una adaptación del marco de trabajo ágil Scrum, tal como se describió en la sección de metodología. Este enfoque se eligió por su flexibilidad y su capacidad para adaptar el desarrollo a los hallazgos de la investigación de manera iterativa.
+
+Para la gestión operativa de esta metodología, incluyendo la administración del \textit{Product Backlog}, las historias de usuario y el seguimiento de los \textit{Sprints}, se utilizó la herramienta de software de código abierto \texttt{Plane}.
+
+La implementación de Scrum se adaptó a un contexto académico y de investigación, aplicando los siguientes elementos clave:
+\begin{itemize}
+    \item \textbf{Historias de Usuario:} Todos los requerimientos funcionales del sistema, identificados en la primera fase del proyecto, se tradujeron en historias de usuario.
+    \item \textbf{Product Backlog:} Se priorizaron las historias de usuario en un \textit{Product Backlog}, que sirvió como la hoja de ruta principal para el desarrollo.
+    \item \textbf{Sprints:} El trabajo de desarrollo se dividió en \textit{Sprints}, con duraciones que oscilaron entre dos y tres semanas. Generalmente, cada \textit{Product Backlog Item} (PBI) o conjunto de historias de usuario relacionadas se completaba dentro de un único \textit{Sprint}.
+    \item \textbf{Reuniones de Seguimiento:} Se realizaron reuniones semanales con la dirección del proyecto para revisar los adelantos, presentar el trabajo completado en el \textit{Sprint} y ajustar las prioridades para el siguiente ciclo.
+\end{itemize}
+
+El cronograma detallado de ejecución del proyecto, que agrupa las tareas en los \textit{Sprints} definidos, se presenta en el Diagrama de Gantt (Figura \ref{fig:gantt}). Este diagrama ilustra la secuencia de las actividades, su duración y las dependencias entre las fases de investigación, desarrollo, integración y pruebas.
+
+\begin{figure}[H]
+    \centering
+		\caption{Diagrama de Gantt del proyecto.}
+    \includegraphics[width=0.95\textwidth]{UML/Otros/Diagrama Gantt.png}
+    \label{fig:gantt}
+\end{figure}
+
 
 % =================================================
 % =================================================
 
 \section{Arquitectura del Software}
 
-Describe la estructura global del sistema, mostrando cómo se organizan e interconectan los componentes del frontend y backend.
+El presente capítulo detalla la arquitectura del software desarrollado para el sistema \textit{Arandano IRT}. Se describe la estructura adoptada, los patrones de diseño implementados y las tecnologías seleccionadas, justificando las decisiones tomadas en función de los requerimientos funcionales y no funcionales del proyecto, así como de las lecciones aprendidas durante las fases iniciales de desarrollo.
 
-\subsection{Desarrollo del Frontend}
-Documenta la implementación de la interfaz de usuario, detallando las tecnologías utilizadas y el diseño de la experiencia de usuario.
+El desarrollo del sistema partió de la construcción de un Prototipo Mínimo Viable (MVP), enfocado en validar las tecnologías centrales y las funcionalidades críticas de monitoreo y análisis. Esta fase inicial fue crucial, no solo para generar un conjunto de datos preliminar significativo (más de 3500 registros), sino también para identificar desafíos técnicos y refinar la arquitectura final. La experiencia con el MVP subrayó la importancia de una infraestructura resiliente. Un incidente específico, una interrupción prolongada del servicio debido a una falla en un proveedor externo (Cloudflare), motivó un rediseño orientado a minimizar las dependencias externas críticas y maximizar la autonomía operativa del sistema. Esta decisión estratégica ha resultado en una arquitectura robusta, evidenciada por un tiempo de actividad continuo superior a los 100 días desde su implementación final.
 
-\subsection{Desarrollo del Backend}
-Explica la lógica del servidor, la estructura de las APIs, la gestión de bases de datos y la implementación de la lógica de negocio que sustenta la aplicación.
+La arquitectura resultante se describe desde dos perspectivas complementarias: el diseño lógico, que aborda la organización interna del código y la aplicación del patrón Modelo-Vista-Controlador (MVC); y la arquitectura física, que detalla la distribución de los componentes de software en la infraestructura de despliegue. Finalmente, se presenta el stack (recursos) tecnológico que sustenta el sistema.
 
-\subsection{Integración Frontend-Backend}
-Detalla los mecanismos y protocolos (por ejemplo, REST o WebSockets) que permiten la comunicación y sincronización de datos entre la interfaz y el servidor.
+\subsection{Patrón Arquitectónico y Diseño Lógico}
+
+El sistema \textit{Arandano IRT} adopta el patrón arquitectónico Modelo-Vista-Controlador (MVC), aprovechando las capacidades ofrecidas por el framework \textbf{ASP.NET Core 8}. Se optó por una arquitectura monolítica modular en lugar de un enfoque desacoplado (como una Single Page Application (SPA) con una API backend separada), considerando el alcance del proyecto y la eficiencia en el desarrollo para un equipo reducido, decisión validada durante la fase del MVP. Esta elección permite una estructura cohesiva y un despliegue simplificado, sin sacrificar la organización interna del código.
+
+La implementación sigue la interpretación clásica del patrón MVC adaptada al ecosistema de ASP.NET Core, estructurando la aplicación en las siguientes capas lógicas principales, tomadas del la Arquitectura Cebolla (Onion Architecture), reflejadas en la organización de directorios del proyecto:
+
+\begin{itemize}
+    \item \textbf{Capa de Presentación (Vista - View)}: Responsable de la interfaz de usuario (UI) y la interacción directa con el usuario (\texttt{:Persona}). Esta capa se implementa principalmente mediante \textbf{Razor Pages} y componentes \textbf{Blazor/Razor} (\texttt{.cshtml}, ubicados en el directorio \texttt{/Views}. Estos componentes se renderizan en el servidor, generando el HTML que se envía al navegador del cliente. La lógica de presentación, el manejo de eventos de UI y las llamadas iniciales a la lógica de negocio residen aquí.
+
+    \item \textbf{Capa de Control (Controlador - Controller)}: Actúa como intermediario entre la Vista y el Modelo. Los controladores (\texttt{.cs}), situados en \texttt{3\_Presentation/Controllers}, reciben las solicitudes HTTP entrantes (generalmente iniciadas por acciones del usuario en la Vista), interpretan los datos de la solicitud, invocan la lógica de negocio necesaria a través de los servicios de la capa de aplicación y seleccionan la Vista apropiada para devolver la respuesta al cliente.
+
+    \item \textbf{Capa de Modelo (Model)}: Esta capa encapsula la lógica de negocio central, las reglas del dominio y el acceso a los datos. Se organiza en subcapas para una mejor separación de responsabilidades:
+        \begin{itemize}
+            \item \textbf{Dominio (\texttt{0\_Domain})}: Contiene las entidades principales del sistema (ej. \texttt{Crop}, \texttt{Plant}, \texttt{Device}), objetos de valor, enumeraciones (\texttt{Enums}) y reglas de negocio fundamentales que son independientes de la tecnología.
+            \item \textbf{Aplicación (\texttt{1\_Application})}: Orquesta los casos de uso. Contiene los Data Transfer Objects (DTOs) utilizados para la comunicación entre capas, las interfaces de los servicios de aplicación (\texttt{Contracts}) y sus implementaciones (\texttt{Implementation}). Los servicios de esta capa coordinan la lógica de negocio, interactuando con las entidades del Dominio y utilizando la capa de Infraestructura para tareas como la persistencia o el envío de correos.
+            \item \textbf{Infraestructura (\texttt{2\_Infrastructure})}: Implementa los detalles técnicos y las dependencias externas. Incluye la configuración del \textbf{DbContext de Entity Framework Core} para la persistencia de datos en PostgreSQL, la implementación de servicios externos (como envío de correos con Brevo, almacenamiento con MinIO), la gestión de la autenticación, tareas en segundo plano (\textit{background services}) y otros aspectos transversales. Proporciona las implementaciones concretas para las abstracciones definidas en las capas de Aplicación.
+        \end{itemize}
+\end{itemize}
+
+La comunicación entre estas capas se gestiona principalmente a través de Inyección de Dependencias (Dependency Injection), un principio fundamental en ASP.NET Core. Por ejemplo, un componente Razor en la Vista puede inyectar y utilizar un servicio definido en la capa de Aplicación. Este servicio, a su vez, puede inyectar y utilizar el \texttt{ApplicationDbContext} (definido en Infraestructura) para consultar o modificar entidades del Dominio persistidas en la base de datos. Este flujo unidireccional de dependencias (Presentación $\rightarrow$ Aplicación $\rightarrow$ Dominio $\leftarrow$ Infraestructura) asegura un bajo acoplamiento y facilita la mantenibilidad y testabilidad del sistema. La integración entre el frontend (Razor/Blazor) y el backend (Controladores, Servicios) se realiza mediante llamadas a métodos dentro del mismo proceso de aplicación, característico de la arquitectura monolítica seleccionada.
+
+
+\subsection{Arquitectura Física e Infraestructura}
+
+La arquitectura física define la distribución de los componentes de software en los nodos de hardware y la infraestructura subyacente que soporta la operación del sistema \textit{Arandano IRT}. Esta arquitectura ha sido diseñada priorizando la robustez y la autonomía operativa, como se discutió en la introducción de este capítulo. La Figura \ref{fig:diagrama_arquitectura} ilustra la topología de despliegue.
+
+\begin{figure}[!h]
+    \centering
+    \caption{Diagrama de Despliegue Físico del Sistema Arandano IRT.}
+    \includegraphics[width=0.6\textwidth]{UML/Otros/Diagrama Arquitectura.png} 
+    \label{fig:diagrama_arquitectura}
+\end{figure}
+
+El sistema se despliega sobre dos nodos físicos principales:
+
+\begin{enumerate}
+    \item \textbf{Servidor Central (Cloud VM)}: Se utiliza una Máquina Virtual (VM) alojada en el proveedor de infraestructura como servicio (IaaS), específicamente DigitalOcean. Este nodo ejecuta el sistema operativo \textbf{Ubuntu Server 24.04 LTS} y alberga la totalidad de la pila de servicios backend, orquestada mediante Docker y Docker Compose. Los componentes de software que se ejecutan en contenedores dentro de esta VM incluyen:
+        \begin{itemize}
+            \item La aplicación principal \textbf{ASP.NET Core 8} (Backend MVC y API).
+            \item El sistema gestor de base de datos \textbf{PostgreSQL 16}.
+            \item El servicio de almacenamiento de objetos compatible con S3, \textbf{MinIO}, utilizado para las copias de seguridad de la base de datos y almacenamiento de archivos.
+            \item La pila de observabilidad compuesta por \textbf{Loki/Promtail} para la agregación de logs y \textbf{Grafana} para la visualización y alertas.
+            \item El proxy inverso \textbf{Caddy}, que gestiona el tráfico HTTPS entrante, la terminación TLS y el enrutamiento hacia los servicios correspondientes.
+        \end{itemize}
+    El servidor está protegido por firewalls a nivel de red (proveedor cloud) y a nivel de host (\texttt{ufw}), además de contar con \texttt{Fail2Ban} para la prevención de intrusiones.
+
+    \item \textbf{Dispositivo de Monitoreo (IoT Device)}: Representa el hardware físico desplegado en campo cerca de las plantas de arándano. Este dispositivo integra los sensores ambientales y la cámara térmica. Ejecuta un \textbf{firmware} embebido (desarrollado específicamente para el proyecto, como se detalla en el capitulo correspondiente) responsable de la captura periódica de datos (temperatura, humedad, imágenes térmicas y RGB), el preprocesamiento básico, y la transmisión segura de esta información al Servidor Central.
+\end{enumerate}
+
+La comunicación entre estos nodos se realiza a través de protocolos de red estándar y seguros:
+
+\begin{itemize}
+    \item \textbf{Dispositivo IoT $\rightarrow$ Servidor Central}: El firmware del dispositivo de monitoreo envía los datos recolectados (lecturas ambientales, estadísticas térmicas, logs) a la API expuesta por la aplicación ASP.NET Core 8 en el servidor. Esta comunicación se realiza exclusivamente sobre \textbf{HTTPS (puerto 443)}, asegurando el cifrado de la información en tránsito. El dispositivo se autentica ante la API mediante tokens de seguridad gestionados por el sistema .
+    \item \textbf{Usuario (\texttt{:Persona}) $\rightarrow$ Servidor Central}: Los usuarios interactúan con la aplicación web a través de sus navegadores. Toda la comunicación entre el navegador del usuario y el servidor se realiza sobre \textbf{HTTPS (puerto 443)}, gestionada y asegurada por el proxy inverso Caddy, que maneja automáticamente los certificados TLS/SSL.
+\end{itemize}
+
+Esta arquitectura física centralizada en una VM gestionada con Docker simplifica el despliegue y mantenimiento, mientras que el uso de protocolos seguros garantiza la integridad y confidencialidad de los datos transmitidos, lo que ha permitido tener un sistema resiliente y confiable en operación continua.
+
+\subsection{Stack Tecnológico}
+
+La selección de las tecnologías para el sistema \textit{Arandano IRT} se basó en criterios de soporte comunitario, costos y alineación con la filosofía \textit{"Open Source Primero"} del proyecto, sin descartar el uso pragmático de servicios privativos donde ofrecían ventajas significativas en sus capas gratuitas. A continuación, se detallan los componentes clave del stack tecnológico implementado:
+
+\begin{itemize}
+    \item \textbf{Framework de Desarrollo Backend}: Se seleccionó \textbf{.NET 8} con el lenguaje \textbf{C\#}. Esta elección se fundamenta en su naturaleza multiplataforma, su ecosistema moderno de desarrollo, el alto rendimiento ofrecido por la plataforma y el robusto soporte de la comunidad y Microsoft. El uso de Entity Framework Core como ORM facilitó la interacción con la base de datos.
+
+    \item \textbf{Tecnologías de Frontend (UI)}: La interfaz de usuario se construyó utilizando \textbf{Razor Pages} y componentes \textbf{Blazor/Razor} dentro del mismo proyecto ASP.NET Core. Esta aproximación simplifica el desarrollo y despliegue al mantener una base de código unificada y aprovechar las capacidades de renderizado del lado del servidor. Se complementa con HTML5, CSS3 y JavaScript para la interactividad del cliente.
+
+    \item \textbf{Sistema Gestor de Base de Datos (SGBD)}: Se optó por \textbf{PostgreSQL 16}. Esta decisión se basa en su reputación como un SGBD relacional de código abierto potente, fiable, extensible (uso de la extensión \texttt{pgaudit}) y con un excelente manejo de tipos de datos complejos como JSONB, utilizado en varias tablas del sistema.
+
+    \item \textbf{Infraestructura de Despliegue y Orquestación}:
+        \begin{itemize}
+            \item \textbf{Proveedor IaaS}: Se utiliza \textbf{DigitalOcean} como proveedor de la máquina virtual, debido a que ofrece un credito gratuito a estudiantes mediante el Github Studen Pack 2025.
+            \item \textbf{Sistema Operativo}: \textbf{Ubuntu Server 24.04 LTS} fue seleccionado como el SO base por su estabilidad, amplio soporte y compatibilidad con el ecosistema de contenedores.
+            \item \textbf{Contenerización}: \textbf{Docker} y \textbf{Docker Compose} son pilares fundamentales, permitiendo empaquetar, desplegar y gestionar los diferentes servicios de forma aislada y reproducible.
+            \item \textbf{Proxy Inverso}: \textbf{Caddy} se emplea para gestionar el tráfico entrante, el enrutamiento a los contenedores y, crucialmente, la automatización completa de la gestión de certificados TLS/SSL.
+            \item \textbf{Almacenamiento de Objetos}: \textbf{MinIO} proporciona una solución de almacenamiento compatible con S3, auto-hospedada, utilizada específicamente para las copias de seguridad de la base de datos y almacenamieno de archivos (imágenes).
+        \end{itemize}
+
+    \item \textbf{Pila de Observabilidad}: Para el monitoreo y diagnóstico del sistema, se implementó una solución basada en:
+        \begin{itemize}
+            \item \textbf{Agregación de Logs}: \textbf{Loki} centraliza los logs generados por todos los contenedores.
+            \item \textbf{Recolección de Logs}: \textbf{Promtail} se configura como el agente encargado de recolectar y enviar los logs desde los contenedores a Loki.
+            \item \textbf{Visualización y Alertas}: \textbf{Grafana} se utiliza para consultar los logs almacenados en Loki mediante LogQL, visualizar métricas y configurar alertas proactivas.
+        \end{itemize}
+
+    \item \textbf{Servicios Externos Complementarios}: Aunque se priorizó el software auto-hospedado, se integraron servicios externos estratégicos como \textbf{Cloudflare} para la gestión avanzada de DNS y seguridad perimetral (WAF, Anti-DDoS, Anti-Bots), \textbf{Cloudflare Turnstile} como CAPTCHA no intrusivo, y \textbf{Brevo} para el envío fiable de notificaciones por correo electrónico transaccional certificado.
+\end{itemize}
+
+Esta combinación de tecnologías proporciona una base sólida, escalable y mantenible para el sistema, equilibrando el control ofrecido por las soluciones auto-hospedadas de código abierto con la conveniencia y especialización de algunos servicios externos privativos.
 
 % =================================================
 % =================================================
 
 \section{Determinación de Requerimientos}
-Texto sobre la determinación de requerimientos según formato IEEE...
+% --- RF01 ---
+\begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF01: Registro}}
+	\label{tab:rf01}
+	\begin{tabular}{@{}ll@{}} % l = left-aligned text, @{} removes side padding
+	  \toprule
+	  \textbf{Identificador} & RF01 \\
+	  \midrule
+	  \textbf{Nombre} & Registro \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & El administrador puede registrarse en el sistema de detección \\ 
+						   & proporcionando los datos solicitados en el formulario de registro. \\
+						   & Para que un usuario se pueda registrar, debe solicitar el código de \\
+						   & acceso proporcionado por el administrador para poder realizar \\
+						   & correctamente el registro. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF02 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF02: Inicio de sesión}}
+	\label{tab:rf02}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF02 \\
+	  \midrule
+	  \textbf{Nombre} & Inicio de sesión \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & Permite a los diferentes roles acceder al sistema de detección con \\
+						   & sus credenciales (usuario y contraseña), estas deben ser correctas \\
+						   & para su acceso. Al finalizar, se podrá cerrar sesión. En caso tal de \\
+						   & olvidar la contraseña, se tendrá la opción para recuperarla. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF03 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF03: CRUD cámara}}
+	\label{tab:rf03}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF03 \\
+	  \midrule
+	  \textbf{Nombre} & CRUD cámara \\
+	  \textbf{Roles} & Administrador \\
+	  \textbf{Descripción} & Se podrán agregar módulos termográficos al sistema de detección \\
+						   & para poder recibir y procesar los datos que estas envíen. Además de \\
+						   & visualizar y actualizar el estado de cada módulo termográfico. En \\
+						   & caso de ser necesario, se podrá eliminar la cámara del sistema de \\
+						   & detección. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF04 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF04: CRUD persona}}
+	\label{tab:rf04}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF04 \\
+	  \midrule
+	  \textbf{Nombre} & CRUD persona \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & Los distintos roles podrán actualizar sus datos personales o \\
+						   & contraseña. También podrán eliminar su cuenta. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF05 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF05: Módulo de mediciones}}
+	\label{tab:rf05}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF05 \\
+	  \midrule
+	  \textbf{Nombre} & Módulo de mediciones \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & El sistema de detección recopilará y mostrará los datos de las \\
+						   & mediciones tomadas por otros sensores por medio de gráficas y un \\
+						   & histórico. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF06 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF06: Módulo de procesamiento}}
+	\label{tab:rf06}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF06 \\
+	  \midrule
+	  \textbf{Nombre} & Módulo de procesamiento \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & El sistema de detección mostrará los datos recopilados por los \\
+						   & módulos de cámara por medio de gráficas. Además, se debe mostrar \\
+						   & el estado de cada planta y el histórico de datos de todas las plantas. \\
+						   & El procesamiento de los datos térmicos indicará el estado de cada \\
+						   & planta. Los roles podrán actualizar el estado proporcionado por el \\
+						   & sistema de ser necesario. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF07 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF07: Reportes}}
+	\label{tab:rf07}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF07 \\
+	  \midrule
+	  \textbf{Nombre} & Reportes \\
+	  \textbf{Roles} & Administrador, Usuario \\
+	  \textbf{Descripción} & Los diferentes roles podrán generar reportes sobre el estado de las \\
+						   & plantas en formato PDF con base en los datos recopilados por los \\
+						   & módulos de cámara y/o por el módulo de procesamiento. Se podrá \\
+						   & escoger distintos filtros (una o varias plantas, lapsos de tiempo). \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF08 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF08: Notificaciones}}
+	\label{tab:rf08}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF08 \\
+	  \midrule
+	  \textbf{Nombre} & Notificaciones \\
+	  \textbf{Roles} & Administrador, Usuario (como receptores) \\
+	  \textbf{Descripción} & Se deben enviar notificaciones por correo electrónico a los distintos \\
+						   & roles en el cual se puedan alertar sobre cambios de estado en las \\
+						   & plantas y enviar notificaciones de seguridad. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RF09 (Nuevo) ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento Funcional RF09: Gestionar Observaciones}}
+	\label{tab:rf09}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RF09 \\ 
+	  \midrule
+	  \textbf{Nombre} & Gestionar Observaciones \\ 
+	  \textbf{Roles} & Administrador, Usuario\\ 
+	  \textbf{Descripción} & Permite a los usuarios registrar y consultar observaciones \\
+						   & cualitativas sobre el estado de las plantas.\\
+						   & Se utiliza una plantilla estandarizada para anotar aspectos visuales \\
+						   & (color, textura, uniformidad, daños), asignar una calificación \\
+						   & subjetiva y añadir notas, complementando los datos cuantitativos \\
+						   & para la metodología mixta y el procesamiento de datos. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RNF01 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento No Funcional RNF01: Seguridad}}
+	\label{tab:rnf01}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RNF01 \\ 
+	  \midrule
+	  \textbf{Nombre} & Seguridad \\ 
+	  \textbf{Roles} & N/A (Aplica al Sistema) \\ % Ajustado rol para RNF
+	  \textbf{Descripción} & El sistema de detección debe cumplir con los lineamientos y leyes \\
+						   & establecidos para la protección, integridad y disponibilidad de los \\
+						   & datos (Ley 1581 de 2012). \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
+  
+  % --- RNF02 ---
+  \begin{table}[H]
+	\centering
+	\caption{\textit{Requerimiento No Funcional RNF02: Copia de seguridad}}
+	\label{tab:rnf02}
+	\begin{tabular}{@{}ll@{}} 
+	  \toprule
+	  \textbf{Identificador} & RNF02 \\ 
+	  \midrule
+	  \textbf{Nombre} & Copia de seguridad \\ 
+	  \textbf{Roles} & N/A (Aplica al Sistema) \\ % Ajustado rol para RNF
+	  \textbf{Descripción} & Se debe asegurar un respaldo de los datos en caso de presentarse \\
+						   & alguna eventualidad no se vulnere la integridad de los datos. Esta \\
+						   & copia de seguridad se debe hacer de forma automática y semanal. \\
+	  \bottomrule
+	\end{tabular}
+  \end{table}
 
 % =================================================
 % =================================================
@@ -39,13 +351,67 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \centering
     \caption{Diagrama Entidad-Relación del Sistema.}
     \label{fig:der}
-    \includegraphics[width=1\textwidth]{UML/Otros/Diagrama Entidad Relacion.png}
+    \includegraphics[width=0.7\textwidth]{UML/Otros/Diagrama Entidad Relacion.png}
 \end{figure}
+
+La estructura de la base de datos diseñada para el sistema \textit{Arandano IRT} organiza la información necesaria para el funcionamiento de la aplicación web y la gestión de los datos recolectados.  Las tablas se agrupan funcionalmente para facilitar su comprensión, como se describe a continuación.
+
+\subsubsection*{Grupo 1: Tipos Enumerados (ENUMs)}
+Este grupo define tipos de datos personalizados que garantizan la consistencia y restringen los valores posibles para campos clave relacionados con estados o clasificaciones dentro del sistema. Estos tipos son fundamentales para mantener la integridad referencial semántica en diversas tablas.
+\begin{itemize}
+    \item \texttt{device\_status}: Cataloga los estados operativos de los dispositivos físicos de monitoreo.
+    \item \texttt{activation\_status}: Define las fases del proceso de activación de un nuevo dispositivo.
+    \item \texttt{token\_status}: Indica la validez de los tokens de autenticación para dispositivos.
+    \item \texttt{plant\_status}: Especifica los posibles estados de estrés hídrico detectados o asignados a una planta.
+    \item \texttt{experimental\_group\_type}: Clasifica las plantas según su rol en configuraciones experimentales (ej. Control, Estrés, Monitoreado).
+\end{itemize}
+
+\subsubsection*{Grupo 2: Tablas Núcleo}
+Constituyen las entidades centrales del dominio del sistema, representando los elementos fundamentales del monitoreo.
+\begin{itemize}
+    \item \texttt{crops}: Representa cada unidad de cultivo o lote. Funciona como la entidad agrupadora principal, almacenando información geográfica y parámetros de configuración específicos del cultivo.
+    \item \texttt{users}: Almacena la información de los usuarios registrados en la aplicación web, incluyendo datos personales, credenciales de acceso gestionadas por ASP.NET Core Identity y configuraciones de cuenta personalizadas.
+    \item \texttt{plants}: Modela cada planta individual bajo monitoreo. Se vincula a un cultivo (\texttt{crop\_id}) y registra su estado de estrés hídrico actual (\texttt{status}), su clasificación experimental (\texttt{experimental\_group}) y datos asociados a la máscara térmica utilizada para el análisis de estrés hídrico.
+\end{itemize}
+
+\subsubsection*{Grupo 3: Identidad y Autenticación de Usuarios (ASP.NET Core Identity)}
+Este conjunto de tablas implementa el esquema estándar de ASP.NET Core Identity, gestionando de forma robusta la autenticación, autorización basada en roles y la seguridad de las cuentas de usuario de la aplicación web.
+\begin{itemize}
+    \item \texttt{roles}, \texttt{user\_roles}: Definen los roles disponibles en el sistema y establecen la relación muchos-a-muchos entre usuarios y roles.
+    \item \texttt{user\_claims}, \texttt{role\_claims}: Permiten la asignación de permisos granulares (claims) directamente a usuarios o a roles, facilitando un modelo de autorización flexible.
+    \item \texttt{user\_logins}, \texttt{user\_tokens}: Gestionan la integración con proveedores de identidad externos y el almacenamiento de tokens para funciones como la confirmación de correo o el restablecimiento de contraseña.
+    \item \texttt{invitation\_codes}: Administra un sistema de registro basado en invitaciones, controlando la generación, validez y uso de códigos únicos para la creación de nuevas cuentas de usuario, vinculando opcionalmente la invitación a quien la generó.
+\end{itemize}
+
+\subsubsection*{Grupo 4: Gestión y Autenticación de Dispositivos}
+Este grupo se enfoca en el registro, seguimiento del estado y la autenticación segura de los dispositivos de hardware (sensores, cámaras térmicas) responsables de la recolección de datos en campo.
+\begin{itemize}
+    \item \texttt{devices}: Registra cada dispositivo físico, asociándolo a un cultivo y opcionalmente a una planta específica. Almacena metadatos como el nombre, descripción, estado operativo y la frecuencia configurada para la recolección de datos.
+    \item \texttt{device\_activations}: Facilita el proceso seguro de incorporación (\textit{onboarding}) de nuevos dispositivos al sistema mediante códigos de activación de un solo uso, registrando el estado y temporalidad de dicho proceso.
+    \item \texttt{device\_tokens}: Almacena los tokens que permiten a los dispositivos autenticarse ante la API del sistema para el envío seguro de datos, gestionando su ciclo de vida (activo/revocado) y fechas de expiración.
+\end{itemize}
+
+\subsubsection*{Grupo 5: Recolección y Análisis de Datos}
+Este grupo es fundamental, ya que almacena las mediciones directas de los sensores, las observaciones cualitativas y los resultados derivados del procesamiento y análisis realizado por el sistema.
+\begin{itemize}
+    \item \texttt{environmental\_readings}: Persiste las series temporales de datos ambientales (temperatura, humedad) recolectadas por cada dispositivo, incluyendo timestamps tanto del dispositivo como del servidor y opcionalmente, datos climáticos externos contextuales.
+    \item \texttt{thermal\_captures}: Almacena los metadatos y estadísticas clave extraídas de cada captura termográfica (temperaturas mínima, máxima, promedio, histograma), así como la referencia a la imagen RGB asociada (almacenada externamente). Incluye timestamps del dispositivo y del servidor.
+    \item \texttt{observations}: Permite a los usuarios registrar evaluaciones cualitativas manuales sobre el estado de las plantas, proporcionando un complemento a los datos cuantitativos de los sensores. Se vincula a la planta observada y al usuario que realizó el registro.
+    \item \texttt{plant\_status\_histories}: Funciona como un log de auditoría específico para el estado de las plantas. Registra cada cambio en el \texttt{plant\_status}, indicando la fecha, el nuevo estado, la planta afectada y si el cambio fue realizado manualmente por un usuario o automáticamente por el sistema tras un análisis.
+    \item \texttt{analysis\_results}: Guarda los resultados cuantitativos generados por los algoritmos de análisis del sistema, como el valor calculado del Índice de Estrés Hídrico (CWSI). Almacena el resultado junto con la fecha, la planta analizada y otros parámetros relevantes para la trazabilidad del cálculo, asegurando la unicidad por planta y timestamp.
+\end{itemize}
 
 % =================================================
 % =================================================
 
 \subsection{Diagramas de Casos de Uso}
+\label{sec:casos_uso}
+
+Un caso de uso es una unidad coherente de funcionalidad externamente visible proporcionada por un clasificador (denominado sistema) y expresada mediante secuencias de mensajes intercambiados por el sistema y uno o más actores de la unidad del sistema \cite{Rumbaugh2007}. El propósito de un caso de uso es definir una pieza de comportamiento coherente sin revelar la estructura interna del sistema \cite{Rumbaugh2007}.
+
+Esta sección presenta los diagramas de casos de uso que modelan las funcionalidades principales ofrecidas por el sistema. Estos diagramas ilustran, desde una perspectiva de alto nivel, cómo interactúan los diferentes actores principalmente el \texttt{Usuario}, el \texttt{Administrador} y, en ciertos escenarios, el propio \texttt{Sistema} con las funcionalidades clave del sistema (representadas por elipses). Cada diagrama está generalmente asociado a un módulo funcional o a un Requerimiento Funcional (RF) específico identificado en la especificación de requisitos, utilizando la notación estándar UML para representar actores, casos de uso, límites del sistema y relaciones como \texttt{<<Extend>>} o \texttt{<<Include>>}. El objetivo es proporcionar una visión clara del alcance funcional del sistema desde el punto de vista de sus usuarios.
+
+
 
 \begin{figure}[H]
     \centering
@@ -53,6 +419,22 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \label{fig:casos-uso-usuarios} % Opcional: Etiqueta para referencias
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF1 RF2.png}
 \end{figure}
+La Figura \ref{fig:casos-uso-usuarios} detalla los casos de uso correspondientes al \texttt{Módulo de autenticación} del sistema, cubriendo las funcionalidades de registro e inicio de sesión (RF01 y RF02). Los actores que interactúan con este módulo son el \texttt{Usuario} y el \texttt{Administrador}, ambos representados mediante la generalización \texttt{Persona}. A continuación se describe cada caso de uso:
+
+\subsubsection*{Caso de Uso: Solicitar código}
+Permite a un \texttt{Usuario} (actuando como \texttt{Persona}) solicitar un código de acceso. Según RF01, este código es necesario para que un \texttt{Usuario} pueda registrarse y asociarse a un cultivo existente, y debe ser proporcionado previamente por un \texttt{Administrador}. Para registrar al primer administrador, se debe ingresar con el usuario temporal \texttt{Bootsrap}. con las credenciales definidas en la instalación inicial del sistema y enviar el codigo al primer administrador.
+
+\subsubsection*{Caso de Uso: Registrar usuario}
+Corresponde a la funcionalidad RF01. Permite a \texttt{Persona} crear una nueva cuenta en el sistema. El flujo tanto para el \texttt{Administrador} como para un \texttt{Usuario} necesitan ingresar un código de acceso válido (obtenido a través del caso de uso \texttt{Solicitar código}) para completar su registro dentro de el sistema.
+
+\subsubsection*{Caso de Uso: Iniciar sesión}
+Representa la funcionalidad principal de RF02, permitiendo a \texttt{Persona} acceder al sistema mediante la validación de sus credenciales (correo electrónico y contraseña). Un inicio de sesión exitoso otorga acceso a las funcionalidades correspondientes al rol del usuario (\texttt{Administrador} o \texttt{Usuario}). Este caso de uso es la base para poder interactuar con el resto del sistema y puede ser extendido por \texttt{Cerrar sesión}.
+
+\subsubsection*{Caso de Uso: Recuperar contraseña}
+Forma parte de la funcionalidad RF02. Ofrece a \texttt{Persona} un mecanismo para restablecer su contraseña si la ha olvidado. Típicamente, esto implica un proceso de verificación a través del correo electrónico registrado para garantizar la seguridad.
+
+\subsubsection*{Caso de Uso: Cerrar sesión}
+Este caso de uso extiende (`<<Extend>>`) a \texttt{Iniciar sesión}, para completar su funcionamiento. Representa la acción explícita y opcional que realiza \texttt{Persona} para terminar de forma segura su sesión activa dentro de la aplicación, después de haber iniciado sesión y realizado otras tareas.
 
 
 \begin{figure}[H]
@@ -62,6 +444,23 @@ Texto sobre la determinación de requerimientos según formato IEEE...
      \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF3.png}
 \end{figure}
 
+La Figura \ref{fig:casos-uso-camaras} describe los casos de uso asociados a la gestión (CRUD - Crear, Leer, Actualizar, Borrar) de los dispositivos de cámara o módulos termográficos, funcionalidad identificada como RF03 y exclusiva para el actor \texttt{Administrador}. El diagrama presenta un caso de uso central y las operaciones específicas que extienden su funcionalidad:
+
+\subsubsection*{Caso de Uso: CRUD Cámaras}
+Representa la funcionalidad principal o el punto de acceso para que el \texttt{Administrador} gestione los módulos termográficos registrados en el sistema. Este caso de uso, descrito en RF03, se ve extendida (`<<Extend>>`) por operaciones más específicas como registrar o consultar cámaras.
+
+\subsubsection*{Caso de Uso: Registrar cámara}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{CRUD Cámaras}. Permite al \texttt{Administrador} añadir un nuevo módulo termográfico al sistema (operación Create). Esto incluye la configuración inicial del dispositivo dentro de la plataforma.
+
+\subsubsection*{Caso de Uso: Consultar cámara}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{CRUD Cámaras}. Permite al \texttt{Administrador} buscar y visualizar la información detallada y el estado actual de los módulos termográficos ya registrados en el sistema (operación Read). Este caso de uso sirve como punto de partida para otras acciones opcionales.
+
+\subsubsection*{Caso de Uso: Editar cámara}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar cámara}. Una vez que el \textit{Administrador} ha consultado los detalles de una cámara específica, tiene la opción de modificar su configuración, nombre, descripción o actualizar su estado dentro del sistema (operación Update).
+
+\subsubsection*{Caso de Uso: Eliminar cámara}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar cámara}. Después de consultar o seleccionar una cámara, el \texttt{Administrador} puede optar por eliminar permanentemente el registro de ese dispositivo del sistema (operación Delete), usualmente si el dispositivo se da de baja o ya no se utiliza.
+
 
 \begin{figure}[H]
     \centering
@@ -69,6 +468,23 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \label{fig:casos-uso-perfiles}
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF4.png}
 \end{figure}
+
+La Figura \ref{fig:casos-uso-perfiles} detalla los casos de uso relacionados con la gestión del perfil de usuario dentro del sistema, funcionalidad descrita en RF04. Estas operaciones pueden ser realizadas tanto por el \texttt{Usuario} como por el \texttt{Administrador}, representados por la generalización \texttt{Persona}, sobre la información de su propia cuenta. El diagrama se centra en el módulo o funcionalidad \texttt{CRUD Persona}:
+
+\subsubsection*{Caso de Uso: CRUD Persona}
+Este caso de uso actúa como el punto de entrada general para que \texttt{Persona} administre la información asociada a su perfil en el sistema, tal como se indica en RF04. La funcionalidad principal que extiende (`<<Extend>>`) esta gestión es \texttt{Consultar perfil}.
+
+\subsubsection*{Caso de Uso: Consultar perfil}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{CRUD Persona}. Permite a \texttt{Persona} visualizar sus propios datos de perfil registrados en la aplicación (operación de Leer). Esta consulta es, generalmente, el paso previo necesario para poder realizar modificaciones o eliminar la cuenta.
+
+\subsubsection*{Caso de Uso: Editar perfil}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar perfil}. Una vez que \texttt{Persona} visualiza su perfil, este caso de uso le permite modificar sus datos personales registrados, como nombre, apellido, correo electrónico o preferencias de notificación (operación de Actualizar datos), de acuerdo con RF04.
+
+\subsubsection*{Caso de Uso: Eliminar perfil}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar perfil}. Habilita a \texttt{Persona} para solicitar la eliminación permanente de su cuenta y datos asociados del sistema (operación de Borrar), como lo permite RF04. Esta acción se realiza típicamente desde la vista del perfil del usuario.
+
+\subsubsection*{Caso de Uso: Cambiar contraseña}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar perfil}. Permite a \texttt{Persona} iniciar el proceso para actualizar su contraseña de acceso al sistema (operación de Actualizar contraseña), como se menciona en RF04. Usualmente, esta opción está disponible dentro de la sección de gestión o consulta del perfil.
 
 
 \begin{figure}[H]
@@ -78,6 +494,20 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF5.png}
 \end{figure}
 
+La Figura \ref{fig:casos-uso-mediciones} presenta los casos de uso asociados al \texttt{Modulo de mediciones} del sistema. Este módulo, accesible por los actores \texttt{Usuario} y \texttt{Administrador} (generalizados como \texttt{Persona}), funciona como el panel de control principal o \textit{Dashboard} tras el inicio de sesión. A continuación, se describen los casos de uso involucrados:
+
+\subsubsection*{Caso de Uso: Panel de control}
+Este caso de uso representa la pantalla principal que visualiza \texttt{Persona} al interactuar con el módulo de mediciones. Su función primordial, relacionada con RF05, es mostrar de forma consolidada los datos clave recopilados por los sensores y cámaras, típicamente mediante gráficas de las últimas 24 horas y los últimos valores registrados. Proporciona una visión general del estado del cultivo y sirve como punto central desde el cual se puede acceder (`<<Extend>>`) a otras funcionalidades específicas de gestión.
+
+\subsubsection*{Caso de Uso: CRUD Plantas}
+Extiende (`<<Extend>>`) la funcionalidad del \texttt{Panel de control}. Permite a \texttt{Persona} gestionar las plantas registradas en el sistema: añadir nuevas plantas, consultar su información, editar sus detalles o eliminarlas (Crear, Leer, Actualizar, Borrar). Esta es una funcionalidad esencial para administrar las entidades principales monitoreadas (\texttt{PlantData}).
+
+\subsubsection*{Caso de Uso: CRUD Cámaras}
+Extiende (`<<Extend>>`) la funcionalidad del \texttt{Panel de control}, proporcionando un acceso a la gestión de los dispositivos (módulos termográficos y sensores). Es importante resaltar que, aunque el \texttt{Panel de control} es accesible por \texttt{Persona}, la funcionalidad específica de \texttt{CRUD Cámaras} está restringida al rol \texttt{Administrador}, tal como se definió en RF03. Permite al \texttt{Administrador} realizar las operaciones de Crear, Leer, Actualizar y Borrar sobre los dispositivos desde este panel.
+
+\subsubsection*{Caso de Uso: Módulo Observaciones}
+Extiende (`<<Extend>>`) la funcionalidad del \texttt{Panel de control}. Representa la funcionalidad añadida para gestionar las observaciones cualitativas realizadas sobre las plantas. Permite a \texttt{Persona} registrar y consultar notas descriptivas sobre aspectos visuales (decoloraciones, uniformidad, notas sobre hojas/tallos) o calificaciones subjetivas del estado de la planta. Esta funcionalidad es clave para cumplir con la metodología de investigación y permitir una mejor compresión de los datos recopilados.
+
 
 \begin{figure}[H]
     \centering
@@ -85,6 +515,29 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \label{fig:casos-uso-plantas}
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF6.png}
 \end{figure}
+
+La Figura \ref{fig:casos-uso-plantas} ilustra los casos de uso pertenecientes al \texttt{Modulo de procesamiento}, cuya funcionalidad principal (descrita en RF06) es la gestión de las plantas y la visualización de su estado y datos procesados. Los actores involucrados son el \texttt{Usuario} y el \texttt{Administrador} (generalizados como \texttt{Persona}), además de un actor externo, el \texttt{Sistema de analisis}.
+
+\subsubsection*{Caso de Uso: Panel de control}
+Reutilizado del diagrama anterior (Figura \ref{fig:casos-uso-mediciones}), sirve como punto de entrada general para \texttt{Persona}, desde donde se puede acceder (`<<Extend>>`) a la funcionalidad específica de gestión de plantas (\texttt{CRUD Planta}).
+
+\subsubsection*{Caso de Uso: CRUD Planta}
+Actúa como el caso de uso central para la administración del ciclo de vida de las plantas dentro de este módulo. Es accedido desde el \texttt{Panel de control} y engloba las operaciones fundamentales sobre las plantas, siendo extendido (`<<Extend>>`) por acciones más específicas como \texttt{Registrar planta} y \texttt{Consultar planta}.
+
+\subsubsection*{Caso de Uso: Registrar planta}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{CRUD Planta}. Permite a \texttt{Persona} añadir una nueva planta al sistema (operación Create), registrando su información inicial para comenzar el monitoreo.
+
+\subsubsection*{Caso de Uso: Consultar planta}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{CRUD Planta}. Permite a \texttt{Persona} visualizar (Leer) la información detallada de una planta específica. Principalmente, según RF06, mostrar su estado actual (resultado del procesamiento de datos). Este caso de uso también es utilizado por el \texttt{Sistema de analisis} externo, para consultar el estado o datos procesados de las plantas. Sirve como base para otras operaciones extendidas.
+
+\subsubsection*{Caso de Uso: Editar planta}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar planta}. Permite a \texttt{Persona} modificar (Actualizar) la información asociada a una planta existente. Como se especifica en RF06, esto incluye la capacidad de los usuarios para actualizar manualmente el estado asignado a la planta si lo consideran necesario tras una revisión. Este caso de uso también es utilizado por el \texttt{Sistema de analisis} externo, para actualizar el estado de una planta después de procesar los datos obtenidos de los sensores y cámaras.
+
+\subsubsection*{Caso de Uso: Eliminar planta}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar planta}. Otorga a \texttt{Persona} la capacidad de eliminar (Borrar) el registro de una planta del sistema, por ejemplo, si la planta física es retirada del cultivo.
+
+\subsubsection*{Caso de Uso: Ver historial de estados}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Consultar planta}. Permite a \texttt{Persona} acceder y visualizar el registro histórico de los cambios de estado que ha tenido una planta a lo largo del tiempo, funcionalidad explícitamente mencionada en RF06 para el seguimiento de la condición de las plantas.
 
 
 \begin{figure}[H]
@@ -94,6 +547,20 @@ Texto sobre la determinación de requerimientos según formato IEEE...
      \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF7.png}
 \end{figure}
 
+La Figura \ref{fig:casos-uso-reportes} presenta los casos de uso correspondientes a la generación de \texttt{Reportes} del sistema, funcionalidad descrita en RF07. Tanto el \texttt{Usuario} como el \texttt{Administrador} (generalizados como \texttt{Persona}) pueden acceder a estas funcionalidades para obtener informes sobre el estado de las plantas y otros módulos del sistema.
+
+\subsubsection*{Caso de Uso: Generar reporte}
+Este es el caso de uso principal que inicia \texttt{Persona} para solicitar la creación de un informe. Principalmente, el sistema compila la información relevante sobre el estado de las plantas basándose en los datos recopilados y procesados. El resultado es un reporte consolidado que se genera en formato PDF.
+
+\subsubsection*{Caso de Uso: Filtrar datos}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Generar reporte}. Proporciona a \texttt{Persona} la opción de aplicar criterios específicos para refinar el contenido del informe antes de su generación final. Por ejemplo, filtrar por planta(s) específica(s) o por lapsos de tiempo.
+
+\subsubsection*{Caso de Uso: Descargar Reporte}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Filtrar datos} (y, por lo tanto, la de \texttt{Generar reporte}). Una vez que el reporte ha sido generado (y posiblemente filtrado), este caso de uso permite a \texttt{Persona} descargar el archivo resultante (en formato PDF) a su dispositivo local para su consulta o almacenamiento.
+
+\subsubsection*{Caso de Uso: Adjuntar Reporte}
+Extiende (`<<Extend>>`) la funcionalidad de \texttt{Filtrar datos}. Representa una opción disponible después de generar (y filtrar) el reporte. Permite de adjuntar el reporte generado por medio de un correo electrónico del usuario autenticado.
+
 
 \begin{figure}[H]
     \centering
@@ -101,6 +568,14 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \label{fig:casos-uso-notificaciones}
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF8.png}
 \end{figure}
+
+La Figura \ref{fig:casos-uso-notificaciones} ilustra los casos de uso del \texttt{Modulo de Notificaciones}, que corresponden a la funcionalidad descrita en RF08. En este módulo, el actor principal que inicia las acciones es el propio \texttt{Sistema}, indicando que estas notificaciones son procesos automatizados. Estas alertas se envían por correo electrónico a los roles \texttt{Administrador} y \texttt{Usuario} del sistema.
+
+\subsubsection*{Caso de Uso: Notificar cambio de estado en planta}
+Este caso de uso es ejecutado automáticamente por el \texttt{Sistema}. Se activa cuando se produce un cambio significativo en el estado registrado de una planta (por ejemplo, al pasar de 'Saludable' a 'No Saludable' o viceversa, basado en el procesamiento de datos o una actualización manual). El objetivo es alertar proactivamente a los usuarios relevantes (\texttt{Administrador}, \texttt{Usuario}) por correo electrónico sobre la nueva condición de la planta, facilitando una respuesta rápida.
+
+\subsubsection*{Caso de Uso: Notificar intentos fallidos de inicio de sesión}
+Iniciado también por el \texttt{Sistema}, este caso de uso forma parte de las "notificaciones de seguridad" mencionadas en RF08. Se activa cuando el sistema detecta una actividad potencialmente sospechosa, como múltiples intentos fallidos de inicio de sesión asociados a una cuenta de usuario. El propósito es informar al usuario afectado, mediante correo electrónico, sobre estos intentos para que pueda verificar la seguridad de su cuenta y tomar acciones si es necesario (ej. cambiar contraseña).
 
 
 \begin{figure}[H]
@@ -110,17 +585,69 @@ Texto sobre la determinación de requerimientos según formato IEEE...
     \includegraphics[width=0.8\textwidth]{UML/CasosUso/Diagrama de Casos de Uso RF9.png}
 \end{figure}
 
+La Figura \ref{fig:casos-uso-observaciones} describe los casos de uso para el \texttt{Modulo de Observaciones}. Esta funcionalidad, descrita en RF09, es esencial para la metodología mixta del proyecto, permitiendo la recolección de datos cualitativos sobre las plantas. Los actores \texttt{Usuario} y \texttt{Administrador} (generalizados como \texttt{Persona}) interactúan con este módulo.
+
+\subsubsection*{Caso de Uso: Modulo de Observación}
+Este caso de uso representa el punto de entrada principal para que \texttt{Persona} interactúe con las funcionalidades de registro y consulta de observaciones cualitativas de las plantas. Sirve como interfaz para acceder a las operaciones específicas que extienden (`<<Extend>>`) su funcionalidad.
+
+\subsubsection*{Caso de Uso: Registrar Observación}
+Extiende (`<<Extend>>`) la funcionalidad del \texttt{Modulo de Observación}. Permite a \texttt{Persona} registrar una nueva observación cualitativa sobre una planta específica, utilizando la plantilla definida en el diseño experimental. Esto incluye seleccionar el estado general visual, describir cambios, anotar aspectos específicos de color/textura y hojas/tallos, asignar una calificación subjetiva y opcionalmente notas adicionales. Estos datos son cruciales para complementar los datos cuantitativos y tener una mejor comprensión de los datos.
+
+\subsubsection*{Caso de Uso: Consultar Observación}
+Extiende (`<<Extend>>`) la funcionalidad del \texttt{Modulo de Observación}. Permite a \texttt{Persona} buscar y visualizar las observaciones cualitativas previamente registradas para una planta. Esto facilita el seguimiento de la evolución visual descrita en el diseño experimental y la comparación con los datos cuantitativos (termografía, sensores).
+
+
 % =================================================
 % =================================================
 
 \subsection{Diagramas de Secuencia}
+Un diagrama de secuencia muestra un conjunto de mensajes ordenados en una secuencia temporal \cite{Rumbaugh2007}. Cada rol se muestra como una línea de vida es decir, una línea vertical que representa al rol a lo largo del tiempo a través de la interacción completa \cite{Rumbaugh2007}. Los mensajes se muestran con flechas entre líneas de vida \cite{Rumbaugh2007}.
 
+\subsection*{Líneas de Vida Principales}
+
+Los diagramas de secuencia presentados en este documento ilustran las interacciones entre diferentes componentes del sistema para realizar casos de uso específicos. A continuación, se presenta una descripción general de las líneas de vida (\textit{lifelines}) que aparecen de forma recurrente, representando los actores y las capas arquitectónicas principales del sistema, el cual sigue el patrón Modelo-Vista-Controlador (MVC) y organizado mediante carpetas que simulas las capas de la arquitctura cebolla (Onion Architecture).
+
+\begin{itemize}
+    \item \texttt{:Persona}: Representa al usuario final que interactúa con el sistema a través de la interfaz gráfica. Dependiendo del contexto, puede ser un \texttt{Usuario} o un \texttt{Administrador}. Es el iniciador de las secuencias asociadas a funcionalidades interactivas.
+
+    \item \texttt{:Vista}: Simboliza la interfaz de usuario (capa \textit{View} en MVC) con la que interactúa \texttt{:Persona}. Esta línea de vida representa la aplicación cliente (ej. aplicación web ejecutándose en el navegador). Sus responsabilidades incluyen presentar información al usuario, capturar sus entradas, realizar validaciones del lado del cliente y enviar solicitudes (vía \texttt{HTTP/S}) a los puntos de entrada del backend (\texttt{:Controlador}), así como renderizar las respuestas recibidas.
+
+    \item \texttt{:Controlador}: Representa la capa de Controladores (\textit{Controller} en MVC) en el backend. Actúa como el punto de entrada para las solicitudes HTTP provenientes de \texttt{:Vista}. Es responsable de interpretar la solicitud, invocar la lógica de negocio apropiada interactuando con el \texttt{:Modelo} (a través de servicios), coordinar las operaciones necesarias y seleccionar la \texttt{:Vista} adecuada (o devolver datos, como API) para generar la respuesta al cliente.
+
+    \item \texttt{:Modelo}: Simboliza la capa del Modelo (\textit{Model} en MVC). Encapsula los datos de la aplicación (entidades de dominio como Planta, Cultivo, Usuario), la lógica de negocio fundamental, las reglas de validación y la interacción con la capa de persistencia de datos. El \texttt{:Controlador} utiliza el \texttt{:Modelo} para leer o modificar el estado de la aplicación. La interacción directa con la base de datos (\texttt{PostgreSQL}) se realiza a través del ORM Entity Framework Core, orquestado mediante servicios, utilizando las entidades definidas en el Modelo.
+\end{itemize}
+
+Generalmente, el flujo de una solicitud iniciada por el usuario sigue la secuencia \texttt{:Persona} $\rightarrow$ \texttt{:Vista} $\rightarrow$ \texttt{:Controlador}. El \texttt{:Controlador} interactúa entonces con el \texttt{:Modelo} (capas de servicio que usan el Modelo) para procesar la solicitud y acceder a los datos. Finalmente, el \texttt{:Controlador} selecciona una \texttt{:Vista} (o prepara una respuesta de datos) que se envía de vuelta a \texttt{:Persona} a través de la \texttt{:Vista} original: \texttt{:Controlador} $\rightarrow$ \texttt{:Vista} $\rightarrow$ \texttt{:Persona}. Esta estructura promueve la separación de responsabilidades característica del patrón MVC.
+
+Es importante señalar que aquellos diagramas que introducen líneas de vida con roles particulares no cubiertos en la descripción general (como la línea de vida \texttt{:Camara} detallada en la Figura\ref{fig:seq_activar_camara}) o aquellos que representan patrones de interacción fundamentales y reutilizables (como el flujo base para envío de formularios mostrado en la Figura\ref{fig:seq_base_formulario}) incluyen una descripción textual específica adjunta. Para los diagramas de secuencia restantes, se entiende que siguen el patrón general de interacción entre \texttt{:Vista}, \texttt{:Controlador} y \texttt{:Modelo}, utilizando las responsabilidades asignadas a cada línea de vida según se describió previamente.
 
 \begin{figure}[H]
     \centering
     \caption{Diagrama de secuencia base: Envío de formulario.}
     \includegraphics[width=0.8\textwidth]{UML/Secuencia/Diagrama de Secuencia Base Envio Formulario.png}
+	\label{fig:seq_base_formulario}
 \end{figure}
+\subsubsection*{Líneas de Vida Involucradas}
+Las líneas de vida principales en este diagrama base son:
+\begin{itemize}
+    \item \texttt{:Persona}: Representa al usuario (\texttt{Usuario} o \texttt{Administrador}) que interactúa con la interfaz gráfica del sistema. Es quien inicia la acción, ingresa los datos y toma la decisión final de confirmar o cancelar el envío.
+    \item \texttt{:Vista}: Representa el componente de la interfaz de usuario (la pantalla o ventana específica) que contiene el formulario. Recibe los datos ingresados, gestiona el proceso de envío inicial y maneja el diálogo de confirmación con el usuario.
+\end{itemize}
+
+\subsubsection*{Descripción del Flujo Genérico}
+La secuencia describe el siguiente flujo general:
+\begin{enumerate}
+    \item El proceso comienza cuando \texttt{:Persona} accede a un formulario (1: \texttt{Ingresa a un formulario}) e introduce los datos requeridos (2: \texttt{Ingresar datos del formulario}).
+    \item \texttt{:Persona} inicia la acción de envío (3: \texttt{Enviar formulario}) hacia la \texttt{:Vista}.
+    \item La \texttt{:Vista} realiza un procesamiento inicial (4: \texttt{Procesar solicitud}), que podría incluir validaciones del lado del cliente.
+    \item La \texttt{:Vista} solicita una confirmación explícita al usuario mostrando una ventana emergente (5: \texttt{Mostrar ventana emergente de confirmación}).
+    \item Se presenta un fragmento alternativo (\texttt{alt}) basado en la respuesta de \texttt{:Persona}:
+    \begin{itemize}
+        \item \textbf{Si \texttt{[Confirma acción]}:} \texttt{:Persona} confirma el envío (6). La \texttt{:Vista} procede con el procesamiento definitivo de la solicitud (7), cierra la ventana emergente (8) y permite continuar la secuencia (9), lo que usualmente implica una redirección o un mensaje de éxito. \textit{(Nota: El paso 7 es donde, en diagramas específicos, se detallaría la comunicación con controladores, servicios y base de datos)}.
+        \item \textbf{Si \texttt{[Cancela acción]}:} \texttt{:Persona} cancela el envío (10). La \texttt{:Vista} procesa la cancelación (11), cierra la ventana emergente (12) y vuelve a mostrar el formulario (13), permitiendo al usuario corregir datos o abandonar la tarea.
+    \end{itemize}
+\end{enumerate}
+Este diagrama establece la interacción fundamental usuario-interfaz para operaciones de formulario, haciendo énfasis en el paso de confirmación antes del procesamiento final.
 
 
 \begin{figure}[H]
@@ -169,14 +696,27 @@ Texto sobre la determinación de requerimientos según formato IEEE...
 	\centering
 		\caption{Diagrama de Secuencia para Activar Cámara (RF3.1.1).}
 	\includegraphics[width=0.63\textwidth]{UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Cámara.png}
+	\label{fig:seq_activar_camara}
 \end{figure}
 
+\subsubsection*{Línea de Vida :Camara}
+La responsabilidad principal de la línea de vida \texttt{:Camara} es interactuar con la API del sistema. Encapsula la lógica autónoma del dispositivo físico, manejando su activación, configuración, el ciclo periódico de toma y envío de datos (ambientales y de imagen), y la gestión básica de errores de comunicación con la API. Su comportamiento se divide en dos fases principales:
 
-\begin{figure}[H]
-	\centering
-	\caption{Diagrama de Secuencia para Activar Hardware (RF3.1.1).}
-	\includegraphics[width=0.6\textwidth]{UML/Secuencia/Diagrama de Secuencia RF3.1.1 Activar Hardware.png}
-\end{figure}
+1.  \textbf{Fase de Activación:}
+    \begin{itemize}
+        \item Al iniciar y verificar la conexión de red, la \texttt{:Camara} envía un código de activación único a la API.
+        \item Espera una respuesta de la API. Si la activación es exitosa, recibe la configuración operativa (ej. intervalo de muestreo) que fue definida por el \texttt{Administrador} durante el registro del dispositivo en el sistema.
+        \item Almacena esta configuración recibida de forma persistente (memoria no volátil) para guiar su funcionamiento futuro.
+        \item Si el proceso de activación falla (ej. código inválido, API no responde correctamente), la \texttt{:Camara} entra en un estado de error y detiene el proceso, sin pasar a la fase operativa.
+    \end{itemize}
+
+2.  \textbf{Fase Operativa (Ciclo de Trabajo):}
+    \begin{itemize}
+        \item Una vez activada, la \texttt{:Camara} opera en un ciclo continuo basado en el intervalo de tiempo definido en su configuración almacenada.
+        \item Al inicio de cada ciclo, verifica la disponibilidad de la API.
+        \item \textbf{Si la API está disponible:} Procede a recolectar los datos de los sensores ambientales (temperatura, humedad, etc.) y los envía a la API. Seguidamente, captura las imágenes (termográfica y RGB) y las envía también a la API. Después de enviar los datos, entra en un modo de bajo consumo o reposo hasta que el temporizador del ciclo indique el inicio del siguiente.
+        \item \textbf{Si la API no está disponible:} La \texttt{:Camara} omite la recolección y envío de datos para ese ciclo. Entra en un periodo de espera antes de volver a intentar la verificación de la API en el siguiente ciclo programado.
+    \end{itemize}
 
 
 \begin{figure}[H]
@@ -329,6 +869,18 @@ Texto sobre la determinación de requerimientos según formato IEEE...
 
 \subsection{Diagramas de Actividades}
 
+Una actividad muestra el flujo de control entre las actividades computacionales involucradas en la realización de un cálculo o un flujo de trabajo \cite{Rumbaugh2007}. Una acción es un paso computacional primitivo y un nodo de actividad es un grupo de acciones o subactividades \cite{Rumbaugh2007}. Una actividad describe tanto el cómputo secuencial como el concurrente \cite{Rumbaugh2007}.
+
+Los diagramas de actividad presentados a continuación modelan los flujos de trabajo (\textit{workflows}) asociados a procesos o funcionalidades clave del sistema. Estos diagramas utilizan particiones verticales, comúnmente conocidas como calles o \textit{swimlanes}, para asignar claramente la responsabilidad de cada acción a un participante específico del proceso. En la mayoría de los diagramas de este documento, se utilizan dos calles principales:
+
+\begin{itemize}
+    \item \textbf{\texttt{Usuario}}: Esta calle agrupa todas aquellas actividades que son ejecutadas directamente por la persona que interactúa con la interfaz gráfica del sistema. Representa las acciones del usuario final, ya sea que actúe con el rol de \texttt{Usuario} o de \texttt{Administrador}. Ejemplos típicos de actividades en esta calle incluyen: ingresar datos en un formulario, seleccionar opciones, iniciar una acción (como presionar un botón) y visualizar mensajes o resultados mostrados por la aplicación.
+
+    \item \textbf{\texttt{Sistema}}: Esta calle engloba todas las actividades y procesos que son realizados internamente por la aplicación software (backend y/o frontend). Representa las operaciones automáticas del sistema, tales como: procesar la información enviada por el usuario, validar datos según reglas de negocio, ejecutar algoritmos, consultar o actualizar información en la base de datos, determinar estados, generar respuestas y preparar la información que se devolverá a la interfaz para ser visualizada por el usuario.
+\end{itemize}
+
+La separación de actividades entre estas dos calles principales (\texttt{Usuario} y \texttt{Sistema}) permite visualizar de manera clara la interacción entre el usuario humano y la lógica interna de la aplicación a lo largo de un flujo de trabajo específico. Otros diagramas podrían incluir calles adicionales si participan otros actores o sistemas externos específicos en un proceso particular.
+
 \begin{figure}[H]
     \centering
     \caption{Diagrama de Actividad para el Registro (RF1.0).}
@@ -360,91 +912,88 @@ Texto sobre la determinación de requerimientos según formato IEEE...
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Recuperar Contraseña (RF2.2).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png}
+ \includegraphics[width=0.45\textwidth]{UML/Actividad/Diagrama de Actividad RF2.2 Recuperar Contraseña.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Crear Cámara (RF3.1).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png}
+ \includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF3.1 Crear Cámara.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Activar Cámara (RF3.1.1).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png}
+	\includegraphics[width=0.7\textwidth]{UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Cámara.png}
+	\label{fig:act_activar_hardware}
 \end{figure}
 
-
-\begin{figure}[H]
-	\centering
-		\caption{Diagrama de Actividad para Activar Hardware (RF3.1.1).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.1.1 Activar Hardware.png}
-\end{figure}
+El diagrama de actividad de la Figura~\ref{fig:act_activar_hardware} muestra el flujo de trabajo para la activación e inicio de operación del dispositivo físico. Conforme a la descripción general proporcionada al inicio de esta sección, las calles \texttt{Administrador} y \texttt{Sistema} representan las acciones del usuario y del backend, respectivamente. La calle \texttt{Hardware}, corresponden a la lógica ejecutada por el firmware del propio dispositivo.
+Este flujo describe cómo el hardware gestiona su activación inicial y luego opera en un ciclo de verificación, recolección, envío y espera, interactuando con el \texttt{Sistema} cuando es necesario y gestionando su consumo de energía.
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Consultar Cámara (RF3.2).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png}
+ \includegraphics[width=0.65\textwidth]{UML/Actividad/Diagrama de Actividad RF3.2 Consultar Cámara.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Editar Cámara (RF3.3).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png}
+ \includegraphics[width=0.4\textwidth]{UML/Actividad/Diagrama de Actividad RF3.3 Editar Cámara.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Eliminar Cámara (RF3.4).}
-\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png}
+\includegraphics[width=0.4\textwidth]{UML/Actividad/Diagrama de Actividad RF3.4 Eliminar Cámara.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Consultar Perfil (RF4.1).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png}
+	\includegraphics[width=0.6\textwidth]{UML/Actividad/Diagrama de Actividad RF4.1 Consultar Perfil.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Editar Perfil (RF4.2).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png}
+ \includegraphics[width=0.45\textwidth]{UML/Actividad/Diagrama de Actividad RF4.2 Editar Perfil.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Eliminar Perfil (RF4.3).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png}
+ \includegraphics[width=0.45\textwidth]{UML/Actividad/Diagrama de Actividad RF4.3 Eliminar Perfil.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Cambiar Contraseña (RF4.4).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png}
+	\includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF4.4 Cambiar Contraseña.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Agregar Integrante de Cultivo (RF4.5).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png}
+ \includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF4.5 Agregar Integrante Cultivo.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Eliminar Integrante de Cultivo (RF4.6).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png}
+ \includegraphics[width=0.45\textwidth]{UML/Actividad/Diagrama de Actividad RF4.6 Eliminar Integrante Cultivo.png}
 \end{figure}
 
 \begin{figure}[H]
@@ -457,56 +1006,56 @@ Texto sobre la determinación de requerimientos según formato IEEE...
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Crear Planta (RF6.1).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png}
+ \includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF6.1 Crear Planta.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Consultar Planta (RF6.2).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png}
+ \includegraphics[width=0.65\textwidth]{UML/Actividad/Diagrama de Actividad RF6.2 Consultar Planta.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Editar Planta (RF6.3).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png}
+	\includegraphics[width=0.4\textwidth]{UML/Actividad/Diagrama de Actividad RF6.3 Editar Planta.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Eliminar Planta (RF6.4).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png}
+ \includegraphics[width=0.4\textwidth]{UML/Actividad/Diagrama de Actividad RF6.4 Eliminar Planta.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Generar Reporte (RF7.0).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png}
+	\includegraphics[width=0.65\textwidth]{UML/Actividad/Diagrama de Actividad RF7.0 Generar Reporte.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Descargar Reporte (RF7.1).}
-\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png}
+\includegraphics[width=0.65\textwidth]{UML/Actividad/Diagrama de Actividad RF7.1 Descargar Reporte.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Adjuntar Reporte (RF7.2).}
-\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png}
+\includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF7.2 Adjuntar Reporte.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Notificar Planta (RF8.1).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png}
+ \includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF8.1 Notificar Planta.png}
 \end{figure}
 
 
@@ -520,26 +1069,230 @@ Texto sobre la determinación de requerimientos según formato IEEE...
 \begin{figure}[H]
 	\centering
 	\caption{Diagrama de Actividad para Crear Observación (RF9.1).}
- \includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png}
+ \includegraphics[width=0.5\textwidth]{UML/Actividad/Diagrama de Actividad RF9.1 Crear Observación.png}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 		\caption{Diagrama de Actividad para Consultar Observación (RF9.2).}
-	\includegraphics[width=0.8\textwidth]{UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png}
+	\includegraphics[width=0.65\textwidth]{UML/Actividad/Diagrama de Actividad RF9.2 Consultar Observación.png}
 \end{figure}
 
 % =================================================
 % =================================================
 
 \subsection{Diagrama de Clases}
-Incluir el diagrama con descripciones por cada clase.
+
+Una clase es la descripción de un concepto del dominio de la aplicación o del dominio de la solución \cite{Rumbaugh2007}. Las clases son el centro alrededor del cual se organiza la vista de clases \cite{Rumbaugh2007}. La vista estática se muestra en los diagramas de clases \cite{Rumbaugh2007}.
+
+En esta sección se presenta el diagrama de clases principal del sistema. Se describirán las tablas (clases) más importantes, sus atributos, las relaciones (asociaciones, generalizaciones) entre ellas y cómo estas estructuras en conjunto definen el funcionamiento general y la organización de los datos del sistema.
+
+% =================================================
+% Diagrama: Entidades Principales y Datos de Monitoreo
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Entidades Principales y Datos de Monitoreo.}
+    \label{fig:dc_domain_core}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_0.1.png} 
+\end{figure}
+
+La Figura \ref{fig:dc_domain_core} presenta el núcleo del modelo de dominio del sistema. Se observan las entidades centrales que representan los elementos físicos monitoreados:
+\begin{itemize}
+    \item \texttt{Crop}: Representa el cultivo y actúa como la entidad contenedora principal (tenant).
+    \item \texttt{Plant}: Modela cada planta individual dentro de un cultivo. Es una entidad central que agrega gran parte de los datos de monitoreo.
+    \item \texttt{Device}: Representa el dispositivo físico de hardware encargado de la recolección de datos.
+\end{itemize}
+
+El diagrama ilustra las relaciones de composición y asociación entre estas entidades y los datos que generan o a los que están asociados:
+\begin{itemize}
+    \item Un \texttt{Crop} contiene múltiples \texttt{Plant} y \texttt{Device}.
+    \item Un \texttt{Device} está asociado a un \texttt{Crop} y opcionalmente a una \texttt{Plant} específica. La relación con \texttt{Plant} está configurada con \texttt{OnDelete(SetNull)}, lo que significa que si una planta se elimina, el campo \texttt{PlantId} en los dispositivos asociados se establecerá en nulo, pero los dispositivos no se eliminarán.
+    \item Tanto \texttt{Plant} como \texttt{Device} están asociados a las entidades que almacenan los datos recolectados: \texttt{EnvironmentalReading} (datos de sensores ambientales) y \texttt{ThermalCapture} (datos de capturas térmicas). Las relaciones de \texttt{Plant} con estos datos también usan \texttt{OnDelete(SetNull)}.
+    \item La entidad \texttt{Plant} también se relaciona con \texttt{AnalysisResult} (resultados del cálculo de CWSI), \texttt{PlantStatusHistory} (historial de cambios de estado) y \texttt{Observation} (anotaciones manuales de los usuarios).
+\end{itemize}
+
+Finalmente, el diagrama muestra el uso de enumeraciones (\texttt{enum}) como \texttt{PlantStatus}, \texttt{DeviceStatus} y \texttt{ExperimentalGroupType} para representar estados y clasificaciones de manera controlada y legible dentro del dominio. Se detallan todos los atributos de cada clase, especificando su tipo de dato (ej. \texttt{int}, \texttt{string}, \texttt{DateTime}, \texttt{float?}).
+
+
+% =================================================
+% Diagrama: Gestión de Usuarios y Roles
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Gestión de Usuarios y Roles.}
+    \label{fig:dc_domain_users}
+    \includegraphics[width=0.7\textwidth]{UML/Clases/DC_0.2.png}
+\end{figure}
+
+Continuando con el modelo de dominio, la Figura \ref{fig:dc_domain_users} ilustra las clases relacionadas con la gestión de usuarios y el control de acceso.
+\begin{itemize}
+    \item \texttt{User}: Representa a un usuario del sistema web. Esta clase hereda de la clase base \texttt{IdentityUser<int>} proporcionada por ASP.NET Core Identity, extendiéndola con atributos personalizados como \texttt{FirstName}, \texttt{LastName}, fechas de creación/actualización y el último inicio de sesión (\texttt{LastLoginAt}).
+    \item \texttt{ApplicationRole}: Representa un rol dentro del sistema (ej. Administrador). Hereda de \texttt{IdentityRole<int>} y, aunque no añade atributos propios, permite la integración con el sistema de roles de Identity.
+    \item \texttt{AccountSettings}: Modela las preferencias de notificación por correo electrónico de un usuario. Existe una relación de composición fuerte (indicada por el rombo negro) entre \texttt{User} y \texttt{AccountSettings}, significando que cada usuario tiene exactamente una instancia de configuración de cuenta asociada.
+    \item \texttt{InvitationCode}: Almacena los códigos de invitación de un solo uso para el registro de nuevos usuarios. Un \texttt{User} (administrador) puede crear múltiples códigos de invitación, representado por la asociación opcional (la relación puede tener \texttt{CreatedByUserId} nulo).
+\end{itemize}
+
+Este diagrama muestra cómo el sistema extiende las funcionalidades base de ASP.NET Core Identity para adaptarlas a las necesidades específicas del proyecto, como las configuraciones de cuenta y el flujo de invitaciones. Se detallan todos los atributos y sus tipos de dato correspondientes.
+
+% =================================================
+% Diagrama: Ciclo de Vida y Seguridad del Dispositivo
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Ciclo de Vida y Seguridad del Dispositivo.}
+    \label{fig:dc_domain_device_lifecycle}
+    \includegraphics[width=0.8\textwidth]{UML/Clases/DC_0.3.png} 
+\end{figure}
+
+La Figura \ref{fig:dc_domain_device_lifecycle} detalla las clases que gestionan el ciclo de vida y la seguridad de la entidad \texttt{Device}. Este subsistema es crucial para garantizar que solo el hardware autorizado pueda interactuar con la API del sistema.
+\begin{itemize}
+    \item \texttt{Device}: Es la clase central, ya presentada, que representa el dispositivo físico.
+    \item \texttt{DeviceActivation}: Modela el proceso de activación inicial y de un solo uso de un dispositivo. Almacena el \texttt{ActivationCode}, su fecha de expiración y el estado del proceso.
+    \item \texttt{DeviceToken}: Representa el par de tokens de autenticación (\texttt{AccessToken} y \texttt{RefreshToken}) que se generan para un dispositivo una vez que ha sido activado. Esta clase gestiona la validez y el estado de revocación de los tokens para la autenticación continua.
+\end{itemize}
+
+El diagrama muestra una relación de composición (indicada por el rombo negro) desde \texttt{Device} hacia \texttt{DeviceActivation} y \texttt{DeviceToken}. Esto significa que la existencia de los códigos de activación y los tokens está intrínsecamente ligada a la del dispositivo; son parte fundamental de su ciclo de vida. Adicionalmente, se utilizan las enumeraciones \texttt{DeviceStatus}, \texttt{ActivationStatus} y \texttt{TokenStatus} para gestionar los estados de cada entidad de forma controlada y explícita.
+
+% =================================================
+% Diagrama: Configuraciones de Cultivo
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Configuraciones de Cultivo.}
+    \label{fig:dc_domain_crop_settings}
+    \includegraphics[width=0.9\textwidth]{UML/Clases/DC_0.4.png} 
+\end{figure}
+
+Finalmente, la Figura \ref{fig:dc_domain_crop_settings} detalla la estructura utilizada para gestionar las configuraciones específicas de cada cultivo.
+\begin{itemize}
+    \item \texttt{CropSettings}: Esta clase actúa como un contenedor principal que agrupa diferentes conjuntos de parámetros. Es parte de la entidad \texttt{Crop} a través de una relación de composición, y sus datos se almacenan en un campo de tipo \texttt{jsonb} en la base de datos.
+    \item \texttt{AnalysisParameters}: Contiene todos los umbrales y ventanas de tiempo que controlan cómo se ejecuta el análisis de estrés hídrico (CWSI).
+    \item \texttt{AnomalyParameters}: Define los parámetros utilizados para la detección de anomalías nocturnas en los datos de temperatura.
+    \item \texttt{CalibrationReminder}: Especifica la frecuencia con la que se deben generar recordatorios para la calibración de los dispositivos.
+\end{itemize}
+
+La relación entre \texttt{CropSettings} y las clases de parámetros específicos (\texttt{AnalysisParameters}, etc.) es también de composición (rombo negro), indicando que estos parámetros son parte integral de la configuración general del cultivo. Esta estructura permite organizar y extender fácilmente las configuraciones del sistema en el futuro.
+
+% =================================================
+% Diagrama: Gestión de Usuarios y Autenticación (Aplicación)
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Gestión de Usuarios y Autenticación (Capa de Aplicación).}
+    \label{fig:dc_app_users}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_1.1.png}
+\end{figure}
+
+La Figura \ref{fig:dc_app_users} representa el subsistema de la capa de aplicación encargado de la gestión de usuarios y la autenticación. Este diagrama ilustra las interacciones clave y las dependencias de los servicios que implementan esta lógica.
+\begin{itemize}
+    \item \textbf{Servicios Principales}: Se destacan las interfaces \texttt{IUserService} e \texttt{IInvitationService}, que definen los contratos para la gestión de usuarios e invitaciones, respectivamente. Sus implementaciones concretas, \texttt{UserService} e \texttt{InvitationService}, contienen la lógica de negocio detallada.
+    \item \textbf{Data Transfer Objects (DTOs)}: Se muestra el paquete \texttt{DTOs de Administración}, que agrupa las clases utilizadas para transferir datos entre la capa de presentación y los servicios. Clases como \texttt{LoginDto}, \texttt{RegisterDto}, \texttt{ChangePasswordDto}, y \texttt{ProfileInfoDto} encapsulan la información necesaria para operaciones específicas como el inicio de sesión, registro, cambio de contraseña y actualización de perfil. \texttt{UserDto} se utiliza para presentar información resumida de los usuarios en las vistas de administración.
+    \item \textbf{Dependencias}: El diagrama evidencia las dependencias de los servicios de aplicación con componentes del framework ASP.NET Core Identity (\texttt{UserManager}, \texttt{SignInManager}, \texttt{RoleManager}) para la gestión subyacente de usuarios y sesiones. También se muestra la dependencia con la interfaz \texttt{IAlertService} (definida en la capa de aplicación pero implementada en infraestructura) para el envío de notificaciones por correo electrónico.
+    \item \textbf{Flujo de Responsabilidades}: El \texttt{UserService} actúa como orquestador principal para la mayoría de las operaciones del ciclo de vida del usuario, interactuando con los gestores de Identity y delegando la lógica de invitaciones al \texttt{IInvitationService}.
+\end{itemize}
+
+Este diagrama detalla todos los atributos y métodos públicos de las clases de servicio e interfaces, así como los atributos de los DTOs, proporcionando una vista completa de la estructura y las responsabilidades de este módulo fundamental.
+
+
+% =================================================
+% Diagrama: Gestión de Entidades (CRUD) (Aplicación)
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Gestión de Entidades (CRUD) (Capa de Aplicación).}
+    \label{fig:dc_app_crud}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_1.2.png} 
+\end{figure}
+
+La Figura \ref{fig:dc_app_crud} detalla los subsistemas dentro de la capa de aplicación responsables de las operaciones de Creación, Lectura, Actualización y Eliminación (CRUD) para las entidades principales: Cultivo, Planta y Dispositivo. El diagrama se organiza en tres paquetes lógicos principales:
+\begin{itemize}
+    \item \textbf{Gestión de Cultivos}: Incluye la interfaz \texttt{ICropService} y su implementación \texttt{CropService}, junto con los DTOs asociados (\texttt{CropCreateDto}, \texttt{CropEditDto}, \texttt{CropDetailsDto}, \texttt{CropSummaryDto}) que definen los datos necesarios para interactuar con las operaciones CRUD de los cultivos desde la capa de presentación.
+    \item \textbf{Gestión de Plantas}: Contiene la interfaz \texttt{IPlantService} y su implementación \texttt{PlantService}, acompañados de sus DTOs correspondientes (\texttt{PlantCreateDto}, \texttt{PlantEditDto}, \texttt{PlantDetailsDto}, \texttt{PlantSummaryDto}). Este servicio gestiona el ciclo de vida de las plantas.
+    \item \textbf{Gestión de Dispositivos (Administración)}: Presenta la interfaz \texttt{IDeviceAdminService} y su implementación \texttt{DeviceAdminService}, junto con los DTOs específicos (\texttt{DeviceCreateDto}, \texttt{DeviceEditDto}, \texttt{DeviceDetailsDto}, \texttt{DeviceSummaryDto}, \texttt{DeviceCreationResultDto}) para la administración de los dispositivos de hardware desde la interfaz web.
+\end{itemize}
+
+Se observa que todos estos servicios dependen principalmente del \texttt{ApplicationDbContext} (ubicado en la capa de infraestructura) para interactuar con la base de datos. Además, existen dependencias entre servicios, como la de \texttt{DeviceAdminService} hacia \texttt{IPlantService}, necesaria para poblar listas desplegables en los formularios de dispositivos. Las interfaces \texttt{ICropFormData}, \texttt{IPlantFormData}, y \texttt{IDeviceFormData} actúan como contratos comunes para los DTOs de creación y edición, promoviendo la consistencia. El diagrama incluye los atributos y métodos públicos de todas las clases e interfaces representadas.
+
+% =================================================
+% Diagrama: Interacción con Dispositivos y Envío de Datos (Aplicación)
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Interacción con Dispositivos y Envío de Datos (Capa de Aplicación).}
+    \label{fig:dc_app_device_api}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_1.4.png} 
+\end{figure}
+
+La Figura \ref{fig:dc_app_device_api} ilustra la arquitectura de la API de la capa de aplicación, que sirve como punto de entrada para toda la comunicación proveniente de los dispositivos de hardware.
+\begin{itemize}
+    \item \textbf{Servicios de API}: El diagrama muestra las dos interfaces principales que definen esta frontera de comunicación:
+    \begin{itemize}
+        \item \texttt{IDeviceService}: Es responsable de todo el ciclo de vida de la autenticación del dispositivo, incluyendo la activación inicial, la validación de tokens y la generación de nuevos tokens de acceso y refresco.
+        \item \texttt{IDataSubmissionService}: Se encarga de recibir y procesar todos los datos enviados por los dispositivos una vez que están autenticados, como las lecturas ambientales y las capturas térmicas.
+    \end{itemize}
+    \item \textbf{Data Transfer Objects (DTOs) de la API}: Se detalla un conjunto completo de DTOs que actúan como contratos de datos para la API. Clases como \texttt{DeviceActivationRequestDto}, \texttt{DeviceAuthRequestDto}, \texttt{AmbientDataDto} y \texttt{ThermalDataDto} definen la estructura exacta de los payloads (generalmente en formato JSON) que los dispositivos deben enviar en sus peticiones. Del mismo modo, DTOs como \texttt{DeviceActivationResponseDto} definen la estructura de las respuestas del servidor.
+    \item \textbf{Dependencias de Infraestructura}: Se visualizan las dependencias de estos servicios con componentes de la capa de infraestructura. El \texttt{DataSubmissionService} depende de \texttt{IWeatherService} para enriquecer los datos y de \texttt{IFileStorageService} para almacenar imágenes. Por su parte, el \texttt{DeviceService} depende del \texttt{ApplicationDbContext} para la persistencia y de \texttt{TokenSettings} para la configuración de la duración de los tokens.
+\end{itemize}
+
+Este diagrama es clave para entender la interfaz programática que el firmware de los dispositivos de hardware debe consumir para interactuar correctamente con el sistema.
+
+% =================================================
+% Diagrama: Arquitectura de Peticiones y Seguridad (Infraestructura/Presentación)
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Arquitectura de Peticiones y Seguridad.}
+    \label{fig:dc_infra_security_pipeline}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_2-3.1.png} 
+\end{figure}
+
+La Figura \ref{fig:dc_infra_security_pipeline} ilustra los componentes clave de las capas de Infraestructura y Presentación que intervienen en el procesamiento y la seguridad de las peticiones HTTP entrantes, antes de que lleguen a la lógica de negocio de los controladores.
+\begin{itemize}
+    \item \texttt{UserAuditingMiddleware}: Es un componente de middleware que se ejecuta en cada petición. Su función principal es extraer el identificador del usuario autenticado (si existe) y establecerlo como el \texttt{application\_name} en la conexión de la base de datos (\texttt{ApplicationDbContext}). Esto permite una auditoría detallada a nivel de base de datos para rastrear qué usuario realizó cada operación.
+    \item \texttt{DeviceAuthenticationHandler}: Es un manejador de autenticación personalizado que hereda de \texttt{AuthenticationHandler}. Se activa específicamente para los endpoints de la API de dispositivos protegidos con la política \texttt{"DeviceAuthenticated"}. Utiliza el \texttt{IDeviceService} para validar el token de acceso (\texttt{AccessToken}) enviado en el encabezado de autorización y, si es válido, construye la identidad (ClaimsPrincipal) del dispositivo.
+    \item \texttt{ValidateTurnstileAttribute}: Es un filtro de acción (\texttt{ActionFilterAttribute}) que se aplica como un atributo (\texttt{[ValidateTurnstile]}) a las acciones de los controladores que manejan envíos de formularios públicos. Antes de que se ejecute la acción, este filtro extrae el token de Cloudflare Turnstile de la petición y utiliza el \texttt{ITurnstileService} para verificar su validez, previniendo así ataques automatizados por bots.
+\end{itemize}
+
+Este diagrama muestra cómo estas clases interceptan las solicitudes en diferentes etapas del pipeline de ASP.NET Core (Middleware, Autenticación, Filtro de Acción) para aplicar lógica transversal de seguridad y auditoría. Se visualizan también sus dependencias clave con servicios de la capa de aplicación y el contexto de la base de datos.
+
+% =================================================
+% Diagrama: Patrón de Controladores y Vistas (MVC / API)
+% =================================================
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagrama de Clases: Patrón de Controladores y Vistas (MVC / API).}
+    \label{fig:dc_presentation_controllers}
+    \includegraphics[width=\textwidth]{UML/Clases/DC_2-3.3.png}
+\end{figure}
+
+Finalmente, la Figura \ref{fig:dc_presentation_controllers} describe el patrón arquitectónico seguido por los controladores en la capa de Presentación. En lugar de mostrar cada controlador individualmente, este diagrama utiliza ejemplos representativos para ilustrar la estructura general.
+\begin{itemize}
+    \item \textbf{Controladores MVC}: Se muestra la clase base \texttt{BaseAdminController}, que hereda de la clase \texttt{Controller} de ASP.NET Core. Esta clase base centraliza lógica común para todos los controladores del área de administración, como el manejo estandarizado de los resultados de los servicios (\texttt{HandleServiceResult}) y la comunicación de mensajes al usuario a través de \texttt{TempData}. Un controlador típico como \texttt{CropsController} hereda de \texttt{BaseAdminController} y depende de la interfaz del servicio correspondiente (\texttt{ICropService}) para realizar las operaciones. Utiliza DTOs como \texttt{CropCreateDto} para recibir datos de los formularios y \texttt{CropSummaryDto} (o ViewModels) para pasar datos a las vistas.
+    \item \textbf{Controladores API}: Se representa con \texttt{DeviceApiController}, que hereda de \texttt{ControllerBase}. Estos controladores están diseñados para ser consumidos por clientes programáticos (como el hardware). Dependen de las interfaces de servicio (\texttt{IDeviceService}, \texttt{IDataSubmissionService}) y utilizan DTOs específicos de la API (como \texttt{DeviceActivationRequestDto} o \texttt{AmbientDataDto}) para definir los contratos de datos de los endpoints.
+    \item \textbf{Abstracciones y Dependencias}: El diagrama resalta cómo los controladores dependen de las interfaces de los servicios definidos en la capa de aplicación, respetando el principio de inversión de dependencias y manteniendo el acoplamiento bajo. También muestra cómo los DTOs actúan como la interfaz de datos entre la capa de presentación y la capa de aplicación.
+\end{itemize}
+
+Este patrón asegura que los controladores sean ligeros, centrados en manejar las peticiones HTTP y orquestar las llamadas a la lógica de negocio, manteniendo una clara separación de responsabilidades dentro de la arquitectura.
+
 
 % =================================================
 % =================================================
 
 \subsection{Diagrama de Despliegue}
+
+La vista de despliegue muestra la disposición física de los nodos, que son recursos computacionales de tiempo de ejecución, como computadoras u otros dispositivos \cite{Rumbaugh2007}. Durante la ejecución, los nodos pueden contener artefactos, que son entidades físicas como archivos \cite{Rumbaugh2007}.
+
 \begin{figure}[H]
     \centering
     \caption{Diagrama de Despliegue del Sistema.}
@@ -547,20 +1300,264 @@ Incluir el diagrama con descripciones por cada clase.
     \includegraphics[width=0.8\textwidth]{UML/Otros/Diagrama de Despliegue.png}
 \end{figure}
 
+El Diagrama de Despliegue, mostrado en la Figura \ref{fig:despliegue}, representa la arquitectura física del sistema y cómo sus componentes de software se distribuyen en diferentes nodos de hardware y servidores. 
+Se identifican dos nodos principales: 
+
+\begin{itemize}
+    \item \texttt{<<Servidor de aplicación>> Digital Ocean}: Representa el nodo principal del servidor que aloja la aplicación. Este servidor contiene un conjunto de componentes de software que operan de forma integrada mediante Docker Compose:
+    \begin{itemize}
+        \item \texttt{API Net Core 8}: Es el componente de aplicativo que gestiona la lógica de negocio y provee las vistas al usuario.
+        \item \texttt{PostgreSQL 16}: El sistema gestor de base de datos donde se almacenan los datos. Contiene PgAudit para proveer la auditoria de la base de datos al sistema de Logging.
+        \item \texttt{Loki/Promtail}: Componentes destinados a la recopilación y gestión de logs.
+        \item \texttt{Grafana}: Herramienta de visualización y monitoreo que consume los datos de \texttt{Loki/Promtail}.
+    \end{itemize}
+    \item \texttt{<<Hardware>> Dispositivo sensores}: Representa el dispositivo físico encargado de la toma de datos y ejecuta su propio componente de \texttt{Firmware}.
+\end{itemize}
+
+La comunicación entre el \texttt{Dispositivo sensores} (específicamente su \texttt{Firmware}) y la \texttt{API Net Core 8} se establece a través del protocolo seguro \texttt{HTTPS}.
+
+Internamente, dentro del servidor \texttt{Digital Ocean}, el diagrama ilustra las dependencias: la \texttt{API} interactúa con la base de datos \texttt{PostgreSQL} y, junto con esta, envía información (logs) al sistema \texttt{Loki/Promtail}, el cual a su vez alimenta a \texttt{Grafana} para la visualización.
+
 % =================================================
 % =================================================
 
 \section{Diseño de los Casos de Prueba}
-Texto sobre el diseño de casos de prueba utilizando SonarQube.
+\label{sec:calidad_codigo}
+
+Para evaluar la calidad del código fuente desarrollado para el sistema \textit{Arandano IRT}, se utilizó la herramienta de análisis estático de código SonarQube (Community Edition). El análisis estático permite examinar el código sin ejecutarlo, identificando posibles errores de programación (bugs), vulnerabilidades de seguridad, duplicaciones y malas prácticas (code smells) que podrían afectar la fiabilidad, mantenibilidad y seguridad del software a largo plazo.
+
+La Figura \ref{fig:sonarqube_results} muestra el resumen del análisis realizado por SonarQube sobre la rama principal (`main`) del repositorio de código del proyecto (\texttt{ArandanoIRTSoftware}).
+
+\begin{figure}[H] 
+    \centering
+    \caption{Resultados del Análisis Estático con SonarQube para el Proyecto Arandano IRT.}
+    \includegraphics[width=0.7\textwidth]{img/sonarqube.png}
+    \label{fig:sonarqube_results}
+\end{figure}
+
+Los resultados clave obtenidos del análisis son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Quality Gate:} El proyecto superó exitosamente el "Quality Gate" predeterminado de SonarQube, indicado por el estado "Passed". Esto significa que, según los umbrales por defecto de la herramienta, la calidad general del código nuevo (en este caso, todo el código base) cumple con los mínimos aceptables.
+    \item \textbf{Seguridad (Security):} El análisis no detectó vulnerabilidades abiertas ni puntos críticos de seguridad (Security Hotspots), otorgando una calificación 'A' en esta categoría. Este es un resultado positivo, indicando una buena adherencia a prácticas de codificación segura básicas.
+    \item \textbf{Fiabilidad (Reliability):} Se identificaron 10 problemas abiertos relacionados con la fiabilidad, resultando en una calificación 'C'. Estos problemas típicamente señalan código que podría comportarse de manera inesperada o provocar errores en ciertas condiciones (ej. manejo inadecuado de nulos, posibles excepciones no controladas).
+    \item \textbf{Mantenibilidad (Maintainability):} Se reportaron 254 problemas abiertos clasificados como "code smells", pero el sistema obtuvo una calificación 'A' en mantenibilidad. Esto sugiere que, aunque existen numerosas áreas con código que podría refactorizarse para mejorar la legibilidad o la eficiencia según las reglas de SonarQube, la deuda técnica estimada asociada es baja, y la estructura general del código es considerada mantenible.
+    \item \textbf{Duplicaciones (Duplications):} El nivel de código duplicado se estimó en 1.3\% sobre aproximadamente 25,000 líneas de código analizadas. Este es un porcentaje relativamente bajo, indicando un uso adecuado de abstracciones y reutilización.
+    \item \textbf{Cobertura de Pruebas (Coverage):} El análisis reportó una cobertura de código del \textbf{0.0\%}. Este resultado indica la ausencia de una suite de pruebas automatizadas (unitarias, de integración) que ejerciten el código fuente.
+\end{itemize}
+
+La falta de cobertura de pruebas automatizadas (0.0\%) es una limitación reconocida de la implementación actual. Dada la priorización del desarrollo de la funcionalidad central requerida por el MVP y la posterior implementación completa del sistema dentro de los plazos académicos establecidos, la creación de una suite exhaustiva de pruebas automatizadas fue diferida. Si bien se realizaron pruebas manuales funcionales durante las iteraciones de desarrollo para asegurar la correcta operación del sistema, la ausencia de pruebas automatizadas representa un componente de deuda técnica. Se recomienda la incorporación de estrategias de pruebas automatizadas (como pruebas unitarias para la lógica de negocio y pruebas de integración para los flujos clave) en futuras fases de mantenimiento o evolución del sistema, lo cual mejoraría significativamente la fiabilidad ante cambios y facilitaría la refactorización segura del código.
+
+El análisis estático con SonarQube proporcionó una evaluación objetiva de la calidad del código, destacando fortalezas importantes en seguridad y un nivel aceptable de mantenibilidad y duplicación. Sin embargo, también evidenció áreas de mejora en fiabilidad y, de manera crítica, la necesidad de incorporar pruebas automatizadas como una práctica esencial para garantizar la robustez y facilitar el mantenimiento futuro del software \textit{Arandano IRT}.
 
 % =================================================
 % =================================================
 
 \section{Estimación de Recursos}
-Texto sobre la estimación de recursos utilizando el método de puntos de función o puntos de casos de uso.
+\label{sec:estimacion_recursos}
+
+La estimación del esfuerzo y los recursos necesarios para el desarrollo y mantenimiento del sistema \textit{Arandano IRT} es fundamental para comprender la magnitud del proyecto. Dada la disponibilidad de una definición detallada de los casos de uso funcionales, se seleccionó el método de Puntos de Casos de Uso (UCP - Use Case Points) \cite{Karner1993} para cuantificar el tamaño funcional del software y derivar una estimación del esfuerzo requerido. Este método proporciona una estimación basada en la complejidad de las interacciones de los actores con el sistema y la complejidad intrínseca de las funcionalidades ofrecidas, ajustada por factores técnicos y ambientales del proyecto.
+
+\subsection{Metodología de Puntos de Casos de Uso (UCP)}
+El método UCP, propuesto por Gustav Karner, sigue un proceso estructurado en varios pasos:
+
+\begin{enumerate}
+    \item \textbf{Calcular el Peso No Ajustado de los Actores (UAW - Unadjusted Actor Weight):} Se identifican los actores del sistema y se clasifican según su complejidad (Simple, Promedio, Complejo), asignando un peso a cada uno. La suma ponderada de los actores constituye el UAW.
+    \item \textbf{Calcular el Peso No Ajustado de los Casos de Uso (UUCW - Unadjusted Use Case Weight):} Se identifican los casos de uso funcionales y se clasifican por complejidad (Simple, Promedio, Complejo) basándose en el número de transacciones o pasos significativos. La suma ponderada de los casos de uso da como resultado el UUCW.
+    \item \textbf{Calcular los Puntos de Casos de Uso No Ajustados (UUCP - Unadjusted Use Case Points):} Se obtiene sumando el UAW y el UUCW: $UUCP = UAW + UUCW$.
+    \item \textbf{Determinar el Factor de Complejidad Técnica (TCF - Technical Complexity Factor):} Se evalúa la influencia de 13 factores técnicos estándar (T1-T13) en una escala de 0 (irrelevante) a 5 (esencial). Se calcula el factor técnico $TF = \sum_{i=1}^{13} (Calificacion_i \times Peso_i)$ y luego $TCF = 0.6 + (0.01 \times TF)$.
+    \item \textbf{Determinar el Factor de Complejidad Ambiental (ECF - Environmental Complexity Factor):} Se evalúa la influencia de 8 factores ambientales estándar (E1-E8) relacionados con el equipo y el entorno del proyecto, en una escala de 0 a 5. Se calcula el factor ambiental $EF = \sum_{i=1}^{8} (Calificacion_i \times Peso_i)$ y luego $ECF = 1.4 + (-0.03 \times EF)$.
+    \item \textbf{Calcular los Puntos de Casos de Uso Ajustados (UCP o AUCP):} Se ajustan los puntos no ajustados utilizando los factores de complejidad: $UCP = UUCP \times TCF \times ECF$.
+    \item \textbf{Estimar el Esfuerzo Total:} Se multiplica el valor UCP por un factor de productividad (PF - Productivity Factor), que representa las horas-persona requeridas por cada UCP. $Esfuerzo (horas) = UCP \times PF$.
+\end{enumerate}
+
+\subsection{Aplicación del Método UCP al Proyecto}
+
+A continuación, se aplican los pasos del método UCP utilizando las clasificaciones y calificaciones proporcionadas, basadas en los casos de uso descritos en la Sección \ref{sec:casos_uso} y el conocimiento detallado del sistema.
+
+\subsubsection*{Paso 1 y 2: Cálculo de UAW y UUCW}
+Se identificaron y clasificaron los actores y casos de uso del sistema \textit{Arandano IRT}. El actor `Sistema` y el `Sistema de análisis` interno no se ponderan como actores externos según la metodología estándar. Las API externas consumidas (Cloudflare Turnstile, WeatherAPI, Brevo) se consideran en el factor T12.
+
+\begin{table}[H]
+    \centering
+    \caption{Cálculo del Peso No Ajustado de los Actores (UAW).}
+    \label{tab:uaw}
+    \begin{tabular}{l l c c S[table-format=2.0]}
+        \toprule
+        \textbf{Actor} & \textbf{Descripción} & \textbf{Clasificación} & \textbf{Peso} & {\textbf{Total}} \\
+        \midrule
+        Persona (Usuario/Admin) & Humano interactuando vía GUI & Complejo & 3 & 3 \\
+        Dispositivo IoT & Sistema externo vía API & Simple & 1 & 1 \\
+        \midrule
+        \multicolumn{5}{r}{\textbf{Total UAW: } \bfseries 4} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Cálculo del Peso No Ajustado de los Casos de Uso (UUCW).}
+    \label{tab:uucw}
+    \begin{tabular}{l c c S[table-format=3.0]}
+        \toprule
+        \textbf{Clasificación} & \textbf{Peso} & \textbf{Cantidad} & {\textbf{Total}} \\
+        \midrule
+        Simple & 5 & 14 & 70 \\
+        Promedio & 10 & 14 & 140 \\
+        Complejo & 15 & 6 & 90 \\
+        \midrule
+        \multicolumn{3}{r}{\textbf{Total UUCW}} & \bfseries 300 \\
+        \bottomrule
+    \end{tabular}
+    \smallskip
+    
+    \noindent\footnotesize{Nota: Se identificaron 36 casos de uso funcionales, incluyendo los de la API del dispositivo, clasificados según su número estimado de transacciones.}
+\end{table}
+
+\subsubsection*{Paso 3: Cálculo de UUCP}
+Los Puntos de Casos de Uso No Ajustados son:
+$UUCP = UAW + UUCW = 4 + 300 = \mathbf{304}$
+
+\subsubsection*{Paso 4: Cálculo del TCF}
+Se calificaron los 13 factores técnicos según su impacto en el proyecto.
+
+\begin{table}[H]
+    \centering
+    \caption{Cálculo del Factor de Complejidad Técnica (TCF).}
+    \label{tab:tcf}
+    \begin{tabular}{l l c S[table-format=2.1] S[table-format=2.1]}
+        \toprule
+        \textbf{ID} & \textbf{Factor Técnico} & \textbf{Peso} & \textbf{Calificación} & {\textbf{Resultado}} \\
+        \midrule
+        T1 & Sistema distribuido & 2 & 1 & 2.0 \\
+        T2 & Rendimiento & 1 & 4 & 4.0 \\
+        T3 & Eficiencia del usuario final & 1 & 4 & 4.0 \\
+        T4 & Complejidad del proc. interno & 1 & 5 & 5.0 \\
+        T5 & Reutilización de código & 1 & 4 & 4.0 \\
+        T6 & Facilidad de instalación & 0.5 & 5 & 2.5 \\
+        T7 & Facilidad de uso & 0.5 & 4 & 2.0 \\
+        T8 & Portabilidad & 2 & 3 & 6.0 \\
+        T9 & Facilidad de cambio & 1 & 4 & 4.0 \\
+        T10 & Concurrencia & 1 & 4 & 4.0 \\
+        T11 & Características de seguridad & 1 & 3 & 3.0 \\
+        T12 & Acceso a sistemas de terceros & 1 & 3 & 3.0 \\
+        T13 & Facilidad para formación & 1 & 2 & 2.0 \\
+        \midrule
+        \multicolumn{4}{r}{\textbf{Total Factor Técnico (TF)}} & \bfseries 45.5 \\
+        \midrule
+        \multicolumn{4}{r}{\textbf{Total Factor Técnico (TF)}} & \bfseries 45.5 \\
+        \midrule
+    \end{tabular}
+    \smallskip
+    
+    \noindent\footnotesize{Nota: Se utilizaron los pesos estándar para cada factor T.}
+\end{table}
+
+
+\subsubsection*{Paso 5: Cálculo del ECF}
+Se calificaron los 8 factores ambientales que influyeron en el desarrollo del proyecto.
+
+\begin{table}[H]
+    \centering
+    \caption{Cálculo del Factor de Complejidad Ambiental (ECF).}
+    \label{tab:ecf}
+    \begin{tabular}{l l c S[table-format=2.1] S[table-format=2.1]}
+        \toprule
+        \textbf{ID} & \textbf{Factor Ambiental} & \textbf{Peso} & \textbf{Calificación} & {\textbf{Resultado}} \\
+        \midrule
+        E1 & Familiaridad con proceso (Agile) & 1.5 & 5 & 7.5 \\
+        E2 & Experiencia en la aplicación & 0.5 & 2 & 1.0 \\
+        E3 & Experiencia en OO (C\#) & 1 & 4 & 4.0 \\
+        E4 & Capacidad del analista principal & 0.5 & 4 & 2.0 \\
+        E5 & Motivación del equipo & 1 & 5 & 5.0 \\
+        E6 & Estabilidad de requerimientos & 2 & 5 & 10.0 \\
+        E7 & Personal a tiempo parcial & -1 & 3 & -3.0 \\
+        E8 & Dificultad del lenguaje de prog. & -1 & 3 & -3.0 \\
+        E8 & Dificultad del lenguaje de prog. & -1 & 3 & -3.0 \\
+        \midrule
+        \multicolumn{4}{r}{\textbf{Total Factor Ambiental (EF)}} & \bfseries 23.5 \\
+        \bottomrule
+    \end{tabular}
+    \smallskip
+    
+    \noindent\footnotesize{Nota: Se utilizaron los pesos estándar para cada factor E.}
+\end{table}
+
+\subsubsection*{Paso 6: Cálculo de UCP}
+Los Puntos de Casos de Uso Ajustados son:
+$UCP = UUCP \times TCF \times ECF = 304 \times 1.055 \times 0.695$
+$UCP = 320.72 \times 0.695 \approx 222.9 \approx \mathbf{223}$
+
+\subsection{Estimación de Esfuerzo}
+Utilizando el valor UCP calculado y ajustando el Factor de Productividad (PF) a \textbf{15 horas-persona por UCP} para reflejar de manera más realista la eficiencia de un equipo de desarrollo académico ágil y dedicado, el esfuerzo total estimado para el desarrollo del sistema es:
+
+$Esfuerzo = UCP \times PF = 223 \times 15 = \mathbf{3,345}$ \textbf{horas-persona}.
+
+Esta cifra representa una estimación ajustada del tiempo total de desarrollo invertido por el equipo en análisis, diseño, implementación, pruebas y documentación del software, alineándose estrechamente con el esfuerzo real percibido durante los 10 meses del proyecto.
+
+\subsection{Estimación de Costos}
+Basado en el esfuerzo ajustado y los costos de infraestructura identificados, se presenta un resumen de los costos asociados al proyecto. Se utiliza una tarifa horaria estimada de \$15,000 COP para reflejar el contexto académico del desarrollo.
+
+\begin{itemize}
+    \item \textbf{Costo de Desarrollo:}
+    $3,345 \text{ horas} \times 15,000 \text{ COP/hora} = \mathbf{50,175,000 \text{ COP}}$ (Estimado)
+
+    \item \textbf{Costo Anual de Infraestructura:}
+        \begin{itemize}
+            \item VM DigitalOcean (Plan \$14 USD/mes con aprox. 4000 COP/USD): \$672,000 COP
+            \item Registro de Dominio (`.co`, estimado): \$80,000 COP
+            \item Servicios Externos (Brevo, Cloudflare): \$0 COP (Capas gratuitas)
+            \item \textbf{Total Infraestructura Anual:} \textbf{\$752,000 COP}
+        \end{itemize}
+
+    \item \textbf{Costo Anual Estimado de Mantenimiento:}
+        \begin{itemize}
+            \item Esfuerzo de Mantenimiento (15\% del esfuerzo de desarrollo): $3,345 \times 0.15 \approx 502$ horas
+            \item Costo Esfuerzo Mantenimiento: $502 \text{ horas} \times 15,000 \text{ COP/hora} = \$7,530,000$ COP
+            \item Costo Infraestructura Anual: \$752,000 COP
+            \item \textbf{Total Mantenimiento Anual Estimado:} \textbf{\$8,282,000 COP}
+        \end{itemize}
+\end{itemize}
+
+La Tabla \ref{tab:costos_resumen} resume estos costos estimados ajustados.
+
+\begin{table}[H]
+    \centering
+    \caption{Resumen de Costos Estimados del Proyecto (COP) - Ajustado.}
+    \label{tab:costos_resumen} % Mantenemos la etiqueta o la cambiamos si prefieres
+    \begin{tabular}{l S[table-format=8.0]} % Ajustado table-format
+        \toprule
+        \textbf{Componente de Costo} & {\textbf{Valor Estimado (COP)}} \\
+        \midrule
+        Costo Único de Desarrollo & 50175000 \\
+        \midrule
+        Costo Anual de Infraestructura & 752000 \\
+        Costo Anual de Mantenimiento (Esfuerzo + Infra.) & 8282000 \\
+        \bottomrule
+    \end{tabular}
+    \smallskip
+    
+    \noindent\footnotesize{Nota: La tarifa horaria y el costo del dominio son estimaciones. El PF se ajustó a 15 h/UCP. Los costos de infraestructura pueden variar.}
+\end{table}
+
+Esta estimación ajustada proporciona una visión cuantitativa de los recursos invertidos en el desarrollo inicial y los costos recurrentes esperados para la operación y mantenimiento del sistema \textit{Arandano IRT}, reflejando de forma más cercana la realidad del proyecto académico.
+
+% =================================================
+% =================================================
 
 \section{Resultados de la Implementación del Software}
-Texto sobre el resultado de implementar el software.
+\label{sec:resultados_implementacion}
 
-\section{Conclusiones y Recomendaciones del software}
-Discusión, conclusiones y recomendaciones sobre el software y su integración.
+La implementación del software \textit{Arandano IRT} culminó con el despliegue exitoso de un sistema funcional y robusto, capaz de cumplir con los requerimientos definidos para el monitoreo del estrés hídrico en plantas de arándano Biloxi mediante termografía de bajo costo. Los resultados de esta fase abarcan tanto el producto de software final como las lecciones aprendidas durante el proceso de desarrollo e implementación.
+
+Un aspecto fundamental del proceso fue la adopción de un enfoque iterativo iniciando con un Prototipo Mínimo Viable (MVP). Esta estrategia demostró ser altamente beneficiosa, permitiendo la validación temprana de las tecnologías seleccionadas (ASP.NET Core, PostgreSQL), la arquitectura MVC propuesta y las funcionalidades críticas de recolección y visualización de datos. El MVP no solo proporcionó una base sólida sobre la cual construir la versión final, sino que también facilitó la generación de un conjunto de datos inicial superior a 3,000 registros, esencial para las fases posteriores de análisis y experimentación. La experiencia con el MVP reafirmó la recomendación de priorizar la funcionalidad central sobre aspectos secundarios como el diseño detallado de la interfaz en las etapas iniciales de proyectos de naturaleza similar.
+
+La arquitectura monolítica modular, basada en el patrón Modelo-Vista-Controlador (MVC) con ASP.NET Core 8, resultó adecuada para el alcance del proyecto. Permitió una organización lógica del código mediante una organización de carpetas basadas en la arquitectura cebolla (Presentación, Controladores, Aplicación, Dominio, Infraestructura), facilitando el desarrollo y mantenimiento por parte del equipo. La separación de responsabilidades inherente al patrón, gestionada mediante inyección de dependencias, contribuyó a la cohesión y bajo acoplamiento del código fuente.
+
+En cuanto a la infraestructura, la decisión de implementar una pila tecnológica auto-hospedada y contenerizada con Docker sobre una máquina virtual en DigitalOcean demostró ser acertada. Esta elección fue motivada por un incidente durante la fase del MVP, donde una falla en un servicio externo (Cloudflare) provocó una interrupción prolongada, impidiendo la recolección de datos críticos. La arquitectura final, que minimiza las dependencias externas para las funciones esenciales y utiliza componentes como Caddy, MinIO, Loki y Grafana gestionados vía Docker Compose, ha exhibido una alta disponibilidad, manteniendo un tiempo de actividad del 100\% durante más de 100 días consecutivos de operación continua. Este resultado valida la robustez de la infraestructura implementada y su idoneidad para un sistema de monitoreo.
+
+Funcionalmente, el software implementado cubre todos los casos de uso definidos (Sección \ref{sec:casos_uso}), incluyendo la gestión de usuarios basada en ASP.NET Core Identity con un sistema de invitaciones, la administración de cultivos, plantas y dispositivos, la recepción de datos ambientales y térmicos desde el hardware, el registro de observaciones cualitativas, el procesamiento de datos para calcular el índice CWSI, la generación de reportes en PDF y un sistema de notificaciones automatizadas. La interfaz de usuario, desarrollada con Blazor/Razor, proporciona las herramientas necesarias para que los usuarios administren y consulten la información del sistema de manera efectiva.
+
+Finalmente, la estimación de recursos mediante el método de Puntos de Casos de Uso (UCP), ajustada con un factor de productividad de 15 horas/UCP, arrojó un esfuerzo total de 3,345 horas-persona (Sección \ref{sec:estimacion_recursos}). Esta cifra, derivada de un análisis formal de la complejidad funcional, técnica y ambiental, se alinea de manera realista con el tiempo invertido por el equipo de dos desarrolladores durante los 10 meses del proyecto, proporcionando una medida cuantitativa del trabajo realizado.
+
+Por lo que la implementación del software \textit{Arandano IRT} no solo entregó una herramienta funcional y técnicamente sólida, sino que también validó las decisiones arquitectónicas y metodológicas tomadas, resultando en un sistema estable y adaptado a las necesidades del monitoreo de estrés hídrico en el contexto del proyecto.

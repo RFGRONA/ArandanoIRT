@@ -1,22 +1,140 @@
-% Capítulo VI: Resultados Integrados y Conclusiones Globales
-\chapter{RESULTADOS Y CONCLUSIONES FINALES}
+% --- INICIO CAPÍTULO 5: RESULTADOS Y CONCLUSIONES FINALES ---
 
-\section{Pregunta de investigación}
-Integración de los resultados obtenidos en la caracterización del hardware, la documentación del software y el estudio experimental, resaltando los aspectos más relevantes y la coherencia entre las diferentes etapas del proyecto.
+\chapter{RESULTADOS Y CONCLUSIONES}
+\label{chap:conclusiones}
+
+Este capítulo final presenta una síntesis de los resultados obtenidos a lo largo del proyecto, ofreciendo una discusión crítica sobre el cumplimiento de los objetivos, las implicaciones de los hallazgos derivados tanto de la prueba de concepto funcional como de la caracterización del hardware, y las futuras líneas de investigación. Se busca dar una respuesta clara a la pregunta de investigación y consolidar el aporte de este trabajo al campo de la agricultura de precisión accesible.
+
+\section{Respuesta a la Pregunta de Investigación}
+\label{sec:respuesta_pregunta}
+
+La pregunta central fue: \textit{¿Cómo se puede desarrollar un sistema que utilice hardware de bajo costo para la detección aproximada del estrés hídrico en plantas de arándano Biloxi mediante termografía?}
+
+La respuesta, a la luz de los resultados obtenidos tanto en la caracterización del hardware como en la prueba de concepto experimental, es \textbf{afirmativa}. El desarrollo y la evaluación del sistema integrado han demostrado que es \textbf{factible construir, validar e implementar una solución tecnológica de bajo costo} capaz de monitorear indicadores fisiológicos asociados al estrés hídrico en arándano Biloxi.
+
+\begin{itemize}
+    \item \textbf{Viabilidad y Fiabilidad Tecnológica:} Se diseñó, ensambló y caracterizó un prototipo de hardware funcional utilizando componentes asequibles (ESP32-S3, MLX90640, sensores MEMS). La caracterización del sensor térmico nuevo $(RMSE < 3.2^{\circ}C)$ y los sensores ambientales MEMS demostró una precisión y estabilidad aceptables para aplicaciones agrícolas, confirmando que la barrera del alto costo de los equipos comerciales puede ser superada con una selección y validación adecuadas de componentes.
+    \item \textbf{Detección Temprana y Sensibilidad:} El estudio experimental (PoC) evidenció que el sistema validado es suficientemente sensible para registrar los cambios en la temperatura foliar ($T_c$, $\Delta T$) y calcular el CWSI en respuesta a la restricción y reanudación del riego. La correlación observada entre el tratamiento hídrico y los indicadores térmicos ($\Delta T$ más alto en estrés bajo VPD comparable, CWSI elevado en sequía y descendiendo post-riego) constituye una prueba empírica de que el sistema detecta la respuesta fisiológica antes de la aparición de síntomas visuales.
+\end{itemize}
 
 \section{Discusión General}
-Análisis crítico de la consecución de los objetivos planteados, discusión de las fortalezas y limitaciones del sistema propuesto, y evaluación del impacto potencial de la implementación en un entorno real.
+\label{sec:discusion_general}
 
-\section{Recomendaciones}
+La termografía infrarroja (IRT) se consolida como una herramienta valiosa para la agricultura de precisión, facilitando el monitoreo no invasivo del estado hídrico y promoviendo un uso eficiente del agua \cite{GarciaTejero2015, Vieira2021, Pineda2021, Hernanda2024}. Los resultados de este estudio, que abarcan tanto la caracterización del hardware como una prueba de concepto funcional, sugieren fuertemente que el sistema de bajo costo diseñado con el sensor MLX90640 y sensores ambientales MEMS tiene la capacidad de detectar cambios fisiológicos en arándano Biloxi mediante los indicadores $\Delta T$ y CWSI \cite{Dong2024, Aux2022, ErazoAux2022}.
+
+Un hallazgo crucial provino de la \textbf{caracterización del hardware}: la evidencia cuantitativa del \textbf{impacto del desgaste} por uso intensivo en el rendimiento de los sensores de bajo costo. El prototipo 3, con componentes previamente utilizados, mostró un rendimiento inferior y sesgos significativos (RMSE térmico $>20^{\circ}C$; RMSE ambiental $>4^{\circ}C$) comparado con los prototipos 1 y 2 equipados con componentes nuevos (RMSE térmico $<3.2^{\circ}C$). Esto subraya la importancia crítica de la calibración periódica y la selección cuidadosa de tecnologías (preferencia por MEMS sobre polímero capacitivo para ambientales) para garantizar la fiabilidad a largo plazo.
+
+La \textbf{prueba de concepto funcional}, realizada con el hardware validado, demostró la sensibilidad del sistema \textit{in vivo}. El patrón circadiano registrado en $\Delta T$, con enfriamiento diurno máximo entre 10:00-13:00, es coherente con el ciclo natural de transpiración. La alta variabilidad diurna capturada sugiere sensibilidad a las respuestas dinámicas entre estrés y recuperación. La rápida disminución del CWSI tras la reanudación del riego apunta a una recuperación fisiológica detectable.
+
+El análisis por VPD fue fundamental, confirmando que el sistema detectó la reducción en la capacidad de enfriamiento bajo estrés ($\Delta T$ más alto) en condiciones de baja a moderada demanda atmosférica (VPD < 2.5 kPa), consistente con el cierre estomático. Aunque el CWSI es un indicador normalizado, el estudio confirmó su sensibilidad a condiciones climáticas como lluvia/niebla, que pueden enmascarar el estrés. La integración de sensores ambientales y el cálculo de VPD permiten segmentar el análisis y aplicar filtros metodológicos para robustecer el diagnóstico.
+
+\subsection{Consecución de los Objetivos Planteados}
+\label{subsec:consecucion_objetivos}
+
+El proyecto cumplió satisfactoriamente con los objetivos específicos planteados, los cuales se detallan a continuación junto con las acciones y resultados obtenidos para cada uno:
+
+\begin{enumerate}
+    \item \textbf{Identificar y documentar los requisitos funcionales y no funcionales del sistema:}  
+    Se realizó un levantamiento de requisitos considerando las necesidades de adquisición, procesamiento y visualización de datos térmicos y ambientales.  
+    Esta fase permitió definir con claridad los componentes del sistema, sus interacciones y las condiciones necesarias para garantizar su correcto funcionamiento.
+
+    \item \textbf{Modelar la arquitectura del sistema mediante la creación de diagramas UML:}  
+    Se elaboró el modelado estructural y funcional del sistema mediante diagramas UML, representando los módulos principales y su flujo de información.  
+    Este modelado sirvió como guía para la integración posterior entre hardware, firmware y software.
+
+    \item \textbf{Integrar el hardware del módulo termográfico para la recolección de datos:}  
+    Se ensambló e integró el hardware compuesto por el sensor térmico MLX90640, sensores ambientales y una unidad de control basada en microcontrolador ESP32.  
+    Las pruebas experimentales demostraron estabilidad en la adquisición continua de datos, con márgenes de error aceptables (MAE y RMSE) en las mediciones térmicas y ambientales.
+
+    \item \textbf{Desarrollar el software que recolecte los datos del módulo termográfico para su posterior procesamiento:}  
+    Se implementó un sistema de software que incluye el firmware de adquisición, un servidor para almacenamiento y un aplicativo web para visualización y análisis.  
+    Este permitió la captura automática de datos, su organización en una base de datos y la presentación de indicadores como $\Delta T = T_c - T_a$ y el índice CWSI.
+
+   \item \textbf{Evaluar la generación de un reporte de estado hídrico que diferencie entre plantas con riego óptimo y con déficit:}  
+    El software produjo un reporte de estado hídrico que resume las métricas clave y facilita la toma de decisiones. El informe incluye, entre otros elementos, el CWSI promedio, el CWSI máximo, conteo de alertas y anomalías, gráficos de evolución del índice y de temperaturas, y un resumen ejecutivo con recomendaciones de manejo (por ejemplo, revisar plan de riego y condiciones ambientales). Este reporte sirvió como evidencia práctica de la capacidad del sistema para sintetizar la información relevante y comunicar el estado hídrico de la planta de manera accionable.
+\end{enumerate}
+
+En conclusión, los cinco objetivos específicos fueron alcanzados en su totalidad, demostrando la viabilidad técnica y funcional del sistema de detección de estrés hídrico basado en termografía infrarroja y hardware de bajo costo.
+
+
+
+\subsection{Fortalezas y Limitaciones del Sistema}
+\label{subsec:fortalezas_limitaciones}
+
+\subsubsection{Fortalezas}
 \begin{itemize}
-    \item Sugerencias para la mejora del sistema basado en los resultados obtenidos.
-    \item Propuestas para futuras investigaciones que puedan ampliar o profundizar el trabajo realizado.
-    \item Consideraciones sobre la escalabilidad y adaptabilidad del sistema a otros contextos o cultivos.
+    \item \textbf{Bajo Costo y Accesibilidad:} Uso de componentes open-source/asequibles (ESP32-S3, MLX90640, MEMS) democratiza el acceso a la termografía \cite{Dong2024, SanchezSutil2021}.
+    \item \textbf{Monitoreo Continuo y No Invasivo:} Seguimiento constante sin afectar la planta \cite{Jones2004, GarciaTejero2015}.
+    \item \textbf{Sistema Integral Validado:} Solución completa (hardware caracterizado + software + PoC) aumenta valor práctico \cite{Acorsi2020}.
+    \item \textbf{Sensibilidad Demostrada:} La PoC validó detección de cambios térmicos correlacionados con estrés hídrico \cite{Pineda2021}.
+    \item \textbf{Arquitectura Hardware Fiable:} La combinación ESP32-S3 + MLX90640 (nuevo) + BME280 fue validada cuidadosamente. \cite{GimenezGallego2021}.
 \end{itemize}
 
+\subsubsection{Limitaciones}
+\begin{itemize}
+    \item \textbf{Alcance Experimental (PoC):} Realizado con $n=1$ en microinvernadero. Impide validación estadística robusta y generalización a campo abierto \cite{Battaglia2021, Laveglia2024}.
+    \item \textbf{Impacto del Desgaste:} Demostrado cuantitativamente para sensores de bajo costo, requiere calibración periódica o estrategias de corrección \cite{Jiao2022, Yun2023}.
+    \item \textbf{Resolución del Sensor Térmico:} $32 \times 24$ píxeles (MLX90640) limita análisis a mayor distancia o detalles finos \cite{Melexis2021}.
+    \item \textbf{Caracterización metrológica incompleta:} No incluyó comparación directa contra equipo de referencia científico para exactitud absoluta; calibración térmica en rango acotado \cite{Dong2024, Acorsi2020}.
+    \item \textbf{Dependencia de Conectividad:} Funcionalidad en tiempo real depende de Wi-Fi (mitigado con SD).
+    \item \textbf{Durabilidad a Largo Plazo:} Experimento de 55 días insuficiente para evaluar estabilidad a largo plazo \cite{Pineda2021}.
+\end{itemize}
+
+\subsection{Impacto Potencial}
+\label{subsec:impacto_potencial}
+
+La implementación de este sistema caracterizado tiene el potencial de generar un impacto significativo en la agricultura, especialmente para pequeños y medianos productores de arándano:
+\begin{itemize}
+    \item \textbf{Optimización del Riego y Uso del Agua:} Herramienta precisa y asequible para programar riego según necesidades reales, reduciendo consumo \cite{GarciaTejero2015, Balbontin2023}.
+    \item \textbf{Sostenibilidad y Resiliencia:} Promover prácticas agrícolas sostenibles y adaptadas al cambio climático \cite{Laveglia2024}.
+    \item \textbf{Democratización Tecnológica:} Reducir brecha tecnológica, brindando alternativas accesibles de agricultura de precisión \cite{Vargas2021, Dong2024}.
+\end{itemize}
+
+\section{Recomendaciones y Trabajo Futuro}
+\label{sec:recomendaciones_futuro}
+
+A partir de los resultados obtenidos y las limitaciones identificadas, se proponen las siguientes líneas de trabajo futuro orientadas a fortalecer la precisión, autonomía y aplicabilidad del sistema:
+
+\begin{itemize}
+    \item \textbf{Validación experimental ampliada:}  
+    Ejecutar estudios en campo abierto con diseños estadísticos robustos (réplicas y controles), que permitan evaluar la variabilidad térmica y fisiológica entre plantas y diferentes condiciones microclimáticas \cite{Laveglia2024}.
+
+    \item \textbf{Calibración comparativa y térmica:}  
+    Comparar las mediciones del sistema frente a equipos de referencia (cámaras termográficas científicas y bomba de presión de Scholander) para establecer la exactitud absoluta del CWSI y definir una línea base específica para el cultivo de arándano Biloxi en condiciones locales \cite{Dong2024, Quezada2020, Katimbo2022}.
+
+    \item \textbf{Segmentación automática del dosel:}  
+    Incorporar algoritmos de visión por computador que permitan distinguir de forma autónoma el dosel foliar del fondo (suelo, estructura o maceta), empleando cámaras visibles o térmicas duales. Esto mejoraría significativamente la precisión de la temperatura foliar promedio y, por ende, del cálculo del CWSI \cite{Sharma2024, Yun2023}.
+
+    \item \textbf{Integración de estación meteorológica local:}  
+    Implementar una microestación meteorológica junto al sistema, para registrar parámetros como radiación solar, velocidad del viento y humedad relativa, permitiendo un análisis contextualizado del microclima y una interpretación más precisa del estrés hídrico.
+
+    \item \textbf{Toma inteligente de mediciones:}  
+    Desarrollar un módulo de inteligencia artificial que determine de manera autónoma los momentos óptimos para realizar análisis o generar reportes, considerando las condiciones recomendadas por la literatura (entre las 11:00 y 15:00 horas, bajo niveles adecuados de radiación y estabilidad ambiental).  
+    Dado que estas condiciones simultáneas se presentan con poca frecuencia, el sistema debería evaluar en tiempo real el nivel de \textit{lux}, la temperatura ambiente y la humedad antes de iniciar una nueva medición.
+
+    \item \textbf{Corrección y calibración en tiempo real:}  
+    Explorar el uso de modelos de aprendizaje automático embebidos en el microcontrolador para compensar la deriva térmica del sensor y mantener la precisión de las lecturas a lo largo del tiempo \cite{Jiao2022, GimenezGallego2021}.
+
+    \item \textbf{Durabilidad y mantenimiento:}  
+    Realizar estudios prolongados de estabilidad y envejecimiento de los sensores en condiciones reales de campo, evaluando la necesidad de encapsulados protectores o rutinas de recalibración periódicas.
+\end{itemize}
+
+
+% --- NO CITAR EN ESTA SECCIÓN FINAL ---
 \section{Conclusiones Finales}
-\begin{itemize}
-    \item Resumen de los logros y aportes del proyecto.
-    \item Reflexión sobre los retos encontrados y las soluciones implementadas.
-    \item Recomendaciones para futuras investigaciones y mejoras en el sistema.
-\end{itemize}
+\label{sec:conclusiones_finales}
+
+El presente trabajo logró cumplir con el objetivo general propuesto, desarrollando y validando un sistema funcional de bajo costo para la detección del estrés hídrico en plantas de arándano Biloxi mediante termografía infrarroja.  
+El sistema combinó sensores térmicos y ambientales, un módulo de control basado en ESP32-S3 y un software de adquisición y análisis capaz de calcular indicadores térmicos como $\Delta T$ y el índice CWSI.
+
+Durante la etapa experimental, el prototipo fue inicialmente validado en una planta bajo condiciones controladas y posteriormente evaluado en un conjunto de seis plantas, con mediciones realizadas en paralelo sobre tres de ellas: una bien regada, una planta de control monitorizada y otra sometida a estrés hídrico por suspensión de riego.  
+Esta configuración permitió observar diferencias térmicas coherentes entre los tratamientos, evidenciando la sensibilidad del sistema para reflejar cambios fisiológicos asociados al déficit hídrico.
+
+El proceso de caracterización del hardware confirmó la viabilidad técnica de la arquitectura seleccionada y permitió identificar los márgenes de error de los sensores térmicos y ambientales.  
+Asimismo, se observó que el desgaste y la deriva térmica pueden afectar la estabilidad de las mediciones, resaltando la importancia de la calibración y el mantenimiento preventivo para aplicaciones prolongadas en campo.
+
+El software desarrollado demostró capacidad para la captura continua de datos, el procesamiento del CWSI y la generación  de reportes de estado hídrico.  
+Si bien los resultados son prometedores, se reconoce que el sistema aún requiere validaciones más extensas en condiciones de campo y con un mayor número de réplicas para consolidar su precisión y aplicabilidad agronómica.
+
+En conjunto, este proyecto constituye un avance inicial en la aplicación de herramientas de bajo costo y visión térmica para el monitoreo del estrés hídrico.  
+Sin pretender ofrecer una solución definitiva, los resultados obtenidos aportan una base experimental y técnica sólida sobre la cual se pueden desarrollar versiones más completas, precisas y autónomas del sistema en trabajos futuros.

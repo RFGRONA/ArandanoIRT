@@ -284,16 +284,9 @@ ArandanoIRT/                         ← Este repositorio (documentación centra
 │
 ├── Docs Backend (Deprecated).zip    # Documentación de versiones anteriores (archivada)
 ├── Docs Firmware.zip                # Documentación de versiones anteriores del firmware
-├── README_Software.md               # README completo del repositorio ArandanoIRTSoftware
-├── README_Firmware.md               # README completo del repositorio ArandanoIRTFirmware
-├── README_ML.md                     # README completo del repositorio ArandanoIRT-ML
-├── README_Ops.md                    # README completo del repositorio ArandanoIRTOps
 ├── LICENSE                          # Licencia GNU GPLv3
 └── README.md                        # Este documento
 ```
-
-> [!TIP]
-> Los archivos `README_*.md` son copias de referencia de los READMEs de cada repositorio del ecosistema. Permiten consultar la documentación de cada componente desde este repositorio central sin necesidad de clonar todos los demás.
 
 ---
 
@@ -328,9 +321,9 @@ Este proyecto, en todos sus repositorios, está distribuido bajo la **GNU Genera
 
 **Directora:** Mg. Gina Maribel Valenzuela Sabogal
 
-**Institución:** Universidad de Cundinamarca — Facultad de Ingeniería — Programa de Ingeniería de Sistemas y Computación
+**Institución:** Universidad de Cundinamarca — Facultad de Ingeniería — Programa de Ingeniería de Sistemas y Computación - Extensión Facatativá
 
-**Grupo de Investigación:** GISTFA — Semillero LINUDECX
+**Grupo de Investigación:** GISTFA — Semillero en Software Libre LINUDECX
 
 **Año:** 2026
 

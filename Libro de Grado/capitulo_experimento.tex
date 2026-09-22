@@ -285,3 +285,38 @@ El análisis revela tres zonas de comportamiento que, en conjunto, validan la ca
 \end{itemize}
 Estos resultados cuantitativos, segmentados por VPD, refuerzan la validación de la sensibilidad del sistema para detectar diferencias en el estado hídrico bajo condiciones ambientales comparables.
 
+
+\subsection{Validación estadística de la dinámica de enfriamiento foliar}
+\label{subsec:validacion_estadistica}
+
+Para garantizar que las diferencias térmicas registradas por el sistema no fuesen producto de fluctuaciones ambientales aleatorias, se llevó a cabo un análisis estadístico inferencial. Con el fin de evitar el sesgo introducido por el cierre estomático nocturno, los datos fueron filtrados para aislar exclusivamente la ventana horaria de máxima exigencia termodinámica (10:00 a 14:00 horas).
+
+\textbf{Corrección por autocorrelación y Prueba T de Welch}
+
+Dado que los datos fueron recolectados de forma continua cada 20 minutos, conforman una serie de tiempo donde las mediciones sucesivas no son estrictamente independientes. Para evitar inflar artificialmente la significancia estadística, se ajustó el tamaño muestral nominal ($n$) calculando el tamaño muestral efectivo ($n_{eff}$) basado en la autocorrelación de primer orden (lag-1), siguiendo la metodología propuesta por Bayley y Hammersley \shortcite{Bayley1946}. Tras este ajuste, el tamaño de la muestra efectiva pasó de $n = 327$ a $n_{eff} = 79$ para la fase de estrés, y de $n = 432$ a $n_{eff} = 78$ para la fase de recuperación.
+
+Con las muestras independizadas, se evaluó el cambio en la capacidad de refrigeración de la planta mediante la prueba T de Welch para varianzas desiguales. La estadística de prueba se define como:
+
+$$t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_{eff1}} + \frac{s_2^2}{n_{eff2}}}}$$
+
+Durante la fase de estrés inducido, la planta alcanzó un $\Delta T$ medio de $-4,09^{\circ}\text{C}$ ($s = 2,46$). Tras el riego de rescate, la capacidad de enfriamiento mejoró, registrando un $\Delta T$ medio más negativo de $-4,99^{\circ}\text{C}$ ($s = 2,76$). 
+
+Al aplicar la prueba de hipótesis con los grados de libertad ajustados de Welch-Satterthwaite, se obtuvo un estadístico $t = 2,171$ y un valor-p de $p = 0,0315$. Dado que $p < 0,05$, la diferencia es estadísticamente significativa. Esto confirma que el sistema térmico de bajo costo fue lo suficientemente sensible para detectar un incremento fisiológico real en la capacidad de enfriamiento transpiratorio de la planta tras la rehidratación.
+
+\textbf{Análisis de sensibilidad ambiental (Correlación de Pearson)}
+
+Para validar que la cámara térmica obedece a la termodinámica foliar dictada por el ambiente, se analizó la correlación lineal de Pearson ($r$) entre la demanda atmosférica (VPD) y el gradiente térmico ($\Delta T$). El coeficiente de correlación maestral se define mediante la ecuación clásica:
+
+$$r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}$$
+
+donde $x_i$ representa las mediciones del VPD, $y_i$ las observaciones de $\Delta T$, y $\bar{x}, \bar{y}$ son las medias aritméticas de sus respectivas variables \shortcite{Montgomery2019}. 
+
+Sin embargo, dado el ajuste por la dependencia temporal de las mediciones, la significancia estadística de esta correlación (el valor-p) no se calculó utilizando el tamaño muestral nominal ($n$), sino el tamaño muestral efectivo ($n_{eff}$). El estadístico de prueba $t$, utilizado para evaluar la significancia de $r$, fue penalizado empleando los grados de libertad ajustados ($n_{eff} - 2$):
+
+$$t = \frac{r \sqrt{n_{eff} - 2}}{\sqrt{1 - r^2}}$$
+
+El análisis demostró una correlación inversa robusta en ambas fases del experimento. Durante el estrés hídrico, se obtuvo un coeficiente de $r = -0,88$, el cual, incluso tras la penalización de grados de libertad ($n_{eff} = 37$), mantuvo una alta significancia estadística ($p = 4,42 \times 10^{-13}$). Tras el riego, en la fase de recuperación, la correlación se mantuvo en $r = -0,87$ ($p = 2,31 \times 10^{-17}$, con un $n_{eff} = 52$).
+
+\textbf{Conclusión de la validación empírica}
+
+Los resultados inferenciales certifican el éxito de la prueba de concepto. Un coeficiente de correlación cercano a $-0,90$ valida empíricamente que el hardware traza una respuesta biológica confiable frente a las fluctuaciones del microclima. A su vez, la significancia de la prueba T de Welch confirma categóricamente que el hardware de bajo costo implementado, actúa como un biosensor fiable y altamente sensible para la detección temprana de estados de déficit hídrico en cultivos de arándano.
